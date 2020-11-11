@@ -23,6 +23,11 @@ Container _dishCategory(String text) {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
+    final _width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       /* Setting up the app bar */
       appBar: AppBar(
@@ -45,6 +50,46 @@ class _HomePageState extends State<HomePage> {
                   _dishCategory('Italian'),
                   _dishCategory('Shake'),
                   _dishCategory('South Indian'),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.account_circle),
+                            Column(
+                              children: <Widget>[
+                                Text('FoodFood'),
+                                Text('28 mins'),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Text(
+                            'A bite of Bhatura, just the size, oozing with the '
+                            'chole is pure decadence The flavour burst in '
+                            'your mouth, hot at first, tangy after. \n\n'
+                            'See full recipe...See more'),
+                        Image(
+                          image: AssetImage('assets/images/dal_gosht.jpg'),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.favorite_border),
+                            Image(
+                              height: 15.0,
+                              image: AssetImage('assets/icons/chat.png'),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
