@@ -20,9 +20,60 @@ Container _dishCategory(String text) {
   );
 }
 
+/* This method is to setup the post */
+Container _post(
+    {String name,
+    String time,
+    String description,
+    Image image,
+    double width,
+    String likes,
+    int comments}) {
+  return Container(
+    child: Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Icon(Icons.account_circle),
+            Column(
+              children: <Widget>[
+                Text(name),
+                Text(time),
+              ],
+            ),
+          ],
+        ),
+        Text(description),
+        image,
+        Row(
+          children: <Widget>[
+            Icon(
+              Icons.favorite_border,
+            ),
+            Icon(Icons.chat_bubble_outline),
+          ],
+        ),
+        Container(
+          width: width,
+          child: Text(
+            '$likes likes',
+          ),
+        ),
+        Container(
+          width: width,
+          child: Text('View all $comments comments'),
+        ),
+      ],
+    ),
+  );
+}
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    /* These are media query variables which store the height
+      and width of the phone screen.
+     */
     final _height = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top -
         kToolbarHeight;
@@ -56,40 +107,19 @@ class _HomePageState extends State<HomePage> {
             Container(
               child: Column(
                 children: <Widget>[
-                  Container(
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.account_circle),
-                            Column(
-                              children: <Widget>[
-                                Text('FoodFood'),
-                                Text('28 mins'),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Text(
-                            'A bite of Bhatura, just the size, oozing with the '
-                            'chole is pure decadence The flavour burst in '
-                            'your mouth, hot at first, tangy after. \n\n'
-                            'See full recipe...See more'),
-                        Image(
-                          image: AssetImage('assets/images/dal_gosht.jpg'),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.favorite_border),
-                            Image(
-                              height: 15.0,
-                              image: AssetImage('assets/icons/chat.png'),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  /* Calling the _post method at line 23 */
+                  _post(
+                      name: 'FoodFood',
+                      time: '28 mins',
+                      description:
+                          'A bite of Bhatura, just the size, oozing with the '
+                          'chole is pure decadence The flavour burst in '
+                          'your mouth, hot at first, tangy after. \n\n'
+                          'See full recipe...See more',
+                      image: Image.asset('assets/images/chole_bhature.jpg'),
+                      likes: '18,550',
+                      comments: 113,
+                      width: _width),
                 ],
               ),
             ),
