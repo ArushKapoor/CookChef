@@ -153,6 +153,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Icon(Icons.home),
+                  Image.asset(
+                    'assets/icons/chef.jpeg',
+                    height: 22,
+                  ),
                   Icon(Icons.notifications_none),
                   Icon(Icons.account_circle),
                 ],
