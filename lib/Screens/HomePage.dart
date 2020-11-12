@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -157,7 +158,13 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/chef.jpeg',
                     height: 22,
                   ),
-                  Icon(Icons.notifications_none),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(
+                          context, NotificationsPage.id);
+                    },
+                    child: Icon(Icons.notifications_none),
+                  ),
                   Icon(Icons.account_circle),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:cook_chef/Screens/HomePage.dart';
+import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       /* Creating routes for different pages */
       routes: {
         HomePage.id: (context) => HomePage(),
+        NotificationsPage.id: (context) => NotificationsPage(),
       },
 
       /* Setting the initial route */
