@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   static const String id = 'home_page';
@@ -51,7 +52,11 @@ Container _post(
             Icon(
               Icons.favorite_border,
             ),
-            Icon(Icons.chat_bubble_outline),
+            Container(
+              height: 19,
+              width: 35,
+              child: SvgPicture.asset('assets/icons/chat.svg'),
+            ),
           ],
         ),
         Container(
@@ -140,6 +145,17 @@ class _HomePageState extends State<HomePage> {
                         width: _width),
                   ],
                 ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Icon(Icons.home),
+                  Icon(Icons.notifications_none),
+                  Icon(Icons.account_circle),
+                ],
               ),
             ),
           ],
