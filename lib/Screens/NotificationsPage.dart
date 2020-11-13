@@ -170,7 +170,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                     'assets/icons/chef.jpeg',
                     height: 22,
                   ),
-                  Icon(Icons.notifications_none),
+                  Icon(Icons.notifications),
                   Icon(Icons.account_circle),
                 ],
               ),
