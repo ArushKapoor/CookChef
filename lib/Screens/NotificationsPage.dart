@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'RecipesPage.dart';
+
 class NotificationsPage extends StatefulWidget {
   static const String id = 'notifications_page';
   @override
@@ -160,16 +162,19 @@ class _NotificationsPageState extends State<NotificationsPage> {
                     onTap: () {
                       Navigator.pushReplacementNamed(context, HomePage.id);
                     },
-                    child: Container(
-                      child: SvgPicture.asset(
-                        'assets/icons/home_outlined.svg',
-                        height: 25,
-                      ),
+                    child: SvgPicture.asset(
+                      'assets/icons/home_outlined.svg',
+                      height: 25,
                     ),
                   ),
-                  Image.asset(
-                    'assets/icons/chef.jpeg',
-                    height: 22,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, RecipesPage.id);
+                    },
+                    child: Image.asset(
+                      'assets/icons/chef.jpeg',
+                      height: 22,
+                    ),
                   ),
                   Icon(Icons.notifications),
                   GestureDetector(

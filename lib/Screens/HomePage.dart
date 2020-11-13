@@ -1,5 +1,6 @@
 import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
+import 'package:cook_chef/Screens/RecipesPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -155,9 +156,14 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Icon(Icons.home),
-                  Image.asset(
-                    'assets/icons/chef.jpeg',
-                    height: 22,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, RecipesPage.id);
+                    },
+                    child: Image.asset(
+                      'assets/icons/chef.jpeg',
+                      height: 22,
+                    ),
                   ),
                   GestureDetector(
                     onTap: () {

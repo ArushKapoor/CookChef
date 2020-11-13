@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/RecipesPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -167,16 +168,19 @@ class _AccountPageState extends State<AccountPage> {
                     onTap: () {
                       Navigator.pushReplacementNamed(context, HomePage.id);
                     },
-                    child: Container(
-                      child: SvgPicture.asset(
-                        'assets/icons/home_outlined.svg',
-                        height: 25,
-                      ),
+                    child: SvgPicture.asset(
+                      'assets/icons/home_outlined.svg',
+                      height: 25,
                     ),
                   ),
-                  Image.asset(
-                    'assets/icons/chef.jpeg',
-                    height: 22,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, RecipesPage.id);
+                    },
+                    child: Image.asset(
+                      'assets/icons/chef.jpeg',
+                      height: 22,
+                    ),
                   ),
                   GestureDetector(
                     onTap: () {
