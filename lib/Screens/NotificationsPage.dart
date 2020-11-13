@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +172,12 @@ class _NotificationsPageState extends State<NotificationsPage> {
                     height: 22,
                   ),
                   Icon(Icons.notifications),
-                  Icon(Icons.account_circle),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, AccountPage.id);
+                    },
+                    child: Icon(Icons.account_circle),
+                  ),
                 ],
               ),
             ),
