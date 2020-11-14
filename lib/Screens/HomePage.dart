@@ -1,4 +1,5 @@
 import 'package:cook_chef/Screens/AccountPage.dart';
+import 'package:cook_chef/Screens/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/RecipesPage.dart';
 import 'package:flutter/cupertino.dart';
@@ -91,8 +92,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       /* Setting up the app bar */
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('CookChef'),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.pushNamed(context, AccountSearchPage.id);
+            },
+          )
+        ],
       ),
 
       /* Creating Safe Area so that the content stays inside the screen */

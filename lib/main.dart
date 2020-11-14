@@ -1,4 +1,5 @@
 import 'package:cook_chef/Screens/AccountPage.dart';
+import 'package:cook_chef/Screens/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/RecipesPage.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       /* Creating routes for different pages */
       routes: {
         HomePage.id: (context) => HomePage(),
+        AccountSearchPage.id: (context) => AccountSearchPage(),
         RecipesPage.id: (context) => RecipesPage(),
         NotificationsPage.id: (context) => NotificationsPage(),
         AccountPage.id: (context) => AccountPage(),

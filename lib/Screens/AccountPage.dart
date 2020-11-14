@@ -60,6 +60,7 @@ class _AccountPageState extends State<AccountPage> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('CookChef'),
         centerTitle: true,
       ),
