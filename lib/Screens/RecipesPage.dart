@@ -16,8 +16,37 @@ class _RecipesPageState extends State<RecipesPage> {
   bool isSwitched = false;
   bool isChecked = false;
   bool isHindi = false;
+  bool isSetup = false;
 
-  Container _createIngredient({AssetImage image, String text}) {
+  List ingredients = new List();
+
+  Widget renderIngredients() {
+    return ListView.builder(
+        itemCount: ingredients.length,
+        itemBuilder: (context, index) {
+          return ingredients[index][0];
+        });
+  }
+
+  SizedBox _setupIngredients() {
+    isSetup = true;
+    for (int i = 0; i < 5; i++) {
+      _addIngredients(
+          image: AssetImage('assets/images/allspice.jpeg'),
+          text: 'Allspice',
+          index: i);
+    }
+    return SizedBox();
+  }
+
+  void _addIngredients({AssetImage image, String text, int index}) {
+    List data = new List();
+    data.add(_createIngredient(image: image, text: text, index: index));
+    data.add(false);
+    ingredients.add(data);
+  }
+
+  Container _createIngredient({AssetImage image, String text, int index}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
       child: Row(
@@ -40,7 +69,10 @@ class _RecipesPageState extends State<RecipesPage> {
           GestureDetector(
             onTap: () {
               setState(() {
+                isChecked = ingredients[index][1];
                 isChecked = !isChecked;
+                ingredients[index][1] = isChecked;
+                print(isChecked);
               });
             },
             child: isChecked
@@ -135,18 +167,28 @@ class _RecipesPageState extends State<RecipesPage> {
                 ],
               ),
             ),
+            // Container(
+            //   child: Expanded(
+            //     child: ListView(
+            //       children: <Widget>[
+            //         // _createIngredient(
+            //         //     image: AssetImage('assets/images/allspice.jpeg'),
+            //         //     text: 'Allspice'),
+            //         // _createIngredient(
+            //         //     image: AssetImage('assets/images/allspice.jpeg'),
+            //         //     text: 'Allspice'),
+            //         _addIngredients(
+            //             image: AssetImage('assets/images/allspice.jpeg'),
+            //             text: 'Allspice'),
+            //         renderIngredients(),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            if (!isSetup) _setupIngredients(),
             Container(
               child: Expanded(
-                child: ListView(
-                  children: <Widget>[
-                    _createIngredient(
-                        image: AssetImage('assets/images/allspice.jpeg'),
-                        text: 'Allspice'),
-                    _createIngredient(
-                        image: AssetImage('assets/images/allspice.jpeg'),
-                        text: 'Allspice'),
-                  ],
-                ),
+                child: renderIngredients(),
               ),
             ),
             Container(
