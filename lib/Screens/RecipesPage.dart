@@ -92,6 +92,7 @@ class _RecipesPageState extends State<RecipesPage> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('CookChef'),
         centerTitle: true,
       ),
