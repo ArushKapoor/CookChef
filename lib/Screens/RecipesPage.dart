@@ -1,4 +1,5 @@
 import 'package:cook_chef/Screens/AccountPage.dart';
+import 'package:cook_chef/Widgets/IncredientsList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,77 +19,75 @@ class _RecipesPageState extends State<RecipesPage> {
   bool isHindi = false;
   bool isSetup = false;
 
-  List ingredients = new List();
+  // List ingredients = new List();
 
-  Widget renderIngredients() {
-    return ListView.builder(
-        itemCount: ingredients.length,
-        itemBuilder: (context, index) {
-          return ingredients[index][0];
-        });
-  }
+  // SizedBox _setupIngredients() {
+  //   isSetup = true;
+  //   for (int i = 0; i < 5; i++) {
+  //     _addIngredients(
+  //         image: AssetImage('assets/images/allspice.jpeg'),
+  //         text: 'Allspice',
+  //         index: i);
+  //   }
+  //   return SizedBox();
+  // }
 
-  SizedBox _setupIngredients() {
-    isSetup = true;
-    for (int i = 0; i < 5; i++) {
-      _addIngredients(
-          image: AssetImage('assets/images/allspice.jpeg'),
-          text: 'Allspice',
-          index: i);
-    }
-    return SizedBox();
-  }
+  // void _addIngredients({AssetImage image, String text, int index}) {
+  //   List data = new List();
+  //   data.add(_createIngredient(image: image, text: text, index: index));
+  //   data.add(false);
+  //   ingredients.add(data);
+  // }
 
-  void _addIngredients({AssetImage image, String text, int index}) {
-    List data = new List();
-    data.add(_createIngredient(image: image, text: text, index: index));
-    data.add(false);
-    ingredients.add(data);
-  }
-
-  Container _createIngredient({AssetImage image, String text, int index}) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
-      child: Row(
-        children: <Widget>[
-          CircleAvatar(
-            radius: 27,
-            backgroundColor: Colors.black,
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: image,
-            ),
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Expanded(
-            flex: 1,
-            child: Text(text),
-          ),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isChecked = ingredients[index][1];
-                isChecked = !isChecked;
-                ingredients[index][1] = isChecked;
-                print(isChecked);
-              });
-            },
-            child: isChecked
-                ? Icon(
-                    Icons.check_circle,
-                    color: Colors.green,
-                  )
-                : Icon(Icons.check_circle_outline),
-          ),
-        ],
-      ),
-    );
-  }
+  // Container _createIngredient({AssetImage image, String text, int index}) {
+  //   return Container(
+  //     margin: EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
+  //     child: Row(
+  //       children: <Widget>[
+  //         CircleAvatar(
+  //           radius: 27,
+  //           backgroundColor: Colors.black,
+  //           child: CircleAvatar(
+  //             radius: 25,
+  //             backgroundImage: image,
+  //           ),
+  //         ),
+  //         SizedBox(
+  //           width: 10.0,
+  //         ),
+  //         Expanded(
+  //           flex: 1,
+  //           child: Text(text),
+  //         ),
+  //         GestureDetector(
+  //           onTap: () {
+  //             setState(() {
+  //               isChecked = ingredients[index][1];
+  //               isChecked = !isChecked;
+  //               ingredients[index][1] = isChecked;
+  //               print(isChecked);
+  //             });
+  //           },
+  //           child: Icon(
+  //             Icons.check_circle,
+  //             color: isChecked ? Colors.green : Colors.blue,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // Widget renderIngredients() {
+    //   return ListView.builder(
+    //       itemCount: ingredients.length,
+    //       itemBuilder: (context, index) {
+    //         return ingredients[index][0];
+    //       });
+    // }
+
     final _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -153,10 +152,11 @@ class _RecipesPageState extends State<RecipesPage> {
                           Container(
                             margin: EdgeInsets.all(3.0),
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(15.0),
-                                )),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(15.0),
+                              ),
+                            ),
                             height: 18,
                             width: 15,
                           ),
@@ -185,10 +185,10 @@ class _RecipesPageState extends State<RecipesPage> {
             //     ),
             //   ),
             // ),
-            if (!isSetup) _setupIngredients(),
+            //if (!isSetup) _setupIngredients(),
             Container(
               child: Expanded(
-                child: renderIngredients(),
+                child: IncredientsList(),
               ),
             ),
             Container(
