@@ -1,11 +1,5 @@
-import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../Utilities/BottomBar.dart';
-import 'HomePage.dart';
-import 'NotificationsPage.dart';
 
 class RecipesPage extends StatefulWidget {
   static const String id = 'recipes_page';
@@ -93,11 +87,6 @@ class _RecipesPageState extends State<RecipesPage> {
     final _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('CookChef'),
-        centerTitle: true,
-      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -193,7 +182,6 @@ class _RecipesPageState extends State<RecipesPage> {
                 child: renderIngredients(),
               ),
             ),
-            bottomNavigationBar(context: context, page: RecipesPage.id)
           ],
         ),
       ),
