@@ -1,3 +1,4 @@
+import 'package:cook_chef/Utilities/BottomBar.dart';
 import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
@@ -160,37 +161,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Icon(Icons.home),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, RecipesPage.id);
-                    },
-                    child: Image.asset(
-                      'assets/icons/chef.jpeg',
-                      height: 22,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(
-                          context, NotificationsPage.id);
-                    },
-                    child: Icon(Icons.notifications_none),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, AccountPage.id);
-                    },
-                    child: Icon(Icons.account_circle),
-                  ),
-                ],
-              ),
-            ),
+            bottomNavigationBar(context: context, page: HomePage.id),
           ],
         ),
       ),

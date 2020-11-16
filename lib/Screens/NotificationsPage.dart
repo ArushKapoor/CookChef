@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../Utilities/BottomBar.dart';
 import 'RecipesPage.dart';
 
 class NotificationsPage extends StatefulWidget {
@@ -154,39 +155,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, HomePage.id);
-                    },
-                    child: SvgPicture.asset(
-                      'assets/icons/home_outlined.svg',
-                      height: 25,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, RecipesPage.id);
-                    },
-                    child: Image.asset(
-                      'assets/icons/chef.jpeg',
-                      height: 22,
-                    ),
-                  ),
-                  Icon(Icons.notifications),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, AccountPage.id);
-                    },
-                    child: Icon(Icons.account_circle),
-                  ),
-                ],
-              ),
-            ),
+            bottomNavigationBar(context: context, page: NotificationsPage.id)
           ],
         ),
       ),
