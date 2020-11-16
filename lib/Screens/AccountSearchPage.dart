@@ -2,7 +2,6 @@ import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'FeedPage.dart';
 import 'NotificationsPage.dart';
 import 'RecipesPage.dart';
 
@@ -17,7 +16,7 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
   bool hasTapped = false;
 
   final tabs = [
-    FeedPage(),
+    AccountSearchPage(),
     RecipesPage(),
     NotificationsPage(),
     AccountPage(),
@@ -50,9 +49,10 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: (!hasTapped) ? true : false,
-        centerTitle: (!hasTapped) ? false : true,
-        title: (!hasTapped)
+        automaticallyImplyLeading:
+            (!hasTapped || currentIndex == 0) ? true : false,
+        centerTitle: (!hasTapped || currentIndex == 0) ? false : true,
+        title: (!hasTapped || currentIndex == 0)
             ? Row(
                 children: <Widget>[
                   Icon(Icons.search),
@@ -63,15 +63,6 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
                 ],
               )
             : Text('CookChef'),
-        actions: <Widget>[
-          if (currentIndex == 0 && hasTapped)
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.pushNamed(context, AccountSearchPage.id);
-              },
-            )
-        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
@@ -113,7 +104,7 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
           });
         },
       ),
-      body: !hasTapped
+      body: (!hasTapped || currentIndex == 0)
           ? SafeArea(
               minimum: EdgeInsets.all(8.0),
               child: Column(
