@@ -1,10 +1,5 @@
-import 'package:cook_chef/Screens/AccountPage.dart';
-import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import 'RecipesPage.dart';
 
 class NotificationsPage extends StatefulWidget {
   static const String id = 'notifications_page';
@@ -65,130 +60,90 @@ class _NotificationsPageState extends State<NotificationsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('CookChef'),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.thumb_up),
+                SizedBox(
+                  width: 15,
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Liked videos'),
+                      Text('282 videos'),
+                    ],
+                  ),
+                ),
+                Text('view all'),
+              ],
+            ),
+          ),
+          Container(
+            child: Expanded(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  Icon(Icons.thumb_up),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('Liked videos'),
-                        Text('282 videos'),
-                      ],
-                    ),
-                  ),
-                  Text('view all'),
+                  SizedBox(width: 10),
+                  _createLikedVideo(
+                      image: 'assets/images/temp.jpeg',
+                      text: 'Bollywood Flashmob at the...'),
+                  SizedBox(width: 10),
+                  _createLikedVideo(
+                      image: 'assets/images/temp.jpeg',
+                      text: 'Bollywood Flashmob at the...'),
+                  SizedBox(width: 10),
+                  _createLikedVideo(
+                      image: 'assets/images/temp.jpeg',
+                      text: 'Bollywood Flashmob at the...'),
                 ],
               ),
             ),
-            Container(
-              child: Expanded(
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    SizedBox(width: 10),
-                    _createLikedVideo(
-                        image: 'assets/images/temp.jpeg',
-                        text: 'Bollywood Flashmob at the...'),
-                    SizedBox(width: 10),
-                    _createLikedVideo(
-                        image: 'assets/images/temp.jpeg',
-                        text: 'Bollywood Flashmob at the...'),
-                    SizedBox(width: 10),
-                    _createLikedVideo(
-                        image: 'assets/images/temp.jpeg',
-                        text: 'Bollywood Flashmob at the...'),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              child: Expanded(
-                child: ListView(
-                  children: <Widget>[
-                    _createComment(
-                        text: 'T-Series commented on your post: nice video 🔥',
-                        time: '3 hours ago',
-                        image: 'assets/images/temp.jpeg'),
-                    SizedBox(height: 10),
-                    _createComment(
-                        text: 'T-Series commented on your post: nice video 🔥',
-                        time: '3 hours ago',
-                        image: 'assets/images/temp.jpeg'),
-                    SizedBox(height: 10),
-                    _createComment(
-                        text: 'T-Series commented on your post: nice video 🔥',
-                        time: '3 hours ago',
-                        image: 'assets/images/temp.jpeg'),
-                    SizedBox(height: 10),
-                    _createComment(
-                        text: 'T-Series commented on your post: nice video 🔥',
-                        time: '3 hours ago',
-                        image: 'assets/images/temp.jpeg'),
-                    SizedBox(height: 10),
-                    _createComment(
-                        text: 'T-Series commented on your post: nice video 🔥',
-                        time: '3 hours ago',
-                        image: 'assets/images/temp.jpeg'),
-                    SizedBox(height: 10),
-                    _createComment(
-                        text: 'T-Series commented on your post: nice video 🔥',
-                        time: '3 hours ago',
-                        image: 'assets/images/temp.jpeg'),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          ),
+          Container(
+            child: Expanded(
+              child: ListView(
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, HomePage.id);
-                    },
-                    child: SvgPicture.asset(
-                      'assets/icons/home_outlined.svg',
-                      height: 25,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, RecipesPage.id);
-                    },
-                    child: Image.asset(
-                      'assets/icons/chef.jpeg',
-                      height: 22,
-                    ),
-                  ),
-                  Icon(Icons.notifications),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, AccountPage.id);
-                    },
-                    child: Icon(Icons.account_circle),
-                  ),
+                  _createComment(
+                      text: 'T-Series commented on your post: nice video 🔥',
+                      time: '3 hours ago',
+                      image: 'assets/images/temp.jpeg'),
+                  SizedBox(height: 10),
+                  _createComment(
+                      text: 'T-Series commented on your post: nice video 🔥',
+                      time: '3 hours ago',
+                      image: 'assets/images/temp.jpeg'),
+                  SizedBox(height: 10),
+                  _createComment(
+                      text: 'T-Series commented on your post: nice video 🔥',
+                      time: '3 hours ago',
+                      image: 'assets/images/temp.jpeg'),
+                  SizedBox(height: 10),
+                  _createComment(
+                      text: 'T-Series commented on your post: nice video 🔥',
+                      time: '3 hours ago',
+                      image: 'assets/images/temp.jpeg'),
+                  SizedBox(height: 10),
+                  _createComment(
+                      text: 'T-Series commented on your post: nice video 🔥',
+                      time: '3 hours ago',
+                      image: 'assets/images/temp.jpeg'),
+                  SizedBox(height: 10),
+                  _createComment(
+                      text: 'T-Series commented on your post: nice video 🔥',
+                      time: '3 hours ago',
+                      image: 'assets/images/temp.jpeg'),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
