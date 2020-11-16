@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:cook_chef/Widgets/IncredientsList.dart';
 
 class RecipesPage extends StatefulWidget {
   static const String id = 'recipes_page';
@@ -176,10 +177,10 @@ class _RecipesPageState extends State<RecipesPage> {
             //     ),
             //   ),
             // ),
-            if (!isSetup) _setupIngredients(),
+
             Container(
               child: Expanded(
-                child: renderIngredients(),
+                child: IncredientsList(),
               ),
             ),
           ],

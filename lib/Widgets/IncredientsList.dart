@@ -7,19 +7,24 @@ class IncredientsList extends StatefulWidget {
   _IncredientsListState createState() => _IncredientsListState();
 }
 
-List<Incredients> incredients = [
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+List incredients = [
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
 ];
 
 class _IncredientsListState extends State<IncredientsList> {
   @override
   Widget build(BuildContext context) {
+    print(incredients.length);
+
+    final incredient = Incredients();
+    incredients.add(incredient);
+    print(incredients);
     return ListView(
       children: [
         IncredientTile(),
