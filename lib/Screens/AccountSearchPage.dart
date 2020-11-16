@@ -74,6 +74,8 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         items: <BottomNavigationBarItem>[

@@ -42,6 +42,8 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         items: <BottomNavigationBarItem>[
