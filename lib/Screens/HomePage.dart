@@ -46,6 +46,8 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: (currentIndex == 0)
@@ -54,24 +56,24 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/home_outlined.svg',
                     height: 25,
                   ),
-            title: SizedBox(),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/icons/chef.jpeg',
               height: 22,
             ),
-            title: SizedBox(),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: (currentIndex != 2)
                 ? Icon(Icons.notifications_none)
                 : Icon(Icons.notifications),
-            title: SizedBox(),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            title: SizedBox(),
+            label: '',
           ),
         ],
         onTap: (index) {
