@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class IncredientTile extends StatefulWidget {
-  IncredientTile({this.image, this.text, this.toggleCallback});
+class IngredientTile extends StatefulWidget {
+  IngredientTile({this.image, this.text, this.toggleCallback});
   final AssetImage image;
   final String text;
   final toggleCallback;
 
   @override
-  _IncredientTileState createState() => _IncredientTileState();
+  _IngredientTileState createState() => _IngredientTileState();
 }
 
-class _IncredientTileState extends State<IncredientTile> {
+class _IngredientTileState extends State<IngredientTile> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {

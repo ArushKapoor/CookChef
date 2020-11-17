@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Incredients {
+class Ingredients {
   String text;
   bool isChecked;
   //AssetImage image;
-  Incredients({String text, bool isChecked = false});
+  Ingredients({String text, bool isChecked = false});
 
   void toggleCheckBox() {
     isChecked = !isChecked;
