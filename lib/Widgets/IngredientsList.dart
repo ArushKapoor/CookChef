@@ -7,22 +7,24 @@ class IngredientsList extends StatefulWidget {
   _IngredientsListState createState() => _IngredientsListState();
 }
 
-List ingredients = [
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-];
+// List<Ingredients> ingredients = [
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+//   // Ingredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+// ];
+
+List<Ingredients> ingredients = new List<Ingredients>();
 
 class _IngredientsListState extends State<IngredientsList> {
   @override
   Widget build(BuildContext context) {
     print(ingredients.length);
 
-    final ingredient = Ingredients();
+    Ingredients ingredient = new Ingredients(text: 'Hello');
     ingredients.add(ingredient);
     print(ingredients);
     return ListView(
