@@ -1,3 +1,4 @@
+import 'package:cook_chef/Models/Ingredients.dart';
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
@@ -7,8 +8,10 @@ class IngredientsList extends StatefulWidget {
   _IngredientsListState createState() => _IngredientsListState();
 }
 
+List<Ingredients> selectedIngredients = new List<Ingredients>();
+IngredientsHandler ingredientsHandler = IngredientsHandler();
+
 class _IngredientsListState extends State<IngredientsList> {
-  IngredientsHandler ingredientsHandler = IngredientsHandler();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -23,6 +26,11 @@ class _IngredientsListState extends State<IngredientsList> {
           toggleCallback: () {
             setState(() {
               ingredientsHandler.checkBoxToggler(ingredient);
+              if (ingredient.isChecked) {
+                selectedIngredients.add(ingredient);
+              } else {
+                selectedIngredients.remove(ingredient);
+              }
             });
           },
         );

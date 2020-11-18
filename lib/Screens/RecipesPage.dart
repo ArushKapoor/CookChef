@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cook_chef/Widgets/IncredientsList.dart';
+import 'package:cook_chef/Widgets/IngredientsList.dart';
 
 class RecipesPage extends StatefulWidget {
   static const String id = 'recipes_page';

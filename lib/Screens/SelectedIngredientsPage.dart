@@ -1,6 +1,7 @@
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:cook_chef/Widgets/IngredientsList.dart';
 
 import 'AccountPage.dart';
 import 'AccountSearchPage.dart';
@@ -89,14 +90,25 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                 children: <Widget>[
                   Expanded(
                     child: ListView.builder(
-                        itemCount: 3,
+                        itemCount: selectedIngredients.length,
                         itemBuilder: (context, index) {
+                          final ingredient = selectedIngredients[index];
                           return IngredientTile(
-                            text: 'yukon gold potato',
-                            imageUrl:
-                                'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png',
+                            text: ingredient.text,
+                            imageUrl: ingredient.imageUrl,
                             isChecked: false,
                             isSelectedIngredient: true,
+                            toggleCallback: () {
+                              int i = ingredientsHandler.ingredients
+                                  .indexOf(ingredient);
+                              final ingredient_1 =
+                                  ingredientsHandler.ingredients[i];
+                              setState(() {
+                                selectedIngredients.remove(ingredient);
+                                ingredientsHandler
+                                    .checkBoxToggler(ingredient_1);
+                              });
+                            },
                           );
                         }),
                   ),

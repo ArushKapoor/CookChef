@@ -45,6 +45,7 @@ class IngredientTile extends StatelessWidget {
                       : Icon(Icons.check_circle_outline),
                 )
               : GestureDetector(
+                  onTap: toggleCallback,
                   child: Icon(Icons.remove_circle_outline),
                 ),
         ],
