@@ -41,7 +41,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
               centerTitle: true,
             )
           : null,
-      bottomNavigationBar: (currentIndex == 1)
+      bottomNavigationBar: (currentIndex != 0)
           ? BottomNavigationBar(
               selectedItemColor: Colors.black,
               unselectedItemColor: Colors.black,
