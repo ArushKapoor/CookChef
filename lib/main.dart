@@ -59,7 +59,9 @@ class AuthenticationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User user = context.watch<User>();
-    if (user != null) {
+    User auth =
+        context.read<AuthenticationService>().emailVerification().currentUser;
+    if (user != null && auth.emailVerified) {
       return HomePage();
     } else {
       return Login();

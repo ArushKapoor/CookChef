@@ -13,11 +13,9 @@ class _RecipesPageState extends State<RecipesPage> {
   bool isChecked = false;
   bool isHindi = false;
   bool isSetup = false;
-
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: SafeArea(
         child: Column(
