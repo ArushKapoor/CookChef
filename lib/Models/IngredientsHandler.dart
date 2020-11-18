@@ -1,3578 +1,3578 @@
 import 'dart:collection';
 
-import 'Incredients.dart';
+import 'Ingredients.dart';
 
-class IncredientsHandler {
-  List<Incredients> _incredients = [
-    Incredients(
+class IngredientsHandler {
+  List<Ingredients> _ingredients = [
+    Ingredients(
         text: '5 spice powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'acorn squash',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/acorn-squash.jpg'),
-    Incredients(
+    Ingredients(
         text: 'adobo sauce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/harissa.jpg'),
-    Incredients(
+    Ingredients(
         text: 'agave nectar',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/agave.png'),
-    Incredients(
+    Ingredients(
         text: 'ahi tuna',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tuna-steak.png'),
-    Incredients(
+    Ingredients(
         text: 'alfredo pasta sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/alfredo-sauce.png'),
-    Incredients(
+    Ingredients(
         text: 'almond extract',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/almonds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'almond flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/almonds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'almond milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/almonds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'almonds',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/almonds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'amaretto',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/temporary-orange-liqueur.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ancho chiles',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/anchovies.jpg'),
-    Incredients(
+    Ingredients(
         text: 'anchovies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/anchovies.jpg'),
-    Incredients(
+    Ingredients(
         text: 'andouille sausage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/smoked-sausage.jpg'),
-    Incredients(
+    Ingredients(
         text: 'angel food cake mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/angelhair.jpg'),
-    Incredients(
+    Ingredients(
         text: 'angel hair pasta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/angelhair.jpg'),
-    Incredients(
+    Ingredients(
         text: 'angostura bitters',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apple',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apple butter spread',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apple cider',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apple juice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apple pie spice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apricot preserves',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apricot.jpg'),
-    Incredients(
+    Ingredients(
         text: 'apricots',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apricot.jpg'),
-    Incredients(
+    Ingredients(
         text: 'arborio rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/arborio-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'arrowroot powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'artichoke heart quarters',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/artichokes.png'),
-    Incredients(
+    Ingredients(
         text: 'artichokes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/artichokes.png'),
-    Incredients(
+    Ingredients(
         text: 'arugula',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/arugula-or-rocket-salad.jpg'),
-    Incredients(
+    Ingredients(
         text: 'asafoetida',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/curry-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'asafoetida powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/curry-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'asiago cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/parmesan.jpg'),
-    Incredients(
+    Ingredients(
         text: 'asian pear',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/asian-medley.png'),
-    Incredients(
+    Ingredients(
         text: 'asparagus spears',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/asparagus.png'),
-    Incredients(
+    Ingredients(
         text: 'avocado',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/avocado.jpg'),
-    Incredients(
+    Ingredients(
         text: 'avocado oil',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/avocado.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby bell peppers',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby bok choy',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby carrots',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby corn',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby spinach leaves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby-back ribs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-back-ribs.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baby-back ribs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baby-back-ribs.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bacon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png'),
-    Incredients(
+    Ingredients(
         text: 'bacon fat',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png'),
-    Incredients(
+    Ingredients(
         text: 'baguette',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/half-baguette.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baking bar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baking powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'baking soda',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'balsamic glaze',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'balsamic vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bamboo shoots',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bamboo-shoots.jpg'),
-    Incredients(
+    Ingredients(
         text: 'banana',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/bananas.jpg'),
-    Incredients(
+    Ingredients(
         text: 'basmati rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rice-white-long-grain-or-basmatii-cooked.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bay leaves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bay-leaves.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bbq sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bean-sprouts.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beef',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.png'),
-    Incredients(
+    Ingredients(
         text: 'beef brisket',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stock-cube.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beef broth',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stock-cube.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beef chuck roast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stock-cube.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beef stock',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stock-cube.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beef tenderloin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stock-cube.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beer',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beer.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beer',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beer.jpg'),
-    Incredients(
+    Ingredients(
         text: 'beets',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beets.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bell pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bell-pepper-orange.png'),
-    Incredients(
+    Ingredients(
         text: 'berries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg'),
-    Incredients(
+    Ingredients(
         text: 'biscuit mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk-biscuits.jpg'),
-    Incredients(
+    Ingredients(
         text: 'biscuits',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk-biscuits.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bittersweet chocolate',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'black bean sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'black beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'black olives',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'black pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'black sesame seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'blackberries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'blanched almonds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/blanched-almonds.png'),
-    Incredients(
+    Ingredients(
         text: 'blood orange',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/blood-orange.jpg'),
-    Incredients(
+    Ingredients(
         text: 'blue cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/blue-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'blueberries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/blueberries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bok choy',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bok-choy.jpg'),
-    Incredients(
+    Ingredients(
         text: 'boneless skinless chicken breast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-loin.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bourbon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vanilla-extract.jpg'),
-    Incredients(
+    Ingredients(
         text: 'brandy',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/brandy.png'),
-    Incredients(
+    Ingredients(
         text: 'bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bread flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'breakfast links',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/breakfast-sausage-links.jpg'),
-    Incredients(
+    Ingredients(
         text: 'brie',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/brie.jpg'),
-    Incredients(
+    Ingredients(
         text: 'broccoli',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg'),
-    Incredients(
+    Ingredients(
         text: 'broccoli florets',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg'),
-    Incredients(
+    Ingredients(
         text: 'brown rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-brown-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'brown rice flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-brown-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'brown sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-brown-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'brownie mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-brown-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'brussel sprouts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brussels-sprouts.jpg'),
-    Incredients(
+    Ingredients(
         text: 'bulgur',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bulgur-wheat.jpg'),
-    Incredients(
+    Ingredients(
         text: 'butter',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'butterhead lettuce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'buttermilk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'butternut squash',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'butterscotch chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/buttermilk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cabbage',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cabbage.jpg'),
-    Incredients(
+    Ingredients(
         text: 'caesar dressing',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/coleslaw-or-caesar-dressing.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cajun seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chili-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cake flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'candy canes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/candy-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'candy coating',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/candy-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'candy melts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/candy-corn.jpg'),
-    Incredients(
+    Ingredients(
         text: 'canned black beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned diced tomatoes',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned garbanzo beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned green chiles',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned kidney beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned mushrooms',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned pinto beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned red kidney beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned tomatoes',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned tuna',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned white beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'canned white cannellini beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'cannellini beans',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'cantaloupe',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cantaloupe.png'),
-    Incredients(
+    Ingredients(
         text: 'capers',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/capers.jpg'),
-    Incredients(
+    Ingredients(
         text: 'caramel sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soft-caramels.jpg'),
-    Incredients(
+    Ingredients(
         text: 'caramels',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soft-caramels.jpg'),
-    Incredients(
+    Ingredients(
         text: 'caraway seed',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/caraway-seeds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cardamom',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cardamom.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cardamom pods',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cardamom.jpg'),
-    Incredients(
+    Ingredients(
         text: 'carp',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fish-fillet.jpg'),
-    Incredients(
+    Ingredients(
         text: 'carrots',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sliced-carrot.png'),
-    Incredients(
+    Ingredients(
         text: 'cat fish filets',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/catfish.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cauliflower',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cauliflower.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cauliflower florets',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cauliflower.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cauliflower rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cauliflower.jpg'),
-    Incredients(
+    Ingredients(
         text: 'celery',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg'),
-    Incredients(
+    Ingredients(
         text: 'celery ribs',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg'),
-    Incredients(
+    Ingredients(
         text: 'celery root',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg'),
-    Incredients(
+    Ingredients(
         text: 'celery salt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg'),
-    Incredients(
+    Ingredients(
         text: 'celery seed',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cereal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rice-crispy-cereal.png'),
-    Incredients(
+    Ingredients(
         text: 'champagne',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/champagne.png'),
-    Incredients(
+    Ingredients(
         text: 'chana dal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bengal-gram.png'),
-    Incredients(
+    Ingredients(
         text: 'cheddar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'cheese curds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'cheese dip',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'cheese soup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'cheese tortellini',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'cherry',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cherries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cherry pie filling',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cherries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cherry tomatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cherries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chestnuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chestnuts.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chia seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chia-seeds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken base',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken bouillon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken bouillon granules',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken breasts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken broth',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken drumsticks',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken legs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken pieces',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken sausage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken stock',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken tenders',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken thighs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chicken wings',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chickpea',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chile garlic sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chili paste',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chili peppers',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chili powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chili sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chipotle chiles in adobo',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chile-chipotle.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chipotle chilies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chile-chipotle.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chipotle peppers in adobo',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chile-chipotle.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chive & onion cream cheese spread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-chives.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate chip cookies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate chunks',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate ice cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate milk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate sandwich cookies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate syrup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chocolate wafer cookies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'chorizo sausage',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/chorizo.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cider vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/apple-cider-vinegar.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cilantro',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cilantro.png'),
-    Incredients(
+    Ingredients(
         text: 'cinnamon roll',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cinnamon stick',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cinnamon sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cinnamon swirl bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg'),
-    Incredients(
+    Ingredients(
         text: 'clam juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/clam-juice.png'),
-    Incredients(
+    Ingredients(
         text: 'clams',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/clams.jpg'),
-    Incredients(
+    Ingredients(
         text: 'clarified butter',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ghee.jpg'),
-    Incredients(
+    Ingredients(
         text: 'clove',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cloves.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coarse salt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salt.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coarsely ground pepper',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salt.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cocoa nibs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'cocoa powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'coconut',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut aminos',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut butter',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut cream',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut extract',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut oil',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coconut water',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cod',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cod-fillet.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coffee',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brewed-coffee.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cognac',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cognac.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cola',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/coca-cola.png'),
-    Incredients(
+    Ingredients(
         text: 'colby jack',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/colby-jack.jpg'),
-    Incredients(
+    Ingredients(
         text: 'collard greens',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/collard-greens.jpg'),
-    Incredients(
+    Ingredients(
         text: 'condensed cream of celery soup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/evaporated-milk.png'),
-    Incredients(
+    Ingredients(
         text: 'condensed cream of mushroom soup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/evaporated-milk.png'),
-    Incredients(
+    Ingredients(
         text: 'confectioners swerve',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/powdered-sugar.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked bacon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked brown rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked chicken breast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked ham',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked long grain rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked pasta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked polenta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked quinoa',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cooked wild rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cookies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortbread-cookies.jpg'),
-    Incredients(
+    Ingredients(
         text: 'coriander',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cilantro.png'),
-    Incredients(
+    Ingredients(
         text: 'corn',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'corn bread mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corn chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corn flakes cereal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corn flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corn kernels',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corn oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corn tortillas',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cornbread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cornbread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'corned beef',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/beef-brisket.png'),
-    Incredients(
+    Ingredients(
         text: 'cornish hens',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dill-pickles.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cornmeal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cornmeal.png'),
-    Incredients(
+    Ingredients(
         text: 'cornstarch',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cotija cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/feta.png'),
-    Incredients(
+    Ingredients(
         text: 'cottage cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cottage-cheese.jpg'),
-    Incredients(
+    Ingredients(
         text: 'country bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'courgettes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/zucchini.jpg'),
-    Incredients(
+    Ingredients(
         text: 'couscous',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/couscous-cooked.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cow pea',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/black-eyed-peas.jpg'),
-    Incredients(
+    Ingredients(
         text: 'crabmeat',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/crabmeat.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cracked pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/crackers.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cranberries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cranberries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cranberry juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cranberries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cream cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cream cheese block',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cream of chicken soup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cream of tartar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'creamed corn',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'creamy peanut butter',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'creme fraiche',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cremini mushrooms',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mushrooms.png'),
-    Incredients(
+    Ingredients(
         text: 'creole seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dijon-mustard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'crisp rice cereal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rice-crispy-cereal.png'),
-    Incredients(
+    Ingredients(
         text: 'croutons',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/croutons.png'),
-    Incredients(
+    Ingredients(
         text: 'crystallized ginger',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/candied-ginger-or-crystallized-ginger.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cucumber',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cucumber.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cumin seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ground-cumin.jpg'),
-    Incredients(
+    Ingredients(
         text: 'cup cake',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/plain-cupcake.jpg'),
-    Incredients(
+    Ingredients(
         text: 'currants',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/currants.jpg'),
-    Incredients(
+    Ingredients(
         text: 'curry leaves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chili-paste.png'),
-    Incredients(
+    Ingredients(
         text: 'dairy free milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'dark brown sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dark chocolate',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dark chocolate candy bars',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dark chocolate chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dark sesame oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dates',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dates.jpg'),
-    Incredients(
+    Ingredients(
         text: 'deep dish pie crust',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pie-crust.jpg'),
-    Incredients(
+    Ingredients(
         text: 'deli ham',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham.png'),
-    Incredients(
+    Ingredients(
         text: 'deli turkey',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham.png'),
-    Incredients(
+    Ingredients(
         text: 'dessert oats',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dessert wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg'),
-    Incredients(
+    Ingredients(
         text: 'diced ham',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg'),
-    Incredients(
+    Ingredients(
         text: 'diet pop',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dijon mustard',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dijon-mustard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dill',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dill.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dill pickles',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dill.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hot dog',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hotdogs.png'),
-    Incredients(
+    Ingredients(
         text: 'double cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-cream.png'),
-    Incredients(
+    Ingredients(
         text: 'dried apricots',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried basil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried cherries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried chorizo',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried cranberries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried dill',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried onion',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried porcini mushrooms',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried rubbed sage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried thyme',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dried tomatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'dry bread crumbs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/breadcrumbs.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dry milk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dry mustard',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dry red wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'dry roasted peanuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'duck fat',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lard.png'),
-    Incredients(
+    Ingredients(
         text: 'dutch process cocoa powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dutch-process-cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'edamame',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/edamame.png'),
-    Incredients(
+    Ingredients(
         text: 'egg substitute',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/liquid-egg-substitute.jpg'),
-    Incredients(
+    Ingredients(
         text: 'flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'flour tortillas',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'fontina cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/fontina.jpg'),
-    Incredients(
+    Ingredients(
         text: 'food dye',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/food-coloring.png'),
-    Incredients(
+    Ingredients(
         text: 'franks redhot sauce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hotdogs.png'),
-    Incredients(
+    Ingredients(
         text: 'free range eggs',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'french bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/crusty-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh basil',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh bean sprouts',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh chives',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh corn',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh corn kernels',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh figs',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh fruit',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh herbs',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh mint',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh mozzarella',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh rosemary',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fresh thyme leaves',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fried onions',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cooked-bacon.jpg'),
-    Incredients(
+    Ingredients(
         text: 'frosting',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vanilla-frosting.png'),
-    Incredients(
+    Ingredients(
         text: 'froyo bars',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/frozen-yogurt.png'),
-    Incredients(
+    Ingredients(
         text: 'frozen corn',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'frozen spinach',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'fudge',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fudge-isolated.jpg'),
-    Incredients(
+    Ingredients(
         text: 'fudge topping',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fudge-isolated.jpg'),
-    Incredients(
+    Ingredients(
         text: 'garam masala',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/garam-masala.jpg'),
-    Incredients(
+    Ingredients(
         text: 'garbanzo bean flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chickpeas.png'),
-    Incredients(
+    Ingredients(
         text: 'garlic',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png'),
-    Incredients(
+    Ingredients(
         text: 'garlic paste',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png'),
-    Incredients(
+    Ingredients(
         text: 'garlic powder',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png'),
-    Incredients(
+    Ingredients(
         text: 'garlic powder',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png'),
-    Incredients(
+    Ingredients(
         text: 'garlic salt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png'),
-    Incredients(
+    Ingredients(
         text: 'gelatin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/gelatin-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'gelatin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/gelatin-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'gin',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png'),
-    Incredients(
+    Ingredients(
         text: 'ginger',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png'),
-    Incredients(
+    Ingredients(
         text: 'ginger ale',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png'),
-    Incredients(
+    Ingredients(
         text: 'ginger paste',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png'),
-    Incredients(
+    Ingredients(
         text: 'ginger-garlic paste',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png'),
-    Incredients(
+    Ingredients(
         text: 'gingersnap cookies',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png'),
-    Incredients(
+    Ingredients(
         text: 'gnocchi',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/gnocchi-isolated.jpg'),
-    Incredients(
+    Ingredients(
         text: 'goat cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'golden raisins',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/corn-syrup.png'),
-    Incredients(
+    Ingredients(
         text: 'gorgonzola',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/gorgonzola.jpg'),
-    Incredients(
+    Ingredients(
         text: 'gouda cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gouda.jpg'),
-    Incredients(
+    Ingredients(
         text: 'graham cracker crumbs',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'graham cracker pie crust',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'graham crackers',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'grain blend',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rice-wild-uncooked.png'),
-    Incredients(
+    Ingredients(
         text: 'grand marnier',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/grand-marnier.jpg'),
-    Incredients(
+    Ingredients(
         text: 'granny smith apples',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/grannysmith-apple.png'),
-    Incredients(
+    Ingredients(
         text: 'granola',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/granola.jpg'),
-    Incredients(
+    Ingredients(
         text: 'granulated garlic',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png'),
-    Incredients(
+    Ingredients(
         text: 'grape tomatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'grapefruit',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'grapeseed oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'gravy',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gravy.jpg'),
-    Incredients(
+    Ingredients(
         text: 'great northern beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-beans.jpg'),
-    Incredients(
+    Ingredients(
         text: 'greek yogurt',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/plain-yogurt.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green bell pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green chili pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green food coloring',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green grapes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green olives',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'green onions',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'greens',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'grill cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/halloumi.png'),
-    Incredients(
+    Ingredients(
         text: 'grill seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/halloumi.png'),
-    Incredients(
+    Ingredients(
         text: 'ground allspice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground ancho chili',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground beef',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground chicken',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground chipotle chile pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground cinnamon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground cinnamon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground cloves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground coriander seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground cumin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground flaxseed',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground ginger',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground lamb',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground mace',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground nutmeg',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground pork',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground pork sausage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ground veal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'gruyere',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gruyere.jpg'),
-    Incredients(
+    Ingredients(
         text: 'guacamole',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/guacamole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'half n half',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'halibut fillet',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/halibut-fillet.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ham',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hamburger buns',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hamburger-bun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hard cooked eggs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hard-boiled-egg.png'),
-    Incredients(
+    Ingredients(
         text: 'harissa',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/harissa-paste.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hash brown potatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hash-brown-potatoes.png'),
-    Incredients(
+    Ingredients(
         text: 'hazelnuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hazelnuts.jpg'),
-    Incredients(
+    Ingredients(
         text: 'healthy request cream of celery soup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cream-of-celery-soup.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hemp seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hemp-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'herbes de provence',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dried-herbs.png'),
-    Incredients(
+    Ingredients(
         text: 'herbs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-fresh-herbs.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hersheys kisses brand milk chocolates',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'hoisin sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'honey mustard',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png'),
-    Incredients(
+    Ingredients(
         text: 'horseradish',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/horseradish.jpg'),
-    Incredients(
+    Ingredients(
         text: 'hot sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hot-sauce-or-tabasco.png'),
-    Incredients(
+    Ingredients(
         text: 'hummus',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hummus.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ice-cubes.png'),
-    Incredients(
+    Ingredients(
         text: 'ice cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ice-cubes.png'),
-    Incredients(
+    Ingredients(
         text: 'instant chocolate pudding mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg'),
-    Incredients(
+    Ingredients(
         text: 'instant coffee powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg'),
-    Incredients(
+    Ingredients(
         text: 'instant espresso powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg'),
-    Incredients(
+    Ingredients(
         text: 'instant lemon pudding mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg'),
-    Incredients(
+    Ingredients(
         text: 'instant yeast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg'),
-    Incredients(
+    Ingredients(
         text: 'irish cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/baileys-liqueur.png'),
-    Incredients(
+    Ingredients(
         text: 'italian bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'italian cheese blend',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'italian sausages',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'italian seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'jaggery',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/jaggery.jpg'),
-    Incredients(
+    Ingredients(
         text: 'jalapeno',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/jalapeno-pepper.png'),
-    Incredients(
+    Ingredients(
         text: 'jasmine rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rice-jasmine-cooked.jpg'),
-    Incredients(
+    Ingredients(
         text: 'jelly',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/grape-jelly.jpg'),
-    Incredients(
+    Ingredients(
         text: 'jicama',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/jicama.jpg'),
-    Incredients(
+    Ingredients(
         text: 'jimmies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/colorful-sprinkles.jpg'),
-    Incredients(
+    Ingredients(
         text: 'juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/apple-juice.jpg'),
-    Incredients(
+    Ingredients(
         text: 'jumbo shell pasta',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shrimp.png'),
-    Incredients(
+    Ingredients(
         text: 'kaffir lime leaves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/lime-leaves.jpg'),
-    Incredients(
+    Ingredients(
         text: 'kahlua',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/coffee-liqueur.jpg'),
-    Incredients(
+    Ingredients(
         text: 'kalamata olives',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/calamata-or-kalamata-olives.jpg'),
-    Incredients(
+    Ingredients(
         text: 'kale',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/kale.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ketchup',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ketchup.png'),
-    Incredients(
+    Ingredients(
         text: 'lb cake',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pound-cake.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lean ground beef',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lean ground turkey',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lean pork tenderloin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg'),
-    Incredients(
+    Ingredients(
         text: 'leeks',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/leeks.jpg'),
-    Incredients(
+    Ingredients(
         text: 'leg of lamb',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/leg-of-lamb.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon curd',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon extract',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon juice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon peel',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon pepper',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemon wedges',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lemongrass',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'lettuce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/iceberg-lettuce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lettuce leaves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/iceberg-lettuce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light butter',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light coconut milk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light corn syrup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light cream cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light mayonnaise',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light olive oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'light soy sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lime',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lime.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lime juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/zest-lime.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lime wedges',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/zest-lime.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lime zest',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/zest-lime.jpg'),
-    Incredients(
+    Ingredients(
         text: 'linguine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/spaghetti.jpg'),
-    Incredients(
+    Ingredients(
         text: 'liquid smoke',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png'),
-    Incredients(
+    Ingredients(
         text: 'liquid stevia',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png'),
-    Incredients(
+    Ingredients(
         text: 'liquor',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg'),
-    Incredients(
+    Ingredients(
         text: 'live lobster',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lobster.png'),
-    Incredients(
+    Ingredients(
         text: 'long-grain rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rice-white-long-grain-or-basmatii-cooked.jpg'),
-    Incredients(
+    Ingredients(
         text: 'low fat buttermilk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'low fat milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'low fat milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'low fat plain yogurt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'low fat ricotta cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'low fat sour cream',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'low sodium chicken broth',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'low sodium soy sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'low-sodium chicken stock',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/broth.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lower sodium beef broth',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'lump crab',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/lump-crabmeat.png'),
-    Incredients(
+    Ingredients(
         text: 'm&m candies',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'macadamia nuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/macadamia-nuts.png'),
-    Incredients(
+    Ingredients(
         text: 'macaroni and cheese mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/macaroni.png'),
-    Incredients(
+    Ingredients(
         text: 'malt drink mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mandarin orange sections',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mandarin-or-tangerines-or-clementines.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mandarin oranges',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mandarin-or-tangerines-or-clementines.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mango',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mango.jpg'),
-    Incredients(
+    Ingredients(
         text: 'maple syrup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/maple-syrup.png'),
-    Incredients(
+    Ingredients(
         text: 'maraschino cherries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/maraschino.jpg'),
-    Incredients(
+    Ingredients(
         text: 'margarine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/butter-sliced.jpg'),
-    Incredients(
+    Ingredients(
         text: 'marinara sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'marjoram',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/marjoram.jpg'),
-    Incredients(
+    Ingredients(
         text: 'marsala wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'marshmallow fluff',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/normal-marshmallows.jpg'),
-    Incredients(
+    Ingredients(
         text: 'marshmallows',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/normal-marshmallows.jpg'),
-    Incredients(
+    Ingredients(
         text: 'masa harina',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/corn-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mascarpone',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-cream-fluffy.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mat beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/moth-bean.png'),
-    Incredients(
+    Ingredients(
         text: 'matcha tea',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/matcha-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mayonnaise',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mayonnaise.png'),
-    Incredients(
+    Ingredients(
         text: 'meat',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'meat',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg'),
-    Incredients(
+    Ingredients(
         text: 'meatballs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/meatballs.png'),
-    Incredients(
+    Ingredients(
         text: 'medjool dates',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dates.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mexican cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mexicorn.png'),
-    Incredients(
+    Ingredients(
         text: 'meyer lemon juice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png'),
-    Incredients(
+    Ingredients(
         text: 'milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'milk chocolate chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mint chutney',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg'),
-    Incredients(
+    Ingredients(
         text: 'minute rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-white-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'miracle whip',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mayonnaise.png'),
-    Incredients(
+    Ingredients(
         text: 'mirin',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mirin.jpg'),
-    Incredients(
+    Ingredients(
         text: 'miso',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/miso.jpg'),
-    Incredients(
+    Ingredients(
         text: 'molasses',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/molasses.jpg'),
-    Incredients(
+    Ingredients(
         text: 'monterey jack cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shredded-cheese-white.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mushroom',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mushrooms.png'),
-    Incredients(
+    Ingredients(
         text: 'mussels',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mussels.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mustard',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/regular-mustard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'mustard seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/regular-mustard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'napa cabbage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/napa-cabbage.jpg'),
-    Incredients(
+    Ingredients(
         text: 'navel oranges',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mandarin-or-tangerines-or-clementines.jpg'),
-    Incredients(
+    Ingredients(
         text: 'nectarine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/nectarines.jpg'),
-    Incredients(
+    Ingredients(
         text: 'new potatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/new-potatoes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'non-fat greek yogurt',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/filet-mignon.png'),
-    Incredients(
+    Ingredients(
         text: 'nonfat cool whip',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'nonfat milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'nori',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/nori.jpg'),
-    Incredients(
+    Ingredients(
         text: 'nut butter',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/nut-butter.png'),
-    Incredients(
+    Ingredients(
         text: 'nut meal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/coconut-milk.png'),
-    Incredients(
+    Ingredients(
         text: 'nutella',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hazelnut-chocolate-spread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'nutritional yeast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/nutritional-yeast.png'),
-    Incredients(
+    Ingredients(
         text: 'oat flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'oats',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg'),
-    Incredients(
+    Ingredients(
         text: 'oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'oil packed sun dried tomatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/canned-tuna.png'),
-    Incredients(
+    Ingredients(
         text: 'okra',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/okra.png'),
-    Incredients(
+    Ingredients(
         text: 'old bay seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'olive oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/olives-mixed.jpg'),
-    Incredients(
+    Ingredients(
         text: 'olives',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/olives-mixed.jpg'),
-    Incredients(
+    Ingredients(
         text: 'onion',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'onion powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'onion soup mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'orange',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange bell pepper',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange juice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange juice concentrate',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange liqueur',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange marmalade',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange oil',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'orange zest',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png'),
-    Incredients(
+    Ingredients(
         text: 'oregano',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oregano.jpg'),
-    Incredients(
+    Ingredients(
         text: 'oreo cookies',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oreos.png'),
-    Incredients(
+    Ingredients(
         text: 'orzo',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orzo.jpg'),
-    Incredients(
+    Ingredients(
         text: 'oyster sauce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oysters.jpg'),
-    Incredients(
+    Ingredients(
         text: 'oysters',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oysters.jpg'),
-    Incredients(
+    Ingredients(
         text: 'palm sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pancetta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pancetta.png'),
-    Incredients(
+    Ingredients(
         text: 'paneer',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/paneer.png'),
-    Incredients(
+    Ingredients(
         text: 'panko',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/panko.jpg'),
-    Incredients(
+    Ingredients(
         text: 'papaya',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/papaya.png'),
-    Incredients(
+    Ingredients(
         text: 'paprika',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bell-pepper-orange.png'),
-    Incredients(
+    Ingredients(
         text: 'parmigiano reggiano',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/parmesan.jpg'),
-    Incredients(
+    Ingredients(
         text: 'parsley',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parsley.jpg'),
-    Incredients(
+    Ingredients(
         text: 'parsley flakes',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parsley.jpg'),
-    Incredients(
+    Ingredients(
         text: 'parsnip',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parsnip.jpg'),
-    Incredients(
+    Ingredients(
         text: 'part-skim mozzarella cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ricotta.png'),
-    Incredients(
+    Ingredients(
         text: 'pasta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pasta salad mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pasta sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pastry flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pastrami.jpg'),
-    Incredients(
+    Ingredients(
         text: 'peach',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peach.png'),
-    Incredients(
+    Ingredients(
         text: 'peanut butter',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png'),
-    Incredients(
+    Ingredients(
         text: 'peanut butter chips',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png'),
-    Incredients(
+    Ingredients(
         text: 'peanut butter cups',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png'),
-    Incredients(
+    Ingredients(
         text: 'peanut oil',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png'),
-    Incredients(
+    Ingredients(
         text: 'peanuts',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png'),
-    Incredients(
+    Ingredients(
         text: 'pear liqueur',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pear-juice.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pearl barley',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pearl-onions.png'),
-    Incredients(
+    Ingredients(
         text: 'pearl onions',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pearl-onions.png'),
-    Incredients(
+    Ingredients(
         text: 'peas',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peas.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pecan',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pecans.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pecan pieces',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pecans.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pecorino',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/parmesan.jpg'),
-    Incredients(
+    Ingredients(
         text: 'penne',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/penne-pasta.jpg'),
-    Incredients(
+    Ingredients(
         text: 'peperoncino',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pepperoncini.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pepper jack cheese',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'peppercorns',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'peppermint baking chips',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'peppermint extract',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pepperoni',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'peppers',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pesto',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/basil-pesto.png'),
-    Incredients(
+    Ingredients(
         text: 'pickle relish',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dill-pickles.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pickles',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dill-pickles.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pico de gallo',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pico-de-gallo.png'),
-    Incredients(
+    Ingredients(
         text: 'pie crust',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pie-crust.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pimento stuffed olives',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pimento.png'),
-    Incredients(
+    Ingredients(
         text: 'pimientos',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pimento.png'),
-    Incredients(
+    Ingredients(
         text: 'pine nuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pine-nuts.png'),
-    Incredients(
+    Ingredients(
         text: 'pineapple',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pineapple chunks',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pineapple in juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pineapple juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pink himalayan salt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pinto beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pinto-beans.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pistachios',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pistachios.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pita',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pita-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pizza crust',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pizza mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'plain greek yogurt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'plain nonfat yogurt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'plain yogurt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'plantain',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/plantains.jpg'),
-    Incredients(
+    Ingredients(
         text: 'plum',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/plum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'plum tomatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/plum-sauce.png'),
-    Incredients(
+    Ingredients(
         text: 'poblano peppers',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/poblano-peppers.jpg'),
-    Incredients(
+    Ingredients(
         text: 'polenta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cornmeal.png'),
-    Incredients(
+    Ingredients(
         text: 'polish sausage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/smoked-sausage.png'),
-    Incredients(
+    Ingredients(
         text: 'pomegranate juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pomegranate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pomegranate molasses',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pomegranate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pomegranate seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pomegranate.jpg'),
-    Incredients(
+    Ingredients(
         text: 'popcorn',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/popcorn-kernels.jpg'),
-    Incredients(
+    Ingredients(
         text: 'poppy seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/poppyseed.png'),
-    Incredients(
+    Ingredients(
         text: 'pork',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-tenderloin-raw.png'),
-    Incredients(
+    Ingredients(
         text: 'Pork & Beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-tenderloin-raw.png'),
-    Incredients(
+    Ingredients(
         text: 'pork belly',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork butt',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork chops',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork links',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork loin chops',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork loin roast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork roast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork shoulder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pork tenderloin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'port',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/guinness.png'),
-    Incredients(
+    Ingredients(
         text: 'portabella mushrooms',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/portabello-mushrooms.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pot roast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pot-roast.jpg'),
-    Incredients(
+    Ingredients(
         text: 'potato chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png'),
-    Incredients(
+    Ingredients(
         text: 'potato starch',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png'),
-    Incredients(
+    Ingredients(
         text: 'potatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png'),
-    Incredients(
+    Ingredients(
         text: 'poultry seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.jpg'),
-    Incredients(
+    Ingredients(
         text: 'powdered sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg'),
-    Incredients(
+    Ingredients(
         text: 'pretzel sandwiches',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pretzels.jpg'),
-    Incredients(
+    Ingredients(
         text: 'processed american cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/american-cheese.jpg'),
-    Incredients(
+    Ingredients(
         text: 'prosciutto',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/proscuitto.jpg'),
-    Incredients(
+    Ingredients(
         text: 'provolone cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/provolone-slices.jpg'),
-    Incredients(
+    Ingredients(
         text: 'prunes',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/prunes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'puff pastry',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/puff-pastry.png'),
-    Incredients(
+    Ingredients(
         text: 'pumpkin',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png'),
-    Incredients(
+    Ingredients(
         text: 'pumpkin pie filling',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png'),
-    Incredients(
+    Ingredients(
         text: 'pumpkin pie spice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png'),
-    Incredients(
+    Ingredients(
         text: 'pumpkin puree',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png'),
-    Incredients(
+    Ingredients(
         text: 'pumpkin seeds',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png'),
-    Incredients(
+    Ingredients(
         text: 'queso fresco',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheez-whiz.jpg'),
-    Incredients(
+    Ingredients(
         text: 'quick cooking oats',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg'),
-    Incredients(
+    Ingredients(
         text: 'quinoa',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-quinoa.png'),
-    Incredients(
+    Ingredients(
         text: 'quinoa flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-quinoa.png'),
-    Incredients(
+    Ingredients(
         text: 'radicchio',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/radicchio.jpg'),
-    Incredients(
+    Ingredients(
         text: 'radishes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/radishes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'raisins',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/raisins.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ramen noodles',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ramen.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ranch dressing',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ranch-dressing.jpg'),
-    Incredients(
+    Ingredients(
         text: 'ranch dressing mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ranch-dressing.jpg'),
-    Incredients(
+    Ingredients(
         text: 'raspberries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raspberries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'raspberry jam',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raspberries.jpg'),
-    Incredients(
+    Ingredients(
         text: 'raw cashews',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cashews.jpg'),
-    Incredients(
+    Ingredients(
         text: 'raw shrimp',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-brown-sugar.png'),
-    Incredients(
+    Ingredients(
         text: 'ready-to-serve Asian fried rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/pie-crust.jpg'),
-    Incredients(
+    Ingredients(
         text: 'real bacon recipe pieces',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/bacon-bits.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red apples',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-delicious-apples.png'),
-    Incredients(
+    Ingredients(
         text: 'red bell peppers',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beets.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red cabbage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red chilli',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red delicious apples',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-delicious-apples.png'),
-    Incredients(
+    Ingredients(
         text: 'red food coloring',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/food-coloring.png'),
-    Incredients(
+    Ingredients(
         text: 'red grapefruit juice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red grapes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red kidney beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/kidney-beans.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red lentils',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-lentils.png'),
-    Incredients(
+    Ingredients(
         text: 'red onion',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'red pepper flakes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-plum.png'),
-    Incredients(
+    Ingredients(
         text: 'red pepper powder',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-plum.png'),
-    Incredients(
+    Ingredients(
         text: 'red potatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-plum.png'),
-    Incredients(
+    Ingredients(
         text: 'red velvet cookie',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'red wine vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'reduced fat shredded cheddar cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mayonnaise.png'),
-    Incredients(
+    Ingredients(
         text: 'refried beans',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png'),
-    Incredients(
+    Ingredients(
         text: 'refrigerated crescent rolls',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png'),
-    Incredients(
+    Ingredients(
         text: 'refrigerated pizza dough',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png'),
-    Incredients(
+    Ingredients(
         text: 'refrigerated sugar cookie dough',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png'),
-    Incredients(
+    Ingredients(
         text: 'rhubarb',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rhubarb.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rib tips',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/no.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/uncooked-white-rice.png'),
-    Incredients(
+    Ingredients(
         text: 'rice flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice krispies cereal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice milk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice noodles',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice paper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice syrup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'rice wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'ricotta salata',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ricotta.png'),
-    Incredients(
+    Ingredients(
         text: 'ritz crackers',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/crackers.jpg'),
-    Incredients(
+    Ingredients(
         text: 'roast beef',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg'),
-    Incredients(
+    Ingredients(
         text: 'roasted chicken',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg'),
-    Incredients(
+    Ingredients(
         text: 'roasted nuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg'),
-    Incredients(
+    Ingredients(
         text: 'roasted peanuts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg'),
-    Incredients(
+    Ingredients(
         text: 'roasted red peppers',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg'),
-    Incredients(
+    Ingredients(
         text: 'roma tomatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/roma-tomatoes.png'),
-    Incredients(
+    Ingredients(
         text: 'romaine lettuce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/romaine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'root vegetables',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rosemary',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rosemary.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rotisserie chicken',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rotisserie-chicken.png'),
-    Incredients(
+    Ingredients(
         text: 'round steak',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/round-steak.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rub',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'rum extract',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vanilla-extract.jpg'),
-    Incredients(
+    Ingredients(
         text: 'runny honey',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png'),
-    Incredients(
+    Ingredients(
         text: 'russet potatoes',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/russet-or-idaho-potatoes.png'),
-    Incredients(
+    Ingredients(
         text: 'rutabaga',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/rutabaga.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rye bread',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beer.jpg'),
-    Incredients(
+    Ingredients(
         text: 'rye meal',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg'),
-    Incredients(
+    Ingredients(
         text: 'saffron threads',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/saffron.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'sage leaves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/fresh-sage.png'),
-    Incredients(
+    Ingredients(
         text: 'salad dressing',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg'),
-    Incredients(
+    Ingredients(
         text: 'salami',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salami.jpg'),
-    Incredients(
+    Ingredients(
         text: 'salmon fillet',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salmon.png'),
-    Incredients(
+    Ingredients(
         text: 'salsa',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salsa.png'),
-    Incredients(
+    Ingredients(
         text: 'salsa verde',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salsa.png'),
-    Incredients(
+    Ingredients(
         text: 'salt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salt.jpg'),
-    Incredients(
+    Ingredients(
         text: 'salt and pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cod-fillet.jpg'),
-    Incredients(
+    Ingredients(
         text: 'salted butter',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/butter.jpg'),
-    Incredients(
+    Ingredients(
         text: 'saltine crackers',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/saltine-crackers.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sandwich bun',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/kaiser-roll.png'),
-    Incredients(
+    Ingredients(
         text: 'sauerkraut',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sour-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sausage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-pork-sausage.png'),
-    Incredients(
+    Ingredients(
         text: 'sausage links',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-pork-sausage.png'),
-    Incredients(
+    Ingredients(
         text: 'scotch bonnet chili',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whiskey-bottle.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sea salt',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'sea scallops',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'seasoned bread crumbs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'seasoned rice vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'seasoned salt',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'seasoning',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'seasoning blend',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png'),
-    Incredients(
+    Ingredients(
         text: 'seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sunflower-seeds.jpg'),
-    Incredients(
+    Ingredients(
         text: 'self-rising flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'semi sweet chocolate chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chocolate-chips.jpg'),
-    Incredients(
+    Ingredients(
         text: 'serrano chile',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/proscuitto.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sesame oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sesame-seeds.png'),
-    Incredients(
+    Ingredients(
         text: 'sesame seed hamburger buns',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sesame-seeds.png'),
-    Incredients(
+    Ingredients(
         text: 'sesame seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sesame-seeds.png'),
-    Incredients(
+    Ingredients(
         text: 'shallot',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shallots.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sharp cheddar cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'sheeps milk cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shells',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shell-pasta.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sherry',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png'),
-    Incredients(
+    Ingredients(
         text: 'sherry',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png'),
-    Incredients(
+    Ingredients(
         text: 'sherry vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png'),
-    Incredients(
+    Ingredients(
         text: 'shiitake mushroom caps',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shiitake-mushrooms.png'),
-    Incredients(
+    Ingredients(
         text: 'short grain rice',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg'),
-    Incredients(
+    Ingredients(
         text: 'short pasta',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg'),
-    Incredients(
+    Ingredients(
         text: 'short ribs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg'),
-    Incredients(
+    Ingredients(
         text: 'shortbread cookies',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg'),
-    Incredients(
+    Ingredients(
         text: 'shortcrust pastry',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg'),
-    Incredients(
+    Ingredients(
         text: 'shortening',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg'),
-    Incredients(
+    Ingredients(
         text: 'shredded cheddar cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shredded cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shredded chicken',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shredded coconut',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shredded mexican cheese blend',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shredded mexican cheese blend',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'shredded mozzarella',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'silken tofu',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tofu.png'),
-    Incredients(
+    Ingredients(
         text: 'sirloin steak',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sirloin-steak.png'),
-    Incredients(
+    Ingredients(
         text: 'skim milk ricotta',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'skim vanilla greek yogurt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'skin-on bone-in chicken leg quarters',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chicken-drumsticks.jpg'),
-    Incredients(
+    Ingredients(
         text: 'skinless boneless chicken breast halves',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chicken-thighs.png'),
-    Incredients(
+    Ingredients(
         text: 'skinless boneless chicken thighs',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chicken-thighs.png'),
-    Incredients(
+    Ingredients(
         text: 'skinned black gram',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/urad-dal.png'),
-    Incredients(
+    Ingredients(
         text: 'slaw dressing',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/coleslaw.png'),
-    Incredients(
+    Ingredients(
         text: 'slaw mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/coleslaw.png'),
-    Incredients(
+    Ingredients(
         text: 'slivered almonds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/almonds-slivered.png'),
-    Incredients(
+    Ingredients(
         text: 'smoked paprika',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg'),
-    Incredients(
+    Ingredients(
         text: 'smoked salmon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg'),
-    Incredients(
+    Ingredients(
         text: 'smoked sausage',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg'),
-    Incredients(
+    Ingredients(
         text: 'smooth peanut butter',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/peanut-butter.png'),
-    Incredients(
+    Ingredients(
         text: 'snapper fillets',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/snapper.jpg'),
-    Incredients(
+    Ingredients(
         text: 'snow peas',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/snow-peas.jpg'),
-    Incredients(
+    Ingredients(
         text: 'soda water',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sparkling-water.png'),
-    Incredients(
+    Ingredients(
         text: 'sour cream',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png'),
-    Incredients(
+    Ingredients(
         text: 'sourdough bowl',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sourdough-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sourdough bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sourdough-bread.jpg'),
-    Incredients(
+    Ingredients(
         text: 'soy milk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soy-milk.jpg'),
-    Incredients(
+    Ingredients(
         text: 'soy protein powder',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/okara.png'),
-    Incredients(
+    Ingredients(
         text: 'soy sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'spaghetti',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/spaghetti.jpg'),
-    Incredients(
+    Ingredients(
         text: 'spaghetti squash',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/spaghetti.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sparkling wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/champagne.png'),
-    Incredients(
+    Ingredients(
         text: 'spelt flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/farro-or-spelt.jpg'),
-    Incredients(
+    Ingredients(
         text: 'spicy brown mustard',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg'),
-    Incredients(
+    Ingredients(
         text: 'spinach',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/spinach.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sprite',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sprouts',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/alfalfa-sprouts.png'),
-    Incredients(
+    Ingredients(
         text: 'squash',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/butternut-squash.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sriracha sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/hot-sauce-or-tabasco.png'),
-    Incredients(
+    Ingredients(
         text: 'steaks',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/ribeye-raw.jpg'),
-    Incredients(
+    Ingredients(
         text: 'steel cut oats',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/steel-cut-oats.png'),
-    Incredients(
+    Ingredients(
         text: 'stevia',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/stevia.png'),
-    Incredients(
+    Ingredients(
         text: 'stew meat',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.png'),
-    Incredients(
+    Ingredients(
         text: 'stew vegetables',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.png'),
-    Incredients(
+    Ingredients(
         text: 'stock',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/chicken-broth.png'),
-    Incredients(
+    Ingredients(
         text: 'store-bought phyllo',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/filo-dough.png'),
-    Incredients(
+    Ingredients(
         text: 'stout',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/guinness.png'),
-    Incredients(
+    Ingredients(
         text: 'strawberries',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/strawberries.png'),
-    Incredients(
+    Ingredients(
         text: 'strawberry jam',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/strawberries.png'),
-    Incredients(
+    Ingredients(
         text: 'strawberry jello',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/strawberries.png'),
-    Incredients(
+    Ingredients(
         text: 'stuffing',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stuffing-mix.png'),
-    Incredients(
+    Ingredients(
         text: 'stuffing mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/stuffing-mix.png'),
-    Incredients(
+    Ingredients(
         text: 'sub rolls',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/french-rolls.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png'),
-    Incredients(
+    Ingredients(
         text: 'sugar snap peas',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png'),
-    Incredients(
+    Ingredients(
         text: 'sugar syrup',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png'),
-    Incredients(
+    Ingredients(
         text: 'sukrin sweetener',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sugar-substitute.jpg'),
-    Incredients(
+    Ingredients(
         text: 'summer savory',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yellow-squash.jpg'),
-    Incredients(
+    Ingredients(
         text: 'summer squash',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yellow-squash.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sunflower oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sunflower seeds',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'sweet chilli sauce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweet onion',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweet paprika',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweet pickle juice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweet pickle relish',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweet potato',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweet tea',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweetened coconut',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweetened condensed milk',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'sweetened shredded coconut',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png'),
-    Incredients(
+    Ingredients(
         text: 'swiss chard',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/swiss-chard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'swiss cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/swiss-chard.jpg'),
-    Incredients(
+    Ingredients(
         text: 'taco seasoning mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/taco-shells.jpg'),
-    Incredients(
+    Ingredients(
         text: 'taco shells',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/taco-shells.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tahini',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tahini-paste.png'),
-    Incredients(
+    Ingredients(
         text: 'tamari',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tamarind.png'),
-    Incredients(
+    Ingredients(
         text: 'tapioca flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/sago-pearls.png'),
-    Incredients(
+    Ingredients(
         text: 'tarragon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tarragon.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tart apple',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/grannysmith-apple.png'),
-    Incredients(
+    Ingredients(
         text: 'tea bags',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tequila',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tequila.png'),
-    Incredients(
+    Ingredients(
         text: 'teriyaki sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'thai basil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/lemon-basil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'thai chiles',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/lemon-basil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'thai red curry paste',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/lemon-basil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'thick-cut bacon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png'),
-    Incredients(
+    Ingredients(
         text: 'tilapia fillets',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-tilapia.jpg'),
-    Incredients(
+    Ingredients(
         text: 'toast',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/toast.jpg'),
-    Incredients(
+    Ingredients(
         text: 'toffee bits',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/toffee-pieces.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tofu',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/beancurd-sheets.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tomatillos',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'tomato juice',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'tomato paste',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'tomato puree',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'tomato sauce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'tomato soup',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'tomatoes',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png'),
-    Incredients(
+    Ingredients(
         text: 'top blade steak',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/blade-steak.png'),
-    Incredients(
+    Ingredients(
         text: 'top round steak',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/round-steak.jpg'),
-    Incredients(
+    Ingredients(
         text: 'Top Sirloin',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/top-sirloin-steak.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tortilla',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/flour-tortilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tortilla chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/flour-tortilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'triple sec',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg'),
-    Incredients(
+    Ingredients(
         text: 'truffle oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/truffle-oil.jpg'),
-    Incredients(
+    Ingredients(
         text: 'tuna',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/canned-tuna.png'),
-    Incredients(
+    Ingredients(
         text: 'turbinado sugar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/raw-brown-sugar.png'),
-    Incredients(
+    Ingredients(
         text: 'turkey',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/turkey-raw-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'turkey breast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/turkey-raw-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'turkey kielbasa',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/turkey-raw-whole.jpg'),
-    Incredients(
+    Ingredients(
         text: 'turmeric',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/turmeric.jpg'),
-    Incredients(
+    Ingredients(
         text: 'turnips',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/turnips.png'),
-    Incredients(
+    Ingredients(
         text: 'unbleached flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png'),
-    Incredients(
+    Ingredients(
         text: 'unsalted butter',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/butter-sliced.jpg'),
-    Incredients(
+    Ingredients(
         text: 'unsmoked back bacon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/canadian-bacon.png'),
-    Incredients(
+    Ingredients(
         text: 'unsweetened applesauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'unsweetened coconut milk',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'unsweetened shredded coconut',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png'),
-    Incredients(
+    Ingredients(
         text: 'vanilla bean',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla bean paste',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla essence',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla extract',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla frosting',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla instant pudding mix',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla protein powder',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla wafers',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vanilla yogurt',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vegan cheese',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'vegan chocolate chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'vegan margarine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png'),
-    Incredients(
+    Ingredients(
         text: 'vegetable broth',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-vegetables.png'),
-    Incredients(
+    Ingredients(
         text: 'vegetable oil',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-vegetables.png'),
-    Incredients(
+    Ingredients(
         text: 'vegetarian bacon',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/mixed-vegetables.png'),
-    Incredients(
+    Ingredients(
         text: 'vermouth',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vermouth.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vinaigrette',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinaigrette.jpg'),
-    Incredients(
+    Ingredients(
         text: 'vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg'),
-    Incredients(
+    Ingredients(
         text: 'vodka',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vodka.jpg'),
-    Incredients(
+    Ingredients(
         text: 'walnuts',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/walnuts.jpg'),
-    Incredients(
+    Ingredients(
         text: 'water',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png'),
-    Incredients(
+    Ingredients(
         text: 'water chestnuts',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png'),
-    Incredients(
+    Ingredients(
         text: 'water-packed tuna',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png'),
-    Incredients(
+    Ingredients(
         text: 'watercress',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png'),
-    Incredients(
+    Ingredients(
         text: 'watermelon chunks',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png'),
-    Incredients(
+    Ingredients(
         text: 'wheat bran',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/wheat-germ.png'),
-    Incredients(
+    Ingredients(
         text: 'wheat germ',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/wheat-germ.png'),
-    Incredients(
+    Ingredients(
         text: 'whipped cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whipped-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'whipped topping',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whipped-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'whipping cream',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whipped-cream.jpg'),
-    Incredients(
+    Ingredients(
         text: 'whiskey',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/whiskey-bottle.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white balsamic vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white bread',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white cake mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white cheddar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white chocolate',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white chocolate chips',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white onion',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white whole wheat flour',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'white wine vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'whole allspice berries',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole chicken',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole coriander seeds',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole cranberry sauce',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole kernel corn',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole star anise',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole wheat bread',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole wheat flour',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole wheat tortillas',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'whole-grain mustard',
         imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png'),
-    Incredients(
+    Ingredients(
         text: 'wine',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg'),
-    Incredients(
+    Ingredients(
         text: 'wine vinegar',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg'),
-    Incredients(
+    Ingredients(
         text: 'winter squash',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/butternut-squash.jpg'),
-    Incredients(
+    Ingredients(
         text: 'won ton wraps',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/wonton-wrappers.jpg'),
-    Incredients(
+    Ingredients(
         text: 'worcestershire sauce',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg'),
-    Incredients(
+    Ingredients(
         text: 'wraps',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/flour-tortilla.jpg'),
-    Incredients(
+    Ingredients(
         text: 'xanthan gum',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/white-powder.jpg'),
-    Incredients(
+    Ingredients(
         text: 'yeast',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg'),
-    Incredients(
+    Ingredients(
         text: 'yellow bell pepper',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'yellow cake mix',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'yellow onion',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png'),
-    Incredients(
+    Ingredients(
         text: 'yogurt',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/plain-yogurt.jpg'),
-    Incredients(
+    Ingredients(
         text: 'yukon gold potato',
         imageUrl:
             'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png'),
   ];
-  UnmodifiableListView get incredients {
-    return UnmodifiableListView(_incredients);
+  UnmodifiableListView get ingredients {
+    return UnmodifiableListView(_ingredients);
   }
 
-  void checkBoxToggler(Incredients incredients) {
-    incredients.toggleCheckBox();
+  void checkBoxToggler(Ingredients ingredients) {
+    ingredients.toggleCheckBox();
   }
 }
