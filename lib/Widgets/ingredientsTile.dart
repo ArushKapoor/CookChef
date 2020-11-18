@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
-class IncredientTile extends StatelessWidget {
-  IncredientTile(
-      {this.imageUrl, this.text, this.toggleCallback, this.isChecked});
+class IngredientTile extends StatelessWidget {
+  IngredientTile(
+      {this.imageUrl,
+      this.text,
+      this.toggleCallback,
+      this.isChecked,
+      this.isSelectedIngredient});
   final String imageUrl;
   final String text;
   final toggleCallback;
   final isChecked;
+  final isSelectedIngredient;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,15 +34,19 @@ class IncredientTile extends StatelessWidget {
             flex: 1,
             child: Text(text),
           ),
-          GestureDetector(
-            onTap: toggleCallback,
-            child: isChecked
-                ? Icon(
-                    Icons.check_circle,
-                    color: Colors.green,
-                  )
-                : Icon(Icons.check_circle_outline),
-          ),
+          isSelectedIngredient == false
+              ? GestureDetector(
+                  onTap: toggleCallback,
+                  child: isChecked
+                      ? Icon(
+                          Icons.check_circle,
+                          color: Colors.green,
+                        )
+                      : Icon(Icons.check_circle_outline),
+                )
+              : GestureDetector(
+                  child: Icon(Icons.remove_circle_outline),
+                ),
         ],
       ),
     );

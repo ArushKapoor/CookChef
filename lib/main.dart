@@ -11,6 +11,8 @@ import 'Auth/AuthenticationService.dart';
 import 'package:cook_chef/Screens/SignIn.dart';
 import 'package:cook_chef/Screens/SignUp.dart';
 
+import 'Screens/SelectedIngredientsPage.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -40,6 +42,7 @@ class MyApp extends StatelessWidget {
           HomePage.id: (context) => HomePage(),
           AccountSearchPage.id: (context) => AccountSearchPage(),
           RecipesPage.id: (context) => RecipesPage(),
+          SelectedIngredientsPage.id: (context) => SelectedIngredientsPage(),
           NotificationsPage.id: (context) => NotificationsPage(),
           AccountPage.id: (context) => AccountPage(),
           AuthenticationWrapper.id: (context) => AuthenticationWrapper(),

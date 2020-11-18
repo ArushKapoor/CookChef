@@ -3,6 +3,7 @@ import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/RecipesPage.dart';
+import 'package:cook_chef/Screens/SelectedIngredientsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -40,7 +41,19 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, AccountSearchPage.id);
               },
-            )
+            ),
+          if (currentIndex == 1)
+            Container(
+              margin: EdgeInsets.only(right: 10.0),
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, SelectedIngredientsPage.id);
+                  },
+                  child: Text('Next'),
+                ),
+              ),
+            ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
