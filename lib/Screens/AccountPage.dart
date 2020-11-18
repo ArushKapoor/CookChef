@@ -68,6 +68,7 @@ class _AccountPageState extends State<AccountPage> {
                 RaisedButton(
                   onPressed: () {
                     context.read<AuthenticationService>().signOut();
+                    Navigator.pop(context);
                   },
                   child: Icon(Icons.cancel_outlined),
                 ),
