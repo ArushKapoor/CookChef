@@ -4,10 +4,15 @@ class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
   AuthenticationService(this._firebaseAuth);
   Stream<User> get authCredentialChanges => _firebaseAuth.idTokenChanges();
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+  }
+
   Future<String> signUp({String email, String password}) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
+      UserCredential user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      await user.user.sendEmailVerification();
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -18,13 +23,13 @@ class AuthenticationService {
     } catch (e) {
       print(e);
     }
+    return "Signed Up";
   }
 
   Future<String> signIn({String email, String password}) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      return "Signed In";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -32,5 +37,6 @@ class AuthenticationService {
         print('Wrong password provided for that user.');
       }
     }
+    return "Signed In";
   }
 }

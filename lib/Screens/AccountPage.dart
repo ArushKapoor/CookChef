@@ -1,5 +1,7 @@
+import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AccountPage extends StatefulWidget {
   static const String id = 'account_page';
@@ -62,6 +64,12 @@ class _AccountPageState extends State<AccountPage> {
                 Container(
                   margin: EdgeInsets.all(8.0),
                   child: Text('account_name'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    context.read<AuthenticationService>().signOut();
+                  },
+                  child: Icon(Icons.cancel_outlined),
                 ),
                 SizedBox(
                   height: 5,

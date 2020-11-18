@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 
-class IncredientTile extends StatefulWidget {
-  IncredientTile({this.image, this.text, this.toggleCallback});
-  final AssetImage image;
+class IncredientTile extends StatelessWidget {
+  IncredientTile(
+      {this.imageUrl, this.text, this.toggleCallback, this.isChecked});
+  final String imageUrl;
   final String text;
   final toggleCallback;
-
-  @override
-  _IncredientTileState createState() => _IncredientTileState();
-}
-
-class _IncredientTileState extends State<IncredientTile> {
-  bool isChecked = false;
+  final isChecked;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +18,7 @@ class _IncredientTileState extends State<IncredientTile> {
             backgroundColor: Colors.black,
             child: CircleAvatar(
               radius: 25,
-              backgroundImage: AssetImage('assets/images/allspice.jpeg'),
+              backgroundImage: NetworkImage(imageUrl),
             ),
           ),
           SizedBox(
@@ -31,14 +26,10 @@ class _IncredientTileState extends State<IncredientTile> {
           ),
           Expanded(
             flex: 1,
-            child: Text('Ohh Spice'),
+            child: Text(text),
           ),
           GestureDetector(
-            onTap: () {
-              setState(() {
-                isChecked = !isChecked;
-              });
-            },
+            onTap: toggleCallback,
             child: isChecked
                 ? Icon(
                     Icons.check_circle,

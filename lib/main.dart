@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'Auth/AuthenticationService.dart';
+import 'package:cook_chef/Screens/SignIn.dart';
+import 'package:cook_chef/Screens/SignUp.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,11 +42,27 @@ class MyApp extends StatelessWidget {
           RecipesPage.id: (context) => RecipesPage(),
           NotificationsPage.id: (context) => NotificationsPage(),
           AccountPage.id: (context) => AccountPage(),
+          AuthenticationWrapper.id: (context) => AuthenticationWrapper(),
+          Login.id: (context) => Login(),
+          SignUpPage.id: (context) => SignUpPage(),
         },
 
         /* Setting the initial route */
-        initialRoute: HomePage.id,
+        initialRoute: AuthenticationWrapper.id,
       ),
     );
+  }
+}
+
+class AuthenticationWrapper extends StatelessWidget {
+  static final id = 'wrapper';
+  @override
+  Widget build(BuildContext context) {
+    User user = context.watch<User>();
+    if (user != null) {
+      return HomePage();
+    } else {
+      return Login();
+    }
   }
 }

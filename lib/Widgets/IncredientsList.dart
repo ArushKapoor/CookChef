@@ -7,35 +7,42 @@ class IncredientsList extends StatefulWidget {
   _IncredientsListState createState() => _IncredientsListState();
 }
 
-List incredients = [
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
-  // Incredients(text: 'Hello', image: AssetImage('assets/images/allspice.jpeg')),
+List<Incredients> incredients = [
+  Incredients(
+      text: 'Apple',
+      imageUrl: 'https://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
+  Incredients(
+      text: 'Apple',
+      imageUrl: 'https://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
+  Incredients(
+      text: 'Apple',
+      imageUrl: 'https://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
+  Incredients(
+      text: 'Apple',
+      imageUrl: 'https://spoonacular.com/cdn/ingredients_100x100/apple.jpg'),
+  Incredients(
+      text: 'Apple',
+      imageUrl: 'https://spoonacular.com/cdn/ingredients_100x100/lobster.jpg'),
 ];
 
 class _IncredientsListState extends State<IncredientsList> {
   @override
   Widget build(BuildContext context) {
-    print(incredients.length);
-
-    final incredient = Incredients();
-    incredients.add(incredient);
-    print(incredients);
-    return ListView(
-      children: [
-        IncredientTile(),
-        IncredientTile(),
-        IncredientTile(),
-        IncredientTile(),
-        IncredientTile(),
-        IncredientTile(),
-      ],
-
-      //print(incredientsData.incredients[0].text);
+    return ListView.builder(
+      itemCount: incredients.length,
+      itemBuilder: (context, index) {
+        final incredient = incredients[index];
+        return IncredientTile(
+          text: incredient.text,
+          imageUrl: incredient.imageUrl,
+          isChecked: incredient.isChecked,
+          toggleCallback: () {
+            setState(() {
+              incredient.toggleCheckBox();
+            });
+          },
+        );
+      },
     );
   }
 }

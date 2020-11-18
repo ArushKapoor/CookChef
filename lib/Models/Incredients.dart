@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-
 class Incredients {
   String text;
   bool isChecked;
-  //AssetImage image;
-  Incredients({String text, bool isChecked = false});
+  String imageUrl;
+  Incredients({this.text, this.isChecked = false, this.imageUrl});
 
   void toggleCheckBox() {
     isChecked = !isChecked;

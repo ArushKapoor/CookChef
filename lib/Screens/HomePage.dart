@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
+  //NetworkingHelper networkingHelper = NetworkingHelper();
 
   final tabs = [
     FeedPage(),
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */
       appBar: AppBar(
