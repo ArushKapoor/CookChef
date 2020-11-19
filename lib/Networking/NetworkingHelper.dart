@@ -2,19 +2,17 @@ import 'package:cook_chef/Apis/Apis.dart';
 import 'Networking.dart';
 
 class NetworkingHelper {
-  NetworkingHelper({this.ingredients, this.recipeId});
   String api = Apis.spoonacularApi;
   String mainUrlPart = 'https://api.spoonacular.com/recipes/';
-  String recipeId;
-  String ingredients;
+
   Networking _networking = Networking();
 
-  Future<void> recipeByIngredient() async {
-    await _networking.getData(
+  Future<dynamic> recipeByIngredient(String ingredients) async {
+    return await _networking.getData(
         '$mainUrlPart/findByIngredients?apiKey=$api&ingredients=$ingredients');
   }
 
-  Future<void> recipe() async {
+  Future<void> recipe(String recipeId) async {
     await _networking.getData('$mainUrlPart/$recipeId/information&apiKey=$api');
   }
 }

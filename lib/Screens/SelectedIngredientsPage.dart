@@ -1,4 +1,5 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
+import 'package:cook_chef/Models/RecipeHandler.dart';
 import 'package:cook_chef/Screens/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class SelectedIngredientsPage extends StatefulWidget {
 class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   int currentIndex = 1;
   bool hasTapped = false;
-
+  RecipeHandler recipeHandler = RecipeHandler();
   final tabs = [
     HomePage(),
     RecipesPage(),
@@ -147,7 +148,14 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                         Container(
                           margin: EdgeInsets.symmetric(vertical: 20.0),
                           child: GestureDetector(
-                            onTap: () {
+                            onTap: () async {
+                              final ingredients = context
+                                  .read<IngredientsHandler>()
+                                  .selectedIngredients[0]
+                                  .text;
+
+                              print(await recipeHandler
+                                  .recipeFromIngredients(ingredients));
                               Navigator.pushNamed(context, ViewRecipesPage.id);
                             },
                             child: Text('View Recipe'),
