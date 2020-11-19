@@ -1,15 +1,13 @@
+import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:cook_chef/Widgets/IngredientsList.dart';
-
+import 'package:provider/provider.dart';
 import 'AccountPage.dart';
-import 'AccountSearchPage.dart';
-import 'FeedPage.dart';
 import 'HomePage.dart';
 import 'NotificationsPage.dart';
-import 'RecipesPage.dart';
+import 'IncredientsPage.dart';
 
 class SelectedIngredientsPage extends StatefulWidget {
   static const String id = 'selected_ingredients_page';
@@ -91,24 +89,34 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                 children: <Widget>[
                   Expanded(
                     child: ListView.builder(
-                        itemCount: selectedIngredients.length,
+                        itemCount: context
+                            .watch<IngredientsHandler>()
+                            .selectedIngredients
+                            .length,
                         itemBuilder: (context, index) {
-                          final ingredient = selectedIngredients[index];
+                          final ingredient = context
+                              .watch<IngredientsHandler>()
+                              .selectedIngredients[index];
                           return IngredientTile(
                             text: ingredient.text,
                             imageUrl: ingredient.imageUrl,
                             isChecked: false,
                             isSelectedIngredient: true,
                             toggleCallback: () {
-                              int i = ingredientsHandler.ingredients
+                              int i = context
+                                  .read<IngredientsHandler>()
+                                  .ingredients
                                   .indexOf(ingredient);
-                              final ingredient_1 =
-                                  ingredientsHandler.ingredients[i];
-                              setState(() {
-                                selectedIngredients.remove(ingredient);
-                                ingredientsHandler
-                                    .checkBoxToggler(ingredient_1);
-                              });
+                              final ingredient_1 = context
+                                  .read<IngredientsHandler>()
+                                  .ingredients[i];
+                              Provider.of<IngredientsHandler>(context,
+                                      listen: false)
+                                  .removeSelectedIngredient(ingredient);
+
+                              Provider.of<IngredientsHandler>(context,
+                                      listen: false)
+                                  .checkBoxToggler(ingredient_1);
                             },
                           );
                         }),

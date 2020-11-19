@@ -1,5 +1,3 @@
-import 'package:cook_chef/Screens/MakeRecipePage.dart';
-import 'package:cook_chef/Screens/RecipesPage.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/SignUp.dart';

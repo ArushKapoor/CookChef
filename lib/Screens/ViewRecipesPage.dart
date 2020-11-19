@@ -1,11 +1,10 @@
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'IncredientsPage.dart';
 import 'AccountPage.dart';
 import 'HomePage.dart';
 import 'NotificationsPage.dart';
-import 'RecipesPage.dart';
 
 class ViewRecipesPage extends StatefulWidget {
   static const String id = 'view_recipes_page';

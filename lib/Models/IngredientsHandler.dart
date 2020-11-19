@@ -1,8 +1,10 @@
 import 'dart:collection';
 
+import 'package:flutter/cupertino.dart';
+
 import 'Ingredients.dart';
 
-class IngredientsHandler {
+class IngredientsHandler extends ChangeNotifier {
   List<Ingredients> _ingredients = [
     Ingredients(
         text: '5 spice powder',
@@ -3574,5 +3576,18 @@ class IngredientsHandler {
 
   void checkBoxToggler(Ingredients ingredients) {
     ingredients.toggleCheckBox();
+    notifyListeners();
   }
+
+  void addSelectedIngredient(Ingredients ingredient) {
+    selectedIngredients.add(ingredient);
+    notifyListeners();
+  }
+
+  void removeSelectedIngredient(Ingredients ingredient) {
+    selectedIngredients.remove(ingredient);
+    notifyListeners();
+  }
+
+  List<Ingredients> selectedIngredients = [];
 }

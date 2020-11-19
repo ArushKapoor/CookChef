@@ -8,11 +8,18 @@ class AuthenticationService {
     await _firebaseAuth.signOut();
   }
 
+  FirebaseAuth emailVerification() {
+    return _firebaseAuth;
+  }
+
   Future<String> signUp({String email, String password}) async {
     try {
       UserCredential user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      await user.user.sendEmailVerification();
+
+      if (!_firebaseAuth.currentUser.emailVerified) {
+        await _firebaseAuth.currentUser.sendEmailVerification();
+      }
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

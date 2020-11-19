@@ -1,10 +1,10 @@
+import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
-import 'package:cook_chef/Screens/RecipesPage.dart';
-import 'package:cook_chef/Screens/ViewRecipesPage.dart';
+import 'package:cook_chef/Screens/IncredientsPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'Auth/AuthenticationService.dart';
 import 'package:cook_chef/Screens/SignIn.dart';
 import 'package:cook_chef/Screens/SignUp.dart';
-
+import 'Screens/ViewRecipesPage.dart';
 import 'Screens/SelectedIngredientsPage.dart';
 
 Future<void> main() async {
@@ -33,7 +33,10 @@ class MyApp extends StatelessWidget {
         StreamProvider(
           create: (context) =>
               context.read<AuthenticationService>().authCredentialChanges,
-        )
+        ),
+        ChangeNotifierProvider<IngredientsHandler>(
+          create: (_) => IngredientsHandler(),
+        ),
       ],
       child: MaterialApp(
         /* To remove the debug banner in the top right */
@@ -66,7 +69,9 @@ class AuthenticationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User user = context.watch<User>();
-    if (user != null) {
+    User auth = FirebaseAuth.instance.currentUser;
+
+    if (user != null && auth.emailVerified) {
       return HomePage();
     } else {
       return Login();
