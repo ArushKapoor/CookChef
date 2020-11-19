@@ -1,10 +1,12 @@
+import 'package:cook_chef/Screens/MakeRecipePage.dart';
+import 'package:cook_chef/Screens/RecipesPage.dart';
 import 'package:provider/provider.dart';
-
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
+import 'Animation/FadeAnimation.dart';
 
 class Login extends StatefulWidget {
   static final id = 'login';
@@ -16,166 +18,190 @@ class _LoginViewState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-
+  String email, password;
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context);
-
-    final emailField = TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(
-        color: Colors.white,
-      ),
-      cursorColor: Colors.white,
-      decoration: InputDecoration(
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-        ),
-        hintText: "something@example.com",
-        labelText: "Email",
-        labelStyle: TextStyle(
-          color: Colors.white,
-        ),
-        hintStyle: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-    );
-
-    final passwordField = Column(
-      children: <Widget>[
-        TextFormField(
-          obscureText: true,
-          controller: _passwordController,
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          cursorColor: Colors.white,
-          decoration: InputDecoration(
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.white,
-              ),
-            ),
-            hintText: "password",
-            labelText: "Password",
-            labelStyle: TextStyle(
-              color: Colors.white,
-            ),
-            hintStyle: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(2.0),
-        ),
-      ],
-    );
-
-    final fields = Padding(
-      padding: EdgeInsets.only(top: 10.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          emailField,
-          passwordField,
-        ],
-      ),
-    );
-
-    final loginButton = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(25.0),
-      color: Colors.white,
-      child: MaterialButton(
-        minWidth: mq.size.width / 1.2,
-        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-        child: Text(
-          "Login",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        onPressed: () async {
-          try {
-            context.read<AuthenticationService>().signIn(
-                email: _emailController.text,
-                password: _passwordController.text);
-            User user = FirebaseAuth.instance.currentUser;
-            if (user != null && user.emailVerified) {
-              Navigator.of(context).pushNamed(HomePage.id);
-            }
-          } catch (e) {
-            print(e);
-            _emailController.text = "";
-            _passwordController.text = "";
-          }
-        },
-      ),
-    );
-
-    final bottom = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        loginButton,
-        Padding(
-          padding: EdgeInsets.all(8.0),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              "Not a member?",
-              style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: Colors.white,
-                  ),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(SignUpPage.id);
-              },
-              child: Text(
-                "Sign Up",
-                style: Theme.of(context).textTheme.subtitle1.copyWith(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                    ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xff8c52ff),
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(36),
-          child: Container(
-            height: mq.size.height,
+        backgroundColor: Colors.white,
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                fields,
-                Padding(
-                  padding: EdgeInsets.only(bottom: 150),
-                  child: bottom,
+                Container(
+                  height: 350,
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        top: 30,
+                        height: 250,
+                        width: width,
+                        child: FadeAnimation(
+                            1,
+                            Container(
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/back.jpeg'),
+                                        fit: BoxFit.fill)),
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: width * 0.3, left: width * 0.2),
+                                  child: Text('Welcome Back!',
+                                      style: TextStyle(
+                                          fontSize: 24,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold)),
+                                ))),
+                      ),
+                    ],
+                  ),
                 ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      FadeAnimation(
+                        1.5,
+                        Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Color.fromRGBO(49, 39, 79, 1),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      FadeAnimation(
+                          1.7,
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.green[100],
+                                    blurRadius: 20,
+                                    offset: Offset(0, 10),
+                                  )
+                                ]),
+                            child: Column(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      border: Border(
+                                          bottom: BorderSide(
+                                              color: Colors.grey[200]))),
+                                  child: TextField(
+                                    controller: _emailController,
+                                    keyboardType: TextInputType.emailAddress,
+                                    cursorColor: Colors.green,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "something@example.com",
+                                        labelText: 'E-mail',
+                                        labelStyle:
+                                            TextStyle(color: Colors.grey),
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey)),
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  child: TextField(
+                                    obscureText: true,
+                                    controller: _passwordController,
+                                    cursorColor: Colors.green,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "Password",
+                                        labelText: 'Password',
+                                        labelStyle:
+                                            TextStyle(color: Colors.grey),
+                                        hintStyle:
+                                            TextStyle(color: Colors.grey)),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      FadeAnimation(
+                          1.7,
+                          MaterialButton(
+                              onPressed: () async {},
+                              child: Center(
+                                  child: Text(
+                                "Forgot Password?",
+                                style: TextStyle(color: Colors.green),
+                              )))),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      FadeAnimation(
+                        1.9,
+                        MaterialButton(
+                            onPressed: () async {
+                              try {
+                                context.read<AuthenticationService>().signIn(
+                                    email: _emailController.text,
+                                    password: _passwordController.text);
+                                User user = FirebaseAuth.instance.currentUser;
+                                if (user != null && user.emailVerified) {
+                                  Navigator.of(context).pushNamed(HomePage.id);
+                                }
+                              } catch (e) {
+                                print(e);
+                                _emailController.text = "";
+                                _passwordController.text = "";
+                              }
+                            },
+                            child: Container(
+                              height: 50,
+                              margin: EdgeInsets.symmetric(horizontal: 60),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Color(0xff006043),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      FadeAnimation(
+                          2,
+                          MaterialButton(
+                            child: Center(
+                              child: Text(
+                                "Create Account",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(49, 39, 79, .6)),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(SignUpPage.id);
+                            },
+                          )),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
