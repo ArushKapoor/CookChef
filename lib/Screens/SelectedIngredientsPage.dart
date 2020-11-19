@@ -28,6 +28,17 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
     AccountPage(),
   ];
 
+  String text;
+
+  void createText(BuildContext context) {
+    text = '';
+    int length = context.read<IngredientsHandler>().selectedIngredients.length;
+    for (int i = 0; i < length; i++) {
+      text += context.read<IngredientsHandler>().selectedIngredients[i].text;
+      if (i != length - 1) text += '+';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -153,6 +164,9 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                                   .read<IngredientsHandler>()
                                   .selectedIngredients[0]
                                   .text;
+
+                              createText(context);
+                              print(text);
 
                               print(await recipeHandler
                                   .recipeFromIngredients(ingredients));
