@@ -2,7 +2,7 @@ import 'package:cook_chef/Screens/FeedPage.dart';
 import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
-import 'package:cook_chef/Screens/RecipesPage.dart';
+import 'package:cook_chef/Screens/IncredientsPage.dart';
 import 'package:cook_chef/Screens/SelectedIngredientsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

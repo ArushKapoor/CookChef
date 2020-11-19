@@ -1,7 +1,5 @@
 import 'package:cook_chef/Auth/AuthenticationService.dart';
-import 'package:cook_chef/Firestore/CloudFirestore.dart';
-import 'package:cook_chef/Screens/HomePage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 //import 'package:firebase_showcase/pages/setup/sign_in.dart';
@@ -153,12 +151,12 @@ class _SignUpPageState extends State<SignUpPage> {
           context.read<AuthenticationService>().signUp(
               email: _emailController.text, password: _passwordController.text);
 
-          User updateUser = FirebaseAuth.instance.currentUser;
-          print(_usernameController.text);
-          updateUser.updateProfile(displayName: _usernameController.text);
-          userSetUp(_usernameController.text);
+          //User updateUser = FirebaseAuth.instance.currentUser;
+          //print(_usernameController.text);
+          //updateUser.updateProfile(displayName: _usernameController.text);
+          //userSetUp(_usernameController.text);
 
-          Navigator.of(context).pushNamed(HomePage.id);
+          Navigator.of(context).pushNamed(Login.id);
         },
       ),
     );

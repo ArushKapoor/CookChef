@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'NotificationsPage.dart';
-import 'RecipesPage.dart';
+import 'IncredientsPage.dart';
 
 class AccountSearchPage extends StatefulWidget {
   static const String id = 'account_search_page';
