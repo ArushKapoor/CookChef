@@ -1,10 +1,12 @@
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
+import 'package:cook_chef/Screens/SelectedIngredientsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'IncredientsPage.dart';
 import 'AccountPage.dart';
 import 'HomePage.dart';
 import 'NotificationsPage.dart';
+import 'package:cook_chef/Models/RecipeHandler.dart';
 
 class ViewRecipesPage extends StatefulWidget {
   static const String id = 'view_recipes_page';
@@ -23,8 +25,13 @@ final tabs = [
 ];
 
 class _ViewRecipesPageState extends State<ViewRecipesPage> {
+  RecipeHandler recipeHandler = RecipeHandler();
   @override
   Widget build(BuildContext context) {
+    final RecipiesArguments args = ModalRoute.of(context).settings.arguments;
+    //TODO: Read below line 0 per first object
+    print(args.recipeList[0].recipeImageUrl);
+
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: (currentIndex == 1)
@@ -96,8 +103,13 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                     children: List.generate(
                       6,
                       (index) => GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, MakeRecipesPage.id);
+                        onTap: () async {
+                          //TODO: write the id in below line instead of that number 433608 aur aage bhi args used kr rha hun
+                          final ingredientsAndSteps =
+                              await recipeHandler.recipeById(634793);
+                          Navigator.pushNamed(context, MakeRecipesPage.id,
+                              arguments: RecipeArgument(
+                                  ingredientAndSteps: ingredientsAndSteps));
                         },
                         child: Column(
                           children: <Widget>[
@@ -114,4 +126,9 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
           : tabs[currentIndex],
     );
   }
+}
+
+class RecipeArgument {
+  List<List> ingredientAndSteps;
+  RecipeArgument({this.ingredientAndSteps});
 }

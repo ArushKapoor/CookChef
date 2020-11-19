@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/ViewRecipesPage.dart';
 import 'package:flutter/material.dart';
 
 class MakeRecipesPage extends StatefulWidget {
@@ -9,6 +10,8 @@ class MakeRecipesPage extends StatefulWidget {
 class _MakeRecipesPageState extends State<MakeRecipesPage> {
   @override
   Widget build(BuildContext context) {
+    final RecipeArgument = ModalRoute.of(context).settings.arguments;
+    //TODO: here is one more arg of list in a list 0 wala ingredients aur 1 wala steps
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(

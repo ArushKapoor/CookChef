@@ -12,8 +12,9 @@ class NetworkingHelper {
         '$mainUrlPart/findByIngredients?apiKey=$api&ingredients=$ingredients');
   }
 
-  Future<void> recipe(String recipeId) async {
-    await _networking.getData('$mainUrlPart/$recipeId/information&apiKey=$api');
+  Future<dynamic> recipe(int recipeId) async {
+    return await _networking
+        .getData('$mainUrlPart/$recipeId/information?apiKey=$api');
   }
 }
 //https://api.spoonacular.com/recipes/findByIngredients?apiKey=029a025fd39e4947bd4d25fc99380aa3&ingredients=apples,+flour,+sugar&number=10&limitLicense=true

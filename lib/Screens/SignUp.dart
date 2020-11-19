@@ -1,8 +1,7 @@
 import 'package:cook_chef/Auth/AuthenticationService.dart';
-
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-//import 'package:firebase_showcase/pages/setup/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Screens/SignIn.dart';
 import 'Animation/FadeAnimation.dart';
@@ -108,7 +107,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             bottom: BorderSide(
                                                 color: Colors.grey[200]))),
                                     child: TextField(
-                                      controller: _emailController,
+                                      controller: _usernameController,
                                       keyboardType: TextInputType.emailAddress,
                                       cursorColor: Colors.green,
                                       decoration: InputDecoration(
@@ -165,7 +164,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     padding: EdgeInsets.all(10),
                                     child: TextField(
                                       obscureText: true,
-                                      controller: _passwordController,
+                                      controller: _repasswordController,
                                       cursorColor: Colors.green,
                                       decoration: InputDecoration(
                                           border: InputBorder.none,
@@ -203,7 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   //User updateUser = FirebaseAuth.instance.currentUser;
                                   //print(_usernameController.text);
                                   //updateUser.updateProfile(displayName: _usernameController.text);
-                                  //userSetUp(_usernameController.text);
+                                  userSetUp(_usernameController.text);
 
                                   Navigator.of(context).pushNamed(Login.id);
                                 },

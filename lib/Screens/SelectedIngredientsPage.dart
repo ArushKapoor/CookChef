@@ -1,4 +1,5 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
+import 'package:cook_chef/Models/Recipe.dart';
 import 'package:cook_chef/Models/RecipeHandler.dart';
 import 'package:cook_chef/Screens/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
@@ -160,17 +161,15 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                           margin: EdgeInsets.symmetric(vertical: 20.0),
                           child: GestureDetector(
                             onTap: () async {
-                              final ingredients = context
-                                  .read<IngredientsHandler>()
-                                  .selectedIngredients[0]
-                                  .text;
-
                               createText(context);
                               print(text);
 
-                              print(await recipeHandler
-                                  .recipeFromIngredients(ingredients));
-                              Navigator.pushNamed(context, ViewRecipesPage.id);
+                              final list = await recipeHandler
+                                  .recipeFromIngredients(text);
+                              print(list[0].recipeName);
+                              Navigator.pushNamed(context, ViewRecipesPage.id,
+                                  arguments:
+                                      RecipiesArguments(recipeList: list));
                             },
                             child: Text('View Recipe'),
                           ),
@@ -184,4 +183,9 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
           : tabs[currentIndex],
     );
   }
+}
+
+class RecipiesArguments {
+  List<Recipe> recipeList;
+  RecipiesArguments({this.recipeList});
 }
