@@ -1,4 +1,5 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
+import 'package:cook_chef/Screens/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -38,7 +39,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
               centerTitle: true,
             )
           : null,
-      bottomNavigationBar: (currentIndex == 1)
+      bottomNavigationBar: (currentIndex != 0)
           ? BottomNavigationBar(
               selectedItemColor: Colors.black,
               unselectedItemColor: Colors.black,
@@ -145,7 +146,12 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                         ),
                         Container(
                           margin: EdgeInsets.symmetric(vertical: 20.0),
-                          child: Text('View Recipe'),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, ViewRecipesPage.id);
+                            },
+                            child: Text('View Recipe'),
+                          ),
                         ),
                       ],
                     ),
