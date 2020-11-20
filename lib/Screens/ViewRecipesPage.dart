@@ -29,7 +29,6 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
   @override
   Widget build(BuildContext context) {
     final RecipiesArguments args = ModalRoute.of(context).settings.arguments;
-    //TODO: Read below line 0 per first object
     print(args.recipeList[0].recipeImageUrl);
 
     double _width = MediaQuery.of(context).size.width;
@@ -101,20 +100,21 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                   child: GridView.count(
                     crossAxisCount: 2,
                     children: List.generate(
-                      6,
+                      args.recipeList.length,
                       (index) => GestureDetector(
                         onTap: () async {
-                          //TODO: write the id in below line instead of that number 433608 aur aage bhi args used kr rha hun
-                          final ingredientsAndSteps =
-                              await recipeHandler.recipeById(634793);
+                          print('On tap is being clicked');
+                          final ingredientsAndSteps = await recipeHandler
+                              .recipeById(args.recipeList[index].id);
                           Navigator.pushNamed(context, MakeRecipesPage.id,
                               arguments: RecipeArgument(
                                   ingredientAndSteps: ingredientsAndSteps));
                         },
                         child: Column(
                           children: <Widget>[
-                            Image.asset('assets/images/apricot.jpeg'),
-                            Text('Apricot'),
+                            Image.network(
+                                args.recipeList[index].recipeImageUrl),
+                            Text(args.recipeList[index].recipeName),
                           ],
                         ),
                       ),
