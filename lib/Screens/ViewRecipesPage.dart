@@ -1,10 +1,12 @@
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
+import 'package:cook_chef/Screens/SelectedIngredientsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'IncredientsPage.dart';
 import 'AccountPage.dart';
 import 'HomePage.dart';
 import 'NotificationsPage.dart';
+import 'package:cook_chef/Models/RecipeHandler.dart';
 
 class ViewRecipesPage extends StatefulWidget {
   static const String id = 'view_recipes_page';
@@ -23,8 +25,12 @@ final tabs = [
 ];
 
 class _ViewRecipesPageState extends State<ViewRecipesPage> {
+  RecipeHandler recipeHandler = RecipeHandler();
   @override
   Widget build(BuildContext context) {
+    final RecipiesArguments args = ModalRoute.of(context).settings.arguments;
+    print(args.recipeList[0].recipeImageUrl);
+
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: (currentIndex == 1)
@@ -94,15 +100,26 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                   child: GridView.count(
                     crossAxisCount: 2,
                     children: List.generate(
-                      6,
+                      args.recipeList.length,
                       (index) => GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, MakeRecipesPage.id);
+                        onTap: () async {
+                          print(index - 1);
+                          print('On tap is being clicked');
+                          print(args.recipeList[index].id);
+                          List ingredientsAndSteps = await recipeHandler
+                              .recipeById(args.recipeList[index].id);
+                          Navigator.pushNamed(
+                            context,
+                            MakeRecipesPage.id,
+                            arguments: RecipeArgument(
+                                ingredientAndSteps: ingredientsAndSteps),
+                          );
                         },
                         child: Column(
                           children: <Widget>[
-                            Image.asset('assets/images/apricot.jpeg'),
-                            Text('Apricot'),
+                            Image.network(
+                                args.recipeList[index].recipeImageUrl),
+                            Text(args.recipeList[index].recipeName),
                           ],
                         ),
                       ),
@@ -114,4 +131,9 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
           : tabs[currentIndex],
     );
   }
+}
+
+class RecipeArgument {
+  List ingredientAndSteps;
+  RecipeArgument({this.ingredientAndSteps});
 }

@@ -1,4 +1,3 @@
-import 'package:cook_chef/Models/Ingredients.dart';
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';

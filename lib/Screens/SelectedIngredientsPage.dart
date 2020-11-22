@@ -1,4 +1,6 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
+import 'package:cook_chef/Models/Recipe.dart';
+import 'package:cook_chef/Models/RecipeHandler.dart';
 import 'package:cook_chef/Screens/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +21,24 @@ class SelectedIngredientsPage extends StatefulWidget {
 class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   int currentIndex = 1;
   bool hasTapped = false;
-
+  RecipeHandler recipeHandler = RecipeHandler();
   final tabs = [
     HomePage(),
     RecipesPage(),
     NotificationsPage(),
     AccountPage(),
   ];
+
+  String text;
+
+  void createText(BuildContext context) {
+    text = '';
+    int length = context.read<IngredientsHandler>().selectedIngredients.length;
+    for (int i = 0; i < length; i++) {
+      text += context.read<IngredientsHandler>().selectedIngredients[i].text;
+      if (i != length - 1) text += '+';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -147,8 +160,16 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                         Container(
                           margin: EdgeInsets.symmetric(vertical: 20.0),
                           child: GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, ViewRecipesPage.id);
+                            onTap: () async {
+                              createText(context);
+                              print(text);
+
+                              final list = await recipeHandler
+                                  .recipeFromIngredients(text);
+                              print(list[0].recipeName);
+                              Navigator.pushNamed(context, ViewRecipesPage.id,
+                                  arguments:
+                                      RecipiesArguments(recipeList: list));
                             },
                             child: Text('View Recipe'),
                           ),
@@ -162,4 +183,9 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
           : tabs[currentIndex],
     );
   }
+}
+
+class RecipiesArguments {
+  List<Recipe> recipeList;
+  RecipiesArguments({this.recipeList});
 }

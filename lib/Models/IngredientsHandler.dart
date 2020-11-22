@@ -2,7 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 
-import 'Ingredients.dart';
+import 'Ingredient.dart';
 
 class IngredientsHandler extends ChangeNotifier {
   List<Ingredients> _ingredients = [
