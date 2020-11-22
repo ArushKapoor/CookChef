@@ -11,29 +11,38 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
   @override
   Widget build(BuildContext context) {
     final RecipeArgument args = ModalRoute.of(context).settings.arguments;
-    //TODO: here is one more arg of list in a list 0 wala ingredients aur 1 wala steps
     print(args.ingredientAndSteps[0]); //for ingredients List
     print(args.ingredientAndSteps[1]); // steps List
     /* This is how I was thinking of adding steps and ingredients */
-    String ingredients = '2 cups white sugar\n1 1⁄4 cups vegetable oil\n'
-        '1 teaspoon vanilla extract\n2 cups canned pumpkin'
-        '\n4 eggs\n2 cups all-purpose flour\n'
-        '3 teaspoons baking powder\n'
-        '2 teaspoons baking soda\n'
-        '1⁄4 teaspoon salt\n'
-        '2 teaspoons ground cinnamon\n'
-        '1 cup chopped walnuts (Optional)';
-    String steps = 'Step 1\nPreheat oven to 350 degrees F (175 degrees C).'
-        ' Grease and flour a 12x18 inch pan. Sift together'
-        ' the flour, baking powder, baking soda, salt and'
-        ' cinnamon. Set aside.\n\nStep 2\nIn a large bowl'
-        ' combine sugar and oil. Blend in vanilla and '
-        'pumpkin, then beat in eggs one at a time. '
-        'Gradually beat in flour mixture. Stir in nuts. '
-        'Spread batter into prepared 12x18 inch pan.\n\n'
-        'Step 3\nBake in the preheated oven for 30 minutes,'
-        ' or until a toothpick inserted into the centre of '
-        'the cake comes out clean. Allow to cool.';
+    // String ingredients = '2 cups white sugar\n1 1⁄4 cups vegetable oil\n'
+    //     '1 teaspoon vanilla extract\n2 cups canned pumpkin'
+    //     '\n4 eggs\n2 cups all-purpose flour\n'
+    //     '3 teaspoons baking powder\n'
+    //     '2 teaspoons baking soda\n'
+    //     '1⁄4 teaspoon salt\n'
+    //     '2 teaspoons ground cinnamon\n'
+    //     '1 cup chopped walnuts (Optional)';
+    String ingredients =
+        args.ingredientAndSteps[0].toString().replaceAll(", ", "\n");
+    if (ingredients.startsWith("[")) {
+      ingredients = ingredients.substring(1, ingredients.length - 1);
+    }
+    // String steps = 'Step 1\nPreheat oven to 350 degrees F (175 degrees C).'
+    //     ' Grease and flour a 12x18 inch pan. Sift together'
+    //     ' the flour, baking powder, baking soda, salt and'
+    //     ' cinnamon. Set aside.\n\nStep 2\nIn a large bowl'
+    //     ' combine sugar and oil. Blend in vanilla and '
+    //     'pumpkin, then beat in eggs one at a time. '
+    //     'Gradually beat in flour mixture. Stir in nuts. '
+    //     'Spread batter into prepared 12x18 inch pan.\n\n'
+    //     'Step 3\nBake in the preheated oven for 30 minutes,'
+    //     ' or until a toothpick inserted into the centre of '
+    //     'the cake comes out clean. Allow to cool.';
+    String steps =
+        args.ingredientAndSteps[1].toString().replaceAll("., ", ".\n");
+    if (steps.startsWith("[")) {
+      steps = steps.substring(1, steps.length - 1);
+    }
 
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
