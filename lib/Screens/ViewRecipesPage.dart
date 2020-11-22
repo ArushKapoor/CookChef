@@ -119,7 +119,11 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                           children: <Widget>[
                             Image.network(
                                 args.recipeList[index].recipeImageUrl),
-                            Text(args.recipeList[index].recipeName),
+                            Text(
+                              args.recipeList[index].recipeName,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ],
                         ),
                       ),
