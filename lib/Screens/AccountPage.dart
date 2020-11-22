@@ -1,4 +1,5 @@
 import 'package:cook_chef/Auth/AuthenticationService.dart';
+import 'package:cook_chef/Screens/AccountSettings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -95,8 +96,13 @@ class _AccountPageState extends State<AccountPage> {
                         color: Color(0xffD7D7D7),
                       ),
                       width: _width * 0.9,
-                      child: Center(
-                        child: Text('Edit Profile'),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, AccountSettings.id);
+                        },
+                        child: Center(
+                          child: Text('Edit Profile'),
+                        ),
                       ),
                     ),
                   ],

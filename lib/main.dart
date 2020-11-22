@@ -1,6 +1,7 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/AccountPage.dart';
 import 'package:cook_chef/Screens/AccountSearchPage.dart';
+import 'package:cook_chef/Screens/AccountSettings.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
           AuthenticationWrapper.id: (context) => AuthenticationWrapper(),
           Login.id: (context) => Login(),
           SignUpPage.id: (context) => SignUpPage(),
+          AccountSettings.id: (context) => AccountSettings(),
         },
 
         /* Setting the initial route */

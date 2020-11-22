@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
+
   AuthenticationService(this._firebaseAuth);
   Stream<User> get authCredentialChanges => _firebaseAuth.idTokenChanges();
   Future<void> signOut() async {
@@ -10,6 +11,14 @@ class AuthenticationService {
 
   FirebaseAuth emailVerification() {
     return _firebaseAuth;
+  }
+
+  Future<void> forgetPassword(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+    }
   }
 
   Future<String> signUp({String email, String password}) async {

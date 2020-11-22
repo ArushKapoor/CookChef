@@ -79,9 +79,9 @@ class _FeedPageState extends State<FeedPage> {
     /* These are media query variables which store the height
       and width of the phone screen.
      */
-    final _height = MediaQuery.of(context).size.height -
-        MediaQuery.of(context).padding.top -
-        kToolbarHeight;
+    // final _height = MediaQuery.of(context).size.height -
+    //     MediaQuery.of(context).padding.top -
+    //     kToolbarHeight;
     final _width = MediaQuery.of(context).size.width;
 
     return Scaffold(

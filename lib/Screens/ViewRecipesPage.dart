@@ -103,12 +103,17 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                       args.recipeList.length,
                       (index) => GestureDetector(
                         onTap: () async {
+                          print(index - 1);
                           print('On tap is being clicked');
-                          final ingredientsAndSteps = await recipeHandler
+                          print(args.recipeList[index].id);
+                          List ingredientsAndSteps = await recipeHandler
                               .recipeById(args.recipeList[index].id);
-                          Navigator.pushNamed(context, MakeRecipesPage.id,
-                              arguments: RecipeArgument(
-                                  ingredientAndSteps: ingredientsAndSteps));
+                          Navigator.pushNamed(
+                            context,
+                            MakeRecipesPage.id,
+                            arguments: RecipeArgument(
+                                ingredientAndSteps: ingredientsAndSteps),
+                          );
                         },
                         child: Column(
                           children: <Widget>[
@@ -129,6 +134,6 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
 }
 
 class RecipeArgument {
-  List<List> ingredientAndSteps;
+  List ingredientAndSteps;
   RecipeArgument({this.ingredientAndSteps});
 }
