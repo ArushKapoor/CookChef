@@ -6,6 +6,7 @@ import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/IncredientsPage.dart';
+import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           MakeRecipesPage.id: (context) => MakeRecipesPage(),
           NotificationsPage.id: (context) => NotificationsPage(),
           AccountPage.id: (context) => AccountPage(),
+          UploadPage.id: (context) => UploadPage(),
           AuthenticationWrapper.id: (context) => AuthenticationWrapper(),
           Login.id: (context) => Login(),
           SignUpPage.id: (context) => SignUpPage(),

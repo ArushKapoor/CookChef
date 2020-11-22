@@ -1,5 +1,6 @@
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:cook_chef/Screens/AccountSettings.dart';
+import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -100,50 +101,55 @@ class _AccountPageState extends State<AccountPage> {
                     ),
                   ],
                 ),
-                Container(
-                  margin: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text('Upload'),
-                          Icon(Icons.keyboard_arrow_down),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Icon(Icons.account_circle),
-                          SizedBox(
-                            width: 8.0,
-                          ),
-                          Text(
-                            'What\'s your recipe?',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text(
-                            'Photos',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                          Text('|'),
-                          Text(
-                            'Videos',
-                            style: TextStyle(color: Colors.blue),
-                          ),
-                        ],
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, UploadPage.id);
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('Upload'),
+                            Icon(Icons.keyboard_arrow_down),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.account_circle),
+                            SizedBox(
+                              width: 8.0,
+                            ),
+                            Text(
+                              'What\'s your recipe?',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        //   children: <Widget>[
+                        //     Text(
+                        //       'Photos',
+                        //       style: TextStyle(color: Colors.green),
+                        //     ),
+                        //     Text('|'),
+                        //     Text(
+                        //       'Videos',
+                        //       style: TextStyle(color: Colors.blue),
+                        //     ),
+                        //   ],
+                        // ),
+                      ],
+                    ),
                   ),
                 ),
                 _createPost(
