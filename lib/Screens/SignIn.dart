@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/Forgot_Password.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/SignUp.dart';
@@ -135,12 +136,15 @@ class _LoginViewState extends State<Login> {
                       FadeAnimation(
                           1.7,
                           MaterialButton(
-                              onPressed: () async {},
-                              child: Center(
-                                  child: Text(
-                                "Forgot Password?",
-                                style: TextStyle(color: Colors.green),
-                              )))),
+                            child: Center(
+                                child: Text(
+                              "Forgot Password?",
+                              style: TextStyle(color: Colors.green),
+                            )),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(Forgot.id);
+                            },
+                          )),
                       SizedBox(
                         height: 30,
                       ),
