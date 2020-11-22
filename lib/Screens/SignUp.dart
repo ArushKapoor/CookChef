@@ -23,6 +23,182 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+// =======
+//     final mq = MediaQuery.of(context);
+
+//     final usernameField = TextFormField(
+//       controller: _usernameController,
+//       style: TextStyle(
+//         color: Colors.white,
+//       ),
+//       cursorColor: Colors.white,
+//       decoration: InputDecoration(
+//         focusedBorder: UnderlineInputBorder(
+//           borderSide: BorderSide(
+//             color: Colors.white,
+//           ),
+//         ),
+//         hintText: "John Doe",
+//         labelText: "Username",
+//         labelStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//         hintStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//       ),
+//     );
+
+//     final emailField = TextFormField(
+//       controller: _emailController,
+//       keyboardType: TextInputType.emailAddress,
+//       style: TextStyle(
+//         color: Colors.white,
+//       ),
+//       cursorColor: Colors.white,
+//       decoration: InputDecoration(
+//         focusedBorder: UnderlineInputBorder(
+//           borderSide: BorderSide(
+//             color: Colors.white,
+//           ),
+//         ),
+//         hintText: "something@example.com",
+//         labelText: "Email",
+//         labelStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//         hintStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//       ),
+//     );
+
+//     final passwordField = TextFormField(
+//       obscureText: true,
+//       controller: _passwordController,
+//       style: TextStyle(
+//         color: Colors.white,
+//       ),
+//       cursorColor: Colors.white,
+//       decoration: InputDecoration(
+//         focusedBorder: UnderlineInputBorder(
+//           borderSide: BorderSide(
+//             color: Colors.white,
+//           ),
+//         ),
+//         hintText: "password",
+//         labelText: "Password",
+//         labelStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//         hintStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//       ),
+//     );
+
+//     final repasswordField = TextFormField(
+//       obscureText: true,
+//       controller: _repasswordController,
+//       style: TextStyle(
+//         color: Colors.white,
+//       ),
+//       cursorColor: Colors.white,
+//       decoration: InputDecoration(
+//         focusedBorder: UnderlineInputBorder(
+//           borderSide: BorderSide(
+//             color: Colors.white,
+//           ),
+//         ),
+//         hintText: "password",
+//         labelText: "Re-enter Password",
+//         labelStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//         hintStyle: TextStyle(
+//           color: Colors.white,
+//         ),
+//       ),
+//     );
+
+//     final fields = Padding(
+//       padding: EdgeInsets.only(top: 10.0),
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.start,
+//         children: <Widget>[
+//           usernameField,
+//           emailField,
+//           passwordField,
+//           repasswordField,
+//         ],
+//       ),
+//     );
+
+//     final registerButton = Material(
+//       elevation: 5.0,
+//       borderRadius: BorderRadius.circular(25.0),
+//       color: Colors.white,
+//       child: MaterialButton(
+//         minWidth: mq.size.width / 1.2,
+//         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+//         child: Text(
+//           "Register",
+//           textAlign: TextAlign.center,
+//           style: TextStyle(
+//             fontSize: 20.0,
+//             color: Colors.black,
+//             fontWeight: FontWeight.bold,
+//           ),
+//         ),
+//         onPressed: () async {
+//           context.read<AuthenticationService>().signUp(
+//               email: _emailController.text, password: _passwordController.text);
+
+//           //User updateUser = FirebaseAuth.instance.currentUser;
+//           //print(_usernameController.text);
+//           //updateUser.updateProfile(displayName: _usernameController.text);
+//           //userSetUp(_usernameController.text);
+
+//           Navigator.of(context).pushNamed(Login.id);
+//         },
+//       ),
+//     );
+
+//     final bottom = Column(
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       crossAxisAlignment: CrossAxisAlignment.stretch,
+//       children: <Widget>[
+//         registerButton,
+//         Padding(
+//           padding: EdgeInsets.all(8.0),
+//         ),
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: <Widget>[
+//             Text(
+//               "Already have an account?",
+//               style: Theme.of(context).textTheme.subtitle1.copyWith(
+//                     color: Colors.white,
+//                   ),
+//             ),
+//             MaterialButton(
+//               onPressed: () {
+//                 Navigator.of(context).pushNamed(Login.id);
+//               },
+//               child: Text(
+//                 "Login",
+//                 style: Theme.of(context).textTheme.subtitle1.copyWith(
+//                       color: Colors.white,
+//                       decoration: TextDecoration.underline,
+//                     ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ],
+//     );
+// >>>>>>> 6cf8d1ad09fe51106abe4c8714ec470797a915f5
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: GestureDetector(

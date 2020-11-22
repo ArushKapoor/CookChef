@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/Forgot_Password.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/SignUp.dart';
@@ -143,54 +144,48 @@ class _LoginViewState extends State<Login> {
                           height: height * 0.025,
                         ),
                         FadeAnimation(
-                          1.7,
-                          GestureDetector(
-                            onTap: () {},
-                            child: Center(
-                              child: Text(
-                                "Forgot your Password?",
+                            1.7,
+                            MaterialButton(
+                              child: Center(
+                                  child: Text(
+                                "Forgot Password?",
                                 style: TextStyle(color: Colors.green),
-                              ),
-                            ),
-                          ),
-                        ),
+                              )),
+                              onPressed: () {
+                                Navigator.of(context).pushNamed(Forgot.id);
+                              },
+                            )),
                         SizedBox(
-                          height: height * 0.07,
+                          height: 30,
                         ),
                         FadeAnimation(
                           1.9,
-                          Container(
-                            height: height * 0.06,
-                            // width: width * 0.2,
-                            margin: EdgeInsets.symmetric(horizontal: 60),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Color(0xff006043),
-                            ),
-
-                            child: FlatButton(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              onPressed: () {
-                                try {
-                                  context.read<AuthenticationService>().signIn(
-                                      email: _emailController.text,
-                                      password: _passwordController.text);
-                                  User user = FirebaseAuth.instance.currentUser;
-                                  if (user != null && user.emailVerified) {
-                                    Navigator.of(context)
-                                        .pushNamed(HomePage.id);
-                                  }
-                                } catch (e) {
-                                  print(e);
-                                  _emailController.text = "";
-                                  _passwordController.text = "";
+                          MaterialButton(
+                            onPressed: () {
+                              try {
+                                context.read<AuthenticationService>().signIn(
+                                    email: _emailController.text,
+                                    password: _passwordController.text);
+                                User user = FirebaseAuth.instance.currentUser;
+                                if (user != null && user.emailVerified) {
+                                  Navigator.of(context).pushNamed(HomePage.id);
                                 }
-                              },
+                              } catch (e) {
+                                print(e);
+                                _emailController.text = "";
+                                _passwordController.text = "";
+                              }
+                            },
+                            child: Container(
+                              height: 50,
+                              margin: EdgeInsets.symmetric(horizontal: 60),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Color(0xff006043),
+                              ),
                               child: Center(
                                 child: Text(
-                                  "Login",
+                                  "Log In",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
