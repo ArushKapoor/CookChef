@@ -13,11 +13,15 @@ class AuthenticationService {
     return _firebaseAuth;
   }
 
-  Future<void> forgetPassword(String email) async {
+  Future<bool> forgetPassword(String email) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
+      return false;
     } on FirebaseAuthException catch (e) {
       print(e.code);
+      if (e.code == 'user-not-found' || e.code == 'invalid-email') {
+        return true;
+      }
     }
   }
 

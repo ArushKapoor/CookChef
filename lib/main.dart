@@ -58,6 +58,7 @@ class MyApp extends StatelessWidget {
           Login.id: (context) => Login(),
           SignUpPage.id: (context) => SignUpPage(),
           Forgot.id: (context) => Forgot(),
+          AccountSettings.id: (context) => AccountSettings(),
         },
 
         /* Setting the initial route */

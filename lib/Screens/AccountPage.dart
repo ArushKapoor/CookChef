@@ -66,13 +66,6 @@ class _AccountPageState extends State<AccountPage> {
                   margin: EdgeInsets.all(8.0),
                   child: Text('account_name'),
                 ),
-                RaisedButton(
-                  onPressed: () {
-                    context.read<AuthenticationService>().signOut();
-                    //Navigator.pop(context);
-                  },
-                  child: Icon(Icons.cancel_outlined),
-                ),
                 SizedBox(
                   height: 5,
                 ),
