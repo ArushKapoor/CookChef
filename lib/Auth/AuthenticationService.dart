@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cook_chef/Firestore/CloudFirestore.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
@@ -21,6 +20,33 @@ class AuthenticationService {
     } on FirebaseAuthException catch (e) {
       print(e.code);
       if (e.code == 'user-not-found' || e.code == 'invalid-email') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<bool> updateEmail(String email) async {
+    try {
+      await _firebaseAuth.currentUser.updateEmail(email);
+      return false;
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      if (e.code == 'email-already-in-use' || e.code == 'invalid-email') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<bool> updatePasswd(String passwd) async {
+    try {
+      await _firebaseAuth.currentUser.updatePassword(passwd);
+
+      return false;
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      if (e.code == 'weak-password' || e.code == 'requires-recent-login') {
         return true;
       }
     }
