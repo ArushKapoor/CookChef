@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
