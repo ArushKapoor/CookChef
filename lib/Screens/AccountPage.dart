@@ -1,9 +1,7 @@
-import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:cook_chef/Screens/AccountSettings.dart';
 import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AccountPage extends StatefulWidget {
   static const String id = 'account_page';

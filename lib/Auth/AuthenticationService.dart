@@ -23,6 +23,7 @@ class AuthenticationService {
         return true;
       }
     }
+    return false;
   }
 
   Future<String> signUp({String email, String password}) async {

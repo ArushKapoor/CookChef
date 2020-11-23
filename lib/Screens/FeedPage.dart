@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
 
 class FeedPage extends StatefulWidget {
   static const String id = 'feed_page';
@@ -22,57 +23,57 @@ class _FeedPageState extends State<FeedPage> {
   }
 
 /* This method is to setup the post */
-  Container _post(
-      {String name,
-      String time,
-      String description,
-      Image image,
-      double width,
-      String likes,
-      int comments}) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Icon(Icons.account_circle),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(name),
-                  Text(time),
-                ],
-              ),
-            ],
-          ),
-          Text(description),
-          image,
-          Row(
-            children: <Widget>[
-              Icon(
-                Icons.favorite_border,
-              ),
-              Container(
-                height: 19,
-                width: 35,
-                child: SvgPicture.asset('assets/icons/chat.svg'),
-              ),
-            ],
-          ),
-          Container(
-            width: width,
-            child: Text(
-              '$likes likes',
-            ),
-          ),
-          Container(
-            width: width,
-            child: Text('View all $comments comments'),
-          ),
-        ],
-      ),
-    );
-  }
+  // Container _post(
+  //     {String name,
+  //     String time,
+  //     String description,
+  //     Image image,
+  //     double width,
+  //     String likes,
+  //     int comments}) {
+  //   return Container(
+  //     child: Column(
+  //       children: <Widget>[
+  //         Row(
+  //           children: <Widget>[
+  //             Icon(Icons.account_circle),
+  //             Column(
+  //               crossAxisAlignment: CrossAxisAlignment.start,
+  //               children: <Widget>[
+  //                 Text(name),
+  //                 Text(time),
+  //               ],
+  //             ),
+  //           ],
+  //         ),
+  //         Text(description),
+  //         image,
+  //         Row(
+  //           children: <Widget>[
+  //             Icon(
+  //               Icons.favorite_border,
+  //             ),
+  //             Container(
+  //               height: 19,
+  //               width: 35,
+  //               child: SvgPicture.asset('assets/icons/chat.svg'),
+  //             ),
+  //           ],
+  //         ),
+  //         Container(
+  //           width: width,
+  //           child: Text(
+  //             '$likes likes',
+  //           ),
+  //         ),
+  //         Container(
+  //           width: width,
+  //           child: Text('View all $comments comments'),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +110,8 @@ class _FeedPageState extends State<FeedPage> {
                   shrinkWrap: true,
                   children: <Widget>[
 /* Calling the _post method at line 23 */
-                    _post(
+
+                    SinglePost(
                         name: 'FoodFood',
                         time: '28 mins',
                         description:
@@ -118,13 +120,13 @@ class _FeedPageState extends State<FeedPage> {
                             'your mouth, hot at first, tangy after. \n\n'
                             'See full recipe...See more',
                         image: Image.asset('assets/images/chole_bhature.jpg'),
-                        likes: '18,550',
+                        likes: 1812,
                         comments: 113,
                         width: _width),
                     SizedBox(
                       height: 15,
                     ),
-                    _post(
+                    SinglePost(
                         name: 'FoodFood',
                         time: '1 Nov at 12:44 pm',
                         description: '#SizzlingSunday Ab luft uthaiye dal ke'
@@ -132,9 +134,9 @@ class _FeedPageState extends State<FeedPage> {
                             'recipe, It\'ll surely you\'re your heart! \n\n'
                             'Watch full recipe...See more',
                         image: Image.asset('assets/images/dal_gosht.jpg'),
-                        likes: '317',
+                        likes: 317,
                         comments: 21,
-                        width: _width),
+                        width: _width)
                   ],
                 ),
               ),
@@ -142,6 +144,77 @@ class _FeedPageState extends State<FeedPage> {
 // bottomNavigationBar(context: context, page: HomePage.id),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SinglePost extends StatelessWidget {
+  final String name, time, description;
+  final int comments, likes;
+  final double width;
+  final Image image;
+  SinglePost(
+      {this.comments,
+      this.description,
+      this.image,
+      this.likes,
+      this.name,
+      this.time,
+      this.width});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(Icons.account_circle),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(name),
+                  Text(time),
+                ],
+              ),
+            ],
+          ),
+          Text(description),
+          image,
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.favorite_border,
+              ),
+              Container(
+                height: 19,
+                width: 35,
+                child: SvgPicture.asset('assets/icons/chat.svg'),
+              ),
+            ],
+          ),
+          Container(
+            width: width,
+            child: Text(
+              '$likes likes',
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                builder: (context) => SingleChildScrollView(
+                  child: BottomCommentsSheetBuilder(),
+                ),
+              );
+            },
+            child: Container(
+              width: width,
+              child: Text('View all $comments comments'),
+            ),
+          ),
+        ],
       ),
     );
   }
