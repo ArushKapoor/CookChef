@@ -204,9 +204,7 @@ class SinglePost extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
-                builder: (context) => SingleChildScrollView(
-                  child: BottomCommentsSheetBuilder(),
-                ),
+                builder: (context) => BottomCommentsSheetBuilder(),
               );
             },
             child: Container(

@@ -189,25 +189,22 @@ class _LoginViewState extends State<Login> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               onPressed: () {
-                                if (_formKey.currentState.validate()) {
-                                  try {
-                                    context
-                                        .read<AuthenticationService>()
-                                        .signIn(
-                                            email: _emailController.text,
-                                            password: _passwordController.text);
-                                    User user =
-                                        FirebaseAuth.instance.currentUser;
-                                    if (user != null && user.emailVerified) {
-                                      Navigator.of(context)
-                                          .pushNamed(HomePage.id);
-                                    }
-                                  } catch (e) {
-                                    print(e);
-                                    _emailController.text = "";
-                                    _passwordController.text = "";
+                                // if (_formKey.currentState.validate()) {
+                                try {
+                                  context.read<AuthenticationService>().signIn(
+                                      email: _emailController.text,
+                                      password: _passwordController.text);
+                                  User user = FirebaseAuth.instance.currentUser;
+                                  if (user != null && user.emailVerified) {
+                                    Navigator.of(context)
+                                        .pushNamed(HomePage.id);
                                   }
+                                } catch (e) {
+                                  print(e);
+                                  _emailController.text = "";
+                                  _passwordController.text = "";
                                 }
+                                // }
                               },
                               child: Center(
                                 child: Text(
