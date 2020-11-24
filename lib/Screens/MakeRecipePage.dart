@@ -43,6 +43,13 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
     if (steps.startsWith("[")) {
       steps = steps.substring(1, steps.length - 1);
     }
+    if (steps.contains("Note:")) {
+      int index = steps.indexOf("Note:");
+      steps = steps.substring(0, index) +
+          "\n(" +
+          steps.substring(index, steps.length) +
+          ")";
+    }
 
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
