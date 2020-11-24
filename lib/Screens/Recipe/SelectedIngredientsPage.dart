@@ -116,10 +116,27 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                             isChecked: false,
                             isSelectedIngredient: true,
                             toggleCallback: () {
-                              int i = context
-                                  .read<IngredientsHandler>()
-                                  .ingredients
-                                  .indexOf(ingredient);
+                              // int i = context
+                              //     .read<IngredientsHandler>()
+                              //     .ingredients
+                              //     .indexOf(ingredient);
+                              int i;
+                              for (int index = 0;
+                                  index <
+                                      context
+                                          .read<IngredientsHandler>()
+                                          .ingredients
+                                          .length;
+                                  index++) {
+                                if (ingredient.text ==
+                                    context
+                                        .read<IngredientsHandler>()
+                                        .ingredients[index]
+                                        .text) {
+                                  i = index;
+                                  break;
+                                }
+                              }
                               final ingredient_1 = context
                                   .read<IngredientsHandler>()
                                   .ingredients[i];
