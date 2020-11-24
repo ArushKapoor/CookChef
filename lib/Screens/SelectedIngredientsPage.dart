@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import 'AccountPage.dart';
 import 'HomePage.dart';
 import 'NotificationsPage.dart';
-import 'IncredientsPage.dart';
+import 'IngredientsPage.dart';
 
 class SelectedIngredientsPage extends StatefulWidget {
   static const String id = 'selected_ingredients_page';
@@ -24,7 +24,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   RecipeHandler recipeHandler = RecipeHandler();
   final tabs = [
     HomePage(),
-    RecipesPage(),
+    IngredientsPage(),
     NotificationsPage(),
     AccountPage(),
   ];

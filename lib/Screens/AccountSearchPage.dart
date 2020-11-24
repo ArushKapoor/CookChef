@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'NotificationsPage.dart';
-import 'IncredientsPage.dart';
+import 'IngredientsPage.dart';
 import 'SelectedIngredientsPage.dart';
 
 class AccountSearchPage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
 
   final tabs = [
     AccountSearchPage(),
-    RecipesPage(),
+    IngredientsPage(),
     NotificationsPage(),
     AccountPage(),
   ];
