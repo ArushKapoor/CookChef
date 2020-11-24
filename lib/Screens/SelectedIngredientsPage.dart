@@ -44,7 +44,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: (currentIndex == 1)
+      appBar: (currentIndex != 0)
           ? AppBar(
               automaticallyImplyLeading:
                   (!hasTapped || currentIndex == 1) ? true : false,
