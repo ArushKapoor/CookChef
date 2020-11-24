@@ -1,9 +1,9 @@
-import 'package:cook_chef/Screens/AccountPage.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'NotificationsPage.dart';
-import 'IncredientsPage.dart';
+import '../NotificationsPage.dart';
+import '../Recipe/IncredientsPage.dart';
 
 class AccountSearchPage extends StatefulWidget {
   static const String id = 'account_search_page';

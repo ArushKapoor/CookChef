@@ -1,14 +1,14 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Models/Recipe.dart';
 import 'package:cook_chef/Models/RecipeHandler.dart';
-import 'package:cook_chef/Screens/ViewRecipesPage.dart';
+import 'package:cook_chef/Screens/Recipe/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'AccountPage.dart';
-import 'HomePage.dart';
-import 'NotificationsPage.dart';
+import '../Account/AccountPage.dart';
+import '../HomePage.dart';
+import '../NotificationsPage.dart';
 import 'IncredientsPage.dart';
 
 class SelectedIngredientsPage extends StatefulWidget {

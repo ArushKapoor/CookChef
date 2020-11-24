@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Animation/FadeAnimation.dart';
+import '../Animation/FadeAnimation.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 

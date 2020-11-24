@@ -1,4 +1,4 @@
-import 'package:cook_chef/Screens/ViewRecipesPage.dart';
+import 'package:cook_chef/Screens/Recipe/ViewRecipesPage.dart';
 import 'package:flutter/material.dart';
 
 class MakeRecipesPage extends StatefulWidget {

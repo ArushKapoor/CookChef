@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
@@ -7,6 +8,10 @@ class AuthenticationService {
   Stream<User> get authCredentialChanges => _firebaseAuth.idTokenChanges();
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
+  }
+
+  Future<void> reloadUser() async {
+    await FirebaseAuth.instance.currentUser.reload();
   }
 
   FirebaseAuth emailVerification() {
@@ -53,11 +58,14 @@ class AuthenticationService {
     return false;
   }
 
-  Future<String> signUp({String email, String password}) async {
+  Future<String> signUp(
+      {String email, String password, String username}) async {
     try {
       UserCredential user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      CloudFirestore cloudFirestore = CloudFirestore();
 
+      await cloudFirestore.userSetUp(username);
       if (!_firebaseAuth.currentUser.emailVerified) {
         await _firebaseAuth.currentUser.sendEmailVerification();
       }
