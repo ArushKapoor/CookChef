@@ -1,5 +1,5 @@
 import 'package:cook_chef/Screens/AccountSettings.dart';
-import 'package:cook_chef/Screens/Forgot_Password.dart';
+import 'package:cook_chef/Screens/Authentication/Forgot_Password.dart';
 import 'package:flutter/material.dart';
 
 class UpdatePassword extends StatefulWidget {
@@ -23,7 +23,7 @@ class _UpdatePassState extends State<UpdatePassword> {
               Navigator.pop(context, AccountSettings.id);
             },
             child: Icon(Icons.arrow_back),
-          ),,
+          ),
           title: Text(
             'Update Password',
           ),

@@ -10,6 +10,10 @@ class AuthenticationService {
     await _firebaseAuth.signOut();
   }
 
+  Future<void> reloadUser() async {
+    await FirebaseAuth.instance.currentUser.reload();
+  }
+
   FirebaseAuth emailVerification() {
     return _firebaseAuth;
   }
@@ -27,11 +31,41 @@ class AuthenticationService {
     return false;
   }
 
-  Future<String> signUp({String email, String password}) async {
+  Future<bool> updateEmail(String email) async {
+    try {
+      await _firebaseAuth.currentUser.updateEmail(email);
+      return false;
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      if (e.code == 'email-already-in-use' || e.code == 'invalid-email') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<bool> updatePasswd(String passwd) async {
+    try {
+      await _firebaseAuth.currentUser.updatePassword(passwd);
+
+      return false;
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      if (e.code == 'weak-password' || e.code == 'requires-recent-login') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<String> signUp(
+      {String email, String password, String username}) async {
     try {
       UserCredential user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      CloudFirestore cloudFirestore = CloudFirestore();
 
+      await cloudFirestore.userSetUp(username);
       if (!_firebaseAuth.currentUser.emailVerified) {
         await _firebaseAuth.currentUser.sendEmailVerification();
       }

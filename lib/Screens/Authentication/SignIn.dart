@@ -1,10 +1,10 @@
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
-import 'package:cook_chef/Screens/SignUp.dart';
+import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
-import 'Animation/FadeAnimation.dart';
+import '../Animation/FadeAnimation.dart';
 
 class Login extends StatefulWidget {
   static final id = 'login';
@@ -104,7 +104,15 @@ class _LoginViewState extends State<Login> {
                                       border: Border(
                                           bottom: BorderSide(
                                               color: Colors.grey[200]))),
-                                  child: TextField(
+                                  child: TextFormField(
+                                    validator: (value) {
+                                      bool emailValid = RegExp(
+                                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                          .hasMatch(value);
+                                      if (!emailValid) {
+                                        return 'Please Enter a valid email';
+                                      }
+                                    },
                                     controller: _emailController,
                                     keyboardType: TextInputType.emailAddress,
                                     cursorColor: Colors.green,
@@ -120,7 +128,15 @@ class _LoginViewState extends State<Login> {
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(10),
-                                  child: TextField(
+                                  child: TextFormField(
+                                    validator: (value) {
+                                      String pattern =
+                                          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+                                      RegExp regExp = new RegExp(pattern);
+                                      if (!regExp.hasMatch(value)) {
+                                        return 'Please Enter a Valid Password';
+                                      }
+                                    },
                                     obscureText: true,
                                     controller: _passwordController,
                                     cursorColor: Colors.green,
@@ -173,19 +189,24 @@ class _LoginViewState extends State<Login> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               onPressed: () {
-                                try {
-                                  context.read<AuthenticationService>().signIn(
-                                      email: _emailController.text,
-                                      password: _passwordController.text);
-                                  User user = FirebaseAuth.instance.currentUser;
-                                  if (user != null && user.emailVerified) {
-                                    Navigator.of(context)
-                                        .pushNamed(HomePage.id);
+                                if (_formKey.currentState.validate()) {
+                                  try {
+                                    context
+                                        .read<AuthenticationService>()
+                                        .signIn(
+                                            email: _emailController.text,
+                                            password: _passwordController.text);
+                                    User user =
+                                        FirebaseAuth.instance.currentUser;
+                                    if (user != null && user.emailVerified) {
+                                      Navigator.of(context)
+                                          .pushNamed(HomePage.id);
+                                    }
+                                  } catch (e) {
+                                    print(e);
+                                    _emailController.text = "";
+                                    _passwordController.text = "";
                                   }
-                                } catch (e) {
-                                  print(e);
-                                  _emailController.text = "";
-                                  _passwordController.text = "";
                                 }
                               },
                               child: Center(

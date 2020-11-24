@@ -1,4 +1,4 @@
-import 'package:cook_chef/Screens/ViewRecipesPage.dart';
+import 'package:cook_chef/Screens/Recipe/ViewRecipesPage.dart';
 import 'package:flutter/material.dart';
 
 class MakeRecipesPage extends StatefulWidget {
@@ -42,6 +42,13 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
         args.ingredientAndSteps[1].toString().replaceAll("., ", ".\n");
     if (steps.startsWith("[")) {
       steps = steps.substring(1, steps.length - 1);
+    }
+    if (steps.contains("Note:")) {
+      int index = steps.indexOf("Note:");
+      steps = steps.substring(0, index) +
+          "\n(" +
+          steps.substring(index, steps.length) +
+          ")";
     }
 
     double _width = MediaQuery.of(context).size.width;

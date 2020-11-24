@@ -2,7 +2,9 @@ import 'package:cook_chef/Screens/UpdateEmail.dart';
 import 'package:cook_chef/Screens/UpdatePassword.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'dart:io';
 
 enum HomeOptions { notification, about, logout }
 
@@ -31,6 +33,58 @@ class _AccountSettingsState extends State<AccountSettings> {
     super.dispose();
     _nameEditingController.dispose();
     _bioEditingController.dispose();
+  }
+
+  File _image;
+
+  ImagePicker imagePicker = new ImagePicker();
+
+  Future _imgFromCamera() async {
+    PickedFile image = await imagePicker.getImage(
+        source: ImageSource.camera, imageQuality: 50);
+
+    setState(() {
+      _image = File(image.path);
+    });
+  }
+
+  Future _imgFromGallery() async {
+    PickedFile image = await imagePicker.getImage(
+        source: ImageSource.gallery, imageQuality: 50);
+
+    setState(() {
+      _image = File(image.path);
+    });
+  }
+
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        _imgFromGallery();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      _imgFromCamera();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 
   @override
@@ -116,19 +170,26 @@ class _AccountSettingsState extends State<AccountSettings> {
                   height: _height * 0.1,
                 ),
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg'),
+                  backgroundImage: (_image == null)
+                      ? NetworkImage(
+                          'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg')
+                      : FileImage(_image),
                   maxRadius: _height * 0.05,
                 ),
                 SizedBox(
                   height: _height * 0.07,
                 ),
-                Text(
-                  'Change profile pic',
-                  style: TextStyle(
-                      fontSize: _height * 0.02,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.lightBlueAccent),
+                GestureDetector(
+                  onTap: () {
+                    _showPicker(context);
+                  },
+                  child: Text(
+                    'Change profile pic',
+                    style: TextStyle(
+                        fontSize: _height * 0.02,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.lightBlueAccent),
+                  ),
                 ),
                 SizedBox(
                   height: _height * 0.1,

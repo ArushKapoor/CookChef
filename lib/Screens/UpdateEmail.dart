@@ -1,5 +1,4 @@
 import 'package:cook_chef/Screens/AccountSettings.dart';
-import 'package:cook_chef/Screens/Forgot_Password.dart';
 import 'package:flutter/material.dart';
 
 class UpdateEmail extends StatefulWidget {

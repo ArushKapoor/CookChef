@@ -1,24 +1,24 @@
 import 'package:cook_chef/Models/IngredientsHandler.dart';
-import 'package:cook_chef/Screens/AccountPage.dart';
-import 'package:cook_chef/Screens/AccountSearchPage.dart';
-import 'package:cook_chef/Screens/AccountSettings.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
+import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
+import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
-import 'package:cook_chef/Screens/MakeRecipePage.dart';
+import 'package:cook_chef/Screens/Recipe/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
-import 'package:cook_chef/Screens/IncredientsPage.dart';
 import 'package:cook_chef/Screens/UpdateEmail.dart';
-import 'package:cook_chef/Screens/UploadPage.dart';
+import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
+import 'Screens/Account/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'Auth/AuthenticationService.dart';
-import 'package:cook_chef/Screens/SignIn.dart';
-import 'package:cook_chef/Screens/SignUp.dart';
-import 'Screens/ViewRecipesPage.dart';
-import 'Screens/SelectedIngredientsPage.dart';
-import 'Screens/Forgot_Password.dart';
 import 'Screens/UpdatePassword.dart';
+import 'package:cook_chef/Screens/Authentication/SignIn.dart';
+import 'package:cook_chef/Screens/Authentication/SignUp.dart';
+import 'Screens/Recipe/ViewRecipesPage.dart';
+import 'Screens/Recipe/SelectedIngredientsPage.dart';
+import 'Screens/Authentication/Forgot_Password.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         routes: {
           HomePage.id: (context) => HomePage(),
           AccountSearchPage.id: (context) => AccountSearchPage(),
-          RecipesPage.id: (context) => RecipesPage(),
+          IngredientsPage.id: (context) => IngredientsPage(),
           SelectedIngredientsPage.id: (context) => SelectedIngredientsPage(),
           ViewRecipesPage.id: (context) => ViewRecipesPage(),
           MakeRecipesPage.id: (context) => MakeRecipesPage(),
@@ -80,7 +80,7 @@ class AuthenticationWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     User user = context.watch<User>();
     User auth = FirebaseAuth.instance.currentUser;
-
+    context.watch<AuthenticationService>().reloadUser();
     if (user != null && auth.emailVerified) {
       return HomePage();
     } else {

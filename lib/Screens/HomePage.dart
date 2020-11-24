@@ -1,9 +1,9 @@
 import 'package:cook_chef/Screens/FeedPage.dart';
-import 'package:cook_chef/Screens/AccountPage.dart';
-import 'package:cook_chef/Screens/AccountSearchPage.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
+import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
-import 'package:cook_chef/Screens/IncredientsPage.dart';
-import 'package:cook_chef/Screens/SelectedIngredientsPage.dart';
+import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
+import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   final tabs = [
     FeedPage(),
-    RecipesPage(),
+    IngredientsPage(),
     NotificationsPage(),
     AccountPage(),
   ];
