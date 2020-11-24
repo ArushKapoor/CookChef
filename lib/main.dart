@@ -6,6 +6,7 @@ import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/IncredientsPage.dart';
+import 'package:cook_chef/Screens/UpdateEmail.dart';
 import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ import 'package:cook_chef/Screens/SignUp.dart';
 import 'Screens/ViewRecipesPage.dart';
 import 'Screens/SelectedIngredientsPage.dart';
 import 'Screens/Forgot_Password.dart';
+import 'Screens/UpdatePassword.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,6 +63,8 @@ class MyApp extends StatelessWidget {
           SignUpPage.id: (context) => SignUpPage(),
           Forgot.id: (context) => Forgot(),
           AccountSettings.id: (context) => AccountSettings(),
+          UpdatePassword.id: (context) => UpdatePassword(),
+          UpdateEmail.id: (context) => UpdateEmail(),
         },
 
         /* Setting the initial route */

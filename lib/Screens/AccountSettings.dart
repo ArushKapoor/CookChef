@@ -1,3 +1,5 @@
+import 'package:cook_chef/Screens/UpdateEmail.dart';
+import 'package:cook_chef/Screens/UpdatePassword.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:provider/provider.dart';
