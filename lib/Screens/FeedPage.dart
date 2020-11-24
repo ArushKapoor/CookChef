@@ -202,6 +202,7 @@ class SinglePost extends StatelessWidget {
           GestureDetector(
             onTap: () {
               showModalBottomSheet(
+                backgroundColor: Colors.black.withOpacity(0),
                 context: context,
                 isScrollControlled: true,
                 builder: (context) => BottomCommentsSheetBuilder(),
