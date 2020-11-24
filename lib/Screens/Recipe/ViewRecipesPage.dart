@@ -2,7 +2,7 @@ import 'package:cook_chef/Screens/Recipe/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'IncredientsPage.dart';
+import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import '../Account/AccountPage.dart';
 import '../HomePage.dart';
 import '../NotificationsPage.dart';
@@ -19,7 +19,7 @@ bool hasTapped = false;
 
 final tabs = [
   HomePage(),
-  RecipesPage(),
+  IngredientsPage(),
   NotificationsPage(),
   AccountPage(),
 ];

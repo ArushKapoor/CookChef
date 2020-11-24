@@ -2,8 +2,9 @@ import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../NotificationsPage.dart';
-import '../Recipe/IncredientsPage.dart';
+import 'package:cook_chef/Screens/NotificationsPage.dart';
+import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
+import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 
 class AccountSearchPage extends StatefulWidget {
   static const String id = 'account_search_page';
@@ -17,7 +18,7 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
 
   final tabs = [
     AccountSearchPage(),
-    RecipesPage(),
+    IngredientsPage(),
     NotificationsPage(),
     AccountPage(),
   ];
@@ -63,6 +64,20 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
                 ],
               )
             : Text('CookChef'),
+        actions: <Widget>[
+          if (currentIndex == 1)
+            Container(
+              margin: EdgeInsets.only(right: 10.0),
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, SelectedIngredientsPage.id);
+                  },
+                  child: Text('Next'),
+                ),
+              ),
+            ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,

@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import '../Account/AccountPage.dart';
 import '../HomePage.dart';
 import '../NotificationsPage.dart';
-import 'IncredientsPage.dart';
+import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 
 class SelectedIngredientsPage extends StatefulWidget {
   static const String id = 'selected_ingredients_page';
@@ -24,7 +24,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   RecipeHandler recipeHandler = RecipeHandler();
   final tabs = [
     HomePage(),
-    RecipesPage(),
+    IngredientsPage(),
     NotificationsPage(),
     AccountPage(),
   ];
@@ -44,7 +44,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: (currentIndex == 1)
+      appBar: (currentIndex != 0)
           ? AppBar(
               automaticallyImplyLeading:
                   (!hasTapped || currentIndex == 1) ? true : false,
