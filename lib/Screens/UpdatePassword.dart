@@ -1,4 +1,4 @@
-import 'package:cook_chef/Screens/AccountSettings.dart';
+import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:cook_chef/Screens/Authentication/Forgot_Password.dart';
 import 'package:flutter/material.dart';
 
