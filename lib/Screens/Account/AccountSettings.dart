@@ -1,9 +1,11 @@
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
+import 'package:cook_chef/Screens/Authentication/UpdatePassword.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:provider/provider.dart';
 
-enum HomeOptions { notification, about, logout }
+enum HomeOptions { notification, about, logout, updatePassword, updateEmail }
 
 class AccountSettings extends StatefulWidget {
   static final id = 'account_settings';
@@ -44,6 +46,12 @@ class _AccountSettingsState extends State<AccountSettings> {
             switchValue = !switchValue;
           });
           break;
+        case HomeOptions.updateEmail:
+          Navigator.pushNamed(context, UpdateEmail.id);
+          break;
+        case HomeOptions.updatePassword:
+          Navigator.pushNamed(context, UpdatePassword.id);
+          break;
         case HomeOptions.about:
           Navigator.pushNamed(context, 'hi');
           break;
@@ -66,6 +74,24 @@ class _AccountSettingsState extends State<AccountSettings> {
               onSelected: _selectOption,
               itemBuilder: (BuildContext context) {
                 return [
+                  PopupMenuItem<HomeOptions>(
+                    child: PopUpItem(
+                      height: _height,
+                      iconName: 'Update Password',
+                      iconData: Icons.error_outline,
+                      width: _width,
+                    ),
+                    value: HomeOptions.updatePassword,
+                  ),
+                  PopupMenuItem<HomeOptions>(
+                    child: PopUpItem(
+                      height: _height,
+                      iconName: 'Update Email',
+                      iconData: Icons.error_outline,
+                      width: _width,
+                    ),
+                    value: HomeOptions.updateEmail,
+                  ),
                   PopupMenuItem<HomeOptions>(
                     child: Row(
                       children: [
@@ -205,7 +231,6 @@ class PopUpItem extends StatelessWidget {
       child: Align(
         alignment: Alignment.topRight,
         child: ListTile(
-          leading: Icon(iconData),
           contentPadding: EdgeInsets.symmetric(horizontal: 5),
           title: Text(iconName),
           //onTap: () {},

@@ -19,7 +19,7 @@ class CloudFirestore {
       String recipe, String username, String imgName, String id) {
     feeds = FirebaseFirestore.instance.collection('feeds');
     Timestamp time = Timestamp.now();
-    feeds.doc(id).set({
+    feeds.doc().set({
       'username': username,
       'imgname': imgName,
       'recipe': recipe,

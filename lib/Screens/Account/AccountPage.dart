@@ -1,5 +1,5 @@
 import 'package:cook_chef/Screens/Account/AccountSettings.dart';
-import 'package:cook_chef/Screens/Account/UploadPage.dart';
+import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

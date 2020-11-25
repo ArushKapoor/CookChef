@@ -10,6 +10,10 @@ class AuthenticationService {
     await _firebaseAuth.signOut();
   }
 
+  String currentEmail() {
+    return _firebaseAuth.currentUser.email;
+  }
+
   Future<void> reloadUser() async {
     await FirebaseAuth.instance.currentUser.reload();
   }

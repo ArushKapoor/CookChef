@@ -1,3 +1,4 @@
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
@@ -5,15 +6,15 @@ import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/Recipe/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
-import 'package:cook_chef/Screens/UpdateEmail.dart';
+import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
-import 'Screens/Account/UploadPage.dart';
+import 'Screens/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'Auth/AuthenticationService.dart';
-import 'Screens/UpdatePassword.dart';
+import 'Screens/Authentication/UpdatePassword.dart';
 import 'package:cook_chef/Screens/Authentication/SignIn.dart';
 import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'Screens/Recipe/ViewRecipesPage.dart';
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<AuthenticationService>(
           create: (_) => AuthenticationService(FirebaseAuth.instance),
+        ),
+        Provider<CloudFirestore>(
+          create: (_) => CloudFirestore(),
         ),
         StreamProvider(
           create: (context) =>

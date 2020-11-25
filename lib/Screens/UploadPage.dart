@@ -1,5 +1,8 @@
 import 'dart:io';
-
+import 'package:cook_chef/Firestore/CloudStorage.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:provider/provider.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -11,7 +14,7 @@ class UploadPage extends StatefulWidget {
 
 class _UploadPageState extends State<UploadPage> {
   File _image;
-
+  CloudStorage _cloudStorage = CloudStorage();
   ImagePicker imagePicker = new ImagePicker();
 
   Future _imgFromCamera() async {
@@ -67,6 +70,19 @@ class _UploadPageState extends State<UploadPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Upload'),
+        actions: [
+          Center(
+                      child: GestureDetector(
+              onTap: () async{
+                await _cloudStorage.uploadFile(_image);
+              },
+              child: Text(
+                'Share',
+                style: TextStyle(color: Colors.lightBlueAccent),
+              ),
+            ),
+          )
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -127,11 +143,12 @@ class _UploadPageState extends State<UploadPage> {
                           width: 5.0,
                         ),
                         IconButton(
-                            icon: Icon(Icons.photo_library_outlined),
-                            tooltip: 'Upload image',
-                            onPressed: () {
-                              _showPicker(context);
-                            }),
+                          icon: Icon(Icons.photo_library_outlined),
+                          tooltip: 'Upload image',
+                          onPressed: () {
+                            _showPicker(context);
+                          },
+                        ),
                       ],
                     ),
                   ),
