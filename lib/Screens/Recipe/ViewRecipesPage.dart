@@ -108,6 +108,10 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                           print(args.recipeList[index].id);
                           List ingredientsAndSteps = await recipeHandler
                               .recipeById(args.recipeList[index].id);
+                          ingredientsAndSteps
+                              .add(args.recipeList[index].recipeImageUrl);
+                          ingredientsAndSteps
+                              .add(args.recipeList[index].recipeName);
                           Navigator.pushNamed(
                             context,
                             MakeRecipesPage.id,

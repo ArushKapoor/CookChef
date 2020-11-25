@@ -59,8 +59,8 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
       ),
       body: ListView(
         children: <Widget>[
-          Text('Pumpkin Cake'),
-          Image.asset('assets/images/apricot.jpeg'),
+          Text(args.ingredientAndSteps[3]),
+          Image.network(args.ingredientAndSteps[2]),
           Text('Ingredients'),
           Container(
             margin:
