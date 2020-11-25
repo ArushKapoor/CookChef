@@ -10,6 +10,8 @@ class UploadPage extends StatefulWidget {
 }
 
 class _UploadPageState extends State<UploadPage> {
+  TextEditingController _postController = TextEditingController();
+
   File _image;
 
   ImagePicker imagePicker = new ImagePicker();
@@ -67,7 +69,19 @@ class _UploadPageState extends State<UploadPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Upload'),
+        actions: <Widget>[
+          Container(
+            margin: EdgeInsets.only(right: 10.0),
+            child: Center(
+              child: GestureDetector(
+                onTap: () {},
+                child: Text('Share'),
+              ),
+            ),
+          ),
+        ],
       ),
+      resizeToAvoidBottomInset: (_image == null) ? true : false,
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -91,15 +105,37 @@ class _UploadPageState extends State<UploadPage> {
             ),
             Expanded(
               child: Container(
-                child: Text('What\'s your recipe'),
+                padding: EdgeInsets.only(top: 5.0),
+                child: Column(
+                  mainAxisAlignment: (_image == null)
+                      ? MainAxisAlignment.start
+                      : MainAxisAlignment.end,
+                  children: <Widget>[
+                    Flexible(
+                      child: TextField(
+                        controller: _postController,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: (_image == null)
+                                ? 'What\'s your recipe'
+                                : 'Say something about this photo...'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             if (_image != null)
-              Image.file(
-                _image,
-                width: 100,
-                height: 100,
-                fit: BoxFit.fitHeight,
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(top: 5.0),
+                  child: Image.file(
+                    _image,
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
             Container(
               padding: EdgeInsets.all(5.0),
