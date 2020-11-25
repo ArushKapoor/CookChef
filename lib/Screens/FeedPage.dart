@@ -239,80 +239,115 @@ class SinglePost extends StatelessWidget {
     bool increment = false, decrement = true;
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          SizedBox(
+            height: 10.0,
+          ),
           Row(
             children: <Widget>[
-              Icon(Icons.account_circle),
+              SizedBox(
+                width: 4.0,
+              ),
+              Icon(
+                Icons.account_circle,
+                size: 35.0,
+              ),
+              SizedBox(
+                width: 4.0,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(name),
-                  Text(time),
+                  Text(
+                    name,
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                  Text(
+                    time,
+                    style: TextStyle(fontSize: 10.0),
+                  ),
                 ],
               ),
             ],
           ),
-          Text(description),
+          // SizedBox(
+          //   height: 10.0,
+          // ),
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: Text(description),
+          ),
           if (postImageUrl != null)
             CachedNetworkImage(
               placeholder: (context, url) => CircularProgressIndicator(),
               imageUrl: postImageUrl,
             ),
-          Row(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () async {
-                  increment = !decrement;
-                  decrement = !increment;
-                  if (increment) {
-                    await context
-                        .read<CloudFirestore>()
-                        .incrementingPostLikes(postId, likes);
-                  } else if (decrement) {
-                    await context
-                        .read<CloudFirestore>()
-                        .incrementingPostLikes(postId, likes - 2);
-                  }
-                },
-                child: Icon(
-                  Icons.favorite_border,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  showModalBottomSheet(
-                    backgroundColor: Colors.black.withOpacity(0),
-                    context: context,
-                    isScrollControlled: true,
-                    builder: (context) => BottomCommentsSheetBuilder(),
-                  );
-                },
-                child: Container(
-                  height: 19,
-                  width: 35,
-                  child: SvgPicture.asset('assets/icons/chat.svg'),
-                ),
-              ),
-            ],
-          ),
           Container(
-            width: width,
-            child: Text(
-              '$likes likes',
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              showModalBottomSheet(
-                backgroundColor: Colors.black.withOpacity(0),
-                context: context,
-                isScrollControlled: true,
-                builder: (context) => BottomCommentsSheetBuilder(),
-              );
-            },
-            child: Container(
-              width: width,
-              child: Text('View all $comments comments'),
+            padding: EdgeInsets.all(10.0),
+            child: Row(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () async {
+                    increment = !decrement;
+                    decrement = !increment;
+                    if (increment) {
+                      await context
+                          .read<CloudFirestore>()
+                          .incrementingPostLikes(postId, likes);
+                    } else if (decrement) {
+                      await context
+                          .read<CloudFirestore>()
+                          .incrementingPostLikes(postId, likes - 2);
+                    }
+                  },
+                  child: Icon(
+                    Icons.favorite_border,
+                  ),
+                ),
+                SizedBox(
+                  width: 4.0,
+                ),
+                Container(
+                  child: Text(
+                    '$likes',
+                  ),
+                ),
+                SizedBox(
+                  width: width * 0.13,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      backgroundColor: Colors.black.withOpacity(0),
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) => BottomCommentsSheetBuilder(),
+                    );
+                  },
+                  child: Container(
+                    height: 20,
+                    width: 35,
+                    child: SvgPicture.asset('assets/icons/chat.svg'),
+                  ),
+                ),
+                SizedBox(
+                  width: 2.0,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      backgroundColor: Colors.black.withOpacity(0),
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) => BottomCommentsSheetBuilder(),
+                    );
+                  },
+                  child: Container(
+                    child: Text('$comments'),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
