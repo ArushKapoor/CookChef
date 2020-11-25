@@ -84,7 +84,7 @@ class AuthenticationWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     User user = context.watch<User>();
     User auth = FirebaseAuth.instance.currentUser;
-    context.watch<AuthenticationService>().reloadUser();
+    //context.watch<AuthenticationService>().reloadUser();
     if (user != null && auth.emailVerified) {
       return HomePage();
     } else {

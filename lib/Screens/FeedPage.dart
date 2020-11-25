@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:provider/provider.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
@@ -187,7 +189,7 @@ class FeedsStream extends StatelessWidget {
             final recipe = post.get('recipe');
             final imageUrl = post.get('imageUrl');
             final likes = post.get('likes');
-
+            final postId = post.get('postId');
             singlePost.add(
               SinglePost(
                 name: username,
@@ -198,6 +200,7 @@ class FeedsStream extends StatelessWidget {
                 width: width,
                 comments: 0,
                 image: Image.asset('assets/images/dal_gosht.jpg'),
+                postId: postId,
               ),
             );
             print(singlePost.toString());
@@ -219,6 +222,8 @@ class SinglePost extends StatelessWidget {
   final double width;
   final Image image;
   final String postImageUrl;
+  final String postId;
+
   SinglePost(
       {this.comments,
       this.description,
@@ -227,9 +232,11 @@ class SinglePost extends StatelessWidget {
       this.name,
       this.time,
       this.width,
-      this.postImageUrl});
+      this.postImageUrl,
+      this.postId});
   @override
   Widget build(BuildContext context) {
+    bool increment = false, decrement = true;
     return Container(
       child: Column(
         children: <Widget>[
@@ -253,8 +260,23 @@ class SinglePost extends StatelessWidget {
             ),
           Row(
             children: <Widget>[
-              Icon(
-                Icons.favorite_border,
+              GestureDetector(
+                onTap: () async {
+                  increment = !decrement;
+                  decrement = !increment;
+                  if (increment) {
+                    await context
+                        .read<CloudFirestore>()
+                        .incrementingPostLikes(postId, likes);
+                  } else if (decrement) {
+                    await context
+                        .read<CloudFirestore>()
+                        .incrementingPostLikes(postId, likes - 2);
+                  }
+                },
+                child: Icon(
+                  Icons.favorite_border,
+                ),
               ),
               GestureDetector(
                 onTap: () {
@@ -298,6 +320,7 @@ class SinglePost extends StatelessWidget {
     );
   }
 }
+
 // SinglePost(
 //                         name: 'FoodFood',
 //                         time: '28 mins',

@@ -34,13 +34,15 @@ class CloudFirestore {
       'likes': 0
     });
     String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', post.id);
-    await feeds.doc(post.id).update({'imageUrl': imageUrl});
+    await feeds.doc(post.id).update({'imageUrl': imageUrl, 'postId': post.id});
     return null;
   }
 
-  Future<void> addingComments(
-      String comment, String username, String id, String category) {
-    feeds
+  Future<void> addingComments(String comment, String id) async {
+    String username = await userName();
+
+    DocumentReference commented = await FirebaseFirestore.instance
+        .collection('feeds')
         .doc(id)
         .collection('comments')
         .add({'comment': comment, 'username': username, 'likes': 0});
