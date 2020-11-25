@@ -81,6 +81,7 @@ class _UploadPageState extends State<UploadPage> {
                   await context
                       .read<CloudFirestore>()
                       .addingPost(_postController.text, _image);
+                  Navigator.pop(context);
                 },
                 child: Text('Share'),
               ),

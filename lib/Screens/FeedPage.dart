@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
@@ -245,18 +246,30 @@ class SinglePost extends StatelessWidget {
             ],
           ),
           Text(description),
-          Image(
-            image: NetworkImage(postImageUrl),
-          ),
+          if (postImageUrl != null)
+            CachedNetworkImage(
+              placeholder: (context, url) => CircularProgressIndicator(),
+              imageUrl: postImageUrl,
+            ),
           Row(
             children: <Widget>[
               Icon(
                 Icons.favorite_border,
               ),
-              Container(
-                height: 19,
-                width: 35,
-                child: SvgPicture.asset('assets/icons/chat.svg'),
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: Colors.black.withOpacity(0),
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (context) => BottomCommentsSheetBuilder(),
+                  );
+                },
+                child: Container(
+                  height: 19,
+                  width: 35,
+                  child: SvgPicture.asset('assets/icons/chat.svg'),
+                ),
               ),
             ],
           ),
