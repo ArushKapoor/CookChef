@@ -10,15 +10,40 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> {
   /* This method is to setup each dishCategory */
-  Container _dishCategory(String text) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey[400]),
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        color: Colors.white,
+  String _selectedTab = 'Veg';
+  Material _dishCategory(String text, double width) {
+    return Material(
+      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+      shadowColor: Color(0xff7e807f),
+      elevation: (text == _selectedTab) ? 7 : 0,
+      child: Container(
+        width: width * 0.3,
+        padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
+        decoration: BoxDecoration(
+          border: (text != _selectedTab)
+              ? Border.all(color: Colors.grey[400])
+              : Border(),
+          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+          // boxShadow: [
+          //   (text == 'Indian')
+          //       ? //background color of box
+          //       BoxShadow(
+          //           color: Colors.grey,
+          //           spreadRadius: 1,
+          //           blurRadius: 0.5,
+          //           offset: Offset(0, 2),
+          //         )
+          //       : BoxShadow(
+          //           color: Colors.white,
+          //         ),
+          // ],
+          color: Colors.white,
+        ),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+        ),
       ),
-      child: Text(text),
     );
   }
 
@@ -95,11 +120,31 @@ class _FeedPageState extends State<FeedPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-/* Calling the _dishCategory method at line 10 */
-                  _dishCategory('Indian'),
-                  _dishCategory('Italian'),
-                  _dishCategory('Shake'),
-                  _dishCategory('South Indian'),
+                  /* Calling the _dishCategory method at line 10 */
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedTab = 'Veg';
+                      });
+                    },
+                    child: _dishCategory('Veg', _width),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedTab = 'Non Veg';
+                      });
+                    },
+                    child: _dishCategory('Non Veg', _width),
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _selectedTab = 'Beverages';
+                        });
+                      },
+                      child: _dishCategory('Beverages', _width)),
+                  // _dishCategory('South Indian'),
                 ],
               ),
             ),
@@ -109,7 +154,7 @@ class _FeedPageState extends State<FeedPage> {
                   physics: AlwaysScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: <Widget>[
-/* Calling the _post method at line 23 */
+                    /* Calling the _post method at line 23 */
 
                     SinglePost(
                         name: 'FoodFood',
