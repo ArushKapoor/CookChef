@@ -12,7 +12,7 @@ class RecipeHandler {
         await networkingHelper.recipeByIngredient(ingredients);
     //print(recipiesFromJson[0]['title']);
     //recipies.add(Recipe(id: 123, recipeImageUrl: 'hi', recipeName: 'title'));
-
+    recipies.clear();
     for (int i = 0; i < 20; i++) {
       try {
         if (recipiesFromJson[i]['title'] != null) {

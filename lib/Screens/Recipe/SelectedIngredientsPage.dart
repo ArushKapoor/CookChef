@@ -180,10 +180,6 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                           margin: EdgeInsets.symmetric(vertical: 20.0),
                           child: GestureDetector(
                             onTap: () async {
-                              context
-                                  .read<IngredientsHandler>()
-                                  .selectedIngredients
-                                  .clear();
                               createText(context);
                               print(text);
 
