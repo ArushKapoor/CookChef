@@ -95,6 +95,7 @@ class _AccountSettingsState extends State<AccountSettings> {
 
   @override
   Widget build(BuildContext context) {
+    String uid = Provider.of<AuthenticationService>(context).uniqueId;
     final double _height = MediaQuery.of(context).size.height;
     final double _width = MediaQuery.of(context).size.width;
     void _selectOption(HomeOptions option) {
@@ -267,8 +268,8 @@ class _AccountSettingsState extends State<AccountSettings> {
                         border: Border.all(color: Colors.black, width: 1.0)),
                     child: MaterialButton(
                       onPressed: () async {
-                        imageLink =
-                            await _cloudStorage.uploadFile(_image, 'Users');
+                        imageLink = await _cloudStorage.uploadFile(
+                            _image, 'Users', uid);
                         await _cloudFirestore.updateUser(
                             _nameEditingController.text,
                             _bioEditingController.text,

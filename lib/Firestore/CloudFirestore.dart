@@ -1,5 +1,7 @@
+import 'package:cook_chef/Firestore/CloudStorage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:io';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 CollectionReference user;
@@ -7,7 +9,7 @@ CollectionReference feeds;
 
 class CloudFirestore {
   String uid = auth.currentUser.uid.toString();
-
+  CloudStorage _cloudStorage = CloudStorage();
   Future<void> userSetUp(String userName) async {
     user = FirebaseFirestore.instance.collection('Users');
     //user.doc(uid).set({'username': userName, 'uid': uid});
@@ -21,30 +23,27 @@ class CloudFirestore {
     return null;
   }
 
-  Future<void> addingPost(
-      String recipe, String username, String imgName, String id) async {
+  Future<void> addingPost(String recipe, File _image) async {
     feeds = FirebaseFirestore.instance.collection('feeds');
     Timestamp time = Timestamp.now();
-
+    String username = await userName();
     DocumentReference post = await feeds.add({
       'username': username,
-      'imgname': imgName,
       'recipe': recipe,
       'timestamp': time,
       'likes': 0
     });
-    feeds.doc(post.id).update({'imageName': post.id});
+    String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', post.id);
+    await feeds.doc(post.id).update({'imageUrl': imageUrl});
     return null;
   }
 
   Future<void> addingComments(
       String comment, String username, String id, String category) {
-    feeds.doc(id).collection('comments').add({
-      'comment': comment,
-      'username': username,
-      'category': category,
-      'likes': 0
-    });
+    feeds
+        .doc(id)
+        .collection('comments')
+        .add({'comment': comment, 'username': username, 'likes': 0});
   }
 
   Future<void> incrementingPostLikes(String id, int like) {
@@ -60,5 +59,11 @@ class CloudFirestore {
     print(uid);
     await FirebaseFirestore.instance.collection('Users').doc(uid).update(
         {'username': username, 'bio': bio, 'uid': uid, 'imageLink': imageLink});
+  }
+
+  Future<String> userName() async {
+    DocumentSnapshot documentSnapshot =
+        await FirebaseFirestore.instance.collection('Users').doc(uid).get();
+    return documentSnapshot.data()['username'];
   }
 }

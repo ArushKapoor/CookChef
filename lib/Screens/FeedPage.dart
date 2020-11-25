@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
+
+final _firestore = FirebaseFirestore.instance;
 
 class FeedPage extends StatefulWidget {
   static const String id = 'feed_page';
@@ -148,43 +151,9 @@ class _FeedPageState extends State<FeedPage> {
                 ],
               ),
             ),
-            Container(
-              child: Expanded(
-                child: ListView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  children: <Widget>[
-                    /* Calling the _post method at line 23 */
 
-                    SinglePost(
-                        name: 'FoodFood',
-                        time: '28 mins',
-                        description:
-                            'A bite of Bhatura, just the size, oozing with the '
-                            'chole is pure decadence The flavour burst in '
-                            'your mouth, hot at first, tangy after. \n\n'
-                            'See full recipe...See more',
-                        image: Image.asset('assets/images/chole_bhature.jpg'),
-                        likes: 1812,
-                        comments: 113,
-                        width: _width),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    SinglePost(
-                        name: 'FoodFood',
-                        time: '1 Nov at 12:44 pm',
-                        description: '#SizzlingSunday Ab luft uthaiye dal ke'
-                            'saath gosht ka! Try this robust & rich Dal Gosht'
-                            'recipe, It\'ll surely you\'re your heart! \n\n'
-                            'Watch full recipe...See more',
-                        image: Image.asset('assets/images/dal_gosht.jpg'),
-                        likes: 317,
-                        comments: 21,
-                        width: _width)
-                  ],
-                ),
-              ),
+            FeedsStream(
+              width: _width,
             ),
 // bottomNavigationBar(context: context, page: HomePage.id),
           ],
@@ -194,11 +163,61 @@ class _FeedPageState extends State<FeedPage> {
   }
 }
 
+class FeedsStream extends StatelessWidget {
+  final width;
+  FeedsStream({this.width});
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: _firestore.collection('feeds').orderBy('timestamp').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.green,
+              ),
+            );
+          }
+          final posts = snapshot.data.docs;
+          List<SinglePost> singlePost = [];
+          for (var post in posts) {
+            final username = post.get('username');
+            final postTime = post.get('timestamp');
+            final recipe = post.get('recipe');
+            final imageUrl = post.get('imageUrl');
+            final likes = post.get('likes');
+
+            singlePost.add(
+              SinglePost(
+                name: username,
+                postImageUrl: imageUrl,
+                likes: likes,
+                time: '1 Nov',
+                description: recipe,
+                width: width,
+                comments: 0,
+                image: Image.asset('assets/images/dal_gosht.jpg'),
+              ),
+            );
+            print(singlePost.toString());
+          }
+          return Expanded(
+            child: ListView(
+              physics: AlwaysScrollableScrollPhysics(),
+              shrinkWrap: true,
+              children: singlePost,
+            ),
+          );
+        });
+  }
+}
+
 class SinglePost extends StatelessWidget {
   final String name, time, description;
   final int comments, likes;
   final double width;
   final Image image;
+  final String postImageUrl;
   SinglePost(
       {this.comments,
       this.description,
@@ -206,7 +225,8 @@ class SinglePost extends StatelessWidget {
       this.likes,
       this.name,
       this.time,
-      this.width});
+      this.width,
+      this.postImageUrl});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -225,7 +245,9 @@ class SinglePost extends StatelessWidget {
             ],
           ),
           Text(description),
-          image,
+          Image(
+            image: NetworkImage(postImageUrl),
+          ),
           Row(
             children: <Widget>[
               Icon(
@@ -263,3 +285,29 @@ class SinglePost extends StatelessWidget {
     );
   }
 }
+// SinglePost(
+//                         name: 'FoodFood',
+//                         time: '28 mins',
+//                         description:
+//                             'A bite of Bhatura, just the size, oozing with the '
+//                             'chole is pure decadence The flavour burst in '
+//                             'your mouth, hot at first, tangy after. \n\n'
+//                             'See full recipe...See more',
+//                         image: Image.asset('assets/images/chole_bhature.jpg'),
+//                         likes: 1812,
+//                         comments: 113,
+//                         width: _width),
+//                     SizedBox(
+//                       height: 15,
+//                     ),
+//                     SinglePost(
+//                         name: 'FoodFood',
+//                         time: '1 Nov at 12:44 pm',
+//                         description: '#SizzlingSunday Ab luft uthaiye dal ke'
+//                             'saath gosht ka! Try this robust & rich Dal Gosht'
+//                             'recipe, It\'ll surely you\'re your heart! \n\n'
+//                             'Watch full recipe...See more',
+//                         image: Image.asset('assets/images/dal_gosht.jpg'),
+//                         likes: 317,
+//                         comments: 21,
+//                         width: _width)

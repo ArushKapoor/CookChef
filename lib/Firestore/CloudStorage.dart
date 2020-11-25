@@ -6,16 +6,14 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class CloudStorage {
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  Future<String> uploadFile(File file, String path) async {
+  Future<String> uploadFile(File file, String path, String name) async {
     //File file = File(filePath);
     //TODO: There is a need of path
-    String uid = _auth.currentUser.uid;
 
     try {
       firebase_storage.TaskSnapshot uploadTask = await firebase_storage
           .FirebaseStorage.instance
-          .ref('$path/$uid')
+          .ref('$path/$name')
           .putFile(file);
       uploadTask.ref;
       String downloadURL = await firebase_storage.FirebaseStorage.instance
