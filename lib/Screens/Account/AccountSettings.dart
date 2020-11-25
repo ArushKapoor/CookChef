@@ -1,12 +1,15 @@
 import 'dart:io';
 
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:cook_chef/Firestore/CloudStorage.dart';
+import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
+import 'package:cook_chef/Screens/Authentication/UpdatePassword.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-enum HomeOptions { notification, about, logout }
+enum HomeOptions { notification, about, logout, updatePassword, updateEmail }
 
 class AccountSettings extends StatefulWidget {
   static final id = 'account_settings';
@@ -18,9 +21,11 @@ class AccountSettings extends StatefulWidget {
 class _AccountSettingsState extends State<AccountSettings> {
   bool isMaleChecked = false;
   bool isFemaleChecked = false;
+  String imageLink;
   TextEditingController _nameEditingController;
   TextEditingController _bioEditingController;
   CloudFirestore _cloudFirestore = CloudFirestore();
+  CloudStorage _cloudStorage = CloudStorage();
   bool switchValue = true;
   @override
   void initState() {
@@ -99,6 +104,12 @@ class _AccountSettingsState extends State<AccountSettings> {
             switchValue = !switchValue;
           });
           break;
+        case HomeOptions.updateEmail:
+          Navigator.pushNamed(context, UpdateEmail.id);
+          break;
+        case HomeOptions.updatePassword:
+          Navigator.pushNamed(context, UpdatePassword.id);
+          break;
         case HomeOptions.about:
           Navigator.pushNamed(context, 'hi');
           break;
@@ -121,6 +132,24 @@ class _AccountSettingsState extends State<AccountSettings> {
               onSelected: _selectOption,
               itemBuilder: (BuildContext context) {
                 return [
+                  PopupMenuItem<HomeOptions>(
+                    child: PopUpItem(
+                      height: _height,
+                      iconName: 'Update Password',
+                      iconData: Icons.error_outline,
+                      width: _width,
+                    ),
+                    value: HomeOptions.updatePassword,
+                  ),
+                  PopupMenuItem<HomeOptions>(
+                    child: PopUpItem(
+                      height: _height,
+                      iconName: 'Update Email',
+                      iconData: Icons.error_outline,
+                      width: _width,
+                    ),
+                    value: HomeOptions.updateEmail,
+                  ),
                   PopupMenuItem<HomeOptions>(
                     child: Row(
                       children: [
@@ -237,9 +266,15 @@ class _AccountSettingsState extends State<AccountSettings> {
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.black, width: 1.0)),
                     child: MaterialButton(
-                      onPressed: () {
-                        _cloudFirestore.updateUser(_nameEditingController.text,
-                            _bioEditingController.text);
+                      onPressed: () async {
+                        imageLink =
+                            await _cloudStorage.uploadFile(_image, 'Users');
+                        await _cloudFirestore.updateUser(
+                            _nameEditingController.text,
+                            _bioEditingController.text,
+                            imageLink);
+
+                        Navigator.pop(context);
                       },
                       child: Text('UPDATE'),
                     ),
@@ -267,7 +302,6 @@ class PopUpItem extends StatelessWidget {
       child: Align(
         alignment: Alignment.topRight,
         child: ListTile(
-          leading: Icon(iconData),
           contentPadding: EdgeInsets.symmetric(horizontal: 5),
           title: Text(iconName),
           //onTap: () {},

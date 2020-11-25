@@ -220,22 +220,24 @@ class _SignUpPageState extends State<SignUpPage> {
                           height: height * 0.25,
                           width: width,
                           child: FadeAnimation(
-                              1,
-                              Container(
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/back.jpeg'),
-                                          fit: BoxFit.fill)),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: width * 0.3, left: width * 0.2),
-                                    child: Text('Welcome to ChefGuru!',
-                                        style: TextStyle(
-                                            fontSize: 24,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold)),
-                                  ))),
+                            1,
+                            Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/images/back.jpeg'),
+                                      fit: BoxFit.fill)),
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    top: width * 0.3, left: width * 0.2),
+                                child: Text('Welcome to ChefGuru!',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -281,7 +283,15 @@ class _SignUpPageState extends State<SignUpPage> {
                                         border: Border(
                                             bottom: BorderSide(
                                                 color: Colors.grey[200]))),
-                                    child: TextField(
+                                    child: TextFormField(
+                                      validator: (value) {
+                                        bool emailValid = RegExp(
+                                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                            .hasMatch(value);
+                                        if (!emailValid) {
+                                          return 'Please Enter a valid email';
+                                        }
+                                      },
                                       controller: _usernameController,
                                       keyboardType: TextInputType.emailAddress,
                                       cursorColor: Colors.green,
@@ -321,7 +331,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         border: Border(
                                             bottom: BorderSide(
                                                 color: Colors.grey[200]))),
-                                    child: TextField(
+                                    child: TextFormField(
                                       obscureText: true,
                                       controller: _passwordController,
                                       cursorColor: Colors.green,
@@ -337,7 +347,15 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   Container(
                                     padding: EdgeInsets.all(10),
-                                    child: TextField(
+                                    child: TextFormField(
+                                      validator: (value) {
+                                        String pattern =
+                                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+                                        RegExp regExp = new RegExp(pattern);
+                                        if (!regExp.hasMatch(value)) {
+                                          return 'Please Enter a Valid Password';
+                                        }
+                                      },
                                       obscureText: true,
                                       controller: _repasswordController,
                                       cursorColor: Colors.green,
@@ -367,26 +385,27 @@ class _SignUpPageState extends State<SignUpPage> {
                               color: Color(0xff006043),
                             ),
                             child: MaterialButton(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50)),
-                                onPressed: () async {
-                                  context.read<AuthenticationService>().signUp(
-                                      email: _emailController.text,
-                                      password: _passwordController.text,
-                                      username: _usernameController.text);
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                              onPressed: () async {
+                                context.read<AuthenticationService>().signUp(
+                                    email: _emailController.text,
+                                    password: _passwordController.text,
+                                    username: _usernameController.text);
 
-                                  //User updateUser = FirebaseAuth.instance.currentUser;
-                                  //print(_usernameController.text);
-                                  //updateUser.updateProfile(displayName: _usernameController.text);
+                                //User updateUser = FirebaseAuth.instance.currentUser;
+                                //print(_usernameController.text);
+                                //updateUser.updateProfile(displayName: _usernameController.text);
 
-                                  Navigator.of(context).pushNamed(Login.id);
-                                },
-                                child: Center(
-                                  child: Text(
-                                    "Register",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                )),
+                                Navigator.of(context).pushNamed(Login.id);
+                              },
+                              child: Center(
+                                child: Text(
+                                  "Register",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(

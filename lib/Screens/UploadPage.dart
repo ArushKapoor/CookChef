@@ -1,5 +1,8 @@
 import 'dart:io';
-
+import 'package:cook_chef/Firestore/CloudStorage.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:provider/provider.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,7 +16,7 @@ class _UploadPageState extends State<UploadPage> {
   TextEditingController _postController = TextEditingController();
 
   File _image;
-
+  CloudStorage _cloudStorage = CloudStorage();
   ImagePicker imagePicker = new ImagePicker();
 
   Future _imgFromCamera() async {
@@ -74,7 +77,9 @@ class _UploadPageState extends State<UploadPage> {
             margin: EdgeInsets.only(right: 10.0),
             child: Center(
               child: GestureDetector(
-                onTap: () {},
+                onTap: () async {
+                  await _cloudStorage.uploadFile(_image, 'users/');
+                },
                 child: Text('Share'),
               ),
             ),
@@ -105,7 +110,6 @@ class _UploadPageState extends State<UploadPage> {
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.only(top: 5.0),
                 child: Column(
                   mainAxisAlignment: (_image == null)
                       ? MainAxisAlignment.start
@@ -163,11 +167,12 @@ class _UploadPageState extends State<UploadPage> {
                           width: 5.0,
                         ),
                         IconButton(
-                            icon: Icon(Icons.photo_library_outlined),
-                            tooltip: 'Upload image',
-                            onPressed: () {
-                              _showPicker(context);
-                            }),
+                          icon: Icon(Icons.photo_library_outlined),
+                          tooltip: 'Upload image',
+                          onPressed: () {
+                            _showPicker(context);
+                          },
+                        ),
                       ],
                     ),
                   ),

@@ -1,3 +1,4 @@
+import 'package:cook_chef/Screens/Authentication/Forgot_Password.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/Authentication/SignUp.dart';
@@ -105,14 +106,6 @@ class _LoginViewState extends State<Login> {
                                           bottom: BorderSide(
                                               color: Colors.grey[200]))),
                                   child: TextFormField(
-                                    validator: (value) {
-                                      bool emailValid = RegExp(
-                                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                          .hasMatch(value);
-                                      if (!emailValid) {
-                                        return 'Please Enter a valid email';
-                                      }
-                                    },
                                     controller: _emailController,
                                     keyboardType: TextInputType.emailAddress,
                                     cursorColor: Colors.green,
@@ -129,14 +122,6 @@ class _LoginViewState extends State<Login> {
                                 Container(
                                   padding: EdgeInsets.all(10),
                                   child: TextFormField(
-                                    validator: (value) {
-                                      String pattern =
-                                          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-                                      RegExp regExp = new RegExp(pattern);
-                                      if (!regExp.hasMatch(value)) {
-                                        return 'Please Enter a Valid Password';
-                                      }
-                                    },
                                     obscureText: true,
                                     controller: _passwordController,
                                     cursorColor: Colors.green,
@@ -161,7 +146,9 @@ class _LoginViewState extends State<Login> {
                         FadeAnimation(
                           1.7,
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, Forgot.id);
+                            },
                             child: Center(
                               child: Text(
                                 "Forgot your Password?",
