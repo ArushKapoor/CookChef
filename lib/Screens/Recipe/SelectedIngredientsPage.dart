@@ -10,7 +10,6 @@ import '../Account/AccountPage.dart';
 import '../HomePage.dart';
 import '../NotificationsPage.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
-import 'package:cook_chef/Models/Ingredient.dart';
 
 class SelectedIngredientsPage extends StatefulWidget {
   static const String id = 'selected_ingredients_page';
@@ -103,45 +102,54 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                 children: <Widget>[
                   Expanded(
                     child: ListView.builder(
-                      itemCount: context
-                          .watch<IngredientsHandler>()
-                          .selectedIngredients
-                          .length,
-                      itemBuilder: (context, index) {
-                        final ingredient = context
+                        itemCount: context
                             .watch<IngredientsHandler>()
-                            .selectedIngredients[index];
-                        return IngredientTile(
-                          text: ingredient.text,
-                          imageUrl: ingredient.imageUrl,
-                          isChecked: false,
-                          isSelectedIngredient: true,
-                          toggleCallback: () {
-                            //print(context.read<IngredientsHandler>().ingredients[0].text);
-                            int i = context
-                                .read<IngredientsHandler>()
-                                .ingredients
-                                .indexOf(
-                                  Ingredients(
-                                      text: '5 spice powder',
-                                      imageUrl:
-                                          'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png'),
-                                );
-                            //print(i);
-                            final ingredient_1 = context
-                                .read<IngredientsHandler>()
-                                .ingredients[i];
-                            Provider.of<IngredientsHandler>(context,
-                                    listen: false)
-                                .removeSelectedIngredient(ingredient);
+                            .selectedIngredients
+                            .length,
+                        itemBuilder: (context, index) {
+                          final ingredient = context
+                              .watch<IngredientsHandler>()
+                              .selectedIngredients[index];
+                          return IngredientTile(
+                            text: ingredient.text,
+                            imageUrl: ingredient.imageUrl,
+                            isChecked: false,
+                            isSelectedIngredient: true,
+                            toggleCallback: () {
+                              // int i = context
+                              //     .read<IngredientsHandler>()
+                              //     .ingredients
+                              //     .indexOf(ingredient);
+                              int i;
+                              for (int index = 0;
+                                  index <
+                                      context
+                                          .read<IngredientsHandler>()
+                                          .ingredients
+                                          .length;
+                                  index++) {
+                                if (ingredient.text ==
+                                    context
+                                        .read<IngredientsHandler>()
+                                        .ingredients[index]
+                                        .text) {
+                                  i = index;
+                                  break;
+                                }
+                              }
+                              final ingredient_1 = context
+                                  .read<IngredientsHandler>()
+                                  .ingredients[i];
+                              Provider.of<IngredientsHandler>(context,
+                                      listen: false)
+                                  .removeSelectedIngredient(ingredient);
 
-                            Provider.of<IngredientsHandler>(context,
-                                    listen: false)
-                                .checkBoxToggler(ingredient_1);
-                          },
-                        );
-                      },
-                    ),
+                              Provider.of<IngredientsHandler>(context,
+                                      listen: false)
+                                  .checkBoxToggler(ingredient_1);
+                            },
+                          );
+                        }),
                   ),
                   Expanded(
                     child: Column(

@@ -176,6 +176,7 @@ class _LoginViewState extends State<Login> {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               onPressed: () {
+                                // if (_formKey.currentState.validate()) {
                                 try {
                                   context.read<AuthenticationService>().signIn(
                                       email: _emailController.text,
@@ -190,6 +191,7 @@ class _LoginViewState extends State<Login> {
                                   _emailController.text = "";
                                   _passwordController.text = "";
                                 }
+                                // }
                               },
                               child: Center(
                                 child: Text(

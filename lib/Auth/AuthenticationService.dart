@@ -10,6 +10,10 @@ class AuthenticationService {
     await _firebaseAuth.signOut();
   }
 
+  String get uniqueId {
+    return _firebaseAuth.currentUser.uid;
+  }
+
   String currentEmail() {
     return _firebaseAuth.currentUser.email;
   }

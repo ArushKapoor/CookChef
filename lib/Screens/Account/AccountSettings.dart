@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:cook_chef/Firestore/CloudStorage.dart';
 import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
 import 'package:cook_chef/Screens/Authentication/UpdatePassword.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 enum HomeOptions { notification, about, logout, updatePassword, updateEmail }
@@ -17,9 +21,11 @@ class AccountSettings extends StatefulWidget {
 class _AccountSettingsState extends State<AccountSettings> {
   bool isMaleChecked = false;
   bool isFemaleChecked = false;
+  String imageLink;
   TextEditingController _nameEditingController;
   TextEditingController _bioEditingController;
   CloudFirestore _cloudFirestore = CloudFirestore();
+  CloudStorage _cloudStorage = CloudStorage();
   bool switchValue = true;
   @override
   void initState() {
@@ -33,6 +39,58 @@ class _AccountSettingsState extends State<AccountSettings> {
     super.dispose();
     _nameEditingController.dispose();
     _bioEditingController.dispose();
+  }
+
+  File _image;
+
+  ImagePicker imagePicker = new ImagePicker();
+
+  Future _imgFromCamera() async {
+    PickedFile image = await imagePicker.getImage(
+        source: ImageSource.camera, imageQuality: 50);
+
+    setState(() {
+      _image = File(image.path);
+    });
+  }
+
+  Future _imgFromGallery() async {
+    PickedFile image = await imagePicker.getImage(
+        source: ImageSource.gallery, imageQuality: 50);
+
+    setState(() {
+      _image = File(image.path);
+    });
+  }
+
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        _imgFromGallery();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      _imgFromCamera();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 
   @override
@@ -147,19 +205,26 @@ class _AccountSettingsState extends State<AccountSettings> {
                     height: _height * 0.1,
                   ),
                   CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg'),
+                    backgroundImage: (_image == null)
+                        ? NetworkImage(
+                            'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg')
+                        : FileImage(_image),
                     maxRadius: _height * 0.05,
                   ),
                   SizedBox(
                     height: _height * 0.07,
                   ),
-                  Text(
-                    'Change profile pic',
-                    style: TextStyle(
-                        fontSize: _height * 0.02,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.lightBlueAccent),
+                  GestureDetector(
+                    onTap: () {
+                      _showPicker(context);
+                    },
+                    child: Text(
+                      'Change profile pic',
+                      style: TextStyle(
+                          fontSize: _height * 0.02,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.lightBlueAccent),
+                    ),
                   ),
                   SizedBox(
                     height: _height * 0.1,
@@ -201,9 +266,15 @@ class _AccountSettingsState extends State<AccountSettings> {
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.black, width: 1.0)),
                     child: MaterialButton(
-                      onPressed: () {
-                        _cloudFirestore.updateUser(_nameEditingController.text,
-                            _bioEditingController.text);
+                      onPressed: () async {
+                        imageLink =
+                            await _cloudStorage.uploadFile(_image, 'Users');
+                        await _cloudFirestore.updateUser(
+                            _nameEditingController.text,
+                            _bioEditingController.text,
+                            imageLink);
+
+                        Navigator.pop(context);
                       },
                       child: Text('UPDATE'),
                     ),
