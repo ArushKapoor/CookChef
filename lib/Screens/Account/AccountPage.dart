@@ -93,10 +93,10 @@ class _AccountPageState extends State<AccountPage> {
             Expanded(
               child: ListView(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.all(8.0),
-                    child: Text('account_name'),
-                  ),
+                  // Container(
+                  //   margin: EdgeInsets.all(8.0),
+                  //   child: Text('account_name'),
+                  // ),
                   SizedBox(
                     height: 5,
                   ),

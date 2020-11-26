@@ -122,7 +122,7 @@ class _FeedPageState extends State<FeedPage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(8.0),
-              color: Color(0xffEBEDEC),
+              color: Color(0xffDCE1DE),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -244,70 +244,117 @@ class _SinglePostState extends State<SinglePost> {
   CloudFirestore _cloudFirestore = CloudFirestore();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 10.0,
-          ),
-          Row(
-            children: <Widget>[
-              SizedBox(
-                width: 4.0,
-              ),
-              Icon(
-                Icons.account_circle,
-                size: 35.0,
-              ),
-              SizedBox(
-                width: 4.0,
-              ),
-              Column(
+    final _height = MediaQuery.of(context).size.height;
+    final _width = MediaQuery.of(context).size.width;
+    return SafeArea(
+        child: Column(
+      children: [
+        Container(
+            child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    widget.name,
-                    style: TextStyle(fontSize: 18.0),
+              SizedBox(
+                height: _height * 0.02,
+              ),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: _width * 0.02,
                   ),
-                  Text(
-                    widget.time,
-                    style: TextStyle(fontSize: 10.0),
+                  Icon(
+                    Icons.account_circle,
+                    size: _width * 0.08,
+                  ),
+                  SizedBox(
+                    width: _width * 0.01,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(widget.name,
+                          style: TextStyle(
+                              fontSize: _height * 0.02,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54)),
+                      Text(
+                        widget.time,
+                        style: TextStyle(
+                            fontSize: _height * 0.01, color: Colors.black54),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-          Container(
-              margin: EdgeInsets.all(10.0), child: Text(widget.description)),
-          if (widget.postImageUrl != null)
-            CachedNetworkImage(
-              placeholder: (context, url) => CircularProgressIndicator(),
-              imageUrl: widget.postImageUrl,
-            ),
-          Container(
-            padding: EdgeInsets.all(10.0),
-            child: Row(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () async {
-                    increment = !increment;
-                    print(increment);
-                    if (increment) {
-                      print(widget.postId);
-                      await _cloudFirestore.incrementingPostLikes(
-                          widget.postId, widget.likes);
-                    } else {
-                      await _cloudFirestore.incrementingPostLikes(
-                          widget.postId, widget.likes - 2);
-                    }
-                  },
-                  child: Icon(
-                    Icons.favorite_border,
+              Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: _width * .04, vertical: _height * 0.01),
+                  child: Text(widget.description)),
+              if (widget.postImageUrl != null)
+                Container(
+                  padding: EdgeInsets.all(_width * 0.05),
+                  color: Colors.white,
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    imageUrl: widget.postImageUrl,
+                    // height: _height * 0.5,
+                    width: _width,
                   ),
                 ),
+              Container(
+                padding: EdgeInsets.all(_width * .02),
+                child: Row(
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () async {
+                        increment = !increment;
+                        print(increment);
+                        if (increment) {
+                          print(widget.postId);
+                          await _cloudFirestore.incrementingPostLikes(
+                              widget.postId, widget.likes);
+                        } else {
+                          await _cloudFirestore.incrementingPostLikes(
+                              widget.postId, widget.likes - 2);
+                        }
+                      },
+                      child: Icon(
+                        Icons.favorite_border,
+                      ),
+                    ),
+                    SizedBox(
+                      width: _width * 0.02,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          backgroundColor: Colors.black.withOpacity(0),
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) => BottomCommentsSheetBuilder(
+                            postId: widget.postId,
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: _height * 0.025,
+                        width: _width * 0.05,
+                        child: SvgPicture.asset('assets/icons/chat.svg'),
+                      ),
+                    ),
+                    // SizedBox(
+                    //   width: _width * 0.8,
+                    // ),
+                  ],
+                ),
+              ),
+              Container(
+                  child: Row(children: [
+                Text(
+                  '${widget.likes} likes',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 SizedBox(
-                  width: 4.0,
+                  width: widget.width * 0.02,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -315,51 +362,23 @@ class _SinglePostState extends State<SinglePost> {
                       backgroundColor: Colors.black.withOpacity(0),
                       context: context,
                       isScrollControlled: true,
-                      builder: (context) => BottomCommentsSheetBuilder(
-                        postId: widget.postId,
-                      ),
+                      builder: (context) => BottomCommentsSheetBuilder(),
                     );
                   },
                   child: Container(
-                    height: 20,
-                    width: 35,
-                    child: SvgPicture.asset('assets/icons/chat.svg'),
+                    child: Text(
+                      '${widget.comments}',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
-                SizedBox(
-                  width: 2.0,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            child: Text(
-              '${widget.likes} likes',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(
-            width: widget.width * 0.13,
-          ),
-          GestureDetector(
-            onTap: () {
-              showModalBottomSheet(
-                backgroundColor: Colors.black.withOpacity(0),
-                context: context,
-                isScrollControlled: true,
-                builder: (context) => BottomCommentsSheetBuilder(),
-              );
-            },
-            child: Container(
-              child: Text(
-                '${widget.comments}',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+              ])),
+            ])),
+        SizedBox(
+          child: Container(height: _height * 0.02, color: Color(0xffE6E3E3)),
+        )
+      ],
+    ));
   }
 }
 
