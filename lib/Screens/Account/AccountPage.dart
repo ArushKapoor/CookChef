@@ -12,12 +12,6 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  @override
-  void initState() {
-    super.initState();
-    gettingInfos();
-  }
-
   String name, imageUrl, bio;
   Future<void> gettingInfos() async {
     DocumentSnapshot documentSnapshot;
@@ -78,6 +72,7 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    gettingInfos();
     final _width = MediaQuery.of(context).size.width;
     final _heigth = MediaQuery.of(context).size.width;
     //gettingInfos();

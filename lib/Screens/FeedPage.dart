@@ -296,10 +296,10 @@ class _SinglePostState extends State<SinglePost> {
                     if (increment) {
                       // print(widget.postId);
                       await _cloudFirestore.incrementingPostLikes(
-                          widget.postId, widget.likes);
+                          widget.postId, widget.likes, increment);
                     } else {
                       await _cloudFirestore.incrementingPostLikes(
-                          widget.postId, widget.likes - 2);
+                          widget.postId, widget.likes - 2, increment);
                     }
                   },
                   child: Icon(
