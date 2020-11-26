@@ -79,7 +79,7 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
-    final _heigth = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.width;
     //gettingInfos();
     return SafeArea(
       child: RefreshIndicator(
@@ -98,34 +98,35 @@ class _AccountPageState extends State<AccountPage> {
                   //   child: Text('account_name'),
                   // ),
                   SizedBox(
-                    height: 5,
+                    height: _height * 0.05,
                   ),
                   Column(
                     children: <Widget>[
                       CircleAvatar(
                         backgroundImage: NetworkImage(imageUrl),
-                        radius: 60.0,
+                        radius: _width * 0.15,
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 5.0),
+                        margin: EdgeInsets.symmetric(vertical: _height * 0.02),
                         child: Text(
                           name,
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: _height * 0.05,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      Text('\"$bio\"'),
+                      Text('$bio'),
                       Container(
-                        margin: EdgeInsets.only(top: 10.0),
+                        margin: EdgeInsets.only(top: _height * 0.02),
                         decoration: BoxDecoration(
                           border: Border.all(color: Color(0xffC1C1C1)),
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(_width * 0.05)),
                           color: Color(0xffD7D7D7),
                         ),
                         width: _width * 0.9,
-                        height: _heigth * 0.1,
+                        height: _height * 0.1,
                         child: MaterialButton(
                           onPressed: () {
                             Navigator.pushNamed(
@@ -144,7 +145,7 @@ class _AccountPageState extends State<AccountPage> {
                     ],
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 10.0),
+                    margin: EdgeInsets.only(top: _height * 0.03),
                     height: 1,
                     width: _width,
                     color: Colors.grey[300],
@@ -154,14 +155,21 @@ class _AccountPageState extends State<AccountPage> {
                       Navigator.pushNamed(context, UploadPage.id);
                     },
                     child: Container(
-                      margin: EdgeInsets.all(8.0),
+                      margin: EdgeInsets.all(_width * 0.03),
                       child: Column(
                         children: <Widget>[
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Text('Upload'),
-                              Icon(Icons.keyboard_arrow_down),
+                              Text(
+                                'Upload',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: _height * 0.04),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_down,
+                              ),
                             ],
                           ),
                           SizedBox(

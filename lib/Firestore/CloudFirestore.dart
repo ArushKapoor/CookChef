@@ -2,6 +2,7 @@ import 'package:cook_chef/Firestore/CloudStorage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 CollectionReference user;
@@ -10,15 +11,19 @@ CollectionReference feeds;
 class CloudFirestore {
   String uid = auth.currentUser.uid.toString();
   CloudStorage _cloudStorage = CloudStorage();
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
   Future<void> userSetUp(String userName) async {
     user = FirebaseFirestore.instance.collection('Users');
     //user.doc(uid).set({'username': userName, 'uid': uid});
+    String fcmToken = await _firebaseMessaging.getToken();
     await user.doc(uid).set({
       'username': userName,
       'uid': uid,
       'imageLink':
           'https://firebasestorage.googleapis.com/v0/b/cook-chef.appspot.com/o/Users%2Fprofile-user.png?alt=media&token=f156591e-9aa4-4c42-8b28-0ce36eef7d5c',
-      'bio': 'Here you can add his/her bio'
+      'bio': 'Here you can add his/her bio',
+      'fcmToken': fcmToken
     });
     return null;
   }
@@ -45,7 +50,12 @@ class CloudFirestore {
         .collection('feeds')
         .doc(id)
         .collection('comments')
-        .add({'comment': comment, 'username': username, 'likes': 0});
+        .add({
+      'comment': comment,
+      'username': username,
+      'likes': 0,
+      'timestamp': Timestamp.now()
+    });
     await FirebaseFirestore.instance
         .collection('feeds')
         .doc(id)

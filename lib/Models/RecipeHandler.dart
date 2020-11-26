@@ -38,6 +38,7 @@ class RecipeHandler {
     // ingredients.add('value');
     // steps.add('value');
     // print(recipe[0][0]);
+    ingredients.clear();
     while (true) {
       i++;
       try {
@@ -51,6 +52,7 @@ class RecipeHandler {
   }
 
   void stepsList(dynamic recipe) {
+    steps.clear();
     int j = 0;
     while (true) {
       // int  j = 0;

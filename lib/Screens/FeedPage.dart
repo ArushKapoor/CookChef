@@ -23,6 +23,7 @@ class _FeedPageState extends State<FeedPage> {
       shadowColor: Color(0xff7e807f),
       elevation: (text == _selectedTab) ? 7 : 0,
       child: Container(
+        height: width * 0.1,
         width: width * 0.3,
         padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
         decoration: BoxDecoration(
@@ -45,9 +46,13 @@ class _FeedPageState extends State<FeedPage> {
           // ],
           color: Colors.white,
         ),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
@@ -130,10 +135,10 @@ class _FeedPageState extends State<FeedPage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        _selectedTab = 'Veg';
+                        _selectedTab = 'Vegetarian';
                       });
                     },
-                    child: _dishCategory('Veg', _width),
+                    child: _dishCategory('Vegetarian', _width),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -263,7 +268,7 @@ class _SinglePostState extends State<SinglePost> {
                   ),
                   Icon(
                     Icons.account_circle,
-                    size: _width * 0.08,
+                    size: _width * 0.1,
                   ),
                   SizedBox(
                     width: _width * 0.01,
@@ -273,13 +278,13 @@ class _SinglePostState extends State<SinglePost> {
                     children: <Widget>[
                       Text(widget.name,
                           style: TextStyle(
-                              fontSize: _height * 0.02,
+                              fontSize: _height * 0.025,
                               fontWeight: FontWeight.bold,
                               color: Colors.black54)),
                       Text(
                         widget.time,
                         style: TextStyle(
-                            fontSize: _height * 0.01, color: Colors.black54),
+                            fontSize: _height * 0.015, color: Colors.black54),
                       ),
                     ],
                   ),
@@ -287,17 +292,20 @@ class _SinglePostState extends State<SinglePost> {
               ),
               Container(
                   margin: EdgeInsets.symmetric(
-                      horizontal: _width * .04, vertical: _height * 0.01),
+                      horizontal: _width * .05, vertical: _height * 0.01),
                   child: Text(widget.description)),
               if (widget.postImageUrl != null)
                 Container(
                   padding: EdgeInsets.all(_width * 0.05),
                   color: Colors.white,
-                  child: CachedNetworkImage(
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    imageUrl: widget.postImageUrl,
-                    // height: _height * 0.5,
+                  child: Container(
+                    height: _height * 0.55,
                     width: _width,
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      imageUrl: widget.postImageUrl,
+                    ),
                   ),
                 ),
               Container(
@@ -322,7 +330,14 @@ class _SinglePostState extends State<SinglePost> {
                       ),
                     ),
                     SizedBox(
-                      width: _width * 0.02,
+                      width: _width * 0.002,
+                    ),
+                    Text(
+                      '${widget.likes}',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: _width * 0.03,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -341,38 +356,19 @@ class _SinglePostState extends State<SinglePost> {
                         child: SvgPicture.asset('assets/icons/chat.svg'),
                       ),
                     ),
+                    SizedBox(
+                      width: _width * 0.01,
+                    ),
+                    Text(
+                      '${widget.comments}',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     // SizedBox(
                     //   width: _width * 0.8,
                     // ),
                   ],
                 ),
               ),
-              Container(
-                  child: Row(children: [
-                Text(
-                  '${widget.likes} likes',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  width: widget.width * 0.02,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet(
-                      backgroundColor: Colors.black.withOpacity(0),
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => BottomCommentsSheetBuilder(),
-                    );
-                  },
-                  child: Container(
-                    child: Text(
-                      '${widget.comments}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ])),
             ])),
         SizedBox(
           child: Container(height: _height * 0.02, color: Color(0xffE6E3E3)),

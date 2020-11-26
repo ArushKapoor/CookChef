@@ -32,15 +32,25 @@ class _HomePageState extends State<HomePage> {
       /* Setting up the app bar */
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('CookChef'),
+        title: Text('ChefGuru'),
         centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         actions: <Widget>[
           if (currentIndex == 0)
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.pushNamed(context, AccountSearchPage.id);
-              },
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  Navigator.pushNamed(context, AccountSearchPage.id);
+                },
+              ),
             ),
           if (currentIndex == 1)
             Container(
@@ -71,24 +81,24 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/home_outlined.svg',
                     height: 25,
                   ),
-            label: '',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/icons/chef.jpeg',
               height: 22,
             ),
-            label: '',
+            label: 'Let\'s Cook',
           ),
           BottomNavigationBarItem(
             icon: (currentIndex != 2)
                 ? Icon(Icons.notifications_none)
                 : Icon(Icons.notifications),
-            label: '',
+            label: 'Notifications',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            label: '',
+            label: 'Account',
           ),
         ],
         onTap: (index) {
