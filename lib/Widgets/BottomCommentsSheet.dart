@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:provider/provider.dart';
 
-FirebaseFirestore _firebaseFirestore;
+final _firebaseFirestore = FirebaseFirestore.instance;
 
 class BottomCommentsSheetBuilder extends StatelessWidget {
   final String postId;
@@ -14,7 +14,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-    TextEditingController textEditingController;
+    TextEditingController textEditingController = TextEditingController();
     return Container(
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom, top: _height * .24),
@@ -93,6 +93,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                           hintText: 'Enter your comment',
                           suffix: GestureDetector(
                             onTap: () async {
+                              print(textEditingController.text);
                               await context
                                   .read<CloudFirestore>()
                                   .addingComments(
@@ -119,12 +120,11 @@ class CommentsStream extends StatelessWidget {
   CommentsStream({this.commentId, this.postId});
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<QuerySnapshot>(
         stream: _firebaseFirestore
             .collection('feeds')
             .doc(postId)
             .collection('comments')
-            .doc(commentId)
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
@@ -135,6 +135,24 @@ class CommentsStream extends StatelessWidget {
             );
           }
           final comments = snapshot.data.docs;
+          List<CommentTile> commentsList = [];
+          for (var comment in comments) {
+            final username = comment.get('username');
+            final likes = comment.get('likes');
+            final commentId = comment.get('commentId');
+            final mycomment = comment.get('comment');
+            commentsList.add(
+              CommentTile(
+                comment: mycomment,
+                username: username,
+                commentId: commentId,
+                likes: likes,
+              ),
+            );
+          }
+          return ListView(
+            children: commentsList,
+          );
         });
   }
 }
@@ -142,7 +160,9 @@ class CommentsStream extends StatelessWidget {
 class CommentTile extends StatelessWidget {
   final String username;
   final String comment;
-  CommentTile({this.username, this.comment});
+  final int likes;
+  final String commentId;
+  CommentTile({this.username, this.comment, this.commentId, this.likes});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
