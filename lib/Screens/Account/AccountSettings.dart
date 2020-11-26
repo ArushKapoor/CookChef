@@ -125,7 +125,6 @@ class _AccountSettingsState extends State<AccountSettings> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Edit Profile'),
-          centerTitle: true,
           actions: [
             PopupMenuButton<HomeOptions>(
               icon: Icon(Icons.settings),
@@ -203,64 +202,77 @@ class _AccountSettingsState extends State<AccountSettings> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: _height * 0.1,
+                    height: _height * 0.05,
                   ),
-                  CircleAvatar(
-                    backgroundImage: (_image == null)
-                        ? NetworkImage(
-                            'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg')
-                        : FileImage(_image),
-                    maxRadius: _height * 0.05,
+                  Stack(
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundImage: (_image == null)
+                            ? NetworkImage(
+                                'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg')
+                            : FileImage(_image),
+                        maxRadius: _height * 0.09,
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                          color: Colors.white,
+                          child: GestureDetector(
+                            onTap: () {
+                              _showPicker(context);
+                            },
+                            // child: Text(
+                            //   'Change profile pic',
+                            //   style: TextStyle(
+                            //       fontSize: _height * 0.02,
+                            //       fontWeight: FontWeight.w700,
+                            //       color: Colors.lightBlueAccent),
+                            // ),
+                            child: Icon(
+                              Icons.add_a_photo,
+                              size: 25.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    height: _height * 0.07,
+                    height: _height * 0.03,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      _showPicker(context);
-                    },
-                    child: Text(
-                      'Change profile pic',
-                      style: TextStyle(
-                          fontSize: _height * 0.02,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.lightBlueAccent),
+                  Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: TextField(
+                      controller: _nameEditingController,
+                      autofocus: true,
+                      cursorColor: Colors.lightBlueAccent,
+                      cursorRadius: Radius.circular(3),
+                      textInputAction: TextInputAction.done,
+                      decoration: InputDecoration(
+                        hintText: 'Name',
+                        labelText: 'User Name',
+                        focusColor: Colors.lightBlueAccent,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: TextField(
+                      controller: _bioEditingController,
+                      autofocus: true,
+                      cursorColor: Colors.lightBlueAccent,
+                      cursorRadius: Radius.circular(3),
+                      textInputAction: TextInputAction.done,
+                      decoration: InputDecoration(
+                        hintText: 'Bio',
+                        labelText: 'Bio',
+                        focusColor: Colors.lightBlueAccent,
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: _height * 0.1,
-                  ),
-                  TextField(
-                    controller: _nameEditingController,
-                    autofocus: true,
-                    textAlign: TextAlign.center,
-                    cursorColor: Colors.lightBlueAccent,
-                    cursorRadius: Radius.circular(3),
-                    textInputAction: TextInputAction.done,
-                    decoration: InputDecoration(
-                      hintText: 'Name',
-                      labelText: 'Name',
-                      focusColor: Colors.lightBlueAccent,
-                    ),
-                  ),
-                  SizedBox(
-                    height: _height * 0.04,
-                  ),
-                  TextField(
-                    controller: _bioEditingController,
-                    autofocus: true,
-                    textAlign: TextAlign.center,
-                    cursorColor: Colors.lightBlueAccent,
-                    cursorRadius: Radius.circular(3),
-                    textInputAction: TextInputAction.done,
-                    decoration: InputDecoration(
-                      hintText: 'Bio',
-                      labelText: 'Bio',
-                      focusColor: Colors.lightBlueAccent,
-                    ),
-                  ),
-                  SizedBox(
-                    height: _height * 0.1,
+                    height: _height * 0.05,
                   ),
                   Container(
                     decoration: BoxDecoration(

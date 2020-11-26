@@ -153,7 +153,7 @@ class CommentTile extends StatelessWidget {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     width: _width * 0.70,
@@ -172,28 +172,28 @@ class CommentTile extends StatelessWidget {
                       Container(
                         child: Row(
                           children: <Widget>[
-                            SvgPicture.asset(
-                              'assets/icons/comment.svg',
-                              height: 14,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text('1'),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: _width * 0.4,
-                      ),
-                      Container(
-                        child: Row(
-                          children: <Widget>[
                             Icon(Icons.favorite_border),
                             SizedBox(
                               width: 5,
                             ),
                             Text('5'),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: _width * 0.2,
+                      ),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            SvgPicture.asset(
+                              'assets/icons/comment.svg',
+                              height: 18,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text('1'),
                           ],
                         ),
                       ),

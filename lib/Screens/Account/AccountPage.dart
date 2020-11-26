@@ -79,6 +79,7 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
+    final _heigth = MediaQuery.of(context).size.width;
     //gettingInfos();
     return SafeArea(
       child: RefreshIndicator(
@@ -103,21 +104,28 @@ class _AccountPageState extends State<AccountPage> {
                     children: <Widget>[
                       CircleAvatar(
                         backgroundImage: NetworkImage(imageUrl),
-                        radius: 100.0,
+                        radius: 60.0,
                       ),
-                      Text(name),
-                      SizedBox(
-                        height: 4,
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 5.0),
+                        child: Text(
+                          name,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                       Text('\"$bio\"'),
                       Container(
                         margin: EdgeInsets.only(top: 10.0),
                         decoration: BoxDecoration(
                           border: Border.all(color: Color(0xffC1C1C1)),
-                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
                           color: Color(0xffD7D7D7),
                         ),
                         width: _width * 0.9,
+                        height: _heigth * 0.1,
                         child: MaterialButton(
                           onPressed: () {
                             Navigator.pushNamed(
@@ -126,11 +134,20 @@ class _AccountPageState extends State<AccountPage> {
                             );
                           },
                           child: Center(
-                            child: Text('Edit Profile'),
+                            child: Text(
+                              'Edit Profile',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
                     ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10.0),
+                    height: 1,
+                    width: _width,
+                    color: Colors.grey[300],
                   ),
                   GestureDetector(
                     onTap: () {
@@ -162,8 +179,11 @@ class _AccountPageState extends State<AccountPage> {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: 5.0,
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0),
+                            height: 1,
+                            width: _width,
+                            color: Colors.grey[300],
                           ),
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

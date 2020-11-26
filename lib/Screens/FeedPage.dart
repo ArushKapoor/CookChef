@@ -311,6 +311,7 @@ class SinglePost extends StatelessWidget {
                 Container(
                   child: Text(
                     '$likes',
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(
@@ -344,7 +345,10 @@ class SinglePost extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    child: Text('$comments'),
+                    child: Text(
+                      '$comments',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],

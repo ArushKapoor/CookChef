@@ -65,6 +65,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Column(
