@@ -78,6 +78,13 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
               ),
             ),
         ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
