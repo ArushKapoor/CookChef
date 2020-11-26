@@ -83,10 +83,12 @@ class _UploadPageState extends State<UploadPage> {
             child: Center(
               child: GestureDetector(
                 onTap: () async {
-                  await context
-                      .read<CloudFirestore>()
-                      .addingPost(_postController.text, _image);
-                  Navigator.pop(context);
+                  if (_postController.text != null && _image != null) {
+                    await context
+                        .read<CloudFirestore>()
+                        .addingPost(_postController.text, _image);
+                    Navigator.pop(context);
+                  }
                 },
                 child: Text(
                   'Share',

@@ -287,14 +287,18 @@ class _AccountSettingsState extends State<AccountSettings> {
                         border: Border.all(color: Colors.black, width: 1.0)),
                     child: MaterialButton(
                       onPressed: () async {
-                        imageLink = await _cloudStorage.uploadFile(
-                            _image, 'Users', uid);
-                        await _cloudFirestore.updateUser(
-                            _nameEditingController.text,
-                            _bioEditingController.text,
-                            imageLink);
+                        if (_image != null &&
+                            _nameEditingController != null &&
+                            _bioEditingController != null) {
+                          imageLink = await _cloudStorage.uploadFile(
+                              _image, 'Users', uid);
+                          await _cloudFirestore.updateUser(
+                              _nameEditingController.text,
+                              _bioEditingController.text,
+                              imageLink);
 
-                        Navigator.pop(context);
+                          Navigator.pop(context);
+                        }
                       },
                       child: Text('UPDATE'),
                     ),
