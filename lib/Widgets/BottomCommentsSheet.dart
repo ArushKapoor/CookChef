@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 final _firebaseFirestore = FirebaseFirestore.instance;
 
@@ -158,6 +159,32 @@ class _CommentTileState extends State<CommentTile> {
   CloudFirestore _cloudFirestore = CloudFirestore();
   bool increment = false;
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  Future<void> getLikedInfo() async {
+    DocumentSnapshot snapshot = await _firebaseFirestore
+        .collection('feeds')
+        .doc(widget.postId)
+        .collection('comments')
+        .doc(widget.commentId)
+        .collection('likes')
+        .doc(FirebaseAuth.instance.currentUser.uid)
+        .get();
+    try {
+      increment = snapshot.data()['liked'];
+    } catch (e) {}
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getLikedInfo();
+  }
+
+  @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
 
@@ -206,23 +233,34 @@ class _CommentTileState extends State<CommentTile> {
                           child: Row(
                             children: <Widget>[
                               GestureDetector(
-                                  onTap: () async {
-                                    increment = !increment;
-                                    if (increment) {
-                                      await _cloudFirestore
-                                          .incrementingCommentLikes(
-                                              widget.postId,
-                                              widget.likes,
-                                              widget.commentId);
-                                    } else {
-                                      await _cloudFirestore
-                                          .incrementingCommentLikes(
-                                              widget.postId,
-                                              widget.likes - 2,
-                                              widget.commentId);
-                                    }
-                                  },
-                                  child: Icon(Icons.favorite_border)),
+                                onTap: () async {
+                                  increment = !increment;
+                                  if (increment) {
+                                    await _cloudFirestore
+                                        .incrementingCommentLikes(
+                                            widget.postId,
+                                            widget.likes,
+                                            widget.commentId,
+                                            increment);
+                                  } else {
+                                    await _cloudFirestore
+                                        .incrementingCommentLikes(
+                                            widget.postId,
+                                            widget.likes - 2,
+                                            widget.commentId,
+                                            increment);
+                                  }
+                                },
+                                child: increment
+                                    ? Icon(
+                                        Icons.favorite,
+                                        color: Colors.greenAccent,
+                                      )
+                                    : Icon(
+                                        Icons.favorite_outline_sharp,
+                                        color: Colors.greenAccent,
+                                      ),
+                              ),
                               SizedBox(
                                 width: 5,
                               ),

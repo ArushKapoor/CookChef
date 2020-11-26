@@ -1,14 +1,10 @@
 import 'dart:io';
-import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
-import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class CloudStorage {
   Future<String> uploadFile(File file, String path, String name) async {
     //File file = File(filePath);
-    //TODO: There is a need of path
 
     try {
       firebase_storage.TaskSnapshot uploadTask = await firebase_storage

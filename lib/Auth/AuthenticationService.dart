@@ -69,7 +69,7 @@ class AuthenticationService {
   Future<String> signUp(
       {String email, String password, String username}) async {
     try {
-      UserCredential user = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       CloudFirestore cloudFirestore = CloudFirestore();
 

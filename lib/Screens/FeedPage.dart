@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
-import 'package:provider/provider.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
@@ -23,6 +23,7 @@ class _FeedPageState extends State<FeedPage> {
       shadowColor: Color(0xff7e807f),
       elevation: (text == _selectedTab) ? 7 : 0,
       child: Container(
+        height: width * 0.1,
         width: width * 0.3,
         padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
         decoration: BoxDecoration(
@@ -45,9 +46,13 @@ class _FeedPageState extends State<FeedPage> {
           // ],
           color: Colors.white,
         ),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
@@ -122,7 +127,7 @@ class _FeedPageState extends State<FeedPage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(8.0),
-              color: Color(0xffEBEDEC),
+              color: Color(0xffDCE1DE),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -130,10 +135,10 @@ class _FeedPageState extends State<FeedPage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        _selectedTab = 'Veg';
+                        _selectedTab = 'Vegetarian';
                       });
                     },
-                    child: _dishCategory('Veg', _width),
+                    child: _dishCategory('Vegetarian', _width),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -185,7 +190,6 @@ class FeedsStream extends StatelessWidget {
           List<SinglePost> singlePost = [];
           for (var post in posts) {
             final username = post.get('username');
-            final postTime = post.get('timestamp');
             final recipe = post.get('recipe');
             final imageUrl = post.get('imageUrl');
             final likes = post.get('likes');
@@ -207,6 +211,7 @@ class FeedsStream extends StatelessWidget {
           }
           return Expanded(
             child: ListView(
+              cacheExtent: 1000,
               physics: AlwaysScrollableScrollPhysics(),
               shrinkWrap: true,
               children: singlePost,
@@ -240,126 +245,179 @@ class SinglePost extends StatefulWidget {
 }
 
 class _SinglePostState extends State<SinglePost> {
-  bool increment = false;
   CloudFirestore _cloudFirestore = CloudFirestore();
+  bool increment = false;
+  int commentsSize = 0;
+  @override
+  void initState() {
+    super.initState();
+    getLikedInfo();
+    getCommentsLength();
+  }
+
+  Future<void> getCommentsLength() async {
+    commentsSize = await _firestore
+        .collection('feeds')
+        .doc(widget.postId)
+        .collection('comments')
+        .get()
+        .then((value) => value.size);
+    setState(() {});
+  }
+
+  Future<void> getLikedInfo() async {
+    DocumentSnapshot snapshot = await _firestore
+        .collection('feeds')
+        .doc(widget.postId)
+        .collection('likes')
+        .doc(FirebaseAuth.instance.currentUser.uid)
+        .get();
+    try {
+      increment = snapshot.data()['liked'];
+    } catch (e) {}
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 10.0,
-          ),
-          Row(
+    final _height = MediaQuery.of(context).size.height;
+    final _width = MediaQuery.of(context).size.width;
+
+    return SafeArea(
+        child: Column(
+      children: [
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                width: 4.0,
+                height: _height * 0.02,
               ),
-              Icon(
-                Icons.account_circle,
-                size: 35.0,
-              ),
-              SizedBox(
-                width: 4.0,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: <Widget>[
-                  Text(
-                    widget.name,
-                    style: TextStyle(fontSize: 18.0),
+                  SizedBox(
+                    width: _width * 0.02,
                   ),
-                  Text(
-                    widget.time,
-                    style: TextStyle(fontSize: 10.0),
+                  Icon(
+                    Icons.account_circle,
+                    size: _width * 0.1,
+                  ),
+                  SizedBox(
+                    width: _width * 0.01,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(widget.name,
+                          style: TextStyle(
+                              fontSize: _height * 0.025,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54)),
+                      Text(
+                        widget.time,
+                        style: TextStyle(
+                            fontSize: _height * 0.015, color: Colors.black54),
+                      ),
+                    ],
                   ),
                 ],
               ),
+              Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: _width * .05, vertical: _height * 0.01),
+                  child: Text(widget.description)),
+              if (widget.postImageUrl != null)
+                Container(
+                  padding: EdgeInsets.all(_width * 0.05),
+                  color: Colors.white,
+                  child: Container(
+                    height: _height * 0.55,
+                    width: _width,
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      imageUrl: widget.postImageUrl,
+                    ),
+                  ),
+                ),
+              Container(
+                padding: EdgeInsets.all(_width * .02),
+                child: Row(
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () async {
+                        setState(() {
+                          increment = !increment;
+                        });
+                        if (increment) {
+                          print(widget.postId);
+                          await _cloudFirestore.incrementingPostLikes(
+                              widget.postId, widget.likes, increment);
+                        } else {
+                          await _cloudFirestore.incrementingPostLikes(
+                              widget.postId, widget.likes - 2, increment);
+                        }
+                      },
+                      child: increment
+                          ? Icon(
+                              Icons.favorite,
+                              color: Colors.greenAccent,
+                            )
+                          : Icon(
+                              Icons.favorite_outline_sharp,
+                              color: Colors.greenAccent,
+                            ),
+                    ),
+
+                    SizedBox(
+                      width: _width * 0.002,
+                    ),
+                    Text(
+                      '${widget.likes}',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: _width * 0.03,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          backgroundColor: Colors.black.withOpacity(0),
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) => BottomCommentsSheetBuilder(
+                            postId: widget.postId,
+                          ),
+                        );
+                        getCommentsLength();
+                      },
+                      child: Container(
+                        height: _height * 0.025,
+                        width: _width * 0.05,
+                        child: SvgPicture.asset('assets/icons/chat.svg'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: _width * 0.01,
+                    ),
+                    Text(
+                      '$commentsSize',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    // SizedBox(
+                    //   width: _width * 0.8,
+                    // ),
+                  ],
+                ),
+              ),
             ],
           ),
-          Container(
-              margin: EdgeInsets.all(10.0), child: Text(widget.description)),
-          if (widget.postImageUrl != null)
-            CachedNetworkImage(
-              placeholder: (context, url) => CircularProgressIndicator(),
-              imageUrl: widget.postImageUrl,
-            ),
-          Container(
-            padding: EdgeInsets.all(10.0),
-            child: Row(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () async {
-                    increment = !increment;
-                    //print(increment);
-                    if (increment) {
-                      // print(widget.postId);
-                      await _cloudFirestore.incrementingPostLikes(
-                          widget.postId, widget.likes, increment);
-                    } else {
-                      await _cloudFirestore.incrementingPostLikes(
-                          widget.postId, widget.likes - 2, increment);
-                    }
-                  },
-                  child: Icon(
-                    Icons.favorite_border,
-                  ),
-                ),
-                SizedBox(
-                  width: 4.0,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet(
-                      backgroundColor: Colors.black.withOpacity(0),
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => BottomCommentsSheetBuilder(
-                        postId: widget.postId,
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 20,
-                    width: 35,
-                    child: SvgPicture.asset('assets/icons/chat.svg'),
-                  ),
-                ),
-                SizedBox(
-                  width: 2.0,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            child: Text(
-              '${widget.likes} likes',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(
-            width: widget.width * 0.13,
-          ),
-          GestureDetector(
-            onTap: () {
-              showModalBottomSheet(
-                backgroundColor: Colors.black.withOpacity(0),
-                context: context,
-                isScrollControlled: true,
-                builder: (context) => BottomCommentsSheetBuilder(),
-              );
-            },
-            child: Container(
-              child: Text(
-                '${widget.comments}',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+        ),
+        SizedBox(
+          child: Container(height: _height * 0.02, color: Color(0xffE6E3E3)),
+        )
+      ],
+    ));
   }
 }
 

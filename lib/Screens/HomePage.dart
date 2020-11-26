@@ -32,15 +32,25 @@ class _HomePageState extends State<HomePage> {
       /* Setting up the app bar */
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('CookChef'),
+        title: Text('ChefGuru'),
         centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         actions: <Widget>[
           if (currentIndex == 0)
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.pushNamed(context, AccountSearchPage.id);
-              },
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  Navigator.pushNamed(context, AccountSearchPage.id);
+                },
+              ),
             ),
           if (currentIndex == 1)
             Container(

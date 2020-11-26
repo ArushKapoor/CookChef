@@ -80,7 +80,15 @@ class CloudFirestore {
   }
 
   Future<void> incrementingCommentLikes(
-      String postId, int like, String commentId) async {
+      String postId, int like, String commentId, bool liked) async {
+    await FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(postId)
+        .collection('comments')
+        .doc(commentId)
+        .collection('likes')
+        .doc(uid)
+        .set({'liked': liked});
     await FirebaseFirestore.instance
         .collection('feeds')
         .doc(postId)

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:cook_chef/Firestore/CloudStorage.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,6 @@ class _UploadPageState extends State<UploadPage> {
   TextEditingController _postController = TextEditingController();
 
   File _image;
-  CloudStorage _cloudStorage = CloudStorage();
   ImagePicker imagePicker = new ImagePicker();
 
   Future _imgFromCamera() async {
