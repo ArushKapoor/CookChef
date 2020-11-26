@@ -216,7 +216,7 @@ class FeedsStream extends StatelessWidget {
   }
 }
 
-class SinglePost extends StatelessWidget {
+class SinglePost extends StatefulWidget {
   final String name, time, description;
   final int comments, likes;
   final double width;
@@ -234,9 +234,16 @@ class SinglePost extends StatelessWidget {
       this.width,
       this.postImageUrl,
       this.postId});
+
+  @override
+  _SinglePostState createState() => _SinglePostState();
+}
+
+class _SinglePostState extends State<SinglePost> {
+  bool increment = false;
+  CloudFirestore _cloudFirestore = CloudFirestore();
   @override
   Widget build(BuildContext context) {
-    bool increment = false, decrement = true;
     return Container(
       child: Column(
         children: <Widget>[
@@ -246,32 +253,31 @@ class SinglePost extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(name),
-                  Text(time),
+                  Text(widget.name),
+                  Text(widget.time),
                 ],
               ),
             ],
           ),
-          Text(description),
-          if (postImageUrl != null)
+          Text(widget.description),
+          if (widget.postImageUrl != null)
             CachedNetworkImage(
               placeholder: (context, url) => CircularProgressIndicator(),
-              imageUrl: postImageUrl,
+              imageUrl: widget.postImageUrl,
             ),
           Row(
             children: <Widget>[
               GestureDetector(
                 onTap: () async {
-                  increment = !decrement;
-                  decrement = !increment;
+                  increment = !increment;
+                  print(increment);
                   if (increment) {
-                    await context
-                        .read<CloudFirestore>()
-                        .incrementingPostLikes(postId, likes);
-                  } else if (decrement) {
-                    await context
-                        .read<CloudFirestore>()
-                        .incrementingPostLikes(postId, likes - 2);
+                    print(widget.postId);
+                    await _cloudFirestore.incrementingPostLikes(
+                        widget.postId, widget.likes);
+                  } else {
+                    await _cloudFirestore.incrementingPostLikes(
+                        widget.postId, widget.likes - 2);
                   }
                 },
                 child: Icon(
@@ -296,9 +302,9 @@ class SinglePost extends StatelessWidget {
             ],
           ),
           Container(
-            width: width,
+            width: widget.width,
             child: Text(
-              '$likes likes',
+              '${widget.likes} likes',
             ),
           ),
           GestureDetector(
@@ -307,12 +313,14 @@ class SinglePost extends StatelessWidget {
                 backgroundColor: Colors.black.withOpacity(0),
                 context: context,
                 isScrollControlled: true,
-                builder: (context) => BottomCommentsSheetBuilder(),
+                builder: (context) => BottomCommentsSheetBuilder(
+                  postId: widget.postId,
+                ),
               );
             },
             child: Container(
-              width: width,
-              child: Text('View all $comments comments'),
+              width: widget.width,
+              child: Text('View all ${widget.comments} comments'),
             ),
           ),
         ],

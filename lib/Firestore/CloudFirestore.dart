@@ -38,7 +38,7 @@ class CloudFirestore {
     return null;
   }
 
-  Future<void> addingComments(String comment, String id) async {
+  Future<String> addingComments(String comment, String id) async {
     String username = await userName();
 
     DocumentReference commented = await FirebaseFirestore.instance
@@ -46,19 +46,35 @@ class CloudFirestore {
         .doc(id)
         .collection('comments')
         .add({'comment': comment, 'username': username, 'likes': 0});
+    await FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(id)
+        .collection('comments')
+        .doc(commented.id)
+        .update({'commentId': commented.id});
+    return commented.id;
   }
 
-  Future<void> incrementingPostLikes(String id, int like) {
-    feeds.doc(id).update({'likes': like + 1});
+  Future<void> incrementingPostLikes(String id, int like) async {
+    await FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(id)
+        .update({'likes': like + 1});
   }
 
-  Future<void> incrementingCommentLikes(String id, int like) {
-    feeds.doc(id).collection('comments').doc().update({'likes': like + 1});
+  Future<void> incrementingCommentLikes(
+      String postId, int like, String commentId) async {
+    await FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(postId)
+        .collection('comments')
+        .doc(commentId)
+        .update({'likes': like + 1});
   }
 
   Future<void> updateUser(String username, String bio, String imageLink) async {
     // print(await user.get());
-    print(uid);
+    //print(uid);
     await FirebaseFirestore.instance.collection('Users').doc(uid).update(
         {'username': username, 'bio': bio, 'uid': uid, 'imageLink': imageLink});
   }

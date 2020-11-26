@@ -1,7 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:provider/provider.dart';
+
+FirebaseFirestore _firebaseFirestore;
 
 class BottomCommentsSheetBuilder extends StatelessWidget {
+  final String postId;
+
+  BottomCommentsSheetBuilder({this.postId});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -30,27 +38,6 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                   shrinkWrap: true,
                   // crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    CommentTile(),
-                    SizedBox(
-                      height: 8.0,
-                    ),
-                    CommentTile(),
-                    SizedBox(
-                      height: 8.0,
-                    ),
-                    CommentTile(),
-                    SizedBox(
-                      height: 8.0,
-                    ),
-                    CommentTile(),
-                    SizedBox(
-                      height: 8.0,
-                    ),
-                    CommentTile(),
-                    SizedBox(
-                      height: 8.0,
-                    ),
-                    CommentTile(),
                     // SizedBox(
                     //   height: 8.0,
                     // ),
@@ -105,7 +92,12 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                           focusColor: Colors.lightBlueAccent,
                           hintText: 'Enter your comment',
                           suffix: GestureDetector(
-                            onTap: () {},
+                            onTap: () async {
+                              await context
+                                  .read<CloudFirestore>()
+                                  .addingComments(
+                                      textEditingController.text, postId);
+                            },
                             child: Text('Share'),
                           ),
                         ),
@@ -122,94 +114,122 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
   }
 }
 
-class CommentTile extends StatelessWidget {
-  const CommentTile({
-    Key key,
-  }) : super(key: key);
+class CommentsStream extends StatelessWidget {
+  final String postId, commentId;
+  CommentsStream({this.commentId, this.postId});
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+        stream: _firebaseFirestore
+            .collection('feeds')
+            .doc(postId)
+            .collection('comments')
+            .doc(commentId)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.green,
+              ),
+            );
+          }
+          final comments = snapshot.data.docs;
+        });
+  }
+}
 
+class CommentTile extends StatelessWidget {
+  final String username;
+  final String comment;
+  CommentTile({this.username, this.comment});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
 
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(left: 10.0, top: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/icons/ingredients.png'),
-              ),
-              SizedBox(
-                width: 8.0,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Arush',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    width: _width * 0.70,
-                    child: Text(
-                      'Pink ball ko maar maarke laal bana dena sir 😍❤ first test mai',
-                      softWrap: true,
-                      maxLines: 3,
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.clip,
+    return Container(
+      margin: EdgeInsets.only(bottom: 8.0),
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(left: 10.0, top: 5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/icons/ingredients.png'),
+                ),
+                SizedBox(
+                  width: 8.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      username,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
-                  ),
-                  // Text('💗 15'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        child: Row(
-                          children: <Widget>[
-                            SvgPicture.asset(
-                              'assets/icons/comment.svg',
-                              height: 14,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text('1'),
-                          ],
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      width: _width * 0.70,
+                      child: Text(
+                        comment,
+                        softWrap: true,
+                        maxLines: 3,
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.clip,
+                      ),
+                    ),
+                    // Text('💗 15'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          child: Row(
+                            children: <Widget>[
+                              SvgPicture.asset(
+                                'assets/icons/comment.svg',
+                                height: 14,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text('1'),
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: _width * 0.4,
-                      ),
-                      Container(
-                        child: Row(
-                          children: <Widget>[
-                            Icon(Icons.favorite_border),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text('5'),
-                          ],
+                        SizedBox(
+                          width: _width * 0.4,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ],
+                        Container(
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.favorite_border),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text('5'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-        ),
-        Container(
-          height: 1,
-          width: _width,
-          color: Colors.grey[200],
-        ),
-      ],
+          Container(
+            height: 1,
+            width: _width,
+            color: Colors.grey[200],
+          ),
+        ],
+      ),
     );
   }
 }
