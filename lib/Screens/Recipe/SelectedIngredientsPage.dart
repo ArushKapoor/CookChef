@@ -102,6 +102,15 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
           ? SafeArea(
               child: Column(
                 children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    width: _width,
+                    child: Text(
+                      'Selected Ingredients',
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                  ),
                   Expanded(
                     child: ListView.builder(
                         itemCount: context
@@ -153,48 +162,69 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                           );
                         }),
                   ),
-                  Expanded(
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.all(10.0),
-                          width: _width,
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Add ingredient',
-                              textAlign: TextAlign.right,
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(
+                            right: 10.0, bottom: 10.0, top: 3.0),
+                        width: _width,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'Add ingredient',
+                            textAlign: TextAlign.right,
+                            style: TextStyle(color: Colors.blueAccent),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                            bottom: 10.0, left: 5.0, right: 5.0),
+                        height: 1,
+                        width: _width,
+                        color: Colors.grey,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0, bottom: 30.0),
+                        child: Material(
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          shadowColor: Colors.greenAccent,
+                          elevation: 7.0,
+                          child: Container(
+                            // margin: EdgeInsets.only(top: 10.0, bottom: 30.0),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8.0, horizontal: 15.0),
+                            decoration: BoxDecoration(
+                              color: Colors.green[500],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0)),
+                            ),
+                            child: GestureDetector(
+                              onTap: () async {
+                                createText(context);
+                                print(text);
+
+                                final list = await recipeHandler
+                                    .recipeFromIngredients(text);
+                                print(list[0].recipeName);
+                                Navigator.pushNamed(context, ViewRecipesPage.id,
+                                    arguments:
+                                        RecipiesArguments(recipeList: list));
+                              },
+                              child: Text(
+                                'View Recipe',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(
-                              bottom: 10.0, left: 5.0, right: 5.0),
-                          height: 1,
-                          width: _width,
-                          color: Colors.grey,
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 20.0),
-                          child: GestureDetector(
-                            onTap: () async {
-                              createText(context);
-                              print(text);
-
-                              final list = await recipeHandler
-                                  .recipeFromIngredients(text);
-                              print(list[0].recipeName);
-                              Navigator.pushNamed(context, ViewRecipesPage.id,
-                                  arguments:
-                                      RecipiesArguments(recipeList: list));
-                            },
-                            child: Text('View Recipe'),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -20,10 +20,10 @@ class IngredientTile extends StatelessWidget {
       child: Row(
         children: <Widget>[
           CircleAvatar(
-            radius: 27,
+            radius: 21,
             backgroundColor: Colors.black,
             child: CircleAvatar(
-              radius: 25,
+              radius: 20,
               backgroundImage: NetworkImage(imageUrl),
             ),
           ),
@@ -32,7 +32,10 @@ class IngredientTile extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Text(text),
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 15.0),
+            ),
           ),
           isSelectedIngredient == false
               ? GestureDetector(
@@ -41,12 +44,19 @@ class IngredientTile extends StatelessWidget {
                       ? Icon(
                           Icons.check_circle,
                           color: Colors.green,
+                          size: 25.0,
                         )
-                      : Icon(Icons.check_circle_outline),
+                      : Icon(
+                          Icons.check_circle_outline,
+                          size: 25.0,
+                        ),
                 )
               : GestureDetector(
                   onTap: toggleCallback,
-                  child: Icon(Icons.remove_circle_outline),
+                  child: Icon(
+                    Icons.remove_circle_outline,
+                    size: 25.0,
+                  ),
                 ),
         ],
       ),

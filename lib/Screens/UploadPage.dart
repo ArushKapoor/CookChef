@@ -83,7 +83,10 @@ class _UploadPageState extends State<UploadPage> {
                       .addingPost(_postController.text, _image);
                   Navigator.pop(context);
                 },
-                child: Text('Share'),
+                child: Text(
+                  'Share',
+                  style: TextStyle(fontSize: 15.0),
+                ),
               ),
             ),
           ),
@@ -93,10 +96,19 @@ class _UploadPageState extends State<UploadPage> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: 10.0,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Icon(Icons.account_circle),
+                SizedBox(
+                  width: 5.0,
+                ),
+                Icon(
+                  Icons.account_circle,
+                  size: 30.0,
+                ),
                 SizedBox(
                   width: 10.0,
                 ),
@@ -105,6 +117,7 @@ class _UploadPageState extends State<UploadPage> {
                     child: Text(
                       'User Name',
                       textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 15.0),
                     ),
                   ),
                 ),
@@ -119,15 +132,18 @@ class _UploadPageState extends State<UploadPage> {
                       : MainAxisAlignment.end,
                   children: <Widget>[
                     Flexible(
-                      child: TextField(
-                        controller: _postController,
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: (_image == null)
-                                ? 'What\'s your recipe'
-                                : 'Say something about this photo...'),
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: TextField(
+                          controller: _postController,
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: (_image == null)
+                                  ? 'What\'s your recipe'
+                                  : 'Say something about this photo...'),
+                        ),
                       ),
                     ),
                   ],
@@ -145,7 +161,7 @@ class _UploadPageState extends State<UploadPage> {
                 ),
               ),
             Container(
-              padding: EdgeInsets.all(5.0),
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(color: Colors.grey[300]),
@@ -158,19 +174,23 @@ class _UploadPageState extends State<UploadPage> {
                       child: Text(
                         'Add to your post',
                         textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.black, fontSize: 15.0),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Icon(Icons.video_call),
-                        SizedBox(
-                          width: 5.0,
+                        Icon(
+                          Icons.video_call,
+                          size: 30.0,
                         ),
                         IconButton(
-                          icon: Icon(Icons.photo_library_outlined),
+                          icon: Icon(
+                            Icons.photo_library_outlined,
+                            size: 25.0,
+                          ),
                           tooltip: 'Upload image',
                           onPressed: () {
                             _showPicker(context);

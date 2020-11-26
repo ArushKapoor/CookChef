@@ -246,66 +246,100 @@ class _SinglePostState extends State<SinglePost> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          SizedBox(
+            height: 10.0,
+          ),
           Row(
             children: <Widget>[
-              Icon(Icons.account_circle),
+              SizedBox(
+                width: 4.0,
+              ),
+              Icon(
+                Icons.account_circle,
+                size: 35.0,
+              ),
+              SizedBox(
+                width: 4.0,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(widget.name),
-                  Text(widget.time),
+                  Text(
+                    widget.name,
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                  Text(
+                    widget.time,
+                    style: TextStyle(fontSize: 10.0),
+                  ),
                 ],
               ),
             ],
           ),
-          Text(widget.description),
+          Container(
+              margin: EdgeInsets.all(10.0), child: Text(widget.description)),
           if (widget.postImageUrl != null)
             CachedNetworkImage(
               placeholder: (context, url) => CircularProgressIndicator(),
               imageUrl: widget.postImageUrl,
             ),
-          Row(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () async {
-                  increment = !increment;
-                  print(increment);
-                  if (increment) {
-                    print(widget.postId);
-                    await _cloudFirestore.incrementingPostLikes(
-                        widget.postId, widget.likes);
-                  } else {
-                    await _cloudFirestore.incrementingPostLikes(
-                        widget.postId, widget.likes - 2);
-                  }
-                },
-                child: Icon(
-                  Icons.favorite_border,
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Row(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () async {
+                    increment = !increment;
+                    print(increment);
+                    if (increment) {
+                      print(widget.postId);
+                      await _cloudFirestore.incrementingPostLikes(
+                          widget.postId, widget.likes);
+                    } else {
+                      await _cloudFirestore.incrementingPostLikes(
+                          widget.postId, widget.likes - 2);
+                    }
+                  },
+                  child: Icon(
+                    Icons.favorite_border,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  showModalBottomSheet(
-                    backgroundColor: Colors.black.withOpacity(0),
-                    context: context,
-                    isScrollControlled: true,
-                    builder: (context) => BottomCommentsSheetBuilder(),
-                  );
-                },
-                child: Container(
-                  height: 19,
-                  width: 35,
-                  child: SvgPicture.asset('assets/icons/chat.svg'),
+                SizedBox(
+                  width: 4.0,
                 ),
-              ),
-            ],
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      backgroundColor: Colors.black.withOpacity(0),
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) => BottomCommentsSheetBuilder(
+                        postId: widget.postId,
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 20,
+                    width: 35,
+                    child: SvgPicture.asset('assets/icons/chat.svg'),
+                  ),
+                ),
+                SizedBox(
+                  width: 2.0,
+                ),
+              ],
+            ),
           ),
           Container(
-            width: widget.width,
             child: Text(
               '${widget.likes} likes',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
+          ),
+          SizedBox(
+            width: widget.width * 0.13,
           ),
           GestureDetector(
             onTap: () {
@@ -313,14 +347,14 @@ class _SinglePostState extends State<SinglePost> {
                 backgroundColor: Colors.black.withOpacity(0),
                 context: context,
                 isScrollControlled: true,
-                builder: (context) => BottomCommentsSheetBuilder(
-                  postId: widget.postId,
-                ),
+                builder: (context) => BottomCommentsSheetBuilder(),
               );
             },
             child: Container(
-              width: widget.width,
-              child: Text('View all ${widget.comments} comments'),
+              child: Text(
+                '${widget.comments}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:cook_chef/Screens/Recipe/ViewRecipesPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MakeRecipesPage extends StatefulWidget {
@@ -57,33 +58,68 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
         title: Text('CookChef'),
         centerTitle: true,
       ),
-      body: ListView(
-        children: <Widget>[
-          Text(args.ingredientAndSteps[3]),
-          Image.network(args.ingredientAndSteps[2]),
-          Text('Ingredients'),
-          Container(
-            margin:
-                EdgeInsets.only(bottom: 10.0, left: 5.0, right: 5.0, top: 5.0),
-            height: 1,
-            width: _width,
-            color: Colors.grey,
-          ),
-          Container(
-            child: Text(ingredients),
-          ),
-          Text('Direction'),
-          Container(
-            margin:
-                EdgeInsets.only(bottom: 10.0, left: 5.0, right: 5.0, top: 5.0),
-            height: 1,
-            width: _width,
-            color: Colors.grey,
-          ),
-          Container(
-            child: Text(steps),
-          ),
-        ],
+      body: Container(
+        padding: EdgeInsets.all(15.0),
+        child: ListView(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(bottom: 15.0),
+              // child: Text(args.ingredientAndSteps[3]),
+              child: Text(
+                args.ingredientAndSteps[3],
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 25.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Image.network(args.ingredientAndSteps[2]),
+              ),
+            ),
+            Container(
+              child: Text(
+                'Ingredients',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 20.0, top: 5.0),
+              height: 1,
+              width: _width,
+              color: Colors.grey,
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 20.0),
+              child: Text(
+                ingredients,
+                style: TextStyle(fontSize: 15.0),
+              ),
+            ),
+            Container(
+              child: Text(
+                'Direction',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 20.0, top: 5.0),
+              height: 1,
+              width: _width,
+              color: Colors.grey,
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 20.0),
+              child: Text(
+                steps,
+                style: TextStyle(fontSize: 15.0),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

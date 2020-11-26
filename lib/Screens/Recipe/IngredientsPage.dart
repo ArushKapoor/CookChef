@@ -65,26 +65,39 @@ class _IngredientsPageState extends State<IngredientsPage> {
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: <Widget>[
             Container(
+              margin: EdgeInsets.only(top: 10.0),
               decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.all(
-                  Radius.circular(8.0),
+                  Radius.circular(15.0),
                 ),
               ),
               width: _width * 0.95,
+              height: _height * 0.1,
               child: TextField(
                 controller: _searchController,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.0),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    size: 19,
+                  ),
+                  border: InputBorder.none,
                   hintText: 'Search for ingredients',
                 ),
               ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5.0),
+              width: _width,
+              height: 1,
+              color: Colors.grey[300],
             ),
             Container(
               margin: EdgeInsets.all(8.0),
