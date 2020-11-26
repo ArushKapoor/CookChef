@@ -23,7 +23,7 @@ class CloudFirestore {
       'imageLink':
           'https://firebasestorage.googleapis.com/v0/b/cook-chef.appspot.com/o/Users%2Fprofile-user.png?alt=media&token=f156591e-9aa4-4c42-8b28-0ce36eef7d5c',
       'bio': 'Here you can add his/her bio',
-      'fcmToken': fcmToken
+      'fcmToken': fcmToken,
     });
     return null;
   }
@@ -36,7 +36,8 @@ class CloudFirestore {
       'username': username,
       'recipe': recipe,
       'timestamp': time,
-      'likes': 0
+      'likes': 0,
+      'uid': uid,
     });
     String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', post.id);
     await feeds.doc(post.id).update({'imageUrl': imageUrl, 'postId': post.id});
@@ -65,7 +66,13 @@ class CloudFirestore {
     return commented.id;
   }
 
-  Future<void> incrementingPostLikes(String id, int like) async {
+  Future<void> incrementingPostLikes(String id, int like, bool liked) async {
+    await FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(id)
+        .collection('likes')
+        .doc(uid)
+        .set({'liked': liked});
     await FirebaseFirestore.instance
         .collection('feeds')
         .doc(id)
@@ -73,7 +80,15 @@ class CloudFirestore {
   }
 
   Future<void> incrementingCommentLikes(
-      String postId, int like, String commentId) async {
+      String postId, int like, String commentId, bool liked) async {
+    await FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(postId)
+        .collection('comments')
+        .doc(commentId)
+        .collection('likes')
+        .doc(uid)
+        .set({'liked': liked});
     await FirebaseFirestore.instance
         .collection('feeds')
         .doc(postId)
@@ -93,5 +108,11 @@ class CloudFirestore {
     DocumentSnapshot documentSnapshot =
         await FirebaseFirestore.instance.collection('Users').doc(uid).get();
     return documentSnapshot.data()['username'];
+  }
+
+  Future<String> imageUrl() async {
+    DocumentSnapshot documentSnapshot =
+        await FirebaseFirestore.instance.collection('Users').doc(uid).get();
+    return documentSnapshot.data()['imageLink'];
   }
 }
