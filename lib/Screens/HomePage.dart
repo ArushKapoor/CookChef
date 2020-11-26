@@ -71,24 +71,24 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/home_outlined.svg',
                     height: 25,
                   ),
-            label: '',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/icons/chef.jpeg',
               height: 22,
             ),
-            label: '',
+            label: 'Let\'s Cook',
           ),
           BottomNavigationBarItem(
             icon: (currentIndex != 2)
                 ? Icon(Icons.notifications_none)
                 : Icon(Icons.notifications),
-            label: '',
+            label: 'Notifications',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            label: '',
+            label: 'Account',
           ),
         ],
         onTap: (index) {

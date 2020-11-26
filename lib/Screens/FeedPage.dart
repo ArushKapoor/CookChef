@@ -292,9 +292,9 @@ class _SinglePostState extends State<SinglePost> {
                 GestureDetector(
                   onTap: () async {
                     increment = !increment;
-                    print(increment);
+                    //print(increment);
                     if (increment) {
-                      print(widget.postId);
+                      // print(widget.postId);
                       await _cloudFirestore.incrementingPostLikes(
                           widget.postId, widget.likes);
                     } else {

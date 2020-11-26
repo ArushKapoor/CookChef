@@ -2,7 +2,6 @@ import 'package:cook_chef/Firestore/CloudStorage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
@@ -51,7 +50,12 @@ class CloudFirestore {
         .collection('feeds')
         .doc(id)
         .collection('comments')
-        .add({'comment': comment, 'username': username, 'likes': 0});
+        .add({
+      'comment': comment,
+      'username': username,
+      'likes': 0,
+      'timestamp': Timestamp.now()
+    });
     await FirebaseFirestore.instance
         .collection('feeds')
         .doc(id)

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:provider/provider.dart';
@@ -32,33 +33,8 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Flexible(
-                fit: FlexFit.loose,
-                child: ListView(
-                  shrinkWrap: true,
-                  // crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    // SizedBox(
-                    //   height: 8.0,
-                    // ),
-                    // CommentTile(),
-                    // SizedBox(
-                    //   height: 8.0,
-                    // ),
-                    // CommentTile(),
-                    // SizedBox(
-                    //   height: 8.0,
-                    // ),
-                    // CommentTile(),
-                    // SizedBox(
-                    //   height: 8.0,
-                    // ),
-                    // CommentTile(),
-                    // SizedBox(
-                    //   height: 8.0,
-                    // ),
-                  ],
-                ),
+              CommentsStream(
+                postId: postId,
               ),
               Container(
                 padding: EdgeInsets.only(left: 10.0, bottom: 10.0, top: 5.0),
@@ -98,6 +74,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                                   .read<CloudFirestore>()
                                   .addingComments(
                                       textEditingController.text, postId);
+                              textEditingController.clear();
                             },
                             child: Text('Share'),
                           ),
@@ -116,8 +93,8 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
 }
 
 class CommentsStream extends StatelessWidget {
-  final String postId, commentId;
-  CommentsStream({this.commentId, this.postId});
+  final String postId;
+  CommentsStream({this.postId});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -125,6 +102,7 @@ class CommentsStream extends StatelessWidget {
             .collection('feeds')
             .doc(postId)
             .collection('comments')
+            .orderBy('timestamp')
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
@@ -147,22 +125,38 @@ class CommentsStream extends StatelessWidget {
                 username: username,
                 commentId: commentId,
                 likes: likes,
+                postId: postId,
               ),
             );
           }
-          return ListView(
-            children: commentsList,
+          return Flexible(
+            fit: FlexFit.loose,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: commentsList,
+            ),
           );
         });
   }
 }
 
-class CommentTile extends StatelessWidget {
+class CommentTile extends StatefulWidget {
   final String username;
   final String comment;
   final int likes;
   final String commentId;
-  CommentTile({this.username, this.comment, this.commentId, this.likes});
+  final String postId;
+  CommentTile(
+      {this.username, this.comment, this.commentId, this.likes, this.postId});
+
+  @override
+  _CommentTileState createState() => _CommentTileState();
+}
+
+class _CommentTileState extends State<CommentTile> {
+  CloudFirestore _cloudFirestore = CloudFirestore();
+  bool increment = false;
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -187,7 +181,7 @@ class CommentTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      username,
+                      widget.username,
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
@@ -197,7 +191,7 @@ class CommentTile extends StatelessWidget {
                     Container(
                       width: _width * 0.70,
                       child: Text(
-                        comment,
+                        widget.comment,
                         softWrap: true,
                         maxLines: 3,
                         textAlign: TextAlign.start,
@@ -211,14 +205,28 @@ class CommentTile extends StatelessWidget {
                         Container(
                           child: Row(
                             children: <Widget>[
-                              SvgPicture.asset(
-                                'assets/icons/comment.svg',
-                                height: 14,
-                              ),
+                              GestureDetector(
+                                  onTap: () async {
+                                    increment = !increment;
+                                    if (increment) {
+                                      await _cloudFirestore
+                                          .incrementingCommentLikes(
+                                              widget.postId,
+                                              widget.likes,
+                                              widget.commentId);
+                                    } else {
+                                      await _cloudFirestore
+                                          .incrementingCommentLikes(
+                                              widget.postId,
+                                              widget.likes - 2,
+                                              widget.commentId);
+                                    }
+                                  },
+                                  child: Icon(Icons.favorite_border)),
                               SizedBox(
                                 width: 5,
                               ),
-                              Text('1'),
+                              Text('${widget.likes}'),
                             ],
                           ),
                         ),
@@ -228,11 +236,14 @@ class CommentTile extends StatelessWidget {
                         Container(
                           child: Row(
                             children: <Widget>[
-                              Icon(Icons.favorite_border),
+                              SvgPicture.asset(
+                                'assets/icons/comment.svg',
+                                height: 14,
+                              ),
                               SizedBox(
                                 width: 5,
                               ),
-                              Text('5'),
+                              Text('1'),
                             ],
                           ),
                         ),
