@@ -41,6 +41,13 @@ class _UpdateMailState extends State<UpdateEmail> {
         title: Text(
           'Update Email',
         ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         backgroundColor: Colors.grey,
       ),
       backgroundColor: Colors.white,

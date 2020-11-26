@@ -21,6 +21,13 @@ class _AboutPage extends State<About> {
               },
               child: Icon(Icons.arrow_back)),
           title: Text('About'),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+          ),
         ),
         backgroundColor: Colors.black,
         body: SafeArea(
