@@ -57,13 +57,6 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
       appBar: AppBar(
         title: Text('CookChef'),
         centerTitle: true,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
-        ),
       ),
       body: Container(
         padding: EdgeInsets.all(15.0),

@@ -39,13 +39,6 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                   (!hasTapped || currentIndex == 1) ? true : false,
               title: Text('CookChef'),
               centerTitle: true,
-              flexibleSpace: Container(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
-              ),
             )
           : null,
       bottomNavigationBar: (currentIndex != 0)

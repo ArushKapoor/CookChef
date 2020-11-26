@@ -70,13 +70,6 @@ class _UploadPageState extends State<UploadPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Upload'),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
-        ),
         actions: <Widget>[
           Container(
             margin: EdgeInsets.only(right: 10.0),

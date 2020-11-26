@@ -42,13 +42,6 @@ class _UpdatePassState extends State<UpdatePassword> {
           },
           child: Icon(Icons.arrow_back),
         ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
-        ),
         title: Text(
           'Update Password',
         ),
