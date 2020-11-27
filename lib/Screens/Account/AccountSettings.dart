@@ -124,7 +124,6 @@ class _AccountSettingsState extends State<AccountSettings> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Edit Profile'),
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -132,6 +131,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                     end: Alignment.bottomRight,
                     colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
           ),
+          title: Text('Edit Profile'),
           actions: [
             PopupMenuButton<HomeOptions>(
               icon: Icon(Icons.settings),

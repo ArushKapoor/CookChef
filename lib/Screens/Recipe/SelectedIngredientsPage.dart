@@ -46,10 +46,6 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
     return Scaffold(
       appBar: (currentIndex != 0)
           ? AppBar(
-              automaticallyImplyLeading:
-                  (!hasTapped || currentIndex == 1) ? true : false,
-              title: Text('CookChef'),
-              centerTitle: true,
               flexibleSpace: Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -57,6 +53,10 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                         end: Alignment.bottomRight,
                         colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
               ),
+              automaticallyImplyLeading:
+                  (!hasTapped || currentIndex == 1) ? true : false,
+              title: Text('CookChef'),
+              centerTitle: true,
             )
           : null,
       bottomNavigationBar: (currentIndex != 0)

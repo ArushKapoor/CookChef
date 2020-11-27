@@ -50,6 +50,13 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         automaticallyImplyLeading:
             (!hasTapped || currentIndex == 0) ? true : false,
         centerTitle: (!hasTapped || currentIndex == 0) ? false : true,
@@ -78,13 +85,6 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
               ),
             ),
         ],
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
-        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,

@@ -32,6 +32,13 @@ class _UpdateMailState extends State<UpdateEmail> {
 
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context, AccountSettings.id);
@@ -40,13 +47,6 @@ class _UpdateMailState extends State<UpdateEmail> {
         ),
         title: Text(
           'Update Email',
-        ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
         ),
         backgroundColor: Colors.grey,
       ),
@@ -92,12 +92,23 @@ class _UpdateMailState extends State<UpdateEmail> {
                       child: Padding(
                         padding: EdgeInsets.only(left: 15, right: 15, top: 5),
                         child: TextFormField(
-                          controller: _emailController,
-                          cursorColor: Colors.green,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                        ),
+                            controller: _emailController,
+                            cursorColor: Colors.green,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                            ),
+                            validator: (value) {
+                              String pattern =
+                                  r'^(([^&lt;&gt;()[\]\\.,;:\s@\"]+(\.[^&lt;&gt;()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                              RegExp regExp = new RegExp(pattern);
+                              if (value.isEmpty) {
+                                return "Email is Required";
+                              } else if (!regExp.hasMatch(value)) {
+                                return "Invalid Email";
+                              } else {
+                                return null;
+                              }
+                            }),
                       ),
                     ),
                     SizedBox(
