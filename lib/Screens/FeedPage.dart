@@ -193,13 +193,14 @@ class FeedsStream extends StatelessWidget {
             final recipe = post.get('recipe');
             final imageUrl = post.get('imageUrl');
             final likes = post.get('likes');
+            final Timestamp timestamp = post.get('timestamp');
             final postId = post.get('postId');
             singlePost.add(
               SinglePost(
                 name: username,
                 postImageUrl: imageUrl,
                 likes: likes,
-                time: '1 Nov',
+                time: timestamp.toString(),
                 description: recipe,
                 width: width,
                 comments: 0,

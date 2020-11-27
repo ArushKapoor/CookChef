@@ -43,15 +43,6 @@ class _UpdatePassState extends State<UpdatePassword> {
                   end: Alignment.bottomRight,
                   colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
         ),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context, AccountSettings.id);
-          },
-          child: Icon(Icons.arrow_back),
-        ),
-        title: Text(
-          'Update Password',
-        ),
         backgroundColor: Colors.grey,
       ),
       backgroundColor: Colors.white,
@@ -139,12 +130,10 @@ class _UpdatePassState extends State<UpdatePassword> {
                     ),
                     Center(
                       child: GestureDetector(
-                        child: Text('Forgot Password?'),
-                        onTap: () {
-                          if (_formKey.currentState.validate())
+                          child: Text('Forgot Password?'),
+                          onTap: () {
                             Navigator.of(context).pushNamed(Forgot.id);
-                        },
-                      ),
+                          }),
                     ),
                     SizedBox(
                       height: height * 0.02,
@@ -161,8 +150,7 @@ class _UpdatePassState extends State<UpdatePassword> {
 
                         child: FlatButton(
                           onPressed: () async {
-                            if (_passwordController.text ==
-                                _repasswordController.text) {
+                            if (_formKey.currentState.validate()) {
                               passwordValidator = await context
                                   .read<AuthenticationService>()
                                   .updatePasswd(_passwordController.text);

@@ -42,6 +42,7 @@ class AuthenticationService {
   Future<bool> updateEmail(String email) async {
     try {
       await _firebaseAuth.currentUser.updateEmail(email);
+      await _firebaseAuth.currentUser.sendEmailVerification();
       return false;
     } on FirebaseAuthException catch (e) {
       print(e.code);

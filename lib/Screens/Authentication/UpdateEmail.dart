@@ -2,6 +2,9 @@ import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+FirebaseAuth _firebaseAuth;
 
 class UpdateEmail extends StatefulWidget {
   static final id = 'update_pass';
@@ -13,6 +16,8 @@ class _UpdateMailState extends State<UpdateEmail> {
   final _formKey = GlobalKey<FormState>();
   bool emailValidator = false;
   TextEditingController _emailController;
+  AuthenticationService _authenticationService =
+      AuthenticationService(_firebaseAuth);
   @override
   void initState() {
     super.initState();
@@ -72,7 +77,7 @@ class _UpdateMailState extends State<UpdateEmail> {
                     Padding(
                       padding: EdgeInsets.all(height * 0.01),
                       child: Text(
-                        context.read<AuthenticationService>().currentEmail(),
+                        context.watch<AuthenticationService>().currentEmail(),
                         style: TextStyle(fontSize: 14, color: Colors.green),
                       ),
                     ),
@@ -90,13 +95,20 @@ class _UpdateMailState extends State<UpdateEmail> {
                         borderRadius: BorderRadius.circular(40.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                        padding:
+                            EdgeInsets.only(left: 15, right: 15, bottom: 5),
                         child: TextFormField(
                             controller: _emailController,
                             cursorColor: Colors.green,
                             decoration: InputDecoration(
                               border: InputBorder.none,
+                              fillColor: Colors.grey,
+                              labelStyle: TextStyle(
+                                color: Colors.white,
+                              ),
                             ),
+                            style: TextStyle(color: Colors.white),
+                            cursorHeight: 8,
                             validator: (value) {
                               String pattern =
                                   r'^(([^&lt;&gt;()[\]\\.,;:\s@\"]+(\.[^&lt;&gt;()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -132,6 +144,9 @@ class _UpdateMailState extends State<UpdateEmail> {
                                     .updateEmail(_emailController.text);
                                 setState(() {});
                                 print(emailValidator);
+                                await context
+                                    .read<AuthenticationService>()
+                                    .signOut();
                               }
                             },
                             shape: RoundedRectangleBorder(

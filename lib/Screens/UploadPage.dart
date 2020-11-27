@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:cook_chef/Firestore/CloudStorage.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:flutter/material.dart';
@@ -78,25 +77,26 @@ class _UploadPageState extends State<UploadPage> {
         ),
         title: Text('Upload'),
         actions: <Widget>[
-          Container(
-            margin: EdgeInsets.only(right: 10.0),
-            child: Center(
-              child: GestureDetector(
-                onTap: () async {
-                  if (_postController.text != null && _image != null) {
-                    await context
-                        .read<CloudFirestore>()
-                        .addingPost(_postController.text, _image);
-                    Navigator.pop(context);
-                  }
-                },
-                child: Text(
-                  'Share',
-                  style: TextStyle(fontSize: 15.0),
+          if (_postController.text != null && _image != null)
+            Container(
+              margin: EdgeInsets.only(right: 10.0),
+              child: Center(
+                child: GestureDetector(
+                  onTap: () async {
+                    if (_postController.text != null && _image != null) {
+                      await context
+                          .read<CloudFirestore>()
+                          .addingPost(_postController.text, _image);
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: Text(
+                    'Share',
+                    style: TextStyle(fontSize: 15.0),
+                  ),
                 ),
               ),
             ),
-          ),
         ],
       ),
       resizeToAvoidBottomInset: (_image == null) ? true : false,

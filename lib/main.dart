@@ -21,6 +21,7 @@ import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'Screens/Recipe/ViewRecipesPage.dart';
 import 'Screens/Recipe/SelectedIngredientsPage.dart';
 import 'Screens/Authentication/Forgot_Password.dart';
+import 'Screens/Account/AboutPage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
           UpdatePassword.id: (context) => UpdatePassword(),
           UpdateEmail.id: (context) => UpdateEmail(),
           MessagingWidget.id: (context) => MessagingWidget(),
+          About.id: (context) => About()
         },
 
         /* Setting the initial route */

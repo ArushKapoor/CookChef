@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:cook_chef/Firestore/CloudStorage.dart';
+import 'package:cook_chef/Screens/Account/AboutPage.dart';
 import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
 import 'package:cook_chef/Screens/Authentication/UpdatePassword.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-enum HomeOptions { notification, about, logout, updatePassword, updateEmail }
+enum HomeOptions { about, logout, updatePassword, updateEmail }
 
 class AccountSettings extends StatefulWidget {
   static final id = 'account_settings';
@@ -100,19 +100,15 @@ class _AccountSettingsState extends State<AccountSettings> {
     final double _width = MediaQuery.of(context).size.width;
     void _selectOption(HomeOptions option) {
       switch (option) {
-        case HomeOptions.notification:
-          setState(() {
-            switchValue = !switchValue;
-          });
+        case HomeOptions.updatePassword:
+          Navigator.pushNamed(context, UpdatePassword.id);
           break;
         case HomeOptions.updateEmail:
           Navigator.pushNamed(context, UpdateEmail.id);
           break;
-        case HomeOptions.updatePassword:
-          Navigator.pushNamed(context, UpdatePassword.id);
-          break;
+
         case HomeOptions.about:
-          Navigator.pushNamed(context, 'hi');
+          Navigator.pushNamed(context, About.id);
           break;
         case HomeOptions.logout:
           context.read<AuthenticationService>().signOut();
@@ -143,7 +139,6 @@ class _AccountSettingsState extends State<AccountSettings> {
                     child: PopUpItem(
                       height: _height,
                       iconName: 'Update Password',
-                      iconData: Icons.error_outline,
                       width: _width,
                     ),
                     value: HomeOptions.updatePassword,
@@ -152,35 +147,14 @@ class _AccountSettingsState extends State<AccountSettings> {
                     child: PopUpItem(
                       height: _height,
                       iconName: 'Update Email',
-                      iconData: Icons.error_outline,
                       width: _width,
                     ),
                     value: HomeOptions.updateEmail,
                   ),
                   PopupMenuItem<HomeOptions>(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.notifications,
-                        ),
-                        Text('Notifications'),
-                        Switch(
-                            value: switchValue,
-                            onChanged: (value) {
-                              setState(() {
-                                switchValue = !switchValue;
-                                value = value;
-                              });
-                            })
-                      ],
-                    ),
-                    value: HomeOptions.notification,
-                  ),
-                  PopupMenuItem<HomeOptions>(
                     child: PopUpItem(
                       height: _height,
                       iconName: 'About',
-                      iconData: Icons.error_outline,
                       width: _width,
                     ),
                     value: HomeOptions.about,
@@ -190,7 +164,6 @@ class _AccountSettingsState extends State<AccountSettings> {
                       height: _height,
                       width: _width,
                       iconName: 'Logout',
-                      iconData: Icons.logout,
                     ),
                     value: HomeOptions.logout,
                   ),
@@ -281,28 +254,31 @@ class _AccountSettingsState extends State<AccountSettings> {
                   SizedBox(
                     height: _height * 0.05,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.black, width: 1.0)),
-                    child: MaterialButton(
-                      onPressed: () async {
-                        if (_image != null &&
-                            _nameEditingController != null &&
-                            _bioEditingController != null) {
-                          imageLink = await _cloudStorage.uploadFile(
-                              _image, 'Users', uid);
-                          await _cloudFirestore.updateUser(
-                              _nameEditingController.text,
-                              _bioEditingController.text,
-                              imageLink);
+                  if (_image != null &&
+                      _nameEditingController.text.isNotEmpty &&
+                      _bioEditingController.text.isNotEmpty)
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black, width: 1.0)),
+                      child: MaterialButton(
+                        onPressed: () async {
+                          if (_image != null &&
+                              _nameEditingController != null &&
+                              _bioEditingController != null) {
+                            imageLink = await _cloudStorage.uploadFile(
+                                _image, 'Users', uid);
+                            await _cloudFirestore.updateUser(
+                                _nameEditingController.text,
+                                _bioEditingController.text,
+                                imageLink);
 
-                          Navigator.pop(context);
-                        }
-                      },
-                      child: Text('UPDATE'),
-                    ),
-                  )
+                            Navigator.pop(context);
+                          }
+                        },
+                        child: Text('UPDATE'),
+                      ),
+                    )
                 ],
               ),
             ),
@@ -329,7 +305,7 @@ class PopUpItem extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(horizontal: 5),
           title: Text(iconName),
           //onTap: () {},
-          enabled: true,
+          //enabled: true,
         ),
       ),
     );
