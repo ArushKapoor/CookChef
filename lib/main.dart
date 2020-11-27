@@ -8,7 +8,6 @@ import 'package:cook_chef/Screens/Recipe/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
-import 'package:cook_chef/Widgets/MessagingWidget.dart';
 import 'Screens/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +69,6 @@ class MyApp extends StatelessWidget {
           AccountSettings.id: (context) => AccountSettings(),
           UpdatePassword.id: (context) => UpdatePassword(),
           UpdateEmail.id: (context) => UpdateEmail(),
-          MessagingWidget.id: (context) => MessagingWidget(),
         },
 
         /* Setting the initial route */
