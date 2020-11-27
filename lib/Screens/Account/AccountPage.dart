@@ -131,9 +131,9 @@ class _AccountPageState extends State<AccountPage> {
                               fontWeight: FontWeight.bold,
                               fontSize: _height * 0.04),
                         ),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                        ),
+                        // Icon(
+                        //   Icons.keyboard_arrow_down,
+                        // ),
                       ],
                     ),
                     SizedBox(
@@ -141,9 +141,12 @@ class _AccountPageState extends State<AccountPage> {
                     ),
                     Row(
                       children: <Widget>[
-                        Icon(Icons.account_circle),
+                        Icon(
+                          Icons.account_circle,
+                          size: 40,
+                        ),
                         SizedBox(
-                          width: 8.0,
+                          width: 10.0,
                         ),
                         Text(
                           'What\'s your recipe?',
@@ -326,13 +329,13 @@ class _SinglePostState extends State<SinglePost> {
                     children: <Widget>[
                       Text(widget.name,
                           style: TextStyle(
-                              fontSize: _height * 0.025,
+                              fontSize: _height * 0.02,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black54)),
+                              color: Colors.black)),
                       Text(
                         widget.time,
                         style: TextStyle(
-                            fontSize: _height * 0.015, color: Colors.black54),
+                            fontSize: _height * 0.01, color: Colors.black54),
                       ),
                     ],
                   ),

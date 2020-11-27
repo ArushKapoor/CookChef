@@ -23,7 +23,7 @@ class _FeedPageState extends State<FeedPage> {
       shadowColor: Color(0xff7e807f),
       elevation: (text == _selectedTab) ? 7 : 0,
       child: Container(
-        height: width * 0.1,
+        // height: width * 0.1,
         width: width * 0.3,
         padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
         decoration: BoxDecoration(
@@ -46,14 +46,14 @@ class _FeedPageState extends State<FeedPage> {
           // ],
           color: Colors.white,
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
+        // child: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Text(
+        //     text,
+        //     textAlign: TextAlign.center,
+        //     style: TextStyle(fontWeight: FontWeight.bold),
+        //   ),
+        // ),
       ),
     );
   }
@@ -126,35 +126,35 @@ class _FeedPageState extends State<FeedPage> {
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(3.0),
               color: Color(0xffDCE1DE),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   /* Calling the _dishCategory method at line 10 */
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedTab = 'Vegetarian';
-                      });
-                    },
-                    child: _dishCategory('Vegetarian', _width),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedTab = 'Non Veg';
-                      });
-                    },
-                    child: _dishCategory('Non Veg', _width),
-                  ),
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _selectedTab = 'Beverages';
-                        });
-                      },
-                      child: _dishCategory('Beverages', _width)),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     setState(() {
+                  //       _selectedTab = 'Vegetarian';
+                  //     });
+                  //   },
+                  //   child: _dishCategory('Vegetarian', _width),
+                  // ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     setState(() {
+                  //       _selectedTab = 'Non Veg';
+                  //     });
+                  //   },
+                  //   child: _dishCategory('Non Veg', _width),
+                  // ),
+                  // GestureDetector(
+                  //     onTap: () {
+                  //       setState(() {
+                  //         _selectedTab = 'Beverages';
+                  //       });
+                  //     },
+                  //     child: _dishCategory('Beverages', _width)),
                   // _dishCategory('South Indian'),
                 ],
               ),
@@ -311,13 +311,13 @@ class _SinglePostState extends State<SinglePost> {
                     children: <Widget>[
                       Text(widget.name,
                           style: TextStyle(
-                              fontSize: _height * 0.025,
+                              fontSize: _height * 0.02,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black54)),
+                              color: Colors.black)),
                       Text(
                         widget.time,
                         style: TextStyle(
-                            fontSize: _height * 0.015, color: Colors.black54),
+                            fontSize: _height * 0.012, color: Colors.black54),
                       ),
                     ],
                   ),
@@ -330,13 +330,15 @@ class _SinglePostState extends State<SinglePost> {
               if (widget.postImageUrl != null)
                 Container(
                   padding: EdgeInsets.all(_width * 0.05),
+
                   color: Colors.white,
-                  child: Container(
-                    height: _height * 0.55,
-                    width: _width,
+                  height: _height * 0.55,
+                  // width: _width,
+                  child: Center(
                     child: CachedNetworkImage(
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
+                      placeholder: (context, url) => CircularProgressIndicator(
+                          valueColor:
+                              new AlwaysStoppedAnimation<Color>(Colors.green)),
                       imageUrl: widget.postImageUrl,
                     ),
                   ),
@@ -362,12 +364,11 @@ class _SinglePostState extends State<SinglePost> {
                       child: increment
                           ? Icon(
                               Icons.favorite,
-                              color: Colors.greenAccent,
+                              color: Color(0xff08a963),
+                              size: 25,
                             )
-                          : Icon(
-                              Icons.favorite_outline_sharp,
-                              color: Colors.greenAccent,
-                            ),
+                          : Icon(Icons.favorite_outline_sharp,
+                              color: Color(0xff08a963), size: 23),
                     ),
 
                     SizedBox(

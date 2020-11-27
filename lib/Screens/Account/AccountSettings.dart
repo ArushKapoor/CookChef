@@ -258,14 +258,16 @@ class _AccountSettingsState extends State<AccountSettings> {
                       _nameEditingController.text.isNotEmpty &&
                       _bioEditingController.text.isNotEmpty)
                     Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.black, width: 1.0)),
+                        borderRadius: BorderRadius.circular(50),
+                        color: Color(0xff00ac58),
+                      ),
                       child: MaterialButton(
                         onPressed: () async {
                           if (_image != null &&
-                              _nameEditingController != null &&
-                              _bioEditingController != null) {
+                              _nameEditingController.text.isNotEmpty &&
+                              _bioEditingController.text.isNotEmpty) {
                             imageLink = await _cloudStorage.uploadFile(
                                 _image, 'Users', uid);
                             await _cloudFirestore.updateUser(
@@ -276,7 +278,10 @@ class _AccountSettingsState extends State<AccountSettings> {
                             Navigator.pop(context);
                           }
                         },
-                        child: Text('UPDATE'),
+                        child: Text(
+                          'UPDATE',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     )
                 ],

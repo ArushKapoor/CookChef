@@ -1,5 +1,4 @@
 import 'package:cook_chef/Screens/Authentication/Forgot_Password.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/Authentication/SignUp.dart';
@@ -18,7 +17,7 @@ class _LoginViewState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-
+  String message;
   String email, password;
   @override
   Widget build(BuildContext context) {
@@ -162,6 +161,13 @@ class _LoginViewState extends State<Login> {
                         SizedBox(
                           height: height * 0.07,
                         ),
+                        if (message != null)
+                          Text(
+                            message,
+                            style: TextStyle(
+                                //color: Color(0xff006043),
+                                ),
+                          ),
                         FadeAnimation(
                           1.9,
                           Container(
@@ -177,12 +183,15 @@ class _LoginViewState extends State<Login> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              onPressed: () {
+                              onPressed: () async {
                                 // if (_formKey.currentState.validate()) {
                                 try {
-                                  context.read<AuthenticationService>().signIn(
-                                      email: _emailController.text,
-                                      password: _passwordController.text);
+                                  message = await context
+                                      .read<AuthenticationService>()
+                                      .signIn(
+                                          email: _emailController.text,
+                                          password: _passwordController.text);
+                                  setState(() {});
                                   User user = FirebaseAuth.instance.currentUser;
                                   if (user != null && user.emailVerified) {
                                     Navigator.of(context)

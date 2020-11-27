@@ -102,6 +102,6 @@ class AuthenticationService {
         print('Wrong password provided for that user.');
       }
     }
-    return "Signed In";
+    return null;
   }
 }
