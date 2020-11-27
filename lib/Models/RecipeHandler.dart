@@ -13,7 +13,7 @@ class RecipeHandler {
     //print(recipiesFromJson[0]['title']);
     //recipies.add(Recipe(id: 123, recipeImageUrl: 'hi', recipeName: 'title'));
     recipies.clear();
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 100; i++) {
       try {
         if (recipiesFromJson[i]['title'] != null) {
           recipies.add(Recipe(
