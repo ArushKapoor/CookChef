@@ -77,13 +77,13 @@ class _UploadPageState extends State<UploadPage> {
         ),
         title: Text('Upload'),
         actions: <Widget>[
-          if (_postController.text != null && _image != null)
+          if (_postController.text.isNotEmpty && _image != null)
             Container(
               margin: EdgeInsets.only(right: 10.0),
               child: Center(
                 child: GestureDetector(
                   onTap: () async {
-                    if (_postController.text != null && _image != null) {
+                    if (_postController.text.isNotEmpty && _image != null) {
                       await context
                           .read<CloudFirestore>()
                           .addingPost(_postController.text, _image);

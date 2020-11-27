@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:cook_chef/Firestore/CloudStorage.dart';
 import 'package:cook_chef/Screens/Account/AboutPage.dart';
@@ -95,7 +96,20 @@ class _AccountSettingsState extends State<AccountSettings> {
 
   @override
   Widget build(BuildContext context) {
-    String uid = Provider.of<AuthenticationService>(context).uniqueId;
+    String uid = context.watch<AuthenticationService>().uniqueId;
+    QuerySnapshot snapshot = context.watch<QuerySnapshot>();
+    String meraUserName, meraUserBio, meraUserImage;
+
+    final users = snapshot.docs;
+    for (var user in users) {
+      final auser = user.get('uid');
+      if (auser == uid) {
+        meraUserName = user.get('username');
+        meraUserBio = user.get('bio');
+        meraUserImage = user.get('imageLink');
+      }
+    }
+
     final double _height = MediaQuery.of(context).size.height;
     final double _width = MediaQuery.of(context).size.width;
     void _selectOption(HomeOptions option) {
@@ -188,8 +202,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                     children: <Widget>[
                       CircleAvatar(
                         backgroundImage: (_image == null)
-                            ? NetworkImage(
-                                'https://upload.wikimedia.org/wikipedia/commons/e/ed/Elon_Musk_Royal_Society.jpg')
+                            ? NetworkImage(meraUserImage)
                             : FileImage(_image),
                         maxRadius: _height * 0.09,
                       ),
@@ -230,8 +243,8 @@ class _AccountSettingsState extends State<AccountSettings> {
                       cursorRadius: Radius.circular(3),
                       textInputAction: TextInputAction.done,
                       decoration: InputDecoration(
-                        hintText: 'Name',
-                        labelText: 'User Name',
+                        hintText: meraUserName,
+                        labelText: 'Name',
                         focusColor: Colors.lightBlueAccent,
                       ),
                     ),
@@ -245,7 +258,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                       cursorRadius: Radius.circular(3),
                       textInputAction: TextInputAction.done,
                       decoration: InputDecoration(
-                        hintText: 'Bio',
+                        hintText: meraUserBio,
                         labelText: 'Bio',
                         focusColor: Colors.lightBlueAccent,
                       ),

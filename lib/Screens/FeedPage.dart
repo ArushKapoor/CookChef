@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:provider/provider.dart';
+import 'package:cook_chef/Auth/AuthenticationService.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
@@ -195,20 +197,30 @@ class FeedsStream extends StatelessWidget {
             final likes = post.get('likes');
             final Timestamp timestamp = post.get('timestamp');
             final postId = post.get('postId');
+            final postUserUid = post.get('uid');
+            QuerySnapshot snapshots = context.watch<QuerySnapshot>();
+            String meraUserImage;
+
+            final users = snapshots.docs;
+            for (var user in users) {
+              final auser = user.get('uid');
+              if (auser == postUserUid) {
+                meraUserImage = user.get('imageLink');
+              }
+            }
             singlePost.add(
               SinglePost(
                 name: username,
                 postImageUrl: imageUrl,
                 likes: likes,
-                time: timestamp.toString(),
+                time: timestamp.toDate().toString(),
                 description: recipe,
                 width: width,
                 comments: 0,
-                image: Image.asset('assets/images/dal_gosht.jpg'),
+                userImage: meraUserImage,
                 postId: postId,
               ),
             );
-            print(singlePost.toString());
           }
           return Expanded(
             child: ListView(
@@ -226,20 +238,20 @@ class SinglePost extends StatefulWidget {
   final String name, time, description;
   final int comments, likes;
   final double width;
-  final Image image;
+  final String userImage;
   final String postImageUrl;
   final String postId;
 
   SinglePost(
       {this.comments,
       this.description,
-      this.image,
       this.likes,
       this.name,
       this.time,
       this.width,
       this.postImageUrl,
-      this.postId});
+      this.postId,
+      this.userImage});
 
   @override
   _SinglePostState createState() => _SinglePostState();
@@ -299,9 +311,9 @@ class _SinglePostState extends State<SinglePost> {
                   SizedBox(
                     width: _width * 0.02,
                   ),
-                  Icon(
-                    Icons.account_circle,
-                    size: _width * 0.1,
+                  CircleAvatar(
+                    radius: _width * 0.05,
+                    backgroundImage: NetworkImage(widget.userImage),
                   ),
                   SizedBox(
                     width: _width * 0.01,

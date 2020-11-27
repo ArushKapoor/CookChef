@@ -12,6 +12,9 @@ class CloudFirestore {
   String uid = auth.currentUser.uid.toString();
   CloudStorage _cloudStorage = CloudStorage();
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  Stream<QuerySnapshot> userInfo() {
+    return FirebaseFirestore.instance.collection('Users').snapshots();
+  }
 
   Future<void> userSetUp(String userName) async {
     user = FirebaseFirestore.instance.collection('Users');
@@ -55,7 +58,8 @@ class CloudFirestore {
       'comment': comment,
       'username': username,
       'likes': 0,
-      'timestamp': Timestamp.now()
+      'timestamp': Timestamp.now(),
+      'uid': uid,
     });
     await FirebaseFirestore.instance
         .collection('feeds')

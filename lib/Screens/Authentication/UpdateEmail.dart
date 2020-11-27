@@ -2,9 +2,6 @@ import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-FirebaseAuth _firebaseAuth;
 
 class UpdateEmail extends StatefulWidget {
   static final id = 'update_pass';
@@ -16,8 +13,7 @@ class _UpdateMailState extends State<UpdateEmail> {
   final _formKey = GlobalKey<FormState>();
   bool emailValidator = false;
   TextEditingController _emailController;
-  AuthenticationService _authenticationService =
-      AuthenticationService(_firebaseAuth);
+
   @override
   void initState() {
     super.initState();

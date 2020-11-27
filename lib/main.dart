@@ -22,6 +22,7 @@ import 'Screens/Recipe/ViewRecipesPage.dart';
 import 'Screens/Recipe/SelectedIngredientsPage.dart';
 import 'Screens/Authentication/Forgot_Password.dart';
 import 'Screens/Account/AboutPage.dart';
+import 'Firestore/CloudFirestore.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
         StreamProvider(
           create: (context) =>
               context.read<AuthenticationService>().authCredentialChanges,
+        ),
+        StreamProvider(
+          create: (context) => context.read<CloudFirestore>().userInfo(),
         ),
         ChangeNotifierProvider<IngredientsHandler>(
           create: (_) => IngredientsHandler(),
