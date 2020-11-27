@@ -178,10 +178,8 @@ class _AccountPageState extends State<AccountPage> {
                 ),
               ),
             ),
-            SingleChildScrollView(
-              child: FeedsStream(
-                width: _width,
-              ),
+            FeedsStream(
+              width: _width,
             ),
           ],
         ),
@@ -230,10 +228,7 @@ class FeedsStream extends StatelessWidget {
               );
             }
           }
-          return ListView(
-            cacheExtent: 1000,
-            physics: AlwaysScrollableScrollPhysics(),
-            shrinkWrap: true,
+          return Column(
             children: singlePost,
           );
         });

@@ -171,6 +171,87 @@ class _FeedPageState extends State<FeedPage> {
   }
 }
 
+String correctTime(String timeToChange) {
+  DateTime date = new DateTime.now();
+  print(timeToChange);
+  String time = '';
+  List<String> monthList1 = date.toString().split(' ');
+  List<String> temp = timeToChange.split(' ');
+  if (monthList1[0] == temp[0]) {
+    List<String> dayList1 = monthList1[1].split(':');
+    List<String> dayList2 = temp[1].split(':');
+    if (dayList1[0] == dayList2[0]) {
+      if (dayList1[1] == dayList2[1]) {
+        if (int.parse(dayList1[1]) - int.parse(dayList2[1]) == 0) {
+          time = 'now';
+        }
+        time = '${int.parse(dayList1[1]) - int.parse(dayList2[1])} seconds ago';
+      } else {
+        if (int.parse(dayList1[1]) - int.parse(dayList2[1]) == 1)
+          time = '1 minute ago';
+        else
+          time =
+              '${int.parse(dayList1[1]) - int.parse(dayList2[1])} minutes ago';
+      }
+    } else {
+      if (int.parse(dayList1[0]) - int.parse(dayList2[0]) == 1)
+        time = '1 hour ago';
+      else
+        time = '${int.parse(dayList1[0]) - int.parse(dayList2[0])} hours ago';
+    }
+  } else if (int.parse(monthList1[0].split('-')[2]) -
+          int.parse(temp[0].split('-')[2]) ==
+      1) {
+    time = '1 day ago';
+  } else {
+    List<String> monthList = timeToChange.split('-');
+    int month = int.parse(monthList[1].toString());
+    int day = int.parse(monthList[2].split(' ')[0]);
+    time += '$day ';
+    switch (month) {
+      case 1:
+        time += 'Jan';
+        break;
+      case 2:
+        time += 'Feb';
+        break;
+      case 3:
+        time += 'Mar';
+        break;
+      case 4:
+        time += 'Apr';
+        break;
+      case 5:
+        time += 'May';
+        break;
+      case 6:
+        time += 'Jun';
+        break;
+      case 7:
+        time += 'Jul';
+        break;
+      case 8:
+        time += 'Aug';
+        break;
+      case 9:
+        time += 'Sep';
+        break;
+      case 10:
+        time += 'Oct';
+        break;
+      case 11:
+        time += 'Nov';
+        break;
+      case 12:
+        time += 'Dec';
+        break;
+    }
+    print(time);
+  }
+
+  return time;
+}
+
 class FeedsStream extends StatelessWidget {
   final width;
   FeedsStream({this.width});
@@ -200,7 +281,7 @@ class FeedsStream extends StatelessWidget {
                 name: username,
                 postImageUrl: imageUrl,
                 likes: likes,
-                time: timestamp.toString(),
+                time: timestamp.toDate().toString(),
                 description: recipe,
                 width: width,
                 comments: 0,
@@ -315,7 +396,7 @@ class _SinglePostState extends State<SinglePost> {
                               fontWeight: FontWeight.bold,
                               color: Colors.black)),
                       Text(
-                        widget.time,
+                        correctTime(widget.time),
                         style: TextStyle(
                             fontSize: _height * 0.012, color: Colors.black54),
                       ),
