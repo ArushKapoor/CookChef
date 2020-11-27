@@ -23,12 +23,12 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
       child: Container(
         color: Color(0xFF757575),
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 10.0),
+          padding: EdgeInsets.symmetric(vertical: 5.0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10.0),
-              topRight: Radius.circular(10.0),
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
             ),
           ),
           child: Column(
@@ -38,7 +38,10 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                 postId: postId,
               ),
               Container(
-                padding: EdgeInsets.only(left: 10.0, bottom: 10.0, top: 5.0),
+                padding: EdgeInsets.only(
+                  left: 10.0,
+                  bottom: 10.0,
+                ),
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(color: Colors.grey[300]),
@@ -50,7 +53,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 4.0,
+                      height: 2.0,
                     ),
                     Text(
                       'Type Your Comment',
@@ -77,7 +80,10 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                                       textEditingController.text, postId);
                               textEditingController.clear();
                             },
-                            child: Text('Share'),
+                            child: Text('Share',
+                                style: TextStyle(
+                                    color: Color(0xff08a963),
+                                    fontWeight: FontWeight.bold)),
                           ),
                         ),
                       ),
@@ -193,7 +199,7 @@ class _CommentTileState extends State<CommentTile> {
       child: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(left: 10.0, top: 5.0),
+            padding: EdgeInsets.only(left: 10.0, top: 15.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,10 +216,10 @@ class _CommentTileState extends State<CommentTile> {
                     Text(
                       widget.username,
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 5,
                     ),
                     Container(
                       width: _width * 0.70,
@@ -223,9 +229,11 @@ class _CommentTileState extends State<CommentTile> {
                         maxLines: 3,
                         textAlign: TextAlign.start,
                         overflow: TextOverflow.clip,
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                     // Text('💗 15'),
+                    SizedBox(height: 1),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -252,14 +260,12 @@ class _CommentTileState extends State<CommentTile> {
                                   }
                                 },
                                 child: increment
-                                    ? Icon(
-                                        Icons.favorite,
-                                        color: Colors.greenAccent,
-                                      )
-                                    : Icon(
-                                        Icons.favorite_outline_sharp,
-                                        color: Colors.greenAccent,
-                                      ),
+                                    ? Icon(Icons.favorite,
+                                        color: Color(0xff08a963), size: 25)
+                                    : Icon(Icons.favorite_outline_sharp,
+                                        size: 20
+                                        // color: Colors.greenAccent,
+                                        ),
                               ),
                               SizedBox(
                                 width: 5,
@@ -271,20 +277,20 @@ class _CommentTileState extends State<CommentTile> {
                         SizedBox(
                           width: _width * 0.4,
                         ),
-                        Container(
-                          child: Row(
-                            children: <Widget>[
-                              SvgPicture.asset(
-                                'assets/icons/comment.svg',
-                                height: 14,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text('1'),
-                            ],
-                          ),
-                        ),
+                        // Container(
+                        //   child: Row(
+                        //     children: <Widget>[
+                        //       SvgPicture.asset(
+                        //         'assets/icons/comment.svg',
+                        //         height: 14,
+                        //       ),
+                        //       SizedBox(
+                        //         width: 5,
+                        //       ),
+                        //       Text('1'),
+                        //     ],
+                        //   ),
+                        // ),
                       ],
                     ),
                   ],
