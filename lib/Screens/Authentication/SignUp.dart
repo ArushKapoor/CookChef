@@ -418,16 +418,20 @@ class _SignUpPageState extends State<SignUpPage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)),
                               onPressed: () async {
-                                context.read<AuthenticationService>().signUp(
-                                    email: _emailController.text,
-                                    password: _passwordController.text,
-                                    username: _usernameController.text);
+                                if (_formKey.currentState.validate()) {
+                                  await context
+                                      .read<AuthenticationService>()
+                                      .signUp(
+                                          email: _emailController.text,
+                                          password: _passwordController.text,
+                                          username: _usernameController.text);
 
-                                //User updateUser = FirebaseAuth.instance.currentUser;
-                                //print(_usernameController.text);
-                                //updateUser.updateProfile(displayName: _usernameController.text);
-                                if (_formKey.currentState.validate())
+                                  //User updateUser = FirebaseAuth.instance.currentUser;
+                                  //print(_usernameController.text);
+                                  //updateUser.updateProfile(displayName: _usernameController.text);
+
                                   Navigator.of(context).pushNamed(Login.id);
+                                }
                               },
                               child: Center(
                                 child: Text(
