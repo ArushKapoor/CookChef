@@ -21,7 +21,6 @@ class _HomePageState extends State<HomePage> {
   final tabs = [
     FeedPage(),
     IngredientsPage(),
-    NotificationsPage(),
     AccountPage(),
   ];
 
@@ -89,12 +88,6 @@ class _HomePageState extends State<HomePage> {
               height: 22,
             ),
             label: 'Let\'s Cook',
-          ),
-          BottomNavigationBarItem(
-            icon: (currentIndex != 2)
-                ? Icon(Icons.notifications_none)
-                : Icon(Icons.notifications),
-            label: 'Notifications',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),

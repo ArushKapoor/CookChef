@@ -177,7 +177,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                     child: PopUpItem(
                       height: _height,
                       width: _width,
-                      iconName: 'Logout',
+                      iconName: 'Logout ',
                     ),
                     value: HomeOptions.logout,
                   ),

@@ -20,7 +20,6 @@ bool hasTapped = false;
 final tabs = [
   HomePage(),
   IngredientsPage(),
-  NotificationsPage(),
   AccountPage(),
 ];
 
@@ -71,12 +70,6 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                     'assets/icons/chef.jpeg',
                     height: 22,
                   ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: (currentIndex != 2)
-                      ? Icon(Icons.notifications_none)
-                      : Icon(Icons.notifications),
                   label: '',
                 ),
                 BottomNavigationBarItem(

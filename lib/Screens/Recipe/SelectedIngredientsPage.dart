@@ -25,7 +25,6 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   final tabs = [
     HomePage(),
     IngredientsPage(),
-    NotificationsPage(),
     AccountPage(),
   ];
 
@@ -82,12 +81,6 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                     'assets/icons/chef.jpeg',
                     height: 22,
                   ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: (currentIndex != 2)
-                      ? Icon(Icons.notifications_none)
-                      : Icon(Icons.notifications),
                   label: '',
                 ),
                 BottomNavigationBarItem(
