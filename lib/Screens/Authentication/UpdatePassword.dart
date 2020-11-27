@@ -33,9 +33,16 @@ class _UpdatePassState extends State<UpdatePassword> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-
+    var password;
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context, AccountSettings.id);
@@ -80,6 +87,20 @@ class _UpdatePassState extends State<UpdatePassword> {
                           decoration: InputDecoration(
                             border: InputBorder.none,
                           ),
+                          validator: (value) {
+                            password = value;
+                            String patttern =
+                                r'(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)';
+                            RegExp regExp = new RegExp(patttern);
+                            if (value.isEmpty) {
+                              return "Password is Required";
+                            } else if (value.length < 8) {
+                              return "Password must have minimum eight characters";
+                            } else if (!regExp.hasMatch(value)) {
+                              return "Password should have at least one uppercase letter, one lowercase letter and one number";
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ),
@@ -104,6 +125,12 @@ class _UpdatePassState extends State<UpdatePassword> {
                           decoration: InputDecoration(
                             border: InputBorder.none,
                           ),
+                          validator: (value) {
+                            if (value != password)
+                              return 'Entered password is not same as above';
+                            else
+                              return null;
+                          },
                         ),
                       ),
                     ),
@@ -114,7 +141,8 @@ class _UpdatePassState extends State<UpdatePassword> {
                       child: GestureDetector(
                         child: Text('Forgot Password?'),
                         onTap: () {
-                          Navigator.of(context).pushNamed(Forgot.id);
+                          if (_formKey.currentState.validate())
+                            Navigator.of(context).pushNamed(Forgot.id);
                         },
                       ),
                     ),

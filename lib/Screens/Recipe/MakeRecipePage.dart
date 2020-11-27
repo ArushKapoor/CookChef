@@ -55,6 +55,13 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
+        ),
         title: Text('CookChef'),
         centerTitle: true,
       ),

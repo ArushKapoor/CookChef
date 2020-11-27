@@ -12,6 +12,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  var password;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
@@ -284,26 +285,31 @@ class _SignUpPageState extends State<SignUpPage> {
                                             bottom: BorderSide(
                                                 color: Colors.grey[200]))),
                                     child: TextFormField(
-                                      validator: (value) {
-                                        bool emailValid = RegExp(
-                                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                            .hasMatch(value);
-                                        if (!emailValid) {
-                                          return 'Please Enter a valid email';
-                                        }
-                                      },
-                                      controller: _usernameController,
-                                      keyboardType: TextInputType.emailAddress,
-                                      cursorColor: Colors.green,
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: "John Doe",
-                                          labelText: 'Username',
-                                          labelStyle:
-                                              TextStyle(color: Colors.grey),
-                                          hintStyle:
-                                              TextStyle(color: Colors.grey)),
-                                    ),
+                                        controller: _usernameController,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        cursorColor: Colors.green,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: "John Doe",
+                                            labelText: 'Username',
+                                            labelStyle:
+                                                TextStyle(color: Colors.grey),
+                                            hintStyle:
+                                                TextStyle(color: Colors.grey)),
+                                        validator: (value) {
+                                          String patttern =
+                                              r'(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)';
+                                          RegExp regExp = new RegExp(patttern);
+                                          if (value.isEmpty) {
+                                            return "Username is Required";
+                                          } else if (value.length < 8) {
+                                            return "Username must have minimum eight characters";
+                                          } else if (!regExp.hasMatch(value)) {
+                                            return "Username should have at least one uppercase letter, one lowercase letter and one number";
+                                          }
+                                          return null;
+                                        }),
                                   ),
                                   Container(
                                     padding: EdgeInsets.all(10),
@@ -311,19 +317,31 @@ class _SignUpPageState extends State<SignUpPage> {
                                         border: Border(
                                             bottom: BorderSide(
                                                 color: Colors.grey[200]))),
-                                    child: TextField(
-                                      controller: _emailController,
-                                      keyboardType: TextInputType.emailAddress,
-                                      cursorColor: Colors.green,
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: "something@example.com",
-                                          labelText: 'E-mail',
-                                          labelStyle:
-                                              TextStyle(color: Colors.grey),
-                                          hintStyle:
-                                              TextStyle(color: Colors.grey)),
-                                    ),
+                                    child: TextFormField(
+                                        controller: _emailController,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        cursorColor: Colors.green,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: "something@example.com",
+                                            labelText: 'E-mail',
+                                            labelStyle:
+                                                TextStyle(color: Colors.grey),
+                                            hintStyle:
+                                                TextStyle(color: Colors.grey)),
+                                        validator: (value) {
+                                          String pattern =
+                                              r'^(([^&lt;&gt;()[\]\\.,;:\s@\"]+(\.[^&lt;&gt;()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                          RegExp regExp = new RegExp(pattern);
+                                          if (value.isEmpty) {
+                                            return "Email is Required";
+                                          } else if (!regExp.hasMatch(value)) {
+                                            return "Invalid Email";
+                                          } else {
+                                            return null;
+                                          }
+                                        }),
                                   ),
                                   Container(
                                     padding: EdgeInsets.all(10),
@@ -343,19 +361,25 @@ class _SignUpPageState extends State<SignUpPage> {
                                               TextStyle(color: Colors.grey),
                                           hintStyle:
                                               TextStyle(color: Colors.grey)),
+                                      validator: (value) {
+                                        password = value;
+                                        String patttern =
+                                            r'(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)';
+                                        RegExp regExp = new RegExp(patttern);
+                                        if (value.isEmpty) {
+                                          return "Password is Required";
+                                        } else if (value.length < 8) {
+                                          return "Password must have minimum eight characters";
+                                        } else if (!regExp.hasMatch(value)) {
+                                          return "Password should have at least one uppercase letter, one lowercase letter and one number";
+                                        }
+                                        return null;
+                                      },
                                     ),
                                   ),
                                   Container(
                                     padding: EdgeInsets.all(10),
                                     child: TextFormField(
-                                      validator: (value) {
-                                        String pattern =
-                                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-                                        RegExp regExp = new RegExp(pattern);
-                                        if (!regExp.hasMatch(value)) {
-                                          return 'Please Enter a Valid Password';
-                                        }
-                                      },
                                       obscureText: true,
                                       controller: _repasswordController,
                                       cursorColor: Colors.green,
@@ -367,6 +391,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                               TextStyle(color: Colors.grey),
                                           hintStyle:
                                               TextStyle(color: Colors.grey)),
+                                      validator: (value) {
+                                        if (value != password)
+                                          return 'Entered password is not same as above';
+                                        else
+                                          return null;
+                                      },
                                     ),
                                   )
                                 ],
@@ -396,8 +426,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                 //User updateUser = FirebaseAuth.instance.currentUser;
                                 //print(_usernameController.text);
                                 //updateUser.updateProfile(displayName: _usernameController.text);
-
-                                Navigator.of(context).pushNamed(Login.id);
+                                if (_formKey.currentState.validate())
+                                  Navigator.of(context).pushNamed(Login.id);
                               },
                               child: Center(
                                 child: Text(
