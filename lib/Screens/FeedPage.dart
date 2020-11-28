@@ -17,47 +17,47 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> {
   /* This method is to setup each dishCategory */
-  String _selectedTab = 'Veg';
-  Material _dishCategory(String text, double width) {
-    return Material(
-      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-      shadowColor: Color(0xff7e807f),
-      elevation: (text == _selectedTab) ? 7 : 0,
-      child: Container(
-        // height: width * 0.1,
-        width: width * 0.3,
-        padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
-        decoration: BoxDecoration(
-          border: (text != _selectedTab)
-              ? Border.all(color: Colors.grey[400])
-              : Border(),
-          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-          // boxShadow: [
-          //   (text == 'Indian')
-          //       ? //background color of box
-          //       BoxShadow(
-          //           color: Colors.grey,
-          //           spreadRadius: 1,
-          //           blurRadius: 0.5,
-          //           offset: Offset(0, 2),
-          //         )
-          //       : BoxShadow(
-          //           color: Colors.white,
-          //         ),
-          // ],
-          color: Colors.white,
-        ),
-        // child: Padding(
-        //   padding: const EdgeInsets.all(8.0),
-        //   child: Text(
-        //     text,
-        //     textAlign: TextAlign.center,
-        //     style: TextStyle(fontWeight: FontWeight.bold),
-        //   ),
-        // ),
-      ),
-    );
-  }
+  //String _selectedTab = 'Veg';
+  // Material _dishCategory(String text, double width) {
+  //   return Material(
+  //     borderRadius: BorderRadius.all(Radius.circular(5.0)),
+  //     shadowColor: Color(0xff7e807f),
+  //     elevation: (text == _selectedTab) ? 7 : 0,
+  //     child: Container(
+  //       // height: width * 0.1,
+  //       width: width * 0.3,
+  //       padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 10.5),
+  //       decoration: BoxDecoration(
+  //         border: (text != _selectedTab)
+  //             ? Border.all(color: Colors.grey[400])
+  //             : Border(),
+  //         borderRadius: BorderRadius.all(Radius.circular(5.0)),
+  //         // boxShadow: [
+  //         //   (text == 'Indian')
+  //         //       ? //background color of box
+  //         //       BoxShadow(
+  //         //           color: Colors.grey,
+  //         //           spreadRadius: 1,
+  //         //           blurRadius: 0.5,
+  //         //           offset: Offset(0, 2),
+  //         //         )
+  //         //       : BoxShadow(
+  //         //           color: Colors.white,
+  //         //         ),
+  //         // ],
+  //         color: Colors.white,
+  //       ),
+  //       // child: Padding(
+  //       //   padding: const EdgeInsets.all(8.0),
+  //       //   child: Text(
+  //       //     text,
+  //       //     textAlign: TextAlign.center,
+  //       //     style: TextStyle(fontWeight: FontWeight.bold),
+  //       //   ),
+  //       // ),
+  //     ),
+  //   );
+  // }
 
 /* This method is to setup the post */
   // Container _post(
@@ -264,8 +264,7 @@ class FeedsStream extends StatelessWidget {
           if (!snapshot.hasData) {
             return Center(
               child: CircularProgressIndicator(
-                backgroundColor: Colors.green,
-              ),
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.green)),
             );
           }
           final posts = snapshot.data.docs;
@@ -307,6 +306,7 @@ class FeedsStream extends StatelessWidget {
               cacheExtent: 1000,
               physics: AlwaysScrollableScrollPhysics(),
               shrinkWrap: true,
+              reverse: true,
               children: singlePost,
             ),
           );

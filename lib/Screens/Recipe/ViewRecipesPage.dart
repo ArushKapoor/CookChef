@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import '../Account/AccountPage.dart';
 import '../HomePage.dart';
-import '../NotificationsPage.dart';
 import 'package:cook_chef/Models/RecipeHandler.dart';
 
 class ViewRecipesPage extends StatefulWidget {

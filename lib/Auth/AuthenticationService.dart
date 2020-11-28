@@ -75,15 +75,19 @@ class AuthenticationService {
       CloudFirestore cloudFirestore = CloudFirestore();
 
       await cloudFirestore.userSetUp(username);
+
       if (!_firebaseAuth.currentUser.emailVerified) {
         await _firebaseAuth.currentUser.sendEmailVerification();
       }
+
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
+      } else if (e.code == 'invalid-email') {
+        return 'Invalid Email';
       }
     } catch (e) {
       print(e);
@@ -95,11 +99,14 @@ class AuthenticationService {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      if (!_firebaseAuth.currentUser.emailVerified) {
+        return 'We send an email to you.\n Please check your email';
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        return 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        return 'Wrong password provided for that user.';
       }
     }
     return null;

@@ -2,7 +2,6 @@ import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 

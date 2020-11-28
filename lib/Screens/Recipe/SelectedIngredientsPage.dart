@@ -8,7 +8,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../Account/AccountPage.dart';
 import '../HomePage.dart';
-import '../NotificationsPage.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 
 class SelectedIngredientsPage extends StatefulWidget {

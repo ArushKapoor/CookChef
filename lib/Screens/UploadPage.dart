@@ -66,6 +66,9 @@ class _UploadPageState extends State<UploadPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    bool isVisible = false;
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -84,9 +87,15 @@ class _UploadPageState extends State<UploadPage> {
                 child: GestureDetector(
                   onTap: () async {
                     if (_postController.text.isNotEmpty && _image != null) {
+                      setState(() {
+                        isVisible = true;
+                      });
                       await context
                           .read<CloudFirestore>()
                           .addingPost(_postController.text, _image);
+                      setState(() {
+                        isVisible = false;
+                      });
                       Navigator.pop(context);
                     }
                   },
@@ -101,107 +110,117 @@ class _UploadPageState extends State<UploadPage> {
       ),
       resizeToAvoidBottomInset: (_image == null) ? true : false,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 10.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                SizedBox(
-                  width: 5.0,
-                ),
-                Icon(
-                  Icons.account_circle,
-                  size: 30.0,
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Expanded(
-                  child: Container(
-                    child: Text(
-                      'User Name',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(fontSize: 15.0),
-                    ),
+        child: Stack(
+          children: [
+            GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+              },
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 10.0,
                   ),
-                ),
-                Icon(Icons.keyboard_arrow_down),
-              ],
-            ),
-            Expanded(
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: (_image == null)
-                      ? MainAxisAlignment.start
-                      : MainAxisAlignment.end,
-                  children: <Widget>[
-                    Flexible(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
-                        child: TextField(
-                          controller: _postController,
-                          keyboardType: TextInputType.multiline,
-                          maxLines: null,
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: (_image == null)
-                                  ? 'What\'s your recipe'
-                                  : 'Say something about this photo...'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 5.0,
+                      ),
+                      Icon(
+                        Icons.account_circle,
+                        size: 30.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Expanded(
+                        child: Container(
+                          child: Text(
+                            'User Name',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(fontSize: 15.0),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            if (_image != null)
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(top: 5.0),
-                  child: Image.file(
-                    _image,
-                    fit: BoxFit.fitHeight,
+                      Icon(Icons.keyboard_arrow_down),
+                    ],
                   ),
-                ),
-              ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 5.0),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(color: Colors.grey[300]),
-                ),
-              ),
-              child: Row(
-                children: <Widget>[
                   Expanded(
                     child: Container(
-                      child: Text(
-                        'Add to your post',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.black, fontSize: 15.0),
+                      child: Column(
+                        mainAxisAlignment: (_image == null)
+                            ? MainAxisAlignment.start
+                            : MainAxisAlignment.end,
+                        children: <Widget>[
+                          Flexible(
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                              child: TextField(
+                                controller: _postController,
+                                keyboardType: TextInputType.multiline,
+                                maxLines: 2000,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: (_image == null)
+                                        ? 'What\'s your recipe'
+                                        : 'Say something about this photo...'),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Icon(
-                          Icons.video_call,
-                          size: 30.0,
+                  if (_image != null)
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(top: 5.0),
+                        child: Image.file(
+                          _image,
+                          fit: BoxFit.fitWidth,
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.photo_library_outlined,
-                            size: 25.0,
+                      ),
+                    ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(color: Colors.grey[300]),
+                      ),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            child: Text(
+                              'Add to your post',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 15.0),
+                            ),
                           ),
-                          tooltip: 'Upload image',
-                          onPressed: () {
-                            _showPicker(context);
-                          },
+                        ),
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              Icon(
+                                Icons.video_call,
+                                size: 30.0,
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  Icons.photo_library_outlined,
+                                  size: 25.0,
+                                ),
+                                tooltip: 'Upload image',
+                                onPressed: () {
+                                  _showPicker(context);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -209,6 +228,20 @@ class _UploadPageState extends State<UploadPage> {
                 ],
               ),
             ),
+            if (isVisible)
+              Opacity(
+                opacity: 0.60,
+                child: Container(
+                  height: height,
+                  width: width,
+                ),
+              ),
+            if (isVisible)
+              Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff006043)),
+                ),
+              ),
           ],
         ),
       ),
