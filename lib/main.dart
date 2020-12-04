@@ -46,12 +46,16 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               context.read<AuthenticationService>().authCredentialChanges,
         ),
+        // StreamProvider.value(value: context.read<CloudFirestore>().likedInfo()),
         StreamProvider(
           create: (context) => context.read<CloudFirestore>().userInfo(),
         ),
         ChangeNotifierProvider<IngredientsHandler>(
           create: (_) => IngredientsHandler(),
         ),
+        // StreamProvider(
+        //   create: (context) => context.read<CloudFirestore>().likedInfo(),
+        // ),
       ],
       child: MaterialApp(
         /* To remove the debug banner in the top right */

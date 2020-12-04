@@ -6,6 +6,7 @@ import 'dart:io';
 FirebaseAuth auth = FirebaseAuth.instance;
 CollectionReference user;
 CollectionReference feeds;
+final _firestore = FirebaseFirestore.instance;
 
 class CloudFirestore {
   String uid = auth.currentUser.uid.toString();
@@ -14,6 +15,13 @@ class CloudFirestore {
     return FirebaseFirestore.instance.collection('Users').snapshots();
   }
 
+  Stream<QuerySnapshot> likedInfo({String postId}) {
+    return FirebaseFirestore.instance
+        .collection('feeds')
+        .doc(postId)
+        .collection('likes')
+        .snapshots();
+  }
 
   Future<void> userSetUp(String userName) async {
     user = FirebaseFirestore.instance.collection('Users');
@@ -30,21 +38,24 @@ class CloudFirestore {
 
   Future<void> addingPost(String recipe, File _image) async {
     feeds = FirebaseFirestore.instance.collection('feeds');
+
     Timestamp time = Timestamp.now();
     String username = await userName();
     DocumentReference post = await feeds.add({
       'username': username,
       'recipe': recipe,
       'timestamp': time,
-      'likes': 0,
       'uid': uid,
+      'likes': {'likes': 0},
+      'comments': 0,
     });
     String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', post.id);
-    await feeds.doc(post.id).update({'imageUrl': imageUrl, 'postId': post.id});
+    await feeds.doc(post.id).update({'imageUrl': imageUrl});
     return null;
   }
 
-  Future<String> addingComments(String comment, String id) async {
+  Future<String> addingComments(
+      String comment, String id, int commentsCount) async {
     String username = await userName();
 
     DocumentReference commented = await FirebaseFirestore.instance
@@ -54,48 +65,70 @@ class CloudFirestore {
         .add({
       'comment': comment,
       'username': username,
-      'likes': 0,
+      'likes': {'likes': 0},
       'timestamp': Timestamp.now(),
       'uid': uid,
     });
-    await FirebaseFirestore.instance
-        .collection('feeds')
-        .doc(id)
-        .collection('comments')
-        .doc(commented.id)
-        .update({'commentId': commented.id});
+    commentsCount = commentsCount + 1;
+
+    await _firestore.runTransaction((transaction) {
+      DocumentReference postRef = _firestore.collection('feeds').doc(id);
+      transaction.update(postRef, {'comments': commentsCount});
+      return null;
+    });
+
     return commented.id;
   }
 
   Future<void> incrementingPostLikes(String id, int like, bool liked) async {
-    await FirebaseFirestore.instance
-        .collection('feeds')
-        .doc(id)
-        .collection('likes')
-        .doc(uid)
-        .set({'liked': liked});
-    await FirebaseFirestore.instance
-        .collection('feeds')
-        .doc(id)
-        .update({'likes': like + 1});
+    await FirebaseFirestore.instance.runTransaction((transaction) {
+      DocumentReference likesRef =
+          FirebaseFirestore.instance.collection('feeds').doc(id);
+      transaction.update(likesRef, {
+        'likes': {uid: liked, 'likes': like + 1}
+      });
+      return null;
+    });
+    // await FirebaseFirestore.instance
+    //     .collection('feeds')
+    //     .doc(id)
+    //     .collection('likes')
+    //     .doc(uid)
+    //     .set({'liked': liked});
+    // await FirebaseFirestore.instance
+    //     .collection('feeds')
+    //     .doc(id)
+    //     .update({'likes': like + 1});
   }
 
   Future<void> incrementingCommentLikes(
       String postId, int like, String commentId, bool liked) async {
-    await FirebaseFirestore.instance
-        .collection('feeds')
-        .doc(postId)
-        .collection('comments')
-        .doc(commentId)
-        .collection('likes')
-        .doc(uid)
-        .set({'liked': liked});
-    await FirebaseFirestore.instance
-        .collection('feeds')
-        .doc(postId)
-        .collection('comments')
-        .doc(commentId)
-        .update({'likes': like + 1});
+    await _firestore.runTransaction((transaction) {
+      DocumentReference commentLikeRef = _firestore
+          .collection('feeds')
+          .doc(postId)
+          .collection('comments')
+          .doc(commentId);
+      transaction.update(commentLikeRef, {
+        'likes': {'likes': like + 1, uid: liked}
+      });
+      return null;
+    });
+
+    // await FirebaseFirestore.instance
+    //     .collection('feeds')
+    //     .doc(postId)
+    //     .collection('comments')
+    //     .doc(commentId)
+    //     .collection('likes')
+    //     .doc(uid)
+    //     .set({'liked': liked});
+    // await FirebaseFirestore.instance
+    //     .collection('feeds')
+    //     .doc(postId)
+    //     .collection('comments')
+    //     .doc(commentId)
+    //     .update({'likes': like + 1});
   }
 
   Future<void> updateUser(String username, String bio, String imageLink) async {

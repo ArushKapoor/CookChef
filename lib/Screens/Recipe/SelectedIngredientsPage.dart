@@ -130,7 +130,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                               //     .read<IngredientsHandler>()
                               //     .ingredients
                               //     .indexOf(ingredient);
-                              int i;
+
                               for (int index = 0;
                                   index <
                                       context
@@ -143,20 +143,17 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
                                         .read<IngredientsHandler>()
                                         .ingredients[index]
                                         .text) {
-                                  i = index;
                                   break;
                                 }
                               }
-                              final ingredient_1 = context
-                                  .read<IngredientsHandler>()
-                                  .ingredients[i];
+
                               Provider.of<IngredientsHandler>(context,
                                       listen: false)
                                   .removeSelectedIngredient(ingredient);
 
                               Provider.of<IngredientsHandler>(context,
                                       listen: false)
-                                  .checkBoxToggler(ingredient_1);
+                                  .checkBoxToggler(ingredient);
                             },
                           );
                         }),

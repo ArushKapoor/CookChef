@@ -1,16 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cook_chef/Auth/AuthenticationService.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 final _firebaseFirestore = FirebaseFirestore.instance;
 
 class BottomCommentsSheetBuilder extends StatelessWidget {
   final String postId;
+  final int commentsCount;
 
-  BottomCommentsSheetBuilder({this.postId});
+  BottomCommentsSheetBuilder({this.postId, this.commentsCount});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -73,10 +74,11 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                           suffix: GestureDetector(
                             onTap: () async {
                               print(textEditingController.text);
-                              await context
-                                  .read<CloudFirestore>()
-                                  .addingComments(
-                                      textEditingController.text, postId);
+                              if (textEditingController.text.isNotEmpty)
+                                await context
+                                    .read<CloudFirestore>()
+                                    .addingComments(textEditingController.text,
+                                        postId, commentsCount);
                               textEditingController.clear();
                             },
                             child: Text('Share',
@@ -103,6 +105,7 @@ class CommentsStream extends StatelessWidget {
   CommentsStream({this.postId});
   @override
   Widget build(BuildContext context) {
+    String uid = context.watch<AuthenticationService>().uniqueId;
     return StreamBuilder<QuerySnapshot>(
         stream: _firebaseFirestore
             .collection('feeds')
@@ -121,29 +124,31 @@ class CommentsStream extends StatelessWidget {
           final comments = snapshot.data.docs;
           List<CommentTile> commentsList = [];
           for (var comment in comments) {
-            final username = comment.get('username');
-            final likes = comment.get('likes');
-            final commentId = comment.get('commentId');
+            Map likes = comment.get('likes');
+            final commentId = comment.id;
             final mycomment = comment.get('comment');
             final commentUserId = comment.get('uid');
             QuerySnapshot snapshots = context.watch<QuerySnapshot>();
-            String meraUserImage;
-
+            String meraUserImage, meraUserName;
+            int nOfLikes = likes['likes'];
+            bool liked = likes['$uid'];
             final users = snapshots.docs;
             for (var user in users) {
               final auser = user.get('uid');
               if (auser == commentUserId) {
                 meraUserImage = user.get('imageLink');
+                meraUserName = user.get('username');
               }
             }
             commentsList.add(
               CommentTile(
                 comment: mycomment,
-                username: username,
+                username: meraUserName,
                 commentId: commentId,
-                likes: likes,
+                likes: nOfLikes,
                 postId: postId,
                 userImage: meraUserImage,
+                liked: liked,
               ),
             );
           }
@@ -166,13 +171,15 @@ class CommentTile extends StatefulWidget {
   final String commentId;
   final String postId;
   final String userImage;
+  final bool liked;
   CommentTile(
       {this.username,
       this.comment,
       this.commentId,
       this.likes,
       this.postId,
-      this.userImage});
+      this.userImage,
+      this.liked});
 
   @override
   _CommentTileState createState() => _CommentTileState();
@@ -186,31 +193,15 @@ class _CommentTileState extends State<CommentTile> {
     super.dispose();
   }
 
-  Future<void> getLikedInfo() async {
-    DocumentSnapshot snapshot = await _firebaseFirestore
-        .collection('feeds')
-        .doc(widget.postId)
-        .collection('comments')
-        .doc(widget.commentId)
-        .collection('likes')
-        .doc(FirebaseAuth.instance.currentUser.uid)
-        .get();
-    try {
-      increment = snapshot.data()['liked'];
-    } catch (e) {}
-    setState(() {});
-  }
-
   @override
   void initState() {
     super.initState();
-    getLikedInfo();
   }
 
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
-
+    if (widget.liked != null) increment = widget.liked;
     return Container(
       margin: EdgeInsets.only(bottom: 8.0),
       child: Column(

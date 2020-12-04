@@ -1,9 +1,7 @@
 import 'package:cook_chef/Screens/Authentication/Forgot_Password.dart';
 import 'package:provider/provider.dart';
-import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 import '../Animation/FadeAnimation.dart';
 
