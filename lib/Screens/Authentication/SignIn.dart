@@ -55,10 +55,10 @@ class _LoginViewState extends State<Login> {
                                           fit: BoxFit.fill)),
                                   child: Padding(
                                     padding: EdgeInsets.only(
-                                        top: width * 0.3, left: width * 0.2),
+                                        top: width * 0.275, left: width * 0.24),
                                     child: Text('Welcome Back!',
                                         style: TextStyle(
-                                            fontSize: 24,
+                                            fontSize: height * 0.049,
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold)),
                                   ),

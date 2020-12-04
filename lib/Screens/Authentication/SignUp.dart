@@ -235,7 +235,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       top: width * 0.3, left: width * 0.2),
                                   child: Text('Welcome to ChefGuru!',
                                       style: TextStyle(
-                                          fontSize: 24,
+                                          fontSize: height * 0.045,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -350,13 +350,17 @@ class _SignUpPageState extends State<SignUpPage> {
                                         controller: _passwordController,
                                         cursorColor: Colors.green,
                                         decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: "password",
-                                            labelText: 'Password',
-                                            labelStyle:
-                                                TextStyle(color: Colors.grey),
-                                            hintStyle:
-                                                TextStyle(color: Colors.grey)),
+                                          border: InputBorder.none,
+                                          hintText: "password",
+                                          labelText: 'Password',
+                                          labelStyle:
+                                              TextStyle(color: Colors.grey),
+                                          hintStyle:
+                                              TextStyle(color: Colors.grey),
+                                          errorStyle: TextStyle(
+                                              fontSize: height * 0.015),
+                                          errorMaxLines: 2,
+                                        ),
                                         validator: (value) {
                                           password = value;
                                           String patttern =
