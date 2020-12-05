@@ -38,10 +38,20 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                 postId: postId,
               ),
               Container(
-                padding: EdgeInsets.only(
-                  left: 10.0,
-                  bottom: 10.0,
-                ),
+                padding: (commentsCount != 0)
+                    ? EdgeInsets.only(
+                        left: 10.0,
+                        bottom: 10.0,
+                        right: 10.0,
+                      )
+                    : EdgeInsets.only(),
+                margin: (commentsCount == 0)
+                    ? EdgeInsets.only(
+                        left: 10.0,
+                        bottom: 10.0,
+                        right: 10.0,
+                      )
+                    : EdgeInsets.only(),
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(color: Colors.grey[300]),
@@ -60,7 +70,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w900),
                     ),
-                    SizedBox(
+                    Container(
                       width: _width * 0.90,
                       child: TextField(
                         controller: textEditingController,
