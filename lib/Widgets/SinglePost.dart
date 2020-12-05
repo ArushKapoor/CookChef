@@ -1,3 +1,4 @@
+import 'package:cook_chef/Widgets/EditPost.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
@@ -12,6 +13,7 @@ class SinglePost extends StatefulWidget {
   final String postImageUrl;
   final String postId;
   final bool liked;
+  final bool onAccountPage;
   SinglePost(
       {this.comments,
       this.description,
@@ -22,7 +24,8 @@ class SinglePost extends StatefulWidget {
       this.postImageUrl,
       this.postId,
       this.userImage,
-      this.liked});
+      this.liked,
+      this.onAccountPage});
 
   @override
   _SinglePostState createState() => _SinglePostState();
@@ -74,6 +77,25 @@ class _SinglePostState extends State<SinglePost> {
                         ),
                       ],
                     ),
+                    if (widget.onAccountPage)
+                      Expanded(
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: _width * 0.02),
+                          alignment: Alignment.centerRight,
+                          child: GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                backgroundColor: Colors.black.withOpacity(0),
+                                context: context,
+                                isScrollControlled: true,
+                                builder: (context) => EditPost(),
+                              );
+                            },
+                            child: Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
                 Container(

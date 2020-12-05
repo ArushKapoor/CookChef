@@ -221,6 +221,7 @@ class FeedsStream extends StatelessWidget {
                   userImage: meraUserImage,
                   postId: postId,
                   liked: liked,
+                  onAccountPage: true,
                 ),
               );
             }
