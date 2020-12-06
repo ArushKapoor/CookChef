@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class UpdateEmail extends StatefulWidget {
-  static final id = 'update_pass';
+  static final id = 'update_email';
   @override
   _UpdateMailState createState() => _UpdateMailState();
 }

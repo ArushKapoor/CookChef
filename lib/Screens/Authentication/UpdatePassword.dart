@@ -1,4 +1,5 @@
 import 'package:cook_chef/Screens/Authentication/ForgotPassword.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
@@ -35,6 +36,7 @@ class _UpdatePassState extends State<UpdatePassword> {
     var password;
     return Scaffold(
       appBar: AppBar(
+        title: Text('Update Password'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -55,7 +57,7 @@ class _UpdatePassState extends State<UpdatePassword> {
               key: _formKey,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: width * 0.05, vertical: height * 0.1),
+                    horizontal: width * 0.05, vertical: height * 0.05),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -64,19 +66,23 @@ class _UpdatePassState extends State<UpdatePassword> {
                       height: height * 0.02,
                     ),
                     Container(
-                      height: 40,
+                      //height: 40,
                       decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: BorderRadius.circular(40.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                        padding:
+                            EdgeInsets.only(left: 15, right: 15, bottom: 5),
                         child: TextFormField(
                           controller: _passwordController,
                           cursorColor: Colors.green,
                           decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
+                              border: InputBorder.none,
+                              fillColor: Colors.grey,
+                              labelStyle: TextStyle(color: Colors.white)),
+                          style: TextStyle(color: Colors.white),
+                          cursorHeight: 8,
                           validator: (value) {
                             password = value;
                             String patttern =
@@ -102,19 +108,22 @@ class _UpdatePassState extends State<UpdatePassword> {
                       height: height * 0.02,
                     ),
                     Container(
-                      height: 40,
+                      //    height: 40,
                       decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: new BorderRadius.circular(40.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                        padding:
+                            EdgeInsets.only(left: 15, right: 15, bottom: 5),
                         child: TextFormField(
                           controller: _repasswordController,
                           cursorColor: Colors.green,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                           ),
+                          style: TextStyle(color: Colors.white),
+                          cursorHeight: 8,
                           validator: (value) {
                             if (value != password)
                               return 'Entered password is not same as above';
@@ -154,6 +163,11 @@ class _UpdatePassState extends State<UpdatePassword> {
                                   .read<AuthenticationService>()
                                   .updatePasswd(_passwordController.text);
 
+                              await context
+                                  .read<AuthenticationService>()
+                                  .signOut();
+                              Navigator.pop(context);
+                              Navigator.pop(context);
                               setState(() {});
                               print(passwordValidator);
                             }
