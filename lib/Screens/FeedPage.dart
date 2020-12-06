@@ -230,6 +230,7 @@ class FeedsStream extends StatelessWidget {
                 postId: postId,
                 liked: liked,
                 likesMap: likes,
+                onAccountPage: false,
               ),
             );
           }
