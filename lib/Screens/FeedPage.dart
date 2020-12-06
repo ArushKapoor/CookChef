@@ -199,8 +199,14 @@ class FeedsStream extends StatelessWidget {
             final postId = post.id;
             final postUserUid = post.get('uid');
             final commentsCount = post.get('comments');
+            bool liked = false;
             int nOfLikes = likes['likes'];
-            bool liked = likes['$uid'];
+            try {
+              liked = likes['$uid'];
+            } catch (e) {
+              print(e);
+            }
+
             QuerySnapshot snapshots = context.watch<QuerySnapshot>();
             String meraUserImage;
 
@@ -223,6 +229,7 @@ class FeedsStream extends StatelessWidget {
                 userImage: meraUserImage,
                 postId: postId,
                 liked: liked,
+                likesMap: likes,
               ),
             );
           }

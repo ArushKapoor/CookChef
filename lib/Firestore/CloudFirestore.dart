@@ -80,13 +80,20 @@ class CloudFirestore {
     return commented.id;
   }
 
-  Future<void> incrementingPostLikes(String id, int like, bool liked) async {
+  Future<void> incrementingPostLikes(
+      String id, int like, bool liked, Map likesMap) async {
     await FirebaseFirestore.instance.runTransaction((transaction) {
+      likesMap.update(uid, (value) => value = liked, ifAbsent: () => liked);
+      likesMap.update('likes', (value) => like + 1);
       DocumentReference likesRef =
           FirebaseFirestore.instance.collection('feeds').doc(id);
       transaction.update(likesRef, {
-        'likes': {uid: liked, 'likes': like + 1}
+        'likes': likesMap,
       });
+      print(likesMap);
+      // transaction.update(likesRef, {
+      //   'likes': {uid: liked, 'likes': like + 1}
+      // });
       return null;
     });
     // await FirebaseFirestore.instance
@@ -101,17 +108,17 @@ class CloudFirestore {
     //     .update({'likes': like + 1});
   }
 
-  Future<void> incrementingCommentLikes(
-      String postId, int like, String commentId, bool liked) async {
+  Future<void> incrementingCommentLikes(String postId, int like,
+      String commentId, bool liked, Map likesMap) async {
     await _firestore.runTransaction((transaction) {
+      likesMap.update('likes', (value) => like + 1);
+      likesMap.update(uid, (value) => liked, ifAbsent: () => liked);
       DocumentReference commentLikeRef = _firestore
           .collection('feeds')
           .doc(postId)
           .collection('comments')
           .doc(commentId);
-      transaction.update(commentLikeRef, {
-        'likes': {'likes': like + 1, uid: liked}
-      });
+      transaction.update(commentLikeRef, {'likes': likesMap});
       return null;
     });
 

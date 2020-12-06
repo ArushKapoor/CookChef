@@ -12,6 +12,7 @@ class SinglePost extends StatefulWidget {
   final String postImageUrl;
   final String postId;
   final bool liked;
+  final Map likesMap;
   SinglePost(
       {this.comments,
       this.description,
@@ -22,7 +23,8 @@ class SinglePost extends StatefulWidget {
       this.postImageUrl,
       this.postId,
       this.userImage,
-      this.liked});
+      this.liked,
+      this.likesMap});
 
   @override
   _SinglePostState createState() => _SinglePostState();
@@ -109,10 +111,16 @@ class _SinglePostState extends State<SinglePost> {
                           if (increment) {
                             // print(widget.postId);
                             await _cloudFirestore.incrementingPostLikes(
-                                widget.postId, widget.likes, increment);
+                                widget.postId,
+                                widget.likes,
+                                increment,
+                                widget.likesMap);
                           } else {
                             await _cloudFirestore.incrementingPostLikes(
-                                widget.postId, widget.likes - 2, increment);
+                                widget.postId,
+                                widget.likes - 2,
+                                increment,
+                                widget.likesMap);
                           }
                         },
                         child: increment

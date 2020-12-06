@@ -128,6 +128,7 @@ class CommentsStream extends StatelessWidget {
             final commentId = comment.id;
             final mycomment = comment.get('comment');
             final commentUserId = comment.get('uid');
+
             QuerySnapshot snapshots = context.watch<QuerySnapshot>();
             String meraUserImage, meraUserName;
             int nOfLikes = likes['likes'];
@@ -149,6 +150,7 @@ class CommentsStream extends StatelessWidget {
                 postId: postId,
                 userImage: meraUserImage,
                 liked: liked,
+                likesMap: likes,
               ),
             );
           }
@@ -172,6 +174,7 @@ class CommentTile extends StatefulWidget {
   final String postId;
   final String userImage;
   final bool liked;
+  final Map likesMap;
   CommentTile(
       {this.username,
       this.comment,
@@ -179,7 +182,8 @@ class CommentTile extends StatefulWidget {
       this.likes,
       this.postId,
       this.userImage,
-      this.liked});
+      this.liked,
+      this.likesMap});
 
   @override
   _CommentTileState createState() => _CommentTileState();
@@ -257,14 +261,16 @@ class _CommentTileState extends State<CommentTile> {
                                             widget.postId,
                                             widget.likes,
                                             widget.commentId,
-                                            increment);
+                                            increment,
+                                            widget.likesMap);
                                   } else {
                                     await _cloudFirestore
                                         .incrementingCommentLikes(
                                             widget.postId,
                                             widget.likes - 2,
                                             widget.commentId,
-                                            increment);
+                                            increment,
+                                            widget.likesMap);
                                   }
                                 },
                                 child: increment
