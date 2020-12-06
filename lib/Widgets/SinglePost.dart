@@ -87,11 +87,14 @@ class _SinglePostState extends State<SinglePost> {
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
                             onTap: () {
+                              print(widget.postId);
                               showModalBottomSheet(
                                 backgroundColor: Colors.black.withOpacity(0),
                                 context: context,
                                 isScrollControlled: true,
-                                builder: (context) => EditPost(),
+                                builder: (context) => EditPost(
+                                  postId: widget.postId,
+                                ),
                               );
                             },
                             child: Icon(Icons.keyboard_arrow_down),

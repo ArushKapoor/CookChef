@@ -1,3 +1,4 @@
+import 'package:cook_chef/Models/Arguments.dart';
 import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -99,7 +100,8 @@ class _AccountPageState extends State<AccountPage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, UploadPage.id);
+              Navigator.pushNamed(context, UploadPage.id,
+                  arguments: UploadPageArguments(toUpdate: false));
             },
             child: Container(
               margin: EdgeInsets.all(_width * 0.03),
@@ -124,10 +126,9 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   Row(
                     children: <Widget>[
-                      Icon(
-                        Icons.account_circle,
-                        size: 40,
-                      ),
+                      CircleAvatar(
+                          backgroundImage: NetworkImage(meraUserImage),
+                          radius: _width * 0.06),
                       SizedBox(
                         width: 10.0,
                       ),

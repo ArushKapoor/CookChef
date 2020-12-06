@@ -1,7 +1,13 @@
+import 'package:cook_chef/Screens/UploadPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:cook_chef/Models/Arguments.dart';
 
 class EditPost extends StatelessWidget {
+  final String postId;
+  EditPost({this.postId});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -24,38 +30,51 @@ class EditPost extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/icons/pin.png',
-                        scale: _height * 0.013,
-                      ),
-                      SizedBox(
-                        width: _width * 0.04,
-                      ),
-                      Text(
-                        'Edit Recipe',
-                        style: TextStyle(fontSize: _height * 0.03),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, UploadPage.id,
+                        arguments: UploadPageArguments(
+                            toUpdate: true, postId: postId));
+                  },
+                  child: Container(
+                    child: Row(
+                      children: <Widget>[
+                        Image.asset(
+                          'assets/icons/pin.png',
+                          scale: _height * 0.013,
+                        ),
+                        SizedBox(
+                          width: _width * 0.04,
+                        ),
+                        Text(
+                          'Edit Recipe',
+                          style: TextStyle(fontSize: _height * 0.03),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      SvgPicture.asset(
-                        'assets/icons/delete.svg',
-                        height: _height * 0.040,
-                      ),
-                      SizedBox(
-                        width: _width * 0.04,
-                      ),
-                      Text(
-                        'Delete Recipe',
-                        style: TextStyle(fontSize: _height * 0.03),
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () async {
+                    await context.read<CloudFirestore>().deletePost(postId);
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    child: Row(
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          'assets/icons/delete.svg',
+                          height: _height * 0.040,
+                        ),
+                        SizedBox(
+                          width: _width * 0.04,
+                        ),
+                        Text(
+                          'Delete Recipe',
+                          style: TextStyle(fontSize: _height * 0.03),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

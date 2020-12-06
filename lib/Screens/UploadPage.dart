@@ -1,11 +1,15 @@
 import 'dart:io';
+import 'package:cook_chef/Models/Arguments.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:cook_chef/Auth/AuthenticationService.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UploadPage extends StatefulWidget {
   static const String id = 'upload_page';
+
   @override
   _UploadPageState createState() => _UploadPageState();
 }
@@ -66,8 +70,21 @@ class _UploadPageState extends State<UploadPage> {
 
   @override
   Widget build(BuildContext context) {
+    final UploadPageArguments args = ModalRoute.of(context).settings.arguments;
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    String uid = context.watch<AuthenticationService>().uniqueId;
+    QuerySnapshot snapshot = context.watch<QuerySnapshot>();
+    String meraUserName, meraUserImage;
+
+    final users = snapshot.docs;
+    for (var user in users) {
+      final auser = user.get('uid');
+      if (auser == uid) {
+        meraUserName = user.get('username');
+        meraUserImage = user.get('imageLink');
+      }
+    }
     bool isVisible = false;
     return Scaffold(
       appBar: AppBar(
@@ -78,7 +95,7 @@ class _UploadPageState extends State<UploadPage> {
                   end: Alignment.bottomRight,
                   colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
         ),
-        title: Text('Upload'),
+        title: Text(args.toUpdate ? 'Update Post' : 'Upload'),
         actions: <Widget>[
           if (_postController.text.isNotEmpty && _image != null)
             Container(
@@ -90,9 +107,14 @@ class _UploadPageState extends State<UploadPage> {
                       setState(() {
                         isVisible = true;
                       });
-                      await context
-                          .read<CloudFirestore>()
-                          .addingPost(_postController.text, _image);
+                      if (args.toUpdate) {
+                        await context.read<CloudFirestore>().updatingPost(
+                            _postController.text, _image, args.postId);
+                      } else {
+                        await context
+                            .read<CloudFirestore>()
+                            .addingPost(_postController.text, _image);
+                      }
                       setState(() {
                         isVisible = false;
                       });
@@ -127,9 +149,9 @@ class _UploadPageState extends State<UploadPage> {
                       SizedBox(
                         width: 5.0,
                       ),
-                      Icon(
-                        Icons.account_circle,
-                        size: 30.0,
+                      CircleAvatar(
+                        radius: width * 0.05,
+                        backgroundImage: NetworkImage(meraUserImage),
                       ),
                       SizedBox(
                         width: 10.0,
@@ -137,7 +159,7 @@ class _UploadPageState extends State<UploadPage> {
                       Expanded(
                         child: Container(
                           child: Text(
-                            'User Name',
+                            meraUserName,
                             textAlign: TextAlign.left,
                             style: TextStyle(fontSize: 15.0),
                           ),

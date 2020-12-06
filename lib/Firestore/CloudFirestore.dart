@@ -54,6 +54,14 @@ class CloudFirestore {
     return null;
   }
 
+  Future<void> updatingPost(String recipe, File _image, String postId) async {
+    String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', postId);
+    await _firestore
+        .collection('feeds')
+        .doc(postId)
+        .update({'recipe': recipe, 'imageUrl': imageUrl});
+  }
+
   Future<String> addingComments(
       String comment, String id, int commentsCount) async {
     String username = await userName();
@@ -136,6 +144,10 @@ class CloudFirestore {
     //     .collection('comments')
     //     .doc(commentId)
     //     .update({'likes': like + 1});
+  }
+
+  Future<void> deletePost(String postId) async {
+    await _firestore.collection('feeds').doc(postId).delete();
   }
 
   Future<void> updateUser(String username, String bio, String imageLink) async {
