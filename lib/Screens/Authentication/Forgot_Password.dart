@@ -54,21 +54,44 @@ class _ForgotPageState extends State<Forgot> {
                           width: _width,
                           child: FadeAnimation(
                             1,
-                            Container(
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/images/back.jpeg'),
-                                      fit: BoxFit.fill)),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: _width * 0.3, left: _width * 0.2),
-                                child: Text('OOPS! Forgot Password',
-                                    style: TextStyle(
-                                        fontSize: 24,
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                  height: _height * 0.28,
+                                  width: _width,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/back.jpeg'),
+                                          fit: BoxFit.fill)),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: _height * 0.15,
+                                        left: _width * 0.14),
+                                    child: Text('OOPS! Forgot Password',
+                                        style: TextStyle(
+                                            fontSize: _height * 0.043,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: _width * 0.03,
+                                  top: _height * 0.02,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      child: Icon(
+                                        Icons.arrow_back_sharp,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold)),
-                              ),
+                                        size: _height * 0.05,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -76,7 +99,7 @@ class _ForgotPageState extends State<Forgot> {
                     ),
                   ),
                   SizedBox(
-                    height: _height * 0.1,
+                    height: _height * 0.05,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 40),
@@ -123,10 +146,41 @@ class _ForgotPageState extends State<Forgot> {
                         SizedBox(height: _height * 0.1),
                         FadeAnimation(
                           2,
-                          FlatButton(
+                          // FlatButton(
+                          //   child: Container(
+                          //     height: 50,
+                          //     margin: EdgeInsets.symmetric(horizontal: 60),
+                          //     decoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(50),
+                          //       color: Color(0xff006043),
+                          //     ),
+                          //     child: Center(
+                          //       child: Text(
+                          //         "Verify",
+                          //         style: TextStyle(color: Colors.white),
+                          //       ),
+                          //     ),
+                          //   ),
+                          //   onPressed: () async {
+                          //     userNotFound = await context
+                          //         .read<AuthenticationService>()
+                          //         .forgetPassword(_emailController.text);
+                          //     setState(() {});
+                          //     print(userNotFound);
+                          //   },
+                          // ),
+                          GestureDetector(
+                            onTap: () async {
+                              userNotFound = await context
+                                  .read<AuthenticationService>()
+                                  .forgetPassword(_emailController.text);
+                              setState(() {});
+                              print(userNotFound);
+                            },
                             child: Container(
                               height: 50,
-                              margin: EdgeInsets.symmetric(horizontal: 60),
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: _width * 0.23),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 color: Color(0xff006043),
@@ -138,13 +192,6 @@ class _ForgotPageState extends State<Forgot> {
                                 ),
                               ),
                             ),
-                            onPressed: () async {
-                              userNotFound = await context
-                                  .read<AuthenticationService>()
-                                  .forgetPassword(_emailController.text);
-                              setState(() {});
-                              print(userNotFound);
-                            },
                           ),
                         ),
                       ],
