@@ -120,7 +120,7 @@ class CloudFirestore {
       String commentId, bool liked, Map likesMap) async {
     await _firestore.runTransaction((transaction) {
       likesMap.update('likes', (value) => like + 1);
-      likesMap.update(uid, (value) => liked, ifAbsent: () => liked);
+      likesMap.update(uid, (value) => value = liked, ifAbsent: () => liked);
       DocumentReference commentLikeRef = _firestore
           .collection('feeds')
           .doc(postId)

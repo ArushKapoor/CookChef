@@ -264,7 +264,10 @@ class _CommentTileState extends State<CommentTile> {
                             children: <Widget>[
                               GestureDetector(
                                 onTap: () async {
-                                  increment = !increment;
+                                  setState(() {
+                                    increment = !increment;
+                                  });
+
                                   if (increment) {
                                     await _cloudFirestore
                                         .incrementingCommentLikes(

@@ -191,7 +191,7 @@ class FeedsStream extends StatelessWidget {
           final posts = snapshot.data.docs;
           List<SinglePost> singlePost = [];
           for (var post in posts) {
-            final username = post.get('username');
+            //final username = post.get('username');
             final recipe = post.get('recipe');
             final imageUrl = post.get('imageUrl');
             Map likes = post.get('likes');
@@ -208,18 +208,19 @@ class FeedsStream extends StatelessWidget {
             }
 
             QuerySnapshot snapshots = context.watch<QuerySnapshot>();
-            String meraUserImage;
+            String meraUserImage, meraUserName;
 
             final users = snapshots.docs;
             for (var user in users) {
               final auser = user.get('uid');
               if (auser == postUserUid) {
+                meraUserName = user.get('username');
                 meraUserImage = user.get('imageLink');
               }
             }
             singlePost.add(
               SinglePost(
-                name: username,
+                name: meraUserName,
                 postImageUrl: imageUrl,
                 likes: nOfLikes,
                 time: timestamp.toDate().toString(),

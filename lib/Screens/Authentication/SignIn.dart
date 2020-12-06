@@ -4,6 +4,7 @@ import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 import '../Animation/FadeAnimation.dart';
+import 'package:cook_chef/Screens/HomePage.dart';
 
 class Login extends StatefulWidget {
   static final id = 'login';
@@ -203,7 +204,10 @@ class _LoginViewState extends State<Login> {
                                               email: _emailController.text,
                                               password:
                                                   _passwordController.text);
-
+                                      if (message != null) {
+                                        Navigator.pushNamed(
+                                            context, HomePage.id);
+                                      }
                                       isVisible = false;
                                       setState(() {});
                                     } catch (e) {

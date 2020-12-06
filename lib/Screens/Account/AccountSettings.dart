@@ -114,19 +114,18 @@ class _AccountSettingsState extends State<AccountSettings> {
     final double _width = MediaQuery.of(context).size.width;
     void _selectOption(HomeOptions option) {
       switch (option) {
-        case HomeOptions.updatePassword:
-          Navigator.pushNamed(context, UpdatePassword.id);
-          break;
         case HomeOptions.updateEmail:
           Navigator.pushNamed(context, UpdateEmail.id);
           break;
-
         case HomeOptions.about:
           Navigator.pushNamed(context, About.id);
           break;
         case HomeOptions.logout:
           context.read<AuthenticationService>().signOut();
           Navigator.pop(context);
+          break;
+        case HomeOptions.updatePassword:
+          Navigator.pushNamed(context, UpdatePassword.id);
           break;
       }
     }

@@ -41,7 +41,8 @@ class EditPost extends StatelessWidget {
                       children: <Widget>[
                         Image.asset(
                           'assets/icons/pin.png',
-                          scale: _height * 0.013,
+                          // scale: _height * 0.0080,
+                          height: _height * 0.04,
                         ),
                         SizedBox(
                           width: _width * 0.04,
@@ -86,7 +87,7 @@ class EditPost extends StatelessWidget {
           left: _width * 0.42,
           child: Container(
             width: _width * 0.15,
-            height: _height * 0.015,
+            height: _height * 0.010,
             decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.all(Radius.circular(5.0))),
