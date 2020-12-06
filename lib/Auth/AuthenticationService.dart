@@ -99,6 +99,7 @@ class AuthenticationService {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+
       if (!_firebaseAuth.currentUser.emailVerified) {
         return 'We send an email to you.\n Please check your email';
       }

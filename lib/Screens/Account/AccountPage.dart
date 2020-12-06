@@ -190,7 +190,7 @@ class FeedsStream extends StatelessWidget {
           List<SinglePost> singlePost = [];
           for (var post in posts) {
             if (post.get('uid') == FirebaseAuth.instance.currentUser.uid) {
-              final username = post.get('username');
+              //final username = post.get('username');
               final recipe = post.get('recipe');
               final imageUrl = post.get('imageUrl');
               Map likes = post.get('likes');
@@ -199,20 +199,26 @@ class FeedsStream extends StatelessWidget {
               final postUserUid = post.get('uid');
               final commentsCount = post.get('comments');
               int nOfLikes = likes['likes'];
-              bool liked = likes['$uid'];
+              bool liked;
+              try {
+                liked = likes['$uid'];
+              } catch (e) {
+                print(e);
+              }
               QuerySnapshot snapshots = context.watch<QuerySnapshot>();
-              String meraUserImage;
+              String meraUserImage, meraUserName;
 
               final users = snapshots.docs;
               for (var user in users) {
                 final auser = user.get('uid');
                 if (auser == postUserUid) {
+                  meraUserName = user.get('username');
                   meraUserImage = user.get('imageLink');
                 }
               }
               singlePost.add(
                 SinglePost(
-                  name: username,
+                  name: meraUserName,
                   postImageUrl: imageUrl,
                   likes: nOfLikes,
                   time: timestamp.toDate().toString(),
@@ -223,6 +229,7 @@ class FeedsStream extends StatelessWidget {
                   postId: postId,
                   liked: liked,
                   onAccountPage: true,
+                  likesMap: likes,
                 ),
               );
             }
