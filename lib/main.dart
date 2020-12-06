@@ -20,7 +20,7 @@ import 'package:cook_chef/Screens/Authentication/SignIn.dart';
 import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'Screens/Recipe/ViewRecipesPage.dart';
 import 'Screens/Recipe/SelectedIngredientsPage.dart';
-import 'Screens/Authentication/Forgot_Password.dart';
+import 'Screens/Authentication/ForgotPassword.dart';
 import 'Screens/Account/AboutPage.dart';
 import 'Firestore/CloudFirestore.dart';
 
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
           AuthenticationWrapper.id: (context) => AuthenticationWrapper(),
           Login.id: (context) => Login(),
           SignUpPage.id: (context) => SignUpPage(),
-          Forgot.id: (context) => Forgot(),
+          ForgotPassword.id: (context) => ForgotPassword(),
           AccountSettings.id: (context) => AccountSettings(),
           UpdatePassword.id: (context) => UpdatePassword(),
           UpdateEmail.id: (context) => UpdateEmail(),

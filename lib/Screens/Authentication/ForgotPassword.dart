@@ -4,13 +4,13 @@ import '../Animation/FadeAnimation.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
 
-class Forgot extends StatefulWidget {
-  static final id = 'forgot';
+class ForgotPassword extends StatefulWidget {
+  static final id = 'forgot_password';
   @override
-  _ForgotPageState createState() => _ForgotPageState();
+  _ForgotPasswordState createState() => _ForgotPasswordState();
 }
 
-class _ForgotPageState extends State<Forgot> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController;
   bool userNotFound = false;

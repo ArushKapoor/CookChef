@@ -1,4 +1,4 @@
-import 'package:cook_chef/Screens/Authentication/Forgot_Password.dart';
+import 'package:cook_chef/Screens/Authentication/ForgotPassword.dart';
 import 'package:provider/provider.dart';
 import 'package:cook_chef/Screens/Authentication/SignUp.dart';
 import 'package:flutter/material.dart';
@@ -153,7 +153,8 @@ class _LoginViewState extends State<Login> {
                               1.7,
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.pushNamed(context, Forgot.id);
+                                  Navigator.pushNamed(
+                                      context, ForgotPassword.id);
                                 },
                                 child: Center(
                                   child: Text(
