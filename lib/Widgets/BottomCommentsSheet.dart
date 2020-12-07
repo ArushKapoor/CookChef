@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cook_chef/Auth/AuthenticationService.dart';
+import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 final _firebaseFirestore = FirebaseFirestore.instance;
 
@@ -17,6 +19,9 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
     TextEditingController textEditingController = TextEditingController();
+    bool isReplying = Provider.of<TextFeildToggler>(context).replyOrComment;
+    String commentId = Provider.of<TextFeildToggler>(context).commentId;
+    String replyingTo = Provider.of<TextFeildToggler>(context).replyingTo;
     return Container(
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom, top: _height * .24),
@@ -37,74 +42,113 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
               CommentsStream(
                 postId: postId,
               ),
-              Container(
-                padding: (commentsCount != 0)
-                    ? EdgeInsets.only(
-                        left: 10.0,
-                        bottom: 10.0,
-                        right: 10.0,
-                      )
-                    : EdgeInsets.only(),
-                margin: (commentsCount == 0)
-                    ? EdgeInsets.only(
-                        left: 10.0,
-                        bottom: 10.0,
-                        right: 10.0,
-                      )
-                    : EdgeInsets.only(),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(color: Colors.grey[300]),
-                  ),
-                  color: Colors.white,
-                ),
+              ToggledTextFeild(
+                commentsCount: commentsCount,
                 width: _width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 2.0,
-                    ),
-                    Text(
-                      'Type Your Comment',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w900),
-                    ),
-                    Container(
-                      width: _width * 0.90,
-                      child: TextField(
-                        controller: textEditingController,
-                        autofocus: true,
-                        cursorColor: Colors.lightBlueAccent,
-                        cursorRadius: Radius.circular(3),
-                        textInputAction: TextInputAction.done,
-                        decoration: InputDecoration(
-                          focusColor: Colors.lightBlueAccent,
-                          hintText: 'Enter your comment',
-                          suffix: GestureDetector(
-                            onTap: () async {
-                              print(textEditingController.text);
-                              if (textEditingController.text.isNotEmpty)
-                                await context
-                                    .read<CloudFirestore>()
-                                    .addingComments(textEditingController.text,
-                                        postId, commentsCount);
-                              textEditingController.clear();
-                            },
-                            child: Text('Share',
-                                style: TextStyle(
-                                    color: Color(0xff08a963),
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                textEditingController: textEditingController,
+                postId: postId,
+                isReplying: isReplying,
+                commentId: commentId,
+                replyingTo: replyingTo,
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ToggledTextFeild extends StatelessWidget {
+  const ToggledTextFeild({
+    Key key,
+    @required this.commentsCount,
+    @required double width,
+    @required this.textEditingController,
+    @required this.postId,
+    this.isReplying,
+    this.commentId,
+    this.replyingTo,
+  })  : _width = width,
+        super(key: key);
+
+  final int commentsCount;
+  final double _width;
+  final TextEditingController textEditingController;
+  final String postId;
+  final bool isReplying;
+  final String commentId;
+  final String replyingTo;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: (commentsCount != 0)
+          ? EdgeInsets.only(
+              left: 10.0,
+              bottom: 10.0,
+              right: 10.0,
+            )
+          : EdgeInsets.only(),
+      margin: (commentsCount == 0)
+          ? EdgeInsets.only(
+              left: 10.0,
+              bottom: 10.0,
+              right: 10.0,
+            )
+          : EdgeInsets.only(),
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(color: Colors.grey[300]),
+        ),
+        color: Colors.white,
+      ),
+      width: _width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 2.0,
+          ),
+          Text(
+            isReplying ? 'Replying to $replyingTo' : 'Type Your Comment',
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w900),
+          ),
+          Container(
+            width: _width * 0.90,
+            child: TextField(
+              controller: textEditingController,
+              autofocus: true,
+              cursorColor: Colors.lightBlueAccent,
+              cursorRadius: Radius.circular(3),
+              textInputAction: TextInputAction.done,
+              decoration: InputDecoration(
+                focusColor: Colors.lightBlueAccent,
+                hintText:
+                    isReplying ? 'Enter your reply' : 'Enter your comment',
+                suffix: GestureDetector(
+                  onTap: () async {
+                    print(textEditingController.text);
+                    if (textEditingController.text.isNotEmpty) if (isReplying) {
+                      await context
+                          .read<CloudFirestore>()
+                          .addingRepliesToComment(
+                              postId, commentId, textEditingController.text);
+                    } else {
+                      await context.read<CloudFirestore>().addingComments(
+                          textEditingController.text, postId, commentsCount);
+                    }
+
+                    textEditingController.clear();
+                  },
+                  child: Text(isReplying ? 'Reply' : 'Share',
+                      style: TextStyle(
+                          color: Color(0xff08a963),
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -185,6 +229,7 @@ class CommentTile extends StatefulWidget {
   final String userImage;
   final bool liked;
   final Map likesMap;
+
   CommentTile(
       {this.username,
       this.comment,
@@ -202,6 +247,7 @@ class CommentTile extends StatefulWidget {
 class _CommentTileState extends State<CommentTile> {
   CloudFirestore _cloudFirestore = CloudFirestore();
   bool increment = false;
+  bool expandFlag = false;
   @override
   void dispose() {
     super.dispose();
@@ -215,6 +261,7 @@ class _CommentTileState extends State<CommentTile> {
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
     if (widget.liked != null) increment = widget.liked;
     return Container(
       margin: EdgeInsets.only(bottom: 8.0),
@@ -302,22 +349,28 @@ class _CommentTileState extends State<CommentTile> {
                           ),
                         ),
                         SizedBox(
-                          width: _width * 0.4,
+                          width: _width * 0.05,
                         ),
-                        // Container(
-                        //   child: Row(
-                        //     children: <Widget>[
-                        //       SvgPicture.asset(
-                        //         'assets/icons/comment.svg',
-                        //         height: 14,
-                        //       ),
-                        //       SizedBox(
-                        //         width: 5,
-                        //       ),
-                        //       Text('1'),
-                        //     ],
-                        //   ),
-                        // ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              expandFlag = !expandFlag;
+                            });
+                            Provider.of<TextFeildToggler>(context,
+                                    listen: false)
+                                .toggling(widget.commentId, widget.username);
+                          },
+                          child: Container(
+                            child: Row(
+                              children: <Widget>[
+                                SvgPicture.asset(
+                                  'assets/icons/comment.svg',
+                                  height: _width * 0.06,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -325,11 +378,185 @@ class _CommentTileState extends State<CommentTile> {
               ],
             ),
           ),
+          ExpandableContainer(
+              expanded: expandFlag,
+              expandedHeight: _height,
+              child: StreamBuilder<QuerySnapshot>(
+                stream: _firebaseFirestore
+                    .collection('feeds')
+                    .doc(widget.postId)
+                    .collection('comments')
+                    .doc(widget.commentId)
+                    .collection('replies')
+                    .orderBy('timestamp')
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                  }
+                  var replies = snapshot.data.docs;
+                  int lengthOfReplies = replies.length;
+                  //print(lengthOfReplies);
+                  Provider.of<TextFeildToggler>(context, listen: false)
+                      .changingLengthOfReplies(lengthOfReplies);
+                  List<RepliesTile> replyingList = [];
+                  for (var reply in replies) {
+                    final userUid = reply.get('uid');
+                    final commentReply = reply.get('reply');
+                    QuerySnapshot snapshots = context.watch<QuerySnapshot>();
+                    String meraUserImage, meraUserName;
+                    // print(commentReply);
+                    final users = snapshots.docs;
+                    for (var user in users) {
+                      final auser = user.get('uid');
+                      if (auser == userUid) {
+                        meraUserImage = user.get('imageLink');
+                        meraUserName = user.get('username');
+                      }
+                    }
+                    replyingList.add(
+                      RepliesTile(
+                        comment: commentReply,
+                        commentId: widget.commentId,
+                        postId: widget.postId,
+                        userImage: meraUserImage,
+                        username: meraUserName,
+                        replyingCallback: () {
+                          Provider.of<TextFeildToggler>(context, listen: false)
+                              .toggling(widget.commentId, widget.username);
+                        },
+                      ),
+                    );
+                  }
+                  return ListView(
+                    children: replyingList,
+                  );
+                },
+              )),
           Container(
             height: 1,
             width: _width,
             color: Colors.grey[200],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class ExpandableContainer extends StatelessWidget {
+  final bool expanded;
+  final double collapsedHeight;
+  final double expandedHeight;
+  final Widget child;
+
+  ExpandableContainer({
+    @required this.child,
+    this.collapsedHeight = 0.0,
+    this.expandedHeight = 100,
+    this.expanded = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
+      //width: screenWidth,
+      height: expanded ? expandedHeight : collapsedHeight,
+      child: Container(
+        child: child,
+      ),
+    );
+  }
+}
+
+class RepliesTile extends StatelessWidget {
+  final String username;
+  final String comment;
+  final int likes;
+  final String commentId;
+  final String postId;
+  final String userImage;
+  final bool liked;
+  final Map likesMap;
+  final Function replyingCallback;
+  RepliesTile(
+      {this.username,
+      this.comment,
+      this.commentId,
+      this.likes,
+      this.postId,
+      this.userImage,
+      this.liked,
+      this.likesMap,
+      this.replyingCallback});
+
+  @override
+  Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+    return Container(
+      padding: EdgeInsets.only(left: _width * 0.2, top: 15.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            backgroundImage: NetworkImage(userImage),
+          ),
+          SizedBox(
+            width: 8.0,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                username,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                // width: _width * 0.70,
+                child: Text(
+                  comment,
+                  softWrap: true,
+                  maxLines: 3,
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.clip,
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              // Text('💗 15'),
+              SizedBox(height: 1),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  SizedBox(
+                    width: _width * 0.15,
+                  ),
+                  GestureDetector(
+                    onTap: replyingCallback,
+                    child: Container(
+                      child: Row(
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            'assets/icons/comment.svg',
+                            height: _width * 0.06,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );

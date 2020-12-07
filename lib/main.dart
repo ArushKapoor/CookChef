@@ -1,4 +1,5 @@
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
@@ -52,6 +53,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<IngredientsHandler>(
           create: (_) => IngredientsHandler(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => TextFeildToggler(),
         ),
         // StreamProvider(
         //   create: (context) => context.read<CloudFirestore>().likedInfo(),

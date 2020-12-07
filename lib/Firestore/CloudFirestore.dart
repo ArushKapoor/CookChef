@@ -88,6 +88,17 @@ class CloudFirestore {
     return commented.id;
   }
 
+  Future<void> addingRepliesToComment(
+      String postId, String commentId, String reply) async {
+    await _firestore
+        .collection('feeds')
+        .doc(postId)
+        .collection('comments')
+        .doc(commentId)
+        .collection('replies')
+        .add({'uid': uid, 'reply': reply, 'timestamp': DateTime.now()});
+  }
+
   Future<void> incrementingPostLikes(
       String id, int like, bool liked, Map likesMap) async {
     await FirebaseFirestore.instance.runTransaction((transaction) {
