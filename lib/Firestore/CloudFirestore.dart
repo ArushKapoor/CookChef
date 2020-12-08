@@ -76,6 +76,7 @@ class CloudFirestore {
       'likes': {'likes': 0},
       'timestamp': Timestamp.now(),
       'uid': uid,
+      'replyCount': 0,
     });
     commentsCount = commentsCount + 1;
 
@@ -89,7 +90,7 @@ class CloudFirestore {
   }
 
   Future<void> addingRepliesToComment(
-      String postId, String commentId, String reply) async {
+      String postId, String commentId, String reply, int replyCount) async {
     await _firestore
         .collection('feeds')
         .doc(postId)
@@ -97,6 +98,18 @@ class CloudFirestore {
         .doc(commentId)
         .collection('replies')
         .add({'uid': uid, 'reply': reply, 'timestamp': DateTime.now()});
+    print(replyCount);
+    replyCount = replyCount + 1;
+
+    await _firestore.runTransaction((transaction) {
+      DocumentReference postRef = _firestore
+          .collection('feeds')
+          .doc(postId)
+          .collection('comments')
+          .doc(commentId);
+      transaction.update(postRef, {'replyCount': replyCount});
+      return null;
+    });
   }
 
   Future<void> deleteComment(String postId, String commentId) async {

@@ -1,9 +1,11 @@
+import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:cook_chef/Widgets/EditPost.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Widgets/BottomCommentsSheet.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
+import 'package:provider/provider.dart';
 
 class SinglePost extends StatefulWidget {
   final String name, time, description;
@@ -169,6 +171,8 @@ class _SinglePostState extends State<SinglePost> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          Provider.of<TextFeildToggler>(context, listen: false)
+                              .toggling('', '', false, 0);
                           showModalBottomSheet(
                             backgroundColor: Colors.black.withOpacity(0),
                             context: context,

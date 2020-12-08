@@ -126,9 +126,10 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   Row(
                     children: <Widget>[
-                      CircleAvatar(
-                          backgroundImage: NetworkImage(meraUserImage),
-                          radius: _width * 0.06),
+                      if (meraUserImage != null)
+                        CircleAvatar(
+                            backgroundImage: NetworkImage(meraUserImage),
+                            radius: _width * 0.06),
                       SizedBox(
                         width: 10.0,
                       ),

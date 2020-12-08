@@ -23,6 +23,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
     bool isReplying = Provider.of<TextFeildToggler>(context).replyOrComment;
     String commentId = Provider.of<TextFeildToggler>(context).commentId;
     String replyingTo = Provider.of<TextFeildToggler>(context).replyingTo;
+    int replyCount = Provider.of<TextFeildToggler>(context).replyCount;
     return Container(
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom, top: _height * .24),
@@ -52,6 +53,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                 isReplying: isReplying,
                 commentId: commentId,
                 replyingTo: replyingTo,
+                replyCount: replyCount,
               ),
             ],
           ),
@@ -62,16 +64,17 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
 }
 
 class ToggledTextFeild extends StatelessWidget {
-  const ToggledTextFeild({
-    Key key,
-    @required this.commentsCount,
-    @required double width,
-    @required this.textEditingController,
-    @required this.postId,
-    this.isReplying,
-    this.commentId,
-    this.replyingTo,
-  })  : _width = width,
+  const ToggledTextFeild(
+      {Key key,
+      @required this.commentsCount,
+      @required double width,
+      @required this.textEditingController,
+      @required this.postId,
+      this.isReplying,
+      this.commentId,
+      this.replyingTo,
+      this.replyCount})
+      : _width = width,
         super(key: key);
 
   final int commentsCount;
@@ -81,6 +84,7 @@ class ToggledTextFeild extends StatelessWidget {
   final bool isReplying;
   final String commentId;
   final String replyingTo;
+  final int replyCount;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -133,8 +137,8 @@ class ToggledTextFeild extends StatelessWidget {
                     if (textEditingController.text.isNotEmpty) if (isReplying) {
                       await context
                           .read<CloudFirestore>()
-                          .addingRepliesToComment(
-                              postId, commentId, textEditingController.text);
+                          .addingRepliesToComment(postId, commentId,
+                              textEditingController.text, replyCount);
                     } else {
                       await context.read<CloudFirestore>().addingComments(
                           textEditingController.text, postId, commentsCount);
@@ -185,11 +189,12 @@ class CommentsStream extends StatelessWidget {
             final commentId = comment.id;
             final mycomment = comment.get('comment');
             final commentUserId = comment.get('uid');
-
+            final repliesCount = comment.get('replyCount');
             QuerySnapshot snapshots = context.watch<QuerySnapshot>();
             String meraUserImage, meraUserName;
             int nOfLikes = likes['likes'];
             bool liked = likes['$uid'];
+
             final users = snapshots.docs;
             for (var user in users) {
               final auser = user.get('uid');
@@ -209,6 +214,7 @@ class CommentsStream extends StatelessWidget {
                 liked: liked,
                 likesMap: likes,
                 isThisUser: isThisUser,
+                replyCount: repliesCount,
               ),
             );
           }
@@ -233,7 +239,8 @@ class CommentTile extends StatefulWidget {
   final String userImage;
   final bool liked;
   final Map likesMap;
-  final isThisUser;
+  final bool isThisUser;
+  final int replyCount;
   CommentTile(
       {this.username,
       this.comment,
@@ -243,7 +250,8 @@ class CommentTile extends StatefulWidget {
       this.userImage,
       this.liked,
       this.likesMap,
-      this.isThisUser});
+      this.isThisUser,
+      this.replyCount});
 
   @override
   _CommentTileState createState() => _CommentTileState();
@@ -361,10 +369,11 @@ class _CommentTileState extends State<CommentTile> {
                             setState(() {
                               expandFlag = !expandFlag;
                             });
+
                             Provider.of<TextFeildToggler>(context,
                                     listen: false)
                                 .toggling(widget.commentId, widget.username,
-                                    expandFlag);
+                                    expandFlag, widget.replyCount);
                           },
                           child: Container(
                             child: Row(
@@ -373,6 +382,10 @@ class _CommentTileState extends State<CommentTile> {
                                   'assets/icons/comment.svg',
                                   height: _width * 0.06,
                                 ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text('${widget.replyCount}'),
                               ],
                             ),
                           ),
@@ -398,6 +411,7 @@ class _CommentTileState extends State<CommentTile> {
             postId: widget.postId,
             commentId: widget.commentId,
             username: widget.username,
+            replyCount: widget.replyCount,
           ),
           Container(
             height: 1,
@@ -415,21 +429,22 @@ class ExpandableContainer extends StatelessWidget {
   final String username;
   final String commentId;
   final String postId;
-
-  ExpandableContainer({
-    this.expanded,
-    this.postId,
-    this.commentId,
-    this.username,
-  });
+  final int replyCount;
+  ExpandableContainer(
+      {this.expanded,
+      this.postId,
+      this.commentId,
+      this.username,
+      this.replyCount});
 
   @override
   Widget build(BuildContext context) {
-    if (expanded)
+    if (expanded && replyCount > 0)
       return AnimatedContainer(
         duration: Duration(milliseconds: 200),
         curve: Curves.easeInOut,
         //width: screenWidth,
+
         child: Container(
           child: StreamBuilder<QuerySnapshot>(
             stream: _firebaseFirestore
@@ -449,10 +464,7 @@ class ExpandableContainer extends StatelessWidget {
                 );
               }
               var replies = snapshot.data.docs;
-              int lengthOfReplies = replies.length;
               //print(lengthOfReplies);
-              Provider.of<TextFeildToggler>(context, listen: false)
-                  .changingLengthOfReplies(lengthOfReplies);
               List<RepliesTile> replyingList = [];
               for (var reply in replies) {
                 final userUid = reply.get('uid');
@@ -475,10 +487,6 @@ class ExpandableContainer extends StatelessWidget {
                     postId: postId,
                     userImage: meraUserImage,
                     username: meraUserName,
-                    replyingCallback: () {
-                      Provider.of<TextFeildToggler>(context, listen: false)
-                          .toggling(commentId, username, expanded);
-                    },
                   ),
                 );
               }
@@ -501,14 +509,13 @@ class RepliesTile extends StatelessWidget {
   final String postId;
   final String userImage;
 
-  final Function replyingCallback;
-  RepliesTile(
-      {this.username,
-      this.comment,
-      this.commentId,
-      this.postId,
-      this.userImage,
-      this.replyingCallback});
+  RepliesTile({
+    this.username,
+    this.comment,
+    this.commentId,
+    this.postId,
+    this.userImage,
+  });
 
   @override
   Widget build(BuildContext context) {
