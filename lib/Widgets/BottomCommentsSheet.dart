@@ -379,64 +379,11 @@ class _CommentTileState extends State<CommentTile> {
             ),
           ),
           ExpandableContainer(
-              expanded: expandFlag,
-              expandedHeight: _height,
-              child: StreamBuilder<QuerySnapshot>(
-                stream: _firebaseFirestore
-                    .collection('feeds')
-                    .doc(widget.postId)
-                    .collection('comments')
-                    .doc(widget.commentId)
-                    .collection('replies')
-                    .orderBy('timestamp')
-                    .snapshots(),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: CircularProgressIndicator(
-                        backgroundColor: Colors.green,
-                      ),
-                    );
-                  }
-                  var replies = snapshot.data.docs;
-                  int lengthOfReplies = replies.length;
-                  //print(lengthOfReplies);
-                  Provider.of<TextFeildToggler>(context, listen: false)
-                      .changingLengthOfReplies(lengthOfReplies);
-                  List<RepliesTile> replyingList = [];
-                  for (var reply in replies) {
-                    final userUid = reply.get('uid');
-                    final commentReply = reply.get('reply');
-                    QuerySnapshot snapshots = context.watch<QuerySnapshot>();
-                    String meraUserImage, meraUserName;
-                    // print(commentReply);
-                    final users = snapshots.docs;
-                    for (var user in users) {
-                      final auser = user.get('uid');
-                      if (auser == userUid) {
-                        meraUserImage = user.get('imageLink');
-                        meraUserName = user.get('username');
-                      }
-                    }
-                    replyingList.add(
-                      RepliesTile(
-                        comment: commentReply,
-                        commentId: widget.commentId,
-                        postId: widget.postId,
-                        userImage: meraUserImage,
-                        username: meraUserName,
-                        replyingCallback: () {
-                          Provider.of<TextFeildToggler>(context, listen: false)
-                              .toggling(widget.commentId, widget.username);
-                        },
-                      ),
-                    );
-                  }
-                  return ListView(
-                    children: replyingList,
-                  );
-                },
-              )),
+            expanded: expandFlag,
+            postId: widget.postId,
+            commentId: widget.commentId,
+            username: widget.username,
+          ),
           Container(
             height: 1,
             width: _width,
@@ -450,28 +397,85 @@ class _CommentTileState extends State<CommentTile> {
 
 class ExpandableContainer extends StatelessWidget {
   final bool expanded;
-  final double collapsedHeight;
-  final double expandedHeight;
-  final Widget child;
+  final String username;
+  final String commentId;
+  final String postId;
 
   ExpandableContainer({
-    @required this.child,
-    this.collapsedHeight = 0.0,
-    this.expandedHeight = 100,
-    this.expanded = true,
+    this.expanded,
+    this.postId,
+    this.commentId,
+    this.username,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
-      curve: Curves.easeInOut,
-      //width: screenWidth,
-      height: expanded ? expandedHeight : collapsedHeight,
-      child: Container(
-        child: child,
-      ),
-    );
+    if (expanded)
+      return AnimatedContainer(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+        //width: screenWidth,
+        child: Container(
+          child: StreamBuilder<QuerySnapshot>(
+            stream: _firebaseFirestore
+                .collection('feeds')
+                .doc(postId)
+                .collection('comments')
+                .doc(commentId)
+                .collection('replies')
+                .orderBy('timestamp')
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              }
+              var replies = snapshot.data.docs;
+              int lengthOfReplies = replies.length;
+              //print(lengthOfReplies);
+              Provider.of<TextFeildToggler>(context, listen: false)
+                  .changingLengthOfReplies(lengthOfReplies);
+              List<RepliesTile> replyingList = [];
+              for (var reply in replies) {
+                final userUid = reply.get('uid');
+                final commentReply = reply.get('reply');
+                QuerySnapshot snapshots = context.watch<QuerySnapshot>();
+                String meraUserImage, meraUserName;
+                // print(commentReply);
+                final users = snapshots.docs;
+                for (var user in users) {
+                  final auser = user.get('uid');
+                  if (auser == userUid) {
+                    meraUserImage = user.get('imageLink');
+                    meraUserName = user.get('username');
+                  }
+                }
+                replyingList.add(
+                  RepliesTile(
+                    comment: commentReply,
+                    commentId: commentId,
+                    postId: postId,
+                    userImage: meraUserImage,
+                    username: meraUserName,
+                    replyingCallback: () {
+                      Provider.of<TextFeildToggler>(context, listen: false)
+                          .toggling(commentId, username);
+                    },
+                  ),
+                );
+              }
+              return Column(
+                children: replyingList,
+              );
+            },
+          ),
+        ),
+      );
+    else
+      return SizedBox();
   }
 }
 
