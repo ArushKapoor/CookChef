@@ -478,22 +478,17 @@ class ExpandableContainer extends StatelessWidget {
 class RepliesTile extends StatelessWidget {
   final String username;
   final String comment;
-  final int likes;
   final String commentId;
   final String postId;
   final String userImage;
-  final bool liked;
-  final Map likesMap;
+
   final Function replyingCallback;
   RepliesTile(
       {this.username,
       this.comment,
       this.commentId,
-      this.likes,
       this.postId,
       this.userImage,
-      this.liked,
-      this.likesMap,
       this.replyingCallback});
 
   @override
@@ -531,29 +526,6 @@ class RepliesTile extends StatelessWidget {
                   overflow: TextOverflow.clip,
                   style: TextStyle(fontSize: 16),
                 ),
-              ),
-              // Text('💗 15'),
-              SizedBox(height: 1),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  SizedBox(
-                    width: _width * 0.15,
-                  ),
-                  GestureDetector(
-                    onTap: replyingCallback,
-                    child: Container(
-                      child: Row(
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            'assets/icons/comment.svg',
-                            height: _width * 0.06,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ],
           )

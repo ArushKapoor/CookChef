@@ -6,7 +6,7 @@ class TextFeildToggler extends ChangeNotifier {
   String replyingTo = '';
   int replyingLength = 1;
   void toggling(String commentId, String replyingTo) {
-    replyOrComment = !replyOrComment;
+    if (commentId == this.commentId) replyOrComment = !replyOrComment;
     this.commentId = commentId;
     this.replyingTo = replyingTo;
     notifyListeners();
