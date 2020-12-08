@@ -3,6 +3,16 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
 
 class CloudStorage {
+  Future<void> deletingFile(String postId) async {
+    try {
+      await firebase_storage.FirebaseStorage.instance
+          .ref('posts/$postId')
+          .delete();
+    } on firebase_core.FirebaseException catch (e) {
+      print(e);
+    }
+  }
+
   Future<String> uploadFile(File file, String path, String name) async {
     //File file = File(filePath);
 

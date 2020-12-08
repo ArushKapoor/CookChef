@@ -99,6 +99,15 @@ class CloudFirestore {
         .add({'uid': uid, 'reply': reply, 'timestamp': DateTime.now()});
   }
 
+  Future<void> deleteComment(String postId, String commentId) async {
+    await _firestore
+        .collection('feeds')
+        .doc(postId)
+        .collection('comments')
+        .doc(commentId)
+        .delete();
+  }
+
   Future<void> incrementingPostLikes(
       String id, int like, bool liked, Map likesMap) async {
     await FirebaseFirestore.instance.runTransaction((transaction) {
@@ -159,6 +168,7 @@ class CloudFirestore {
 
   Future<void> deletePost(String postId) async {
     await _firestore.collection('feeds').doc(postId).delete();
+    await _cloudStorage.deletingFile(postId);
   }
 
   Future<void> updateUser(String username, String bio, String imageLink) async {

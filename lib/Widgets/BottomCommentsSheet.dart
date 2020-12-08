@@ -12,8 +12,9 @@ final _firebaseFirestore = FirebaseFirestore.instance;
 class BottomCommentsSheetBuilder extends StatelessWidget {
   final String postId;
   final int commentsCount;
-
-  BottomCommentsSheetBuilder({this.postId, this.commentsCount});
+  final bool isThisUser;
+  BottomCommentsSheetBuilder(
+      {this.postId, this.commentsCount, this.isThisUser});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -41,6 +42,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
             children: <Widget>[
               CommentsStream(
                 postId: postId,
+                isThisUser: isThisUser,
               ),
               ToggledTextFeild(
                 commentsCount: commentsCount,
@@ -156,7 +158,8 @@ class ToggledTextFeild extends StatelessWidget {
 
 class CommentsStream extends StatelessWidget {
   final String postId;
-  CommentsStream({this.postId});
+  final bool isThisUser;
+  CommentsStream({this.postId, this.isThisUser});
   @override
   Widget build(BuildContext context) {
     String uid = context.watch<AuthenticationService>().uniqueId;
@@ -205,6 +208,7 @@ class CommentsStream extends StatelessWidget {
                 userImage: meraUserImage,
                 liked: liked,
                 likesMap: likes,
+                isThisUser: isThisUser,
               ),
             );
           }
@@ -229,7 +233,7 @@ class CommentTile extends StatefulWidget {
   final String userImage;
   final bool liked;
   final Map likesMap;
-
+  final isThisUser;
   CommentTile(
       {this.username,
       this.comment,
@@ -238,7 +242,8 @@ class CommentTile extends StatefulWidget {
       this.postId,
       this.userImage,
       this.liked,
-      this.likesMap});
+      this.likesMap,
+      this.isThisUser});
 
   @override
   _CommentTileState createState() => _CommentTileState();
@@ -358,7 +363,8 @@ class _CommentTileState extends State<CommentTile> {
                             });
                             Provider.of<TextFeildToggler>(context,
                                     listen: false)
-                                .toggling(widget.commentId, widget.username);
+                                .toggling(widget.commentId, widget.username,
+                                    expandFlag);
                           },
                           child: Container(
                             child: Row(
@@ -374,7 +380,16 @@ class _CommentTileState extends State<CommentTile> {
                       ],
                     ),
                   ],
-                )
+                ),
+                if (widget.isThisUser)
+                  IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () async {
+                      await context
+                          .read<CloudFirestore>()
+                          .deleteComment(widget.postId, widget.commentId);
+                    },
+                  ),
               ],
             ),
           ),
@@ -427,7 +442,8 @@ class _CommentTileState extends State<CommentTile> {
                         username: meraUserName,
                         replyingCallback: () {
                           Provider.of<TextFeildToggler>(context, listen: false)
-                              .toggling(widget.commentId, widget.username);
+                              .toggling(widget.commentId, widget.username,
+                                  expandFlag);
                         },
                       ),
                     );
@@ -457,7 +473,7 @@ class ExpandableContainer extends StatelessWidget {
   ExpandableContainer({
     @required this.child,
     this.collapsedHeight = 0.0,
-    this.expandedHeight = 100,
+    this.expandedHeight = 10,
     this.expanded = true,
   });
 

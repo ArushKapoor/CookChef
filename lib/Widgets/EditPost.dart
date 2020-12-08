@@ -7,6 +7,7 @@ import 'package:cook_chef/Models/Arguments.dart';
 
 class EditPost extends StatelessWidget {
   final String postId;
+
   EditPost({this.postId});
   @override
   Widget build(BuildContext context) {

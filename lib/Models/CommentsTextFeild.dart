@@ -5,8 +5,10 @@ class TextFeildToggler extends ChangeNotifier {
   String commentId = '';
   String replyingTo = '';
   int replyingLength = 1;
-  void toggling(String commentId, String replyingTo) {
-    if (commentId == this.commentId) replyOrComment = !replyOrComment;
+  void toggling(String commentId, String replyingTo, bool flagged) {
+    print(flagged);
+    // if (commentId == this.commentId || this.commentId == '')
+    replyOrComment = flagged;
     this.commentId = commentId;
     this.replyingTo = replyingTo;
     notifyListeners();
@@ -14,5 +16,6 @@ class TextFeildToggler extends ChangeNotifier {
 
   void changingLengthOfReplies(int length) {
     replyingLength = length;
+    // notifyListeners();
   }
 }

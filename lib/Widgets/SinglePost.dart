@@ -176,6 +176,7 @@ class _SinglePostState extends State<SinglePost> {
                             builder: (context) => BottomCommentsSheetBuilder(
                               postId: widget.postId,
                               commentsCount: widget.comments,
+                              isThisUser: widget.onAccountPage,
                             ),
                           );
                         },
