@@ -112,13 +112,19 @@ class CloudFirestore {
     });
   }
 
-  Future<void> deleteComment(String postId, String commentId) async {
-    await _firestore
-        .collection('feeds')
-        .doc(postId)
-        .collection('comments')
-        .doc(commentId)
-        .delete();
+  Future<void> deleteComment(
+      String postId, String commentId, int commentCount) async {
+    await _firestore.runTransaction((transaction) {
+      DocumentReference commentRef = _firestore
+          .collection('feeds')
+          .doc(postId)
+          .collection('comments')
+          .doc(commentId);
+      transaction.delete(commentRef);
+      DocumentReference postRef = _firestore.collection('feeds').doc(postId);
+      transaction.update(postRef, {'comments': commentCount - 1});
+      return null;
+    });
   }
 
   Future<void> incrementingPostLikes(

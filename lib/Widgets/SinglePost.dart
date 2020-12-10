@@ -118,6 +118,7 @@ class _SinglePostState extends State<SinglePost> {
                     // width: _width,
                     child: Center(
                       child: CachedNetworkImage(
+                        fit: BoxFit.contain,
                         placeholder: (context, url) =>
                             CircularProgressIndicator(
                                 valueColor: new AlwaysStoppedAnimation<Color>(

@@ -196,6 +196,7 @@ class CommentsStream extends StatelessWidget {
             bool liked = likes['$uid'];
 
             final users = snapshots.docs;
+            int totalComments = comments.length;
             for (var user in users) {
               final auser = user.get('uid');
               if (auser == commentUserId) {
@@ -215,6 +216,11 @@ class CommentsStream extends StatelessWidget {
                 likesMap: likes,
                 isThisUser: isThisUser,
                 replyCount: repliesCount,
+                deletingCommentCallback: () async {
+                  await context
+                      .read<CloudFirestore>()
+                      .deleteComment(postId, commentId, totalComments);
+                },
               ),
             );
           }
@@ -241,6 +247,7 @@ class CommentTile extends StatefulWidget {
   final Map likesMap;
   final bool isThisUser;
   final int replyCount;
+  final Function deletingCommentCallback;
   CommentTile(
       {this.username,
       this.comment,
@@ -251,7 +258,8 @@ class CommentTile extends StatefulWidget {
       this.liked,
       this.likesMap,
       this.isThisUser,
-      this.replyCount});
+      this.replyCount,
+      this.deletingCommentCallback});
 
   @override
   _CommentTileState createState() => _CommentTileState();
@@ -397,11 +405,7 @@ class _CommentTileState extends State<CommentTile> {
                 if (widget.isThisUser)
                   IconButton(
                     icon: Icon(Icons.delete),
-                    onPressed: () async {
-                      await context
-                          .read<CloudFirestore>()
-                          .deleteComment(widget.postId, widget.commentId);
-                    },
+                    onPressed: widget.deletingCommentCallback,
                   ),
               ],
             ),

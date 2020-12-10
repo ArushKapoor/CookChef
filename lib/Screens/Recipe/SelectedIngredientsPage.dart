@@ -68,23 +68,39 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: (currentIndex == 0)
-                      ? Icon(Icons.home)
-                      : SvgPicture.asset(
-                          'assets/icons/home_outlined.svg',
-                          height: 25,
+                      ? Image.asset(
+                          'assets/icons/HomeFilled.jpg',
+                          height: 29,
+                        )
+                      : Image.asset(
+                          'assets/icons/HomeOutlined.jpg',
+                          height: 29,
                         ),
-                  label: '',
+                  label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/icons/chef.jpeg',
-                    height: 22,
-                  ),
-                  label: '',
+                  icon: (currentIndex == 1)
+                      ? Image.asset(
+                          'assets/icons/chefFilled.jpg',
+                          height: 29,
+                        )
+                      : Image.asset(
+                          'assets/icons/chefOutlined.jpg',
+                          height: 29,
+                        ),
+                  label: 'Let\'s Cook',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle),
-                  label: '',
+                  icon: (currentIndex != 2)
+                      ? Image.asset(
+                          'assets/icons/AccountOutlined.jpg',
+                          height: 22,
+                        )
+                      : Icon(
+                          Icons.account_circle,
+                          size: 26,
+                        ),
+                  label: 'Account',
                 ),
               ],
               onTap: (index) {

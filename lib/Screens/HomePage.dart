@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _size = MediaQuery.of(context).size.aspectRatio;
     //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */
@@ -67,6 +68,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         showSelectedLabels: false,
@@ -74,22 +76,38 @@ class _HomePageState extends State<HomePage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: (currentIndex == 0)
-                ? Icon(Icons.home)
-                : SvgPicture.asset(
-                    'assets/icons/home_outlined.svg',
-                    height: 25,
+                ? Icon(
+                    Icons.home,
+                    size: _size * 60,
+                  )
+                : Icon(
+                    Icons.home_outlined,
+                    size: _size * 60,
                   ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/icons/chef.jpeg',
-              height: 22,
-            ),
+            icon: (currentIndex == 1)
+                ? Image.asset(
+                    'assets/icons/chefFilled.png',
+                    height: _size * 60,
+                  )
+                : Image.asset(
+                    'assets/icons/chefOutlined.png',
+                    height: _size * 60,
+                  ),
             label: 'Let\'s Cook',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: (currentIndex != 2)
+                ? Icon(
+                    Icons.account_circle_outlined,
+                    size: _size * 60,
+                  )
+                : Icon(
+                    Icons.account_circle,
+                    size: _size * 60,
+                  ),
             label: 'Account',
           ),
         ],
