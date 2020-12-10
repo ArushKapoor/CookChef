@@ -40,6 +40,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final _size = MediaQuery.of(context).size.aspectRatio;
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: (currentIndex != 0)
@@ -68,37 +69,37 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: (currentIndex == 0)
-                      ? Image.asset(
-                          'assets/icons/HomeFilled.jpg',
-                          height: 29,
+                      ? Icon(
+                          Icons.home,
+                          size: _size * 60,
                         )
-                      : Image.asset(
-                          'assets/icons/HomeOutlined.jpg',
-                          height: 29,
+                      : Icon(
+                          Icons.home_outlined,
+                          size: _size * 60,
                         ),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
                   icon: (currentIndex == 1)
                       ? Image.asset(
-                          'assets/icons/chefFilled.jpg',
-                          height: 29,
+                          'assets/icons/filledIngredient.png',
+                          height: _size * 50,
                         )
                       : Image.asset(
-                          'assets/icons/chefOutlined.jpg',
-                          height: 29,
+                          'assets/icons/OutlinedIngredients.png',
+                          height: _size * 50,
                         ),
                   label: 'Let\'s Cook',
                 ),
                 BottomNavigationBarItem(
                   icon: (currentIndex != 2)
-                      ? Image.asset(
-                          'assets/icons/AccountOutlined.jpg',
-                          height: 22,
+                      ? Icon(
+                          Icons.account_circle_outlined,
+                          size: _size * 60,
                         )
                       : Icon(
                           Icons.account_circle,
-                          size: 26,
+                          size: _size * 60,
                         ),
                   label: 'Account',
                 ),

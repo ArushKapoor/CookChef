@@ -89,12 +89,12 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: (currentIndex == 1)
                 ? Image.asset(
-                    'assets/icons/chefFilled.png',
-                    height: _size * 60,
+                    'assets/icons/filledIngredient.png',
+                    height: _size * 50,
                   )
                 : Image.asset(
-                    'assets/icons/chefOutlined.png',
-                    height: _size * 60,
+                    'assets/icons/OutlinedIngredients.png',
+                    height: _size * 50,
                   ),
             label: 'Let\'s Cook',
           ),
