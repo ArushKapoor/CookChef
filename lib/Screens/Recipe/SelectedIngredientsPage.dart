@@ -4,7 +4,6 @@ import 'package:cook_chef/Models/RecipeHandler.dart';
 import 'package:cook_chef/Screens/Recipe/ViewRecipesPage.dart';
 import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../Account/AccountPage.dart';
 import '../HomePage.dart';
@@ -20,6 +19,8 @@ class SelectedIngredientsPage extends StatefulWidget {
 class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   int currentIndex = 1;
   bool hasTapped = false;
+  bool isVisible = false;
+
   RecipeHandler recipeHandler = RecipeHandler();
   final tabs = [
     HomePage(),
@@ -42,6 +43,7 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size.aspectRatio;
     double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: (currentIndex != 0)
           ? AppBar(
@@ -116,129 +118,157 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
           : null,
       body: (!hasTapped || currentIndex == 1)
           ? SafeArea(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.all(10.0),
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    width: _width,
-                    child: Text(
-                      'Selected Ingredients',
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: context
-                            .watch<IngredientsHandler>()
-                            .selectedIngredients
-                            .length,
-                        itemBuilder: (context, index) {
-                          final ingredient = context
-                              .watch<IngredientsHandler>()
-                              .selectedIngredients[index];
-                          return IngredientTile(
-                            text: ingredient.text,
-                            imageUrl: ingredient.imageUrl,
-                            isChecked: false,
-                            isSelectedIngredient: true,
-                            toggleCallback: () {
-                              // int i = context
-                              //     .read<IngredientsHandler>()
-                              //     .ingredients
-                              //     .indexOf(ingredient);
-
-                              for (int index = 0;
-                                  index <
-                                      context
-                                          .read<IngredientsHandler>()
-                                          .ingredients
-                                          .length;
-                                  index++) {
-                                if (ingredient.text ==
-                                    context
-                                        .read<IngredientsHandler>()
-                                        .ingredients[index]
-                                        .text) {
-                                  break;
-                                }
-                              }
-
-                              Provider.of<IngredientsHandler>(context,
-                                      listen: false)
-                                  .removeSelectedIngredient(ingredient);
-
-                              Provider.of<IngredientsHandler>(context,
-                                      listen: false)
-                                  .checkBoxToggler(ingredient);
-                            },
-                          );
-                        }),
-                  ),
+              child: Stack(
+                children: [
                   Column(
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(
-                            right: 10.0, bottom: 10.0, top: 3.0),
+                        margin: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.only(bottom: 10.0),
                         width: _width,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            'Add ingredient',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(color: Colors.blueAccent),
-                          ),
+                        child: Text(
+                          'Selected Ingredients',
+                          style: TextStyle(fontSize: 20.0),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(
-                            bottom: 10.0, left: 5.0, right: 5.0),
-                        height: 1,
-                        width: _width,
-                        color: Colors.grey,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 30.0),
-                        child: Material(
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                          shadowColor: Colors.greenAccent,
-                          elevation: 7.0,
-                          child: Container(
-                            // margin: EdgeInsets.only(top: 10.0, bottom: 30.0),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 15.0),
-                            decoration: BoxDecoration(
-                              color: Colors.green[500],
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8.0)),
-                            ),
-                            child: GestureDetector(
-                              onTap: () async {
-                                createText(context);
-                                print(text);
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: context
+                                .watch<IngredientsHandler>()
+                                .selectedIngredients
+                                .length,
+                            itemBuilder: (context, index) {
+                              final ingredient = context
+                                  .watch<IngredientsHandler>()
+                                  .selectedIngredients[index];
+                              return IngredientTile(
+                                text: ingredient.text,
+                                imageUrl: ingredient.imageUrl,
+                                isChecked: false,
+                                isSelectedIngredient: true,
+                                toggleCallback: () {
+                                  // int i = context
+                                  //     .read<IngredientsHandler>()
+                                  //     .ingredients
+                                  //     .indexOf(ingredient);
 
-                                final list = await recipeHandler
-                                    .recipeFromIngredients(text);
-                                print(list[0].recipeName);
-                                Navigator.pushNamed(context, ViewRecipesPage.id,
-                                    arguments:
-                                        RecipiesArguments(recipeList: list));
+                                  for (int index = 0;
+                                      index <
+                                          context
+                                              .read<IngredientsHandler>()
+                                              .ingredients
+                                              .length;
+                                      index++) {
+                                    if (ingredient.text ==
+                                        context
+                                            .read<IngredientsHandler>()
+                                            .ingredients[index]
+                                            .text) {
+                                      break;
+                                    }
+                                  }
+
+                                  Provider.of<IngredientsHandler>(context,
+                                          listen: false)
+                                      .removeSelectedIngredient(ingredient);
+
+                                  Provider.of<IngredientsHandler>(context,
+                                          listen: false)
+                                      .checkBoxToggler(ingredient);
+                                },
+                              );
+                            }),
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(
+                                right: 10.0, bottom: 10.0, top: 3.0),
+                            width: _width,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
                               },
                               child: Text(
-                                'View Recipe',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold),
+                                'Add ingredient',
+                                textAlign: TextAlign.right,
+                                style: TextStyle(color: Colors.blueAccent),
                               ),
                             ),
                           ),
-                        ),
+                          Container(
+                            margin: EdgeInsets.only(
+                                bottom: 10.0, left: 5.0, right: 5.0),
+                            height: 1,
+                            width: _width,
+                            color: Colors.grey,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 10.0, bottom: 30.0),
+                            child: Material(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0)),
+                              shadowColor: Colors.greenAccent,
+                              elevation: 7.0,
+                              child: Container(
+                                // margin: EdgeInsets.only(top: 10.0, bottom: 30.0),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 8.0, horizontal: 15.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.green[500],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8.0)),
+                                ),
+                                child: GestureDetector(
+                                  onTap: () async {
+                                    setState(() {
+                                      isVisible = true;
+                                    });
+                                    createText(context);
+                                    //print(text);
+
+                                    final list = await recipeHandler
+                                        .recipeFromIngredients(text);
+                                    //print(list[0].recipeName);
+                                    setState(() {
+                                      isVisible = false;
+                                    });
+                                    Navigator.pushNamed(
+                                        context, ViewRecipesPage.id,
+                                        arguments: RecipiesArguments(
+                                            recipeList: list));
+                                  },
+                                  child: Text(
+                                    'View Recipe',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
+                  if (isVisible)
+                    Opacity(
+                      opacity: 0.60,
+                      child: Container(
+                        height: _height,
+                        width: _width,
+                      ),
+                    ),
+                  if (isVisible)
+                    Center(
+                      child: CircularProgressIndicator(
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(Color(0xff006043)),
+                      ),
+                    ),
                 ],
               ),
             )

@@ -1,7 +1,6 @@
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 
@@ -99,9 +98,12 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
                     Icons.home,
                     size: _size * 60,
                   )
-                : Icon(
-                    Icons.home_outlined,
-                    size: _size * 60,
+                : Opacity(
+                    opacity: 0.75,
+                    child: Icon(
+                      Icons.home_outlined,
+                      size: _size * 60,
+                    ),
                   ),
             label: 'Home',
           ),
@@ -119,9 +121,12 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
           ),
           BottomNavigationBarItem(
             icon: (currentIndex != 2)
-                ? Icon(
-                    Icons.account_circle_outlined,
-                    size: _size * 60,
+                ? Opacity(
+                    opacity: 0.75,
+                    child: Icon(
+                      Icons.account_circle_outlined,
+                      size: _size * 60,
+                    ),
                   )
                 : Icon(
                     Icons.account_circle,

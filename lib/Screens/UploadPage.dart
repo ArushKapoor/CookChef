@@ -16,7 +16,7 @@ class UploadPage extends StatefulWidget {
 
 class _UploadPageState extends State<UploadPage> {
   TextEditingController _postController = TextEditingController();
-
+  bool isVisible = false;
   File _image;
   ImagePicker imagePicker = new ImagePicker();
 
@@ -85,7 +85,7 @@ class _UploadPageState extends State<UploadPage> {
         meraUserImage = user.get('imageLink');
       }
     }
-    bool isVisible = false;
+
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -103,7 +103,9 @@ class _UploadPageState extends State<UploadPage> {
               child: Center(
                 child: GestureDetector(
                   onTap: () async {
-                    if (_postController.text.isNotEmpty && _image != null) {
+                    if (_postController.text.isNotEmpty &&
+                        _image != null &&
+                        isVisible == false) {
                       setState(() {
                         isVisible = true;
                       });

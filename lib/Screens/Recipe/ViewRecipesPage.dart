@@ -24,11 +24,12 @@ final tabs = [
 
 class _ViewRecipesPageState extends State<ViewRecipesPage> {
   RecipeHandler recipeHandler = RecipeHandler();
+  bool isVisible = false;
   @override
   Widget build(BuildContext context) {
     final RecipiesArguments args = ModalRoute.of(context).settings.arguments;
     print(args.recipeList[0].recipeImageUrl);
-
+    final _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: (currentIndex == 1)
@@ -57,39 +58,23 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: (currentIndex == 0)
-                      ? Image.asset(
-                          'assets/icons/HomeFilled.jpg',
-                          height: 29,
-                        )
-                      : Image.asset(
-                          'assets/icons/HomeOutlined.jpg',
-                          height: 29,
+                      ? Icon(Icons.home)
+                      : SvgPicture.asset(
+                          'assets/icons/home_outlined.svg',
+                          height: 25,
                         ),
-                  label: 'Home',
+                  label: '',
                 ),
                 BottomNavigationBarItem(
-                  icon: (currentIndex == 1)
-                      ? Image.asset(
-                          'assets/icons/chefFilled.jpg',
-                          height: 29,
-                        )
-                      : Image.asset(
-                          'assets/icons/chefOutlined.jpg',
-                          height: 29,
-                        ),
-                  label: 'Let\'s Cook',
+                  icon: Image.asset(
+                    'assets/icons/chef.jpeg',
+                    height: 22,
+                  ),
+                  label: '',
                 ),
                 BottomNavigationBarItem(
-                  icon: (currentIndex != 2)
-                      ? Image.asset(
-                          'assets/icons/AccountOutlined.jpg',
-                          height: 22,
-                        )
-                      : Icon(
-                          Icons.account_circle,
-                          size: 26,
-                        ),
-                  label: 'Account',
+                  icon: Icon(Icons.account_circle),
+                  label: '',
                 ),
               ],
               onTap: (index) {
@@ -101,56 +86,86 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
             )
           : null,
       body: (!hasTapped || currentIndex == 1)
-          ? Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(10.0),
-                  width: _width,
-                  child: Text(
-                    'Recipes',
-                    textAlign: TextAlign.left,
+          ? Stack(children: [
+              Column(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    width: _width,
+                    child: Text(
+                      'Recipes',
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    children: List.generate(
-                      args.recipeList.length,
-                      (index) => GestureDetector(
-                        onTap: () async {
-                          print(index - 1);
-                          print('On tap is being clicked');
-                          print(args.recipeList[index].id);
-                          List ingredientsAndSteps = await recipeHandler
-                              .recipeById(args.recipeList[index].id);
-                          ingredientsAndSteps[2] =
-                              args.recipeList[index].recipeImageUrl;
-                          ingredientsAndSteps[3] =
-                              args.recipeList[index].recipeName;
-                          Navigator.pushNamed(
-                            context,
-                            MakeRecipesPage.id,
-                            arguments: RecipeArgument(
-                                ingredientAndSteps: ingredientsAndSteps),
-                          );
-                        },
-                        child: Column(
-                          children: <Widget>[
-                            Image.network(
-                                args.recipeList[index].recipeImageUrl),
-                            Text(
-                              args.recipeList[index].recipeName,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      children: List.generate(
+                        args.recipeList.length,
+                        (index) => GestureDetector(
+                          onTap: () async {
+                            setState(() {
+                              isVisible = true;
+                            });
+                            print(index - 1);
+                            print('On tap is being clicked');
+                            print(args.recipeList[index].id);
+                            List ingredientsAndSteps = await recipeHandler
+                                .recipeById(args.recipeList[index].id);
+                            // ingredientsAndSteps[2] =
+                            //     args.recipeList[index].recipeImageUrl;
+                            ingredientsAndSteps
+                                .add(args.recipeList[index].recipeImageUrl);
+                            // print(args.recipeList[index].recipeImageUrl);
+                            // ingredientsAndSteps[3] =
+                            //     args.recipeList[index].recipeName;
+                            //print(args.recipeList[index].recipeName);
+                            //print(ingredientsAndSteps);
+                            ingredientsAndSteps
+                                .add(args.recipeList[index].recipeName);
+                            setState(() {
+                              isVisible = false;
+                            });
+                            Navigator.pushNamed(
+                              context,
+                              MakeRecipesPage.id,
+                              arguments: RecipeArgument(
+                                  ingredientAndSteps: ingredientsAndSteps),
+                            );
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              Image.network(
+                                  args.recipeList[index].recipeImageUrl),
+                              Text(
+                                args.recipeList[index].recipeName,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                ],
+              ),
+              if (isVisible)
+                Opacity(
+                  opacity: 0.60,
+                  child: Container(
+                    height: _height,
+                    width: _width,
+                  ),
                 ),
-              ],
-            )
+              if (isVisible)
+                Center(
+                  child: CircularProgressIndicator(
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Color(0xff006043)),
+                  ),
+                ),
+            ])
           : tabs[currentIndex],
     );
   }

@@ -11,6 +11,7 @@ class UpdatePassword extends StatefulWidget {
 
 class _UpdatePassState extends State<UpdatePassword> {
   final _formKey = GlobalKey<FormState>();
+  bool isVisible = false;
   bool passwordValidator = false;
   TextEditingController _passwordController;
   TextEditingController _repasswordController;
@@ -51,144 +52,165 @@ class _UpdatePassState extends State<UpdatePassword> {
           FocusScope.of(context).unfocus();
         },
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: width * 0.05, vertical: height * 0.05),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(' New Password', style: TextStyle(fontSize: 20)),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    Container(
-                      //height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(40.0),
+          child: Stack(children: [
+            SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: width * 0.05, vertical: height * 0.05),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(' New Password', style: TextStyle(fontSize: 20)),
+                      SizedBox(
+                        height: height * 0.02,
                       ),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(left: 15, right: 15, bottom: 5),
-                        child: TextFormField(
-                          controller: _passwordController,
-                          cursorColor: Colors.green,
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              fillColor: Colors.grey,
-                              labelStyle: TextStyle(color: Colors.white)),
-                          style: TextStyle(color: Colors.white),
-                          cursorHeight: 8,
-                          validator: (value) {
-                            password = value;
-                            String patttern =
-                                r'(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)';
-                            RegExp regExp = new RegExp(patttern);
-                            if (value.isEmpty) {
-                              return "Password is Required";
-                            } else if (value.length < 8) {
-                              return "Password must have minimum eight characters";
-                            } else if (!regExp.hasMatch(value)) {
-                              return "Password should have at least one uppercase letter, one lowercase letter and one number";
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    Text(' Confirm Password', style: TextStyle(fontSize: 20)),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    Container(
-                      //    height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: new BorderRadius.circular(40.0),
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(left: 15, right: 15, bottom: 5),
-                        child: TextFormField(
-                          controller: _repasswordController,
-                          cursorColor: Colors.green,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          style: TextStyle(color: Colors.white),
-                          cursorHeight: 8,
-                          validator: (value) {
-                            if (value != password)
-                              return 'Entered password is not same as above';
-                            else
-                              return null;
-                          },
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.05,
-                    ),
-                    Center(
-                      child: GestureDetector(
-                          child: Text('Forgot Password?'),
-                          onTap: () {
-                            Navigator.of(context).pushNamed(ForgotPassword.id);
-                          }),
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    Center(
-                      child: Container(
-                        height: height * 0.06,
-                        // width: width * 0.2,
-                        margin: EdgeInsets.symmetric(horizontal: 60),
+                      Container(
+                        //height: 40,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Color(0xff006043),
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(40.0),
                         ),
-
-                        child: FlatButton(
-                          onPressed: () async {
-                            if (_formKey.currentState.validate()) {
-                              passwordValidator = await context
-                                  .read<AuthenticationService>()
-                                  .updatePasswd(_passwordController.text);
-
-                              await context
-                                  .read<AuthenticationService>()
-                                  .signOut();
-                              Navigator.pop(context);
-                              Navigator.pop(context);
-                              setState(() {});
-                              print(passwordValidator);
-                            }
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 15, right: 15, bottom: 5),
+                          child: TextFormField(
+                            controller: _passwordController,
+                            cursorColor: Colors.green,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                fillColor: Colors.grey,
+                                labelStyle: TextStyle(color: Colors.white)),
+                            style: TextStyle(color: Colors.white),
+                            cursorHeight: 8,
+                            validator: (value) {
+                              password = value;
+                              String patttern =
+                                  r'(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)';
+                              RegExp regExp = new RegExp(patttern);
+                              if (value.isEmpty) {
+                                return "Password is Required";
+                              } else if (value.length < 8) {
+                                return "Password must have minimum eight characters";
+                              } else if (!regExp.hasMatch(value)) {
+                                return "Password should have at least one uppercase letter, one lowercase letter and one number";
+                              }
+                              return null;
+                            },
                           ),
-                          child: Center(
-                            child: Text(
-                              'Update Password',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      Text(' Confirm Password', style: TextStyle(fontSize: 20)),
+                      SizedBox(
+                        height: height * 0.02,
+                      ),
+                      Container(
+                        //    height: 40,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: new BorderRadius.circular(40.0),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(left: 15, right: 15, bottom: 5),
+                          child: TextFormField(
+                            controller: _repasswordController,
+                            cursorColor: Colors.green,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                            ),
+                            style: TextStyle(color: Colors.white),
+                            cursorHeight: 8,
+                            validator: (value) {
+                              if (value != password)
+                                return 'Entered password is not same as above';
+                              else
+                                return null;
+                            },
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.05,
+                      ),
+                      Center(
+                        child: GestureDetector(
+                            child: Text('Forgot Password?'),
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(ForgotPassword.id);
+                            }),
+                      ),
+                      SizedBox(
+                        height: height * 0.02,
+                      ),
+                      Center(
+                        child: Container(
+                          height: height * 0.06,
+                          // width: width * 0.2,
+                          margin: EdgeInsets.symmetric(horizontal: 60),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color(0xff006043),
+                          ),
+
+                          child: FlatButton(
+                            onPressed: () async {
+                              if (_formKey.currentState.validate()) {
+                                isVisible = true;
+                                setState(() {});
+                                passwordValidator = await context
+                                    .read<AuthenticationService>()
+                                    .updatePasswd(_passwordController.text);
+
+                                await context
+                                    .read<AuthenticationService>()
+                                    .signOut();
+                                isVisible = false;
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+
+                                setState(() {});
+                                print(passwordValidator);
+                              }
+                            },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Update Password',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
+            if (isVisible)
+              Opacity(
+                opacity: 0.60,
+                child: Container(
+                  height: height,
+                  width: width,
+                ),
+              ),
+            if (isVisible)
+              Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff006043)),
+                ),
+              ),
+          ]),
         ),
       ),
     );

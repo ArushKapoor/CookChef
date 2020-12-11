@@ -5,7 +5,6 @@ import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   static const String id = 'home_page';

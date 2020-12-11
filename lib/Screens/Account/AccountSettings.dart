@@ -28,6 +28,7 @@ class _AccountSettingsState extends State<AccountSettings> {
   CloudFirestore _cloudFirestore = CloudFirestore();
   CloudStorage _cloudStorage = CloudStorage();
   bool switchValue = true;
+  bool isVisible = false;
   @override
   void initState() {
     super.initState();
@@ -189,117 +190,139 @@ class _AccountSettingsState extends State<AccountSettings> {
           onTap: () {
             FocusScope.of(context).unfocus();
           },
-          child: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: _width * 0.01),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: _height * 0.05,
-                  ),
-                  Stack(
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundImage: (_image == null)
-                            ? NetworkImage(meraUserImage)
-                            : FileImage(_image),
-                        maxRadius: _height * 0.09,
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          color: Colors.white,
-                          child: GestureDetector(
-                            onTap: () {
-                              _showPicker(context);
-                            },
-                            // child: Text(
-                            //   'Change profile pic',
-                            //   style: TextStyle(
-                            //       fontSize: _height * 0.02,
-                            //       fontWeight: FontWeight.w700,
-                            //       color: Colors.lightBlueAccent),
-                            // ),
-                            child: Icon(
-                              Icons.add_a_photo,
-                              size: 25.0,
+          child: Stack(children: [
+            SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: _width * 0.01),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: _height * 0.05,
+                    ),
+                    Stack(
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundImage: (_image == null)
+                              ? NetworkImage(meraUserImage)
+                              : FileImage(_image),
+                          maxRadius: _height * 0.09,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                _showPicker(context);
+                              },
+                              // child: Text(
+                              //   'Change profile pic',
+                              //   style: TextStyle(
+                              //       fontSize: _height * 0.02,
+                              //       fontWeight: FontWeight.w700,
+                              //       color: Colors.lightBlueAccent),
+                              // ),
+                              child: Icon(
+                                Icons.add_a_photo,
+                                size: 25.0,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: _height * 0.03,
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    child: TextField(
-                      controller: _nameEditingController,
-                      autofocus: true,
-                      cursorColor: Colors.lightBlueAccent,
-                      cursorRadius: Radius.circular(3),
-                      textInputAction: TextInputAction.done,
-                      decoration: InputDecoration(
-                        hintText: meraUserName,
-                        labelText: 'Name',
-                        focusColor: Colors.lightBlueAccent,
-                      ),
+                      ],
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    child: TextField(
-                      controller: _bioEditingController,
-                      autofocus: true,
-                      cursorColor: Colors.lightBlueAccent,
-                      cursorRadius: Radius.circular(3),
-                      textInputAction: TextInputAction.done,
-                      decoration: InputDecoration(
-                        hintText: meraUserBio,
-                        labelText: 'Bio',
-                        focusColor: Colors.lightBlueAccent,
-                      ),
+                    SizedBox(
+                      height: _height * 0.03,
                     ),
-                  ),
-                  SizedBox(
-                    height: _height * 0.05,
-                  ),
-                  if (_image != null &&
-                      _nameEditingController.text.isNotEmpty &&
-                      _bioEditingController.text.isNotEmpty)
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color(0xff00ac58),
-                      ),
-                      child: MaterialButton(
-                        onPressed: () async {
-                          if (_image != null &&
-                              _nameEditingController.text.isNotEmpty &&
-                              _bioEditingController.text.isNotEmpty) {
-                            imageLink = await _cloudStorage.uploadFile(
-                                _image, 'Users', uid);
-                            await _cloudFirestore.updateUser(
-                                _nameEditingController.text,
-                                _bioEditingController.text,
-                                imageLink);
-
-                            Navigator.pop(context);
-                          }
-                        },
-                        child: Text(
-                          'UPDATE',
-                          style: TextStyle(color: Colors.white),
+                      padding: EdgeInsets.all(10.0),
+                      child: TextField(
+                        controller: _nameEditingController,
+                        autofocus: true,
+                        cursorColor: Colors.lightBlueAccent,
+                        cursorRadius: Radius.circular(3),
+                        textInputAction: TextInputAction.done,
+                        decoration: InputDecoration(
+                          hintText: meraUserName,
+                          labelText: 'Name',
+                          focusColor: Colors.lightBlueAccent,
                         ),
                       ),
-                    )
-                ],
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(10.0),
+                      child: TextField(
+                        controller: _bioEditingController,
+                        autofocus: true,
+                        cursorColor: Colors.lightBlueAccent,
+                        cursorRadius: Radius.circular(3),
+                        textInputAction: TextInputAction.done,
+                        decoration: InputDecoration(
+                          hintText: meraUserBio,
+                          labelText: 'Bio',
+                          focusColor: Colors.lightBlueAccent,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: _height * 0.05,
+                    ),
+                    if (_image != null &&
+                        _nameEditingController.text.isNotEmpty &&
+                        _bioEditingController.text.isNotEmpty)
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Color(0xff00ac58),
+                        ),
+                        child: MaterialButton(
+                          onPressed: () async {
+                            if (_image != null &&
+                                _nameEditingController.text.isNotEmpty &&
+                                _bioEditingController.text.isNotEmpty) {
+                              setState(() {
+                                isVisible = true;
+                              });
+                              imageLink = await _cloudStorage.uploadFile(
+                                  _image, 'Users', uid);
+                              await _cloudFirestore.updateUser(
+                                  _nameEditingController.text,
+                                  _bioEditingController.text,
+                                  imageLink);
+
+                              setState(() {
+                                isVisible = false;
+                              });
+                              Navigator.pop(context);
+                            }
+                          },
+                          child: Text(
+                            'UPDATE',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                  ],
+                ),
               ),
             ),
-          ),
+            if (isVisible)
+              Opacity(
+                opacity: 0.60,
+                child: Container(
+                  height: _height,
+                  width: _width,
+                ),
+              ),
+            if (isVisible)
+              Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff006043)),
+                ),
+              ),
+          ]),
         ),
       ),
     );
