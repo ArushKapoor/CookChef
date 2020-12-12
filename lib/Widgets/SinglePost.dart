@@ -71,11 +71,7 @@ class _SinglePostState extends State<SinglePost> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         GestureDetector(
-                          onTap: () async {
-                            print(AccountsList().accountsList.toString());
-                            await AccountsList().gettingAccounts();
-                            print(AccountsList().accountsList.toString());
-                          },
+                          onTap: () {},
                           child: Text(widget.name,
                               style: TextStyle(
                                   fontSize: _height * 0.02,

@@ -10,7 +10,7 @@ class AccountsList {
         .get()
         .then((QuerySnapshot snapshot) {
       snapshot.docs.forEach((element) {
-        print(element.data());
+        //print(element.data());
 
         accountsList.add(Accounts(
             userId: element.data()['uid'],
@@ -18,6 +18,7 @@ class AccountsList {
             username: element.data()['username']));
       });
     });
+    print(accountsList[0].userId);
   }
 }
 
