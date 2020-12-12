@@ -1,3 +1,4 @@
+import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/FeedPage.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
@@ -25,6 +26,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size.aspectRatio;
+    var _height = MediaQuery.of(context).size.height;
+    var _width = MediaQuery.of(context).size.width;
     //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */
@@ -56,7 +59,77 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, SelectedIngredientsPage.id);
+                    if (IngredientsHandler().selectedIngredients.length == 0) {
+                      showDialog(
+                        context: context,
+                        builder: (ctx) => AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                          content: Builder(
+                            builder: (context) {
+                              return Container(
+                                height: _height * 0.218,
+                                width: _width * 0.3,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      width: _width,
+                                      child: Text(
+                                        'No Ingredient Selected',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            height: _height * 0.004),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: _height * 0.01,
+                                    ),
+                                    Container(
+                                      width: _width,
+                                      child: Text(
+                                          'You have to select atleast one ingredient.'),
+                                    ),
+                                    SizedBox(
+                                      height: _height * 0.015,
+                                    ),
+                                    Container(
+                                      width: _width,
+                                      alignment: Alignment.bottomRight,
+                                      child: FlatButton(
+                                        child: Text(
+                                          'Okay',
+                                          style: TextStyle(
+                                            color: Color(0xff088378),
+                                          ),
+                                          textAlign: TextAlign.right,
+                                        ),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                          // actions: <Widget>[
+                          //   FlatButton(
+                          //     onPressed: () {
+                          //       Navigator.of(ctx).pop();
+                          //     },
+                          //     child: Text("Okay"),
+                          //   ),
+                          // ],
+                        ),
+                      );
+                    } else {
+                      Navigator.pushNamed(context, SelectedIngredientsPage.id);
+                    }
                   },
                   child: Text('Next'),
                 ),
