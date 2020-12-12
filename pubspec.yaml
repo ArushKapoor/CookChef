@@ -38,7 +38,7 @@ dependencies:
   firebase_storage: ^5.0.1
   cached_network_image: ^2.3.3
   firebase_messaging: ^7.0.3
-
+  animated_text_kit: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

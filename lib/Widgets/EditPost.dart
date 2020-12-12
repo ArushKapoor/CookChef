@@ -41,7 +41,7 @@ class EditPost extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         Image.asset(
-                          'assets/icons/pin.png',
+                          'assets/icons/pencil.jpg',
                           // scale: _height * 0.0080,
                           height: _height * 0.04,
                         ),

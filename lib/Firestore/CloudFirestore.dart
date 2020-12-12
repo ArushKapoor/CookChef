@@ -30,7 +30,7 @@ class CloudFirestore {
       'username': userName,
       'uid': uid,
       'imageLink':
-          'https://firebasestorage.googleapis.com/v0/b/cook-chef.appspot.com/o/Users%2Fprofile-user.png?alt=media&token=f156591e-9aa4-4c42-8b28-0ce36eef7d5c',
+          'https://firebasestorage.googleapis.com/v0/b/cook-chef.appspot.com/o/Users%2FAccount.png?alt=media&token=9bf3aca6-7d49-456d-947a-94f096086c36',
       'bio': 'Here you can add his/her bio',
     });
     return null;

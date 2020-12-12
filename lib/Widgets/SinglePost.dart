@@ -1,3 +1,4 @@
+import 'package:cook_chef/Models/AccountsList.dart';
 import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:cook_chef/Widgets/EditPost.dart';
 import 'package:flutter/material.dart';
@@ -69,11 +70,18 @@ class _SinglePostState extends State<SinglePost> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(widget.name,
-                            style: TextStyle(
-                                fontSize: _height * 0.02,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black)),
+                        GestureDetector(
+                          onTap: () async {
+                            print(AccountsList().accountsList.toString());
+                            await AccountsList().gettingAccounts();
+                            print(AccountsList().accountsList.toString());
+                          },
+                          child: Text(widget.name,
+                              style: TextStyle(
+                                  fontSize: _height * 0.02,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black)),
+                        ),
                         Text(
                           correctTime(widget.time),
                           style: TextStyle(

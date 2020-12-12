@@ -23,7 +23,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
     bool isReplying = Provider.of<TextFeildToggler>(context).replyOrComment;
     String commentId = Provider.of<TextFeildToggler>(context).commentId;
     String replyingTo = Provider.of<TextFeildToggler>(context).replyingTo;
-    int replyCount = Provider.of<TextFeildToggler>(context).replyCount;
+
     return Container(
       padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom, top: _height * .24),
@@ -53,7 +53,6 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
                 isReplying: isReplying,
                 commentId: commentId,
                 replyingTo: replyingTo,
-                replyCount: replyCount,
               ),
             ],
           ),
@@ -64,17 +63,16 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
 }
 
 class ToggledTextFeild extends StatelessWidget {
-  const ToggledTextFeild(
-      {Key key,
-      @required this.commentsCount,
-      @required double width,
-      @required this.textEditingController,
-      @required this.postId,
-      this.isReplying,
-      this.commentId,
-      this.replyingTo,
-      this.replyCount})
-      : _width = width,
+  const ToggledTextFeild({
+    Key key,
+    @required this.commentsCount,
+    @required double width,
+    @required this.textEditingController,
+    @required this.postId,
+    this.isReplying,
+    this.commentId,
+    this.replyingTo,
+  })  : _width = width,
         super(key: key);
 
   final int commentsCount;
@@ -84,9 +82,11 @@ class ToggledTextFeild extends StatelessWidget {
   final bool isReplying;
   final String commentId;
   final String replyingTo;
-  final int replyCount;
+
   @override
   Widget build(BuildContext context) {
+    int replyCount = Provider.of<TextFeildToggler>(context).replyCount;
+    int commentCount = commentsCount;
     return Container(
       padding: (commentsCount != 0)
           ? EdgeInsets.only(
@@ -139,9 +139,11 @@ class ToggledTextFeild extends StatelessWidget {
                           .read<CloudFirestore>()
                           .addingRepliesToComment(postId, commentId,
                               textEditingController.text, replyCount);
+                      replyCount++;
                     } else {
                       await context.read<CloudFirestore>().addingComments(
-                          textEditingController.text, postId, commentsCount);
+                          textEditingController.text, postId, commentCount);
+                      commentCount++;
                     }
 
                     textEditingController.clear();
@@ -547,7 +549,7 @@ class RepliesTile extends StatelessWidget {
                 height: 5,
               ),
               Container(
-                // width: _width * 0.70,
+                width: _width * 0.60,
                 child: Text(
                   comment,
                   softWrap: true,
