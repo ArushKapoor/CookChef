@@ -1,9 +1,11 @@
+import 'package:cook_chef/Models/AccountsList.dart';
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/FeedPage.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
+import 'package:cook_chef/Widgets/DataSearch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +18,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
   //NetworkingHelper networkingHelper = NetworkingHelper();
+  AccountsList accounts = AccountsList();
+  List<Accounts> accountsList = [];
 
   final tabs = [
     FeedPage(),
@@ -26,10 +30,21 @@ class _HomePageState extends State<HomePage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    getAccounts();
+  }
+
+  getAccounts() async {
+    accountsList = await accounts.gettingAccounts();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size.aspectRatio;
     var _height = MediaQuery.of(context).size.height;
     var _width = MediaQuery.of(context).size.width;
+    print(accountsList[0].username);
     //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */
@@ -51,7 +66,11 @@ class _HomePageState extends State<HomePage> {
               child: IconButton(
                 icon: Icon(Icons.search),
                 onPressed: () {
-                  Navigator.pushNamed(context, AccountSearchPage.id);
+                  // Navigator.pushNamed(context, AccountSearchPage.id);
+                  showSearch(
+                    context: context,
+                    delegate: DataSearch(accountsList: accountsList),
+                  );
                 },
               ),
             ),

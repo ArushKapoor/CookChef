@@ -4,7 +4,7 @@ FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
 class AccountsList {
   List<Accounts> accountsList = [];
-  Future<void> gettingAccounts() async {
+  Future<List<Accounts>> gettingAccounts() async {
     await _firebaseFirestore
         .collection('Users')
         .get()
@@ -19,6 +19,7 @@ class AccountsList {
       });
     });
     print(accountsList[0].userId);
+    return accountsList;
   }
 }
 

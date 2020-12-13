@@ -1,3 +1,4 @@
+import 'package:cook_chef/Models/AccountsList.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class AccountSearchPage extends StatefulWidget {
 class _AccountSearchPageState extends State<AccountSearchPage> {
   int currentIndex = 0;
   bool hasTapped = false;
+  AccountsList accounts = AccountsList();
+  List<Accounts> accountsList = [];
 
   final tabs = [
     AccountSearchPage(),
@@ -44,8 +47,16 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    accounts.gettingAccounts();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size.aspectRatio;
+    accountsList = accounts.accountsList;
+    print(accountsList[0].username);
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
