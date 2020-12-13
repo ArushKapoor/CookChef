@@ -37,7 +37,10 @@ class _HomePageState extends State<HomePage> {
 
   getAccounts() async {
     accountsList = await accounts.gettingAccounts();
-    print(accountsList[0].username);
+    // print(accountsList[0].username);
+    // for (int i = 0; i < 20000; i++) {
+    //   print(i);
+    // }
   }
 
   @override
@@ -45,7 +48,7 @@ class _HomePageState extends State<HomePage> {
     final _size = MediaQuery.of(context).size.aspectRatio;
     var _height = MediaQuery.of(context).size.height;
     var _width = MediaQuery.of(context).size.width;
-    print(accountsList[1].username);
+    print(accountsList);
     //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */

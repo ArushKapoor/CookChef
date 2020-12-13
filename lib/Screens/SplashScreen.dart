@@ -1,6 +1,7 @@
 import 'package:cook_chef/Screens/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'dart:math' as Math;
 
 class SplashScreen extends StatefulWidget {
   static final id = 'splash';
@@ -10,39 +11,37 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
+  AnimationController _controller;
+  AnimationController _imageController;
+  AssetImage cardFront;
+  AssetImage cardBack;
+  bool showFront = true;
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      lowerBound: 0.28,
-      duration: Duration(milliseconds: 1500),
-      vsync: this,
+    Navigator.pushNamed(context, HomePage.id);
+    cardFront = AssetImage(
+      'assets/icons/ingredients.png',
     );
-    _animationController.forward();
-    _animationController.addListener(() {
-      setState(() {});
-    });
-    _animationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _animationController.reverse();
+    cardBack = AssetImage('assets/icons/ingredients.png');
+    _controller = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 300), value: 0);
+    _imageController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 300), value: 0);
+  }
 
-        //_animationController.forward();
-      } else if (status == AnimationStatus.dismissed) {
-        _animationController.forward();
-      }
-    });
-    Future.delayed(
-        Duration(
-          seconds: 3,
-        ), () {
-      Navigator.pushNamed(context, HomePage.id);
-    });
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    precacheImage(cardFront, context);
+    precacheImage(cardBack, context);
   }
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _controller.dispose();
+    _imageController.dispose();
     super.dispose();
   }
 
@@ -51,78 +50,41 @@ class _SplashScreenState extends State<SplashScreen>
     final _height = MediaQuery.of(context).size.height;
     final _width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Container(
-          child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Column(children: [
-              CircleAvatar(
-                radius: _width * 0.2,
-                backgroundImage: AssetImage('assets/icons/ingredients.png'),
-              ),
-              RichText(
-                text: TextSpan(text: 'Cook Chef', children: [
-                  TextSpan(
-                      text: 'C', style: TextStyle(color: Colors.accents[5])),
-                  TextSpan(text: 'O', style: TextStyle(color: Colors.amber[5])),
-                  TextSpan(text: 'O', style: TextStyle(color: Colors.black)),
-                  TextSpan(text: 'K', style: TextStyle(color: Colors.blue[5])),
-                  TextSpan(text: 'C', style: TextStyle(color: Colors.brown[5])),
-                  TextSpan(text: 'H', style: TextStyle(color: Colors.cyan[5])),
-                  TextSpan(
-                      text: 'E', style: TextStyle(color: Colors.deepOrange[4])),
-                  TextSpan(text: 'F', style: TextStyle(color: Colors.green[5])),
-                ]),
-              )
-            ]),
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              margin: EdgeInsets.all(_height * 0.05),
-              decoration: BoxDecoration(
-                  color: Colors.teal,
-                  borderRadius: BorderRadius.circular(_height * 0.03)),
-              height: _height * 0.15 * _animationController.value,
-              width: _width * 0.1,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Container(
-              margin: EdgeInsets.all(_height * 0.05),
-              decoration: BoxDecoration(
-                  color: Colors.teal,
-                  borderRadius: BorderRadius.circular(_height * 0.03)),
-              width: _width * 0.3 * _animationController.value,
-              height: _width * 0.1,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Container(
-              margin: EdgeInsets.all(_height * 0.05),
-              decoration: BoxDecoration(
-                  color: Colors.teal,
-                  borderRadius: BorderRadius.circular(_height * 0.03)),
-              height: _height * 0.15 * _animationController.value,
-              width: _width * 0.1,
-            ),
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              margin: EdgeInsets.all(_height * 0.05),
-              decoration: BoxDecoration(
-                  color: Colors.teal,
-                  borderRadius: BorderRadius.circular(_height * 0.03)),
-              height: _width * 0.1,
-              width: _width * 0.3 * _animationController.value,
-            ),
-          ),
-        ],
-      )),
-    );
+        body: Column(
+      children: [
+        AnimatedBuilder(
+          animation: _controller,
+          //child: child,
+          builder: (BuildContext context, Widget child) {
+            return Transform(
+              transform: Matrix4.rotationY((_controller.value) * Math.pi / 2),
+              alignment: Alignment.center,
+              child: Container(
+                  height: (MediaQuery.of(context).size.height - 130),
+                  margin: EdgeInsets.only(top: 20),
+                  alignment: Alignment.center,
+                  child: CircleAvatar(
+                    backgroundImage: showFront ? cardFront : cardBack,
+                    radius: (_imageController.value) * _height * 0.08 +
+                        _height * 0.03,
+                  )),
+            );
+          },
+        ),
+        FlatButton(
+          child: Text("flip me"),
+          onPressed: () async {
+            // Flip the image
+            await _imageController.forward();
+            await _controller.forward();
+            setState(() => showFront = !showFront);
+            await _imageController.animateBack(0.7);
+            await _controller.reverse();
+
+            setState(() {});
+          },
+        ),
+      ],
+    ));
   }
 }
