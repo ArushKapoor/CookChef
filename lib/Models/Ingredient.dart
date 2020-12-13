@@ -9,4 +9,12 @@ class Ingredients {
   void toggleCheckBox() {
     isChecked = !isChecked;
   }
+
+  @override
+  String toString() {
+    String text;
+    text =
+        'Ingredients(text: \'${this.text}\', imageUrl: \'$imageUrl\', hindiText: \'$hindiText\',)';
+    return text;
+  }
 }

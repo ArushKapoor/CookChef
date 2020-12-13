@@ -69,6 +69,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
   }
 
   Future translate() async {
+    // print('It Started');
     // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
     //   print(value);
     // });
@@ -97,7 +98,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
             hindiText: value.text));
       });
     }
-    print(newList.toList().toString());
+    print(newList);
     // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
     //   print(value);
     // });
@@ -204,7 +205,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       itemBuilder: (context, index) {
                         final ingredient = _resultsList[index];
                         String text = ingredient.text;
-                        //if (isHindi) translate(text);
+                        // if (isHindi) translate();
                         // if (isHindi) {
                         //   text = translate(text).toString();
                         //   if (this.text == null) {
