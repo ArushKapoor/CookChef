@@ -24,6 +24,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
   TextEditingController _searchController = TextEditingController();
 
   final translator = GoogleTranslator();
+  String text;
 
   @override
   void initState() {
@@ -65,13 +66,23 @@ class _IngredientsPageState extends State<IngredientsPage> {
     });
   }
 
-  Future<String> translate(String text) async {
-    var translate;
-    await translator.translate(text, from: 'en', to: 'hi').then((value) {
-      translate = value;
+  Future translate(String text) async {
+    // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
+    //   print(value);
+    // });
+    // var translate = '';
+    // // await translator.translate(text, from: 'en', to: 'hi').then((value) {
+    // //   translate = value;
+    // // });
+    // // setState(() {
+    // //   this.text = translate.toString();
+    // //   print(this.text);
+    // // });
+
+    await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
+      print(value);
     });
-    String tra = translate.toString();
-    return tra;
+    return translate.toString();
   }
 
   @override
@@ -174,9 +185,31 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       itemBuilder: (context, index) {
                         final ingredient = _resultsList[index];
                         String text = ingredient.text;
-                        if (isHindi)
-                          text = translate(ingredient.text).toString();
-                        if (isHindi) print('This is text + $text');
+                        if (isHindi) translate(text);
+                        // if (isHindi) {
+                        //   text = translate(text).toString();
+                        //   if (this.text == null) {
+                        //     return Text('Working on it');
+                        //   } else {
+                        //     return IngredientTile(
+                        //       text: text,
+                        //       imageUrl: ingredient.imageUrl,
+                        //       isChecked: ingredient.isChecked,
+                        //       isSelectedIngredient: false,
+                        //       toggleCallback: () {
+                        //         ingredientHandling.checkBoxToggler(ingredient);
+                        //
+                        //         if (ingredient.isChecked) {
+                        //           ingredientHandling
+                        //               .addSelectedIngredient(ingredient);
+                        //         } else {
+                        //           ingredientHandling
+                        //               .removeSelectedIngredient(ingredient);
+                        //         }
+                        //       },
+                        //     );
+                        //   }
+                        // } else {
                         return IngredientTile(
                           text: ingredient.text,
                           imageUrl: ingredient.imageUrl,
@@ -194,6 +227,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
                             }
                           },
                         );
+                        // }
                       },
                     );
                   },
