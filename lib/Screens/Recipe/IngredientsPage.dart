@@ -3,6 +3,7 @@ import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:translator/translator.dart';
 
 class IngredientsPage extends StatefulWidget {
   static const String id = 'ingredients_page';
@@ -21,6 +22,8 @@ class _IngredientsPageState extends State<IngredientsPage> {
   IngredientsHandler _ingredientsHandler = IngredientsHandler();
 
   TextEditingController _searchController = TextEditingController();
+
+  final translator = GoogleTranslator();
 
   @override
   void initState() {
@@ -60,6 +63,10 @@ class _IngredientsPageState extends State<IngredientsPage> {
     setState(() {
       _resultsList = showResults;
     });
+  }
+
+  Future translate(String text) async {
+    return translator.translate(text, from: 'en', to: 'hi');
   }
 
   @override
@@ -161,6 +168,8 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       itemCount: _resultsList.length,
                       itemBuilder: (context, index) {
                         final ingredient = _resultsList[index];
+                        String text;
+                        // if (isHindi) text = translate(ingredient.text);
                         return IngredientTile(
                           text: ingredient.text,
                           imageUrl: ingredient.imageUrl,
