@@ -1,3 +1,4 @@
+import 'package:cook_chef/Models/AccountPageArgument.dart';
 import 'package:cook_chef/Models/Arguments.dart';
 import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:cook_chef/Screens/UploadPage.dart';
@@ -13,6 +14,8 @@ FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class AccountPage extends StatefulWidget {
   static const String id = 'account_page';
+  final bool ownUser;
+  AccountPage({this.ownUser});
   @override
   _AccountPageState createState() => _AccountPageState();
 }
@@ -20,15 +23,19 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
+    final AccountArgument args = ModalRoute.of(context).settings.arguments;
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.width;
     String uid = context.watch<AuthenticationService>().uniqueId;
     QuerySnapshot snapshot = context.watch<QuerySnapshot>();
     String meraUserName, meraUserBio, meraUserImage;
-
     final users = snapshot.docs;
+    //print(widget.ownUser);
+
     for (var user in users) {
-      final auser = user.get('uid');
+      String auser = user.get('uid');
+      if (widget.ownUser != true) uid = args.outerUserUid;
+      // print(args.outerUserUid);
       if (auser == uid) {
         meraUserName = user.get('username');
         meraUserBio = user.get('bio');
@@ -37,136 +44,141 @@ class _AccountPageState extends State<AccountPage> {
     }
     //gettingInfos();
     return SafeArea(
-      child: ListView(
-        children: <Widget>[
-          // Container(
-          //   margin: EdgeInsets.all(8.0),
-          //   child: Text('account_name'),
-          // ),
-          SizedBox(
-            height: _height * 0.05,
-          ),
-          Column(
-            children: <Widget>[
-              if (meraUserImage != null)
-                CircleAvatar(
-                  backgroundImage: NetworkImage(meraUserImage),
-                  radius: _width * 0.15,
-                ),
-              if (meraUserName != null)
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: _height * 0.02),
-                  child: Text(
-                    meraUserName,
-                    style: TextStyle(
-                      fontSize: _height * 0.05,
-                      fontWeight: FontWeight.bold,
-                    ),
+      child: Scaffold(
+        body: ListView(
+          children: <Widget>[
+            // Container(
+            //   margin: EdgeInsets.all(8.0),
+            //   child: Text('account_name'),
+            // ),
+            SizedBox(
+              height: _height * 0.05,
+            ),
+            Column(
+              children: <Widget>[
+                if (meraUserImage != null)
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(meraUserImage),
+                    radius: _width * 0.15,
                   ),
-                ),
-              if (meraUserBio != null) Text('$meraUserBio'),
-              Container(
-                margin: EdgeInsets.only(top: _height * 0.02),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xffC1C1C1)),
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(_width * 0.05)),
-                  color: Color(0xffD7D7D7),
-                ),
-                width: _width * 0.9,
-                height: _height * 0.1,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      AccountSettings.id,
-                    );
-                  },
-                  child: Center(
+                if (meraUserName != null)
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: _height * 0.02),
                     child: Text(
-                      'Edit Profile',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      meraUserName,
+                      style: TextStyle(
+                        fontSize: _height * 0.05,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: _height * 0.03),
-            height: 1,
-            width: _width,
-            color: Colors.grey[300],
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, UploadPage.id,
-                  arguments: UploadPageArguments(toUpdate: false));
-            },
-            child: Container(
-              margin: EdgeInsets.all(_width * 0.03),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Upload',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: _height * 0.04),
+                if (meraUserBio != null) Text('$meraUserBio'),
+                if (widget.ownUser == true)
+                  Container(
+                    margin: EdgeInsets.only(top: _height * 0.02),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xffC1C1C1)),
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(_width * 0.05)),
+                      color: Color(0xffD7D7D7),
+                    ),
+                    width: _width * 0.9,
+                    height: _height * 0.1,
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          AccountSettings.id,
+                        );
+                      },
+                      child: Center(
+                        child: Text(
+                          'Edit Profile',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
-                      // Icon(
-                      //   Icons.keyboard_arrow_down,
+                    ),
+                  ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: _height * 0.03),
+              height: 1,
+              width: _width,
+              color: Colors.grey[300],
+            ),
+            if (widget.ownUser == true)
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, UploadPage.id,
+                      arguments: UploadPageArguments(toUpdate: false));
+                },
+                child: Container(
+                  margin: EdgeInsets.all(_width * 0.03),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            'Upload',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: _height * 0.04),
+                          ),
+                          // Icon(
+                          //   Icons.keyboard_arrow_down,
+                          // ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          if (meraUserImage != null)
+                            CircleAvatar(
+                                backgroundImage: NetworkImage(meraUserImage),
+                                radius: _width * 0.06),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            'What\'s your recipe?',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0),
+                        height: 1,
+                        width: _width,
+                        color: Colors.grey[300],
+                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //   children: <Widget>[
+                      //     Text(
+                      //       'Photos',
+                      //       style: TextStyle(color: Colors.green),
+                      //     ),
+                      //     Text('|'),
+                      //     Text(
+                      //       'Videos',
+                      //       style: TextStyle(color: Colors.blue),
+                      //     ),
+                      //   ],
                       // ),
                     ],
                   ),
-                  SizedBox(
-                    height: 5.0,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      if (meraUserImage != null)
-                        CircleAvatar(
-                            backgroundImage: NetworkImage(meraUserImage),
-                            radius: _width * 0.06),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text(
-                        'What\'s your recipe?',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    height: 1,
-                    width: _width,
-                    color: Colors.grey[300],
-                  ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: <Widget>[
-                  //     Text(
-                  //       'Photos',
-                  //       style: TextStyle(color: Colors.green),
-                  //     ),
-                  //     Text('|'),
-                  //     Text(
-                  //       'Videos',
-                  //       style: TextStyle(color: Colors.blue),
-                  //     ),
-                  //   ],
-                  // ),
-                ],
+                ),
               ),
+            FeedsStream(
+              width: _width,
+              outerUseruid: widget.ownUser != true ? args.outerUserUid : false,
             ),
-          ),
-          FeedsStream(
-            width: _width,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -174,7 +186,8 @@ class _AccountPageState extends State<AccountPage> {
 
 class FeedsStream extends StatelessWidget {
   final width;
-  FeedsStream({this.width});
+  final outerUseruid;
+  FeedsStream({this.width, this.outerUseruid});
   @override
   Widget build(BuildContext context) {
     String uid = context.watch<AuthenticationService>().uniqueId;
@@ -190,7 +203,9 @@ class FeedsStream extends StatelessWidget {
           final posts = snapshot.data.docs;
           List<SinglePost> singlePost = [];
           for (var post in posts) {
-            if (post.get('uid') == FirebaseAuth.instance.currentUser.uid) {
+            String uid = FirebaseAuth.instance.currentUser.uid;
+            if (outerUseruid != false) uid = outerUseruid;
+            if (post.get('uid') == uid) {
               //final username = post.get('username');
               final recipe = post.get('recipe');
               final imageUrl = post.get('imageUrl');
@@ -212,6 +227,7 @@ class FeedsStream extends StatelessWidget {
               final users = snapshots.docs;
               for (var user in users) {
                 final auser = user.get('uid');
+
                 if (auser == postUserUid) {
                   meraUserName = user.get('username');
                   meraUserImage = user.get('imageLink');
@@ -229,7 +245,7 @@ class FeedsStream extends StatelessWidget {
                   userImage: meraUserImage,
                   postId: postId,
                   liked: liked,
-                  onAccountPage: true,
+                  onAccountPage: outerUseruid != false ? false : true,
                   likesMap: likes,
                 ),
               );
