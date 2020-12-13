@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
     final _size = MediaQuery.of(context).size.aspectRatio;
     var _height = MediaQuery.of(context).size.height;
     var _width = MediaQuery.of(context).size.width;
-    print(accountsList[1].username);
+    // print(accountsList[1].username);
     //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */

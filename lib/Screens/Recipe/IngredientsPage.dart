@@ -65,8 +65,13 @@ class _IngredientsPageState extends State<IngredientsPage> {
     });
   }
 
-  Future translate(String text) async {
-    return translator.translate(text, from: 'en', to: 'hi');
+  Future<String> translate(String text) async {
+    var translate;
+    await translator.translate(text, from: 'en', to: 'hi').then((value) {
+      translate = value;
+    });
+    String tra = translate.toString();
+    return tra;
   }
 
   @override
@@ -168,8 +173,10 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       itemCount: _resultsList.length,
                       itemBuilder: (context, index) {
                         final ingredient = _resultsList[index];
-                        String text;
-                        // if (isHindi) text = translate(ingredient.text);
+                        String text = ingredient.text;
+                        if (isHindi)
+                          text = translate(ingredient.text).toString();
+                        if (isHindi) print('This is text + $text');
                         return IngredientTile(
                           text: ingredient.text,
                           imageUrl: ingredient.imageUrl,

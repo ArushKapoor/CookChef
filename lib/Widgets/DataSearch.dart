@@ -1,4 +1,6 @@
+import 'package:cook_chef/Models/AccountPageArgument.dart';
 import 'package:cook_chef/Models/AccountsList.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:flutter/material.dart';
 
 class DataSearch extends SearchDelegate<String> {
@@ -6,7 +8,13 @@ class DataSearch extends SearchDelegate<String> {
   DataSearch({this.accountsList});
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), onPressed: () {})];
+    return [
+      IconButton(
+          icon: Icon(Icons.clear),
+          onPressed: () {
+            query = '';
+          })
+    ];
   }
 
   @override
@@ -14,48 +22,68 @@ class DataSearch extends SearchDelegate<String> {
     return IconButton(
         icon: AnimatedIcon(
             icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
-        onPressed: () {});
+        onPressed: () {
+          close(context, null);
+        });
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
+    var _width = MediaQuery.of(context).size.width;
+    final suggestionsList =
+        accountsList.where((element) => element.username.startsWith(query));
+    if (suggestionsList.length == 0) {
+      return Container(
+        margin: EdgeInsets.all(20.0),
+        child: Text(
+          'No results found for \"$query\"',
+        ),
+      );
+    }
+    return ListView.builder(
+        itemCount: suggestionsList.length,
+        itemBuilder: (context, index) => ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, AccountPage.id,
+                    arguments: AccountArgument(
+                        outerUserUid: suggestionsList.elementAt(index).userId));
+              },
+              leading: CircleAvatar(
+                radius: _width * 0.05,
+                backgroundImage:
+                    NetworkImage(suggestionsList.elementAt(index).userImage),
+              ),
+              title: Text(suggestionsList.elementAt(index).username),
+            ));
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final suggestionsList = accountsList;
+    var _width = MediaQuery.of(context).size.width;
+    final suggestionsList = accountsList.where((element) =>
+        element.username.toLowerCase().startsWith(query.toLowerCase()));
+    if (suggestionsList.length == 0) {
+      return Container(
+        margin: EdgeInsets.all(20.0),
+        child: Text(
+          'No results found for \"$query\"',
+        ),
+      );
+    }
     return ListView.builder(
-      itemCount: suggestionsList.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.account_circle),
-        title: Text(suggestionsList[index].username),
-        trailing: Icon(Icons.close),
-      ),
-    );
+        itemCount: suggestionsList.length,
+        itemBuilder: (context, index) => ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, AccountPage.id,
+                    arguments: AccountArgument(
+                        outerUserUid: suggestionsList.elementAt(index).userId));
+              },
+              leading: CircleAvatar(
+                radius: _width * 0.05,
+                backgroundImage:
+                    NetworkImage(suggestionsList.elementAt(index).userImage),
+              ),
+              title: Text(suggestionsList.elementAt(index).username),
+            ));
   }
-}
-
-Container _recentAccount({String id, String name}) {
-  return Container(
-    child: Row(
-      children: <Widget>[
-        Icon(Icons.account_circle),
-        SizedBox(
-          width: 10.0,
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(id),
-              Text(name),
-            ],
-          ),
-        ),
-        Icon(Icons.close),
-      ],
-    ),
-  );
 }
