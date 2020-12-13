@@ -3,6 +3,8 @@ import 'package:cook_chef/Widgets/ingredientsTile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:translator/translator.dart';
+import 'package:cook_chef/Models/Ingredient.dart';
 
 class IngredientsPage extends StatefulWidget {
   static const String id = 'ingredients_page';
@@ -22,11 +24,15 @@ class _IngredientsPageState extends State<IngredientsPage> {
 
   TextEditingController _searchController = TextEditingController();
 
+  final translator = GoogleTranslator();
+  String text;
+
   @override
   void initState() {
     super.initState();
     _searchController.addListener(_onSearchChanged);
     searchResults();
+    translate();
   }
 
   @override
@@ -60,6 +66,42 @@ class _IngredientsPageState extends State<IngredientsPage> {
     setState(() {
       _resultsList = showResults;
     });
+  }
+
+  Future translate() async {
+    // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
+    //   print(value);
+    // });
+    // var translate = '';
+    // // await translator.translate(text, from: 'en', to: 'hi').then((value) {
+    // //   translate = value;
+    // // });
+    // // setState(() {
+    // //   this.text = translate.toString();
+    // //   print(this.text);
+    // // });
+    //  Ingredients(
+    //     text: '5 spice powder',
+    //     imageUrl:
+    //         'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png'),
+    List ingredientsOld = context.read<IngredientsHandler>().ingredients;
+    List<Ingredients> newList = [];
+    for (int i = 0; i < 10; i++) {
+      Ingredients ingredient = ingredientsOld[i];
+      await translator
+          .translate(ingredient.text, from: 'en', to: 'hi')
+          .then((value) {
+        newList.add(Ingredients(
+            text: ingredient.text,
+            imageUrl: ingredient.imageUrl,
+            hindiText: value.text));
+      });
+    }
+    print(newList.toList().toString());
+    // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
+    //   print(value);
+    // });
+    return translate.toString();
   }
 
   @override
@@ -161,6 +203,32 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       itemCount: _resultsList.length,
                       itemBuilder: (context, index) {
                         final ingredient = _resultsList[index];
+                        String text = ingredient.text;
+                        //if (isHindi) translate(text);
+                        // if (isHindi) {
+                        //   text = translate(text).toString();
+                        //   if (this.text == null) {
+                        //     return Text('Working on it');
+                        //   } else {
+                        //     return IngredientTile(
+                        //       text: text,
+                        //       imageUrl: ingredient.imageUrl,
+                        //       isChecked: ingredient.isChecked,
+                        //       isSelectedIngredient: false,
+                        //       toggleCallback: () {
+                        //         ingredientHandling.checkBoxToggler(ingredient);
+                        //
+                        //         if (ingredient.isChecked) {
+                        //           ingredientHandling
+                        //               .addSelectedIngredient(ingredient);
+                        //         } else {
+                        //           ingredientHandling
+                        //               .removeSelectedIngredient(ingredient);
+                        //         }
+                        //       },
+                        //     );
+                        //   }
+                        // } else {
                         return IngredientTile(
                           text: ingredient.text,
                           imageUrl: ingredient.imageUrl,
@@ -178,6 +246,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
                             }
                           },
                         );
+                        // }
                       },
                     );
                   },

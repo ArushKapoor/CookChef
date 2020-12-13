@@ -2,7 +2,6 @@ import 'package:cook_chef/Models/AccountsList.dart';
 import 'package:cook_chef/Models/IngredientsHandler.dart';
 import 'package:cook_chef/Screens/FeedPage.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
-import 'package:cook_chef/Screens/Account/AccountSearchPage.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import 'package:cook_chef/Screens/Recipe/SelectedIngredientsPage.dart';
 import 'package:cook_chef/Widgets/DataSearch.dart';
@@ -48,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     final _size = MediaQuery.of(context).size.aspectRatio;
     var _height = MediaQuery.of(context).size.height;
     var _width = MediaQuery.of(context).size.width;
-    print(accountsList);
+    // print(accountsList[1].username);
     //networkingHelper.helper();
     return Scaffold(
       /* Setting up the app bar */
