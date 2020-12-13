@@ -19,7 +19,10 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    Navigator.pushNamed(context, HomePage.id);
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushNamed(context, HomePage.id);
+    });
+
     cardFront = AssetImage(
       'assets/icons/ingredients.png',
     );
@@ -28,6 +31,21 @@ class _SplashScreenState extends State<SplashScreen>
         vsync: this, duration: Duration(milliseconds: 300), value: 0);
     _imageController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 300), value: 0);
+    haveSomeAnimation();
+    _controller.addListener(() {
+      setState(() {});
+    });
+    _imageController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  void haveSomeAnimation() async {
+    await _imageController.forward();
+    await _controller.forward();
+    //setState(() => showFront = !showFront);
+    await _imageController.animateBack(0.7);
+    await _controller.reverse();
   }
 
   @override
@@ -50,16 +68,16 @@ class _SplashScreenState extends State<SplashScreen>
     final _height = MediaQuery.of(context).size.height;
     final _width = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: Column(
-      children: [
-        AnimatedBuilder(
-          animation: _controller,
-          //child: child,
-          builder: (BuildContext context, Widget child) {
-            return Transform(
-              transform: Matrix4.rotationY((_controller.value) * Math.pi / 2),
-              alignment: Alignment.center,
-              child: Container(
+      body: Column(
+        children: [
+          AnimatedBuilder(
+            animation: _controller,
+            //child: child,
+            builder: (BuildContext context, Widget child) {
+              return Transform(
+                transform: Matrix4.rotationY((_controller.value) * Math.pi / 2),
+                alignment: Alignment.center,
+                child: Container(
                   height: (MediaQuery.of(context).size.height - 130),
                   margin: EdgeInsets.only(top: 20),
                   alignment: Alignment.center,
@@ -67,24 +85,21 @@ class _SplashScreenState extends State<SplashScreen>
                     backgroundImage: showFront ? cardFront : cardBack,
                     radius: (_imageController.value) * _height * 0.08 +
                         _height * 0.03,
-                  )),
-            );
-          },
-        ),
-        FlatButton(
-          child: Text("flip me"),
-          onPressed: () async {
-            // Flip the image
-            await _imageController.forward();
-            await _controller.forward();
-            setState(() => showFront = !showFront);
-            await _imageController.animateBack(0.7);
-            await _controller.reverse();
+                  ),
+                ),
+              );
+            },
+          ),
+          FlatButton(
+            child: Text("flip me"),
+            onPressed: () async {
+              // Flip the image
 
-            setState(() {});
-          },
-        ),
-      ],
-    ));
+              // setState(() {});
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

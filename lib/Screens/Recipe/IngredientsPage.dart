@@ -83,7 +83,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
     //  Ingredients(
     //     text: '5 spice powder',
     //     imageUrl:
-    //         'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png'),
+    //         'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png', hindiText: 'namanste'),
     List ingredientsOld = context.read<IngredientsHandler>().ingredients;
     List<Ingredients> newList = [];
     for (int i = 0; i < 10; i++) {
