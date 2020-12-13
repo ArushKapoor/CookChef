@@ -20,7 +20,9 @@ class _HomePageState extends State<HomePage> {
   final tabs = [
     FeedPage(),
     IngredientsPage(),
-    AccountPage(),
+    AccountPage(
+      ownUser: true,
+    ),
   ];
 
   @override
