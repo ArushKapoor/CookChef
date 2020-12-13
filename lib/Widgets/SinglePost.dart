@@ -1,5 +1,4 @@
 import 'package:cook_chef/Models/AccountPageArgument.dart';
-import 'package:cook_chef/Models/AccountsList.dart';
 import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:cook_chef/Widgets/EditPost.dart';
@@ -65,9 +64,10 @@ class _SinglePostState extends State<SinglePost> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, AccountPage.id,
-                            arguments: AccountArgument(
-                                outerUserUid: widget.postUserUid));
+                        if (widget.onAccountPage != true)
+                          Navigator.pushNamed(context, AccountPage.id,
+                              arguments: AccountArgument(
+                                  outerUserUid: widget.postUserUid));
                       },
                       child: CircleAvatar(
                         radius: _width * 0.05,
@@ -82,9 +82,10 @@ class _SinglePostState extends State<SinglePost> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, AccountPage.id,
-                                arguments: AccountArgument(
-                                    outerUserUid: widget.postUserUid));
+                            if (widget.onAccountPage != true)
+                              Navigator.pushNamed(context, AccountPage.id,
+                                  arguments: AccountArgument(
+                                      outerUserUid: widget.postUserUid));
                           },
                           child: Text(widget.name,
                               style: TextStyle(
