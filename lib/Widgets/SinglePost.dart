@@ -71,6 +71,7 @@ class _SinglePostState extends State<SinglePost> {
                       },
                       child: CircleAvatar(
                         radius: _width * 0.05,
+                        backgroundColor: Colors.white,
                         backgroundImage: NetworkImage(widget.userImage),
                       ),
                     ),
@@ -115,6 +116,8 @@ class _SinglePostState extends State<SinglePost> {
                                 isScrollControlled: true,
                                 builder: (context) => EditPost(
                                   postId: widget.postId,
+                                  postImageUrl: widget.postImageUrl,
+                                  postText: widget.description,
                                 ),
                               );
                             },
@@ -137,7 +140,7 @@ class _SinglePostState extends State<SinglePost> {
                     // width: _width,
                     child: Center(
                       child: CachedNetworkImage(
-                        fit: BoxFit.contain,
+                        fit: BoxFit.cover,
                         placeholder: (context, url) =>
                             CircularProgressIndicator(
                                 valueColor: new AlwaysStoppedAnimation<Color>(

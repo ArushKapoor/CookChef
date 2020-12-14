@@ -7,8 +7,10 @@ import 'package:cook_chef/Models/Arguments.dart';
 
 class EditPost extends StatelessWidget {
   final String postId;
+  final String postText;
+  final String postImageUrl;
 
-  EditPost({this.postId});
+  EditPost({this.postId, this.postImageUrl, this.postText});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -35,7 +37,10 @@ class EditPost extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, UploadPage.id,
                         arguments: UploadPageArguments(
-                            toUpdate: true, postId: postId));
+                            toUpdate: true,
+                            postId: postId,
+                            postImageUrl: postImageUrl,
+                            postText: postText));
                   },
                   child: Container(
                     child: Row(

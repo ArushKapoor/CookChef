@@ -23,6 +23,7 @@ class IngredientTile extends StatelessWidget {
             radius: 21,
             backgroundColor: Colors.black,
             child: CircleAvatar(
+              backgroundColor: Colors.white,
               radius: 20,
               backgroundImage: NetworkImage(imageUrl),
             ),

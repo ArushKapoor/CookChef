@@ -145,6 +145,7 @@ class _AccountPageState extends State<AccountPage> {
                     children: <Widget>[
                       if (meraUserImage != null)
                         CircleAvatar(
+                          backgroundColor: Colors.white,
                           backgroundImage: NetworkImage(meraUserImage),
                           radius: _width * 0.15,
                         ),

@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int currentIndex = 0;
+  AssetImage cardImage;
   //NetworkingHelper networkingHelper = NetworkingHelper();
   AccountsList accounts = AccountsList();
   List<Accounts> accountsList = [];
@@ -33,7 +34,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    cardImage = AssetImage(
+      'assets/icons/logo.png',
+    );
     getAccounts();
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(cardImage, context);
+    super.didChangeDependencies();
   }
 
   getAccounts() async {
@@ -224,13 +234,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         body: tabs[currentIndex],
       ),
       IgnorePointer(
-        child: AnimationScreen(),
+        child: AnimationScreen(
+          cardImage: cardImage,
+        ),
       )
     ]);
   }
 }
 
 class AnimationScreen extends StatefulWidget {
+  final AssetImage cardImage;
+  AnimationScreen({this.cardImage});
   @override
   _AnimationScreenState createState() => _AnimationScreenState();
 }
@@ -240,17 +254,17 @@ class _AnimationScreenState extends State<AnimationScreen>
   AnimationController _controller;
   AnimationController _imageController;
   AnimationController _backscreenController;
-  AssetImage cardFront;
-  AssetImage cardBack;
+  // AssetImage cardFront;
+  // AssetImage cardBack;
   Animation<double> holeSize;
   bool showFront = true;
   @override
   void initState() {
     super.initState();
-    cardFront = AssetImage(
-      'assets/icons/logo.png',
-    );
-    cardBack = AssetImage('assets/icons/logo.png');
+    // cardFront = AssetImage(
+    //   'assets/icons/logo.png',
+    // );
+    // cardBack = AssetImage('assets/icons/logo.png');
     _controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 700), value: 0);
     _imageController = AnimationController(
@@ -291,13 +305,13 @@ class _AnimationScreenState extends State<AnimationScreen>
     });
   }
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  // @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
 
-    precacheImage(cardFront, context);
-    precacheImage(cardBack, context);
-  }
+  //   precacheImage(cardFront, context);
+  //   precacheImage(cardBack, context);
+  // }
 
   @override
   void dispose() {
@@ -337,7 +351,8 @@ class _AnimationScreenState extends State<AnimationScreen>
                   ),
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
-                    backgroundImage: showFront ? cardFront : cardBack,
+                    backgroundImage:
+                        showFront ? widget.cardImage : widget.cardImage,
                     radius: (_imageController.value) * _height * 0.08 +
                         _height * 0.03,
                   ),
