@@ -226,6 +226,7 @@ class _AccountPageState extends State<AccountPage> {
                               children: <Widget>[
                                 if (meraUserImage != null)
                                   CircleAvatar(
+                                      backgroundColor: Colors.white,
                                       backgroundImage:
                                           NetworkImage(meraUserImage),
                                       radius: _width * 0.06),
@@ -281,7 +282,7 @@ class FeedsStream extends StatelessWidget {
   FeedsStream({this.width, this.outerUseruid});
   @override
   Widget build(BuildContext context) {
-    String uid = context.watch<AuthenticationService>().uniqueId;
+    //String uid = context.watch<AuthenticationService>().uniqueId;
     return StreamBuilder<QuerySnapshot>(
         stream: _firestore.collection('feeds').orderBy('timestamp').snapshots(),
         builder: (context, snapshot) {
