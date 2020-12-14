@@ -237,32 +237,50 @@ class _AccountSettingsState extends State<AccountSettings> {
                     ),
                     Container(
                       padding: EdgeInsets.all(10.0),
-                      child: TextField(
-                        controller: _nameEditingController,
-                        autofocus: true,
-                        cursorColor: Colors.lightBlueAccent,
-                        cursorRadius: Radius.circular(3),
-                        textInputAction: TextInputAction.done,
-                        decoration: InputDecoration(
-                          hintText: meraUserName,
-                          labelText: 'Name',
-                          focusColor: Colors.lightBlueAccent,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Name',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          TextField(
+                            controller: _nameEditingController,
+                            autofocus: true,
+                            cursorColor: Colors.lightBlueAccent,
+                            cursorRadius: Radius.circular(3),
+                            textInputAction: TextInputAction.done,
+                            decoration: InputDecoration(
+                              hintText: meraUserName,
+                              // labelText: 'Name',
+                              focusColor: Colors.lightBlueAccent,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.all(10.0),
-                      child: TextField(
-                        controller: _bioEditingController,
-                        autofocus: true,
-                        cursorColor: Colors.lightBlueAccent,
-                        cursorRadius: Radius.circular(3),
-                        textInputAction: TextInputAction.done,
-                        decoration: InputDecoration(
-                          hintText: meraUserBio,
-                          labelText: 'Bio',
-                          focusColor: Colors.lightBlueAccent,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Bio',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          TextField(
+                            controller: _bioEditingController,
+                            autofocus: true,
+                            cursorColor: Colors.lightBlueAccent,
+                            cursorRadius: Radius.circular(3),
+                            textInputAction: TextInputAction.done,
+                            decoration: InputDecoration(
+                              hintText: meraUserBio,
+                              // labelText: 'Bio',
+                              focusColor: Colors.lightBlueAccent,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
@@ -279,8 +297,8 @@ class _AccountSettingsState extends State<AccountSettings> {
                         ),
                         child: MaterialButton(
                           onPressed: () async {
-                            if (_image != null &&
-                                _nameEditingController.text.isNotEmpty &&
+                            if (_image != null ||
+                                _nameEditingController.text.isNotEmpty ||
                                 _bioEditingController.text.isNotEmpty) {
                               setState(() {
                                 isVisible = true;

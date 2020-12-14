@@ -167,7 +167,7 @@ class _UploadPageState extends State<UploadPage> {
                           ),
                         ),
                       ),
-                      Icon(Icons.keyboard_arrow_down),
+                      // Icon(Icons.keyboard_arrow_down),
                     ],
                   ),
                   Expanded(
@@ -177,7 +177,7 @@ class _UploadPageState extends State<UploadPage> {
                             ? MainAxisAlignment.start
                             : MainAxisAlignment.end,
                         children: <Widget>[
-                          Flexible(
+                          Expanded(
                             child: Container(
                               margin: EdgeInsets.symmetric(horizontal: 5.0),
                               child: TextField(
@@ -187,8 +187,8 @@ class _UploadPageState extends State<UploadPage> {
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: (_image == null)
-                                        ? 'What\'s your recipe'
-                                        : 'Say something about this photo...'),
+                                        ? 'What\'s your recipe ?'
+                                        : 'Add recipe of your dish'),
                               ),
                             ),
                           ),
@@ -197,15 +197,17 @@ class _UploadPageState extends State<UploadPage> {
                     ),
                   ),
                   if (_image != null)
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(top: 5.0),
-                        child: Image.file(
-                          _image,
-                          fit: BoxFit.fitWidth,
-                        ),
+                    Container(
+                      height: 500,
+                      // margin: EdgeInsets.only(top: 5.0),
+                      child: Image.file(
+                        _image,
+                        fit: BoxFit.fitWidth,
                       ),
                     ),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 5.0),
                     decoration: BoxDecoration(
@@ -218,7 +220,7 @@ class _UploadPageState extends State<UploadPage> {
                         Expanded(
                           child: Container(
                             child: Text(
-                              'Add to your post',
+                              'Add to your recipe',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                   color: Colors.black, fontSize: 15.0),
@@ -229,10 +231,10 @@ class _UploadPageState extends State<UploadPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              Icon(
-                                Icons.video_call,
-                                size: 30.0,
-                              ),
+                              //Icon(
+                              //  Icons.video_call,
+                              //  size: 30.0,
+                              // ),
                               IconButton(
                                 icon: Icon(
                                   Icons.photo_library_outlined,
@@ -254,7 +256,7 @@ class _UploadPageState extends State<UploadPage> {
             ),
             if (isVisible)
               Opacity(
-                opacity: 0.60,
+                opacity: 0.6,
                 child: Container(
                   height: height,
                   width: width,
