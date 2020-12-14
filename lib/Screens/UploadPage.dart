@@ -85,6 +85,9 @@ class _UploadPageState extends State<UploadPage> {
         meraUserImage = user.get('imageLink');
       }
     }
+    if (args.toUpdate) {
+      _postController.text = args.postText;
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -124,7 +127,7 @@ class _UploadPageState extends State<UploadPage> {
                     }
                   },
                   child: Text(
-                    'Share',
+                    args.toUpdate ? 'Update' : 'Share',
                     style: TextStyle(fontSize: 15.0),
                   ),
                 ),
@@ -199,11 +202,13 @@ class _UploadPageState extends State<UploadPage> {
                   if (_image != null)
                     Container(
                       height: 500,
-                      // margin: EdgeInsets.only(top: 5.0),
-                      child: Image.file(
-                        _image,
-                        fit: BoxFit.fitWidth,
-                      ),
+                      margin: EdgeInsets.only(top: 5.0),
+                      child: (_image == null)
+                          ? NetworkImage(args.postImageUrl)
+                          : Image.file(
+                              _image,
+                              fit: BoxFit.fitWidth,
+                            ),
                     ),
                   SizedBox(
                     height: 50,

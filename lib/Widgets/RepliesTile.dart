@@ -25,6 +25,7 @@ class RepliesTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
+            backgroundColor: Colors.white,
             backgroundImage: NetworkImage(userImage),
           ),
           SizedBox(

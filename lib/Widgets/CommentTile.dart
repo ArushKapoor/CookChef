@@ -64,6 +64,7 @@ class _CommentTileState extends State<CommentTile> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
+                  backgroundColor: Colors.white,
                   backgroundImage: NetworkImage(widget.userImage),
                 ),
                 SizedBox(

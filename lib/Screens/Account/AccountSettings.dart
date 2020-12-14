@@ -202,6 +202,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                     Stack(
                       children: <Widget>[
                         CircleAvatar(
+                          backgroundColor: Colors.white,
                           backgroundImage: (_image == null)
                               ? NetworkImage(meraUserImage)
                               : FileImage(_image),
