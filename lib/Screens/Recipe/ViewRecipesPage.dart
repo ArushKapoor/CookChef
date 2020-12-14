@@ -114,15 +114,13 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                                 .recipeById(args.recipeList[index].id);
                             // ingredientsAndSteps[2] =
                             //     args.recipeList[index].recipeImageUrl;
-                            ingredientsAndSteps
-                                .add(args.recipeList[index].recipeImageUrl);
+
                             // print(args.recipeList[index].recipeImageUrl);
                             // ingredientsAndSteps[3] =
                             //     args.recipeList[index].recipeName;
                             //print(args.recipeList[index].recipeName);
                             //print(ingredientsAndSteps);
-                            ingredientsAndSteps
-                                .add(args.recipeList[index].recipeName);
+
                             setState(() {
                               isVisible = false;
                             });
@@ -130,7 +128,11 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
                               context,
                               MakeRecipesPage.id,
                               arguments: RecipeArgument(
-                                  ingredientAndSteps: ingredientsAndSteps),
+                                  ingredientAndSteps: ingredientsAndSteps,
+                                  recipeImage:
+                                      args.recipeList[index].recipeImageUrl,
+                                  recipeName:
+                                      args.recipeList[index].recipeName),
                             );
                           },
                           child: Column(
@@ -173,5 +175,6 @@ class _ViewRecipesPageState extends State<ViewRecipesPage> {
 
 class RecipeArgument {
   List ingredientAndSteps;
-  RecipeArgument({this.ingredientAndSteps});
+  String recipeName, recipeImage;
+  RecipeArgument({this.ingredientAndSteps, this.recipeImage, this.recipeName});
 }

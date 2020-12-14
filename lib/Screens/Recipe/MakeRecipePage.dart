@@ -73,7 +73,7 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
               margin: EdgeInsets.only(bottom: 15.0),
               // child: Text(args.ingredientAndSteps[3]),
               child: Text(
-                args.ingredientAndSteps[3],
+                args.recipeName,
                 style: TextStyle(
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ class _MakeRecipesPageState extends State<MakeRecipesPage> {
               margin: EdgeInsets.only(bottom: 25.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
-                child: Image.network(args.ingredientAndSteps[2]),
+                child: Image.network(args.recipeImage),
               ),
             ),
             Container(

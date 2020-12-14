@@ -1,4 +1,6 @@
+import 'package:cook_chef/Models/AccountPageArgument.dart';
 import 'package:cook_chef/Models/CommentsTextFeild.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
 import 'package:cook_chef/Widgets/EditPost.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,7 +10,7 @@ import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'package:provider/provider.dart';
 
 class SinglePost extends StatefulWidget {
-  final String name, time, description;
+  final String name, time, description, postUserUid;
   final int comments, likes;
   final double width;
   final String userImage;
@@ -29,7 +31,8 @@ class SinglePost extends StatefulWidget {
       this.userImage,
       this.liked,
       this.likesMap,
-      this.onAccountPage});
+      this.onAccountPage,
+      this.postUserUid});
 
   @override
   _SinglePostState createState() => _SinglePostState();
@@ -59,9 +62,17 @@ class _SinglePostState extends State<SinglePost> {
                     SizedBox(
                       width: _width * 0.02,
                     ),
-                    CircleAvatar(
-                      radius: _width * 0.05,
-                      backgroundImage: NetworkImage(widget.userImage),
+                    GestureDetector(
+                      onTap: () {
+                        if (widget.onAccountPage != true)
+                          Navigator.pushNamed(context, AccountPage.id,
+                              arguments: AccountArgument(
+                                  outerUserUid: widget.postUserUid));
+                      },
+                      child: CircleAvatar(
+                        radius: _width * 0.05,
+                        backgroundImage: NetworkImage(widget.userImage),
+                      ),
                     ),
                     SizedBox(
                       width: _width * 0.01,
@@ -69,11 +80,19 @@ class _SinglePostState extends State<SinglePost> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(widget.name,
-                            style: TextStyle(
-                                fontSize: _height * 0.02,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black)),
+                        GestureDetector(
+                          onTap: () {
+                            if (widget.onAccountPage != true)
+                              Navigator.pushNamed(context, AccountPage.id,
+                                  arguments: AccountArgument(
+                                      outerUserUid: widget.postUserUid));
+                          },
+                          child: Text(widget.name,
+                              style: TextStyle(
+                                  fontSize: _height * 0.02,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black)),
+                        ),
                         Text(
                           correctTime(widget.time),
                           style: TextStyle(

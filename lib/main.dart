@@ -9,6 +9,7 @@ import 'package:cook_chef/Screens/Recipe/MakeRecipePage.dart';
 import 'package:cook_chef/Screens/NotificationsPage.dart';
 import 'package:cook_chef/Screens/Authentication/UpdateEmail.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
+import 'package:cook_chef/Screens/SplashScreen.dart';
 import 'package:cook_chef/Widgets/MessagingWidget.dart';
 import 'Screens/UploadPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
 
         /* Creating routes for different pages */
         routes: {
+          SplashScreen.id: (context) => SplashScreen(),
           HomePage.id: (context) => HomePage(),
           AccountSearchPage.id: (context) => AccountSearchPage(),
           IngredientsPage.id: (context) => IngredientsPage(),
@@ -102,6 +104,7 @@ class AuthenticationWrapper extends StatelessWidget {
     User auth = FirebaseAuth.instance.currentUser;
     //context.watch<AuthenticationService>().reloadUser();
     if (user != null && auth.emailVerified) {
+      // return SplashScreen();
       return HomePage();
     } else {
       return Login();
