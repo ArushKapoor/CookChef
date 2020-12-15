@@ -1,5 +1,6 @@
 import 'package:cook_chef/Models/AccountPageArgument.dart';
 import 'package:cook_chef/Models/Arguments.dart';
+import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:cook_chef/Screens/Account/AccountSettings.dart';
 import 'package:cook_chef/Screens/Recipe/IngredientsPage.dart';
 import 'package:cook_chef/Screens/UploadPage.dart';
@@ -128,6 +129,9 @@ class _AccountPageState extends State<AccountPage> {
                 onTap: (index) {
                   setState(() {
                     currentIndex = index;
+                    Provider.of<TextFeildToggler>(context, listen: false)
+                        .currentIndex = index;
+                    Navigator.pop(context);
                   });
                 },
               ),

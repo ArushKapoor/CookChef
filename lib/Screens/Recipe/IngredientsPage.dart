@@ -24,7 +24,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
 
   TextEditingController _searchController = TextEditingController();
 
-  final translator = GoogleTranslator();
+  // final translator = GoogleTranslator();
   String text;
 
   @override
@@ -32,7 +32,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
     super.initState();
     _searchController.addListener(_onSearchChanged);
     searchResults();
-    translate();
+    // translate();
   }
 
   @override
@@ -68,42 +68,42 @@ class _IngredientsPageState extends State<IngredientsPage> {
     });
   }
 
-  Future translate() async {
-    // print('It Started');
-    // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
-    //   print(value);
-    // });
-    // var translate = '';
-    // // await translator.translate(text, from: 'en', to: 'hi').then((value) {
-    // //   translate = value;
-    // // });
-    // // setState(() {
-    // //   this.text = translate.toString();
-    // //   print(this.text);
-    // // });
-    //  Ingredients(
-    //     text: '5 spice powder',
-    //     imageUrl:
-    //         'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png', hindiText: 'namanste'),
-    List ingredientsOld = context.read<IngredientsHandler>().ingredients;
-    List<Ingredients> newList = [];
-    for (int i = 0; i < 20; i++) {
-      Ingredients ingredient = ingredientsOld[i];
-      await translator
-          .translate(ingredient.text, from: 'en', to: 'hi')
-          .then((value) {
-        newList.add(Ingredients(
-            text: ingredient.text,
-            imageUrl: ingredient.imageUrl,
-            hindiText: value.text));
-      });
-    }
-    print(newList);
-    // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
-    //   print(value);
-    // });
-    return translate.toString();
-  }
+  // Future translate() async {
+  //   // print('It Started');
+  //   // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
+  //   //   print(value);
+  //   // });
+  //   // var translate = '';
+  //   // // await translator.translate(text, from: 'en', to: 'hi').then((value) {
+  //   // //   translate = value;
+  //   // // });
+  //   // // setState(() {
+  //   // //   this.text = translate.toString();
+  //   // //   print(this.text);
+  //   // // });
+  //   //  Ingredients(
+  //   //     text: '5 spice powder',
+  //   //     imageUrl:
+  //   //         'http://spoonacular.com/cdn/ingredients_100x100/chinese-five-spice-powder.png', hindiText: 'namanste'),
+  //   List ingredientsOld = context.read<IngredientsHandler>().ingredients;
+  //   List<Ingredients> newList = [];
+  //   for (int i = 0; i < 20; i++) {
+  //     Ingredients ingredient = ingredientsOld[i];
+  //     await translator
+  //         .translate(ingredient.text, from: 'en', to: 'hi')
+  //         .then((value) {
+  //       newList.add(Ingredients(
+  //           text: ingredient.text,
+  //           imageUrl: ingredient.imageUrl,
+  //           hindiText: value.text));
+  //     });
+  //   }
+  //   print(newList);
+  //   // await translator.translate('Hello', from: 'en', to: 'hi').then((value) {
+  //   //   print(value);
+  //   // });
+  //   return translate.toString();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -204,7 +204,6 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       itemCount: _resultsList.length,
                       itemBuilder: (context, index) {
                         final ingredient = _resultsList[index];
-                        String text = ingredient.text;
                         // if (isHindi) translate();
                         // if (isHindi) {
                         //   text = translate(text).toString();
@@ -231,7 +230,9 @@ class _IngredientsPageState extends State<IngredientsPage> {
                         //   }
                         // } else {
                         return IngredientTile(
-                          text: ingredient.text,
+                          text: (isHindi)
+                              ? ingredient.hindiText
+                              : ingredient.text,
                           imageUrl: ingredient.imageUrl,
                           isChecked: ingredient.isChecked,
                           isSelectedIngredient: false,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class TextFeildToggler extends ChangeNotifier {
+  int currentIndex = 0;
   bool replyOrComment = false;
   String commentId = '';
   String replyingTo = '';
@@ -13,6 +14,11 @@ class TextFeildToggler extends ChangeNotifier {
     this.commentId = commentId;
     this.replyingTo = replyingTo;
     this.replyCount = replyCount;
+    notifyListeners();
+  }
+
+  void changeIndex(int currentIndex) {
+    this.currentIndex = currentIndex;
     notifyListeners();
   }
 }

@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cook_chef/Widgets/HolePainter.dart';
 import 'dart:math' as Math;
-
+import 'package:cook_chef/Models/CommentsTextFeild.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  int currentIndex = 0;
   AssetImage cardImage;
   //NetworkingHelper networkingHelper = NetworkingHelper();
   AccountsList accounts = AccountsList();
@@ -78,7 +77,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     colors: <Color>[Color(0xff088378), Color(0xff00AC58)])),
           ),
           actions: <Widget>[
-            if (currentIndex == 0)
+            if (Provider.of<TextFeildToggler>(context, listen: false)
+                    .currentIndex ==
+                0)
               Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: IconButton(
@@ -92,7 +93,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   },
                 ),
               ),
-            if (currentIndex == 1)
+            if (Provider.of<TextFeildToggler>(context, listen: false)
+                    .currentIndex ==
+                1)
               Container(
                 margin: EdgeInsets.only(right: 10.0),
                 child: Center(
@@ -187,12 +190,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           unselectedItemColor: Colors.black,
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
+          currentIndex: Provider.of<TextFeildToggler>(context, listen: false)
+              .currentIndex,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: (currentIndex == 0)
+              icon: (Provider.of<TextFeildToggler>(context, listen: false)
+                          .currentIndex ==
+                      0)
                   ? Icon(
                       Icons.home,
                       size: _size * 60,
@@ -204,7 +210,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: (currentIndex == 1)
+              icon: (Provider.of<TextFeildToggler>(context, listen: false)
+                          .currentIndex ==
+                      1)
                   ? Image.asset(
                       'assets/icons/filledIngredient.png',
                       height: _size * 50,
@@ -216,7 +224,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               label: 'Let\'s Cook',
             ),
             BottomNavigationBarItem(
-              icon: (currentIndex != 2)
+              icon: (Provider.of<TextFeildToggler>(context, listen: false)
+                          .currentIndex !=
+                      2)
                   ? Icon(
                       Icons.account_circle_outlined,
                       size: _size * 60,
@@ -230,13 +240,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ],
           onTap: (index) {
             setState(() {
-              currentIndex = index;
+              Provider.of<TextFeildToggler>(context, listen: false)
+                  .currentIndex = index;
             });
           },
         ),
 
         /* Creating Safe Area so that the content stays inside the screen */
-        body: tabs[currentIndex],
+        body: tabs[
+            Provider.of<TextFeildToggler>(context, listen: false).currentIndex],
       ),
       IgnorePointer(
         child: AnimationScreen(
