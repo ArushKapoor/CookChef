@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cook_chef/Models/AccountPageArgument.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
 
 class RepliesTile extends StatelessWidget {
   final String username;
@@ -6,14 +8,16 @@ class RepliesTile extends StatelessWidget {
   final String commentId;
   final String postId;
   final String userImage;
-
-  RepliesTile({
-    this.username,
-    this.comment,
-    this.commentId,
-    this.postId,
-    this.userImage,
-  });
+  final String replyingUserId;
+  final bool onAccountPage;
+  RepliesTile(
+      {this.username,
+      this.comment,
+      this.commentId,
+      this.postId,
+      this.userImage,
+      this.replyingUserId,
+      this.onAccountPage});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +38,17 @@ class RepliesTile extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                username,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              GestureDetector(
+                onTap: () {
+                  if (onAccountPage != true)
+                    Navigator.pushNamed(context, AccountPage.id,
+                        arguments:
+                            AccountArgument(outerUserUid: replyingUserId));
+                },
+                child: Text(
+                  username,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
               ),
               SizedBox(
                 height: 5,

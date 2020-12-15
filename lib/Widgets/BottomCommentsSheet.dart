@@ -12,10 +12,16 @@ final _firebaseFirestore = FirebaseFirestore.instance;
 
 class BottomCommentsSheetBuilder extends StatelessWidget {
   final String postId;
+  final String postUserid;
   final int commentsCount;
+  final bool onAccountPage;
   final bool isThisUser;
   BottomCommentsSheetBuilder(
-      {this.postId, this.commentsCount, this.isThisUser});
+      {this.postId,
+      this.commentsCount,
+      this.isThisUser,
+      this.postUserid,
+      this.onAccountPage});
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -45,6 +51,7 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
               CommentsStream(
                 postId: postId,
                 isThisUser: isThisUser,
+                onAccountPage: onAccountPage,
               ),
               ToggledTextFeild(
                 commentsCount: commentsCount,
@@ -66,7 +73,8 @@ class BottomCommentsSheetBuilder extends StatelessWidget {
 class CommentsStream extends StatelessWidget {
   final String postId;
   final bool isThisUser;
-  CommentsStream({this.postId, this.isThisUser});
+  final bool onAccountPage;
+  CommentsStream({this.postId, this.isThisUser, this.onAccountPage});
   @override
   Widget build(BuildContext context) {
     String uid = context.watch<AuthenticationService>().uniqueId;
@@ -93,6 +101,7 @@ class CommentsStream extends StatelessWidget {
             final mycomment = comment.get('comment');
             final commentUserId = comment.get('uid');
             final repliesCount = comment.get('replyCount');
+
             QuerySnapshot snapshots = context.watch<QuerySnapshot>();
             String meraUserImage, meraUserName;
             int nOfLikes = likes['likes'];
@@ -119,6 +128,8 @@ class CommentsStream extends StatelessWidget {
                 likesMap: likes,
                 isThisUser: isThisUser,
                 replyCount: repliesCount,
+                commentUserId: commentUserId,
+                onAccountPage: onAccountPage,
                 deletingCommentCallback: () async {
                   await context
                       .read<CloudFirestore>()
