@@ -261,11 +261,9 @@ class _UploadPageState extends State<UploadPage> {
             ),
             if (isVisible)
               Opacity(
-                opacity: 0.6,
+                opacity: 0.5,
                 child: Container(
-                  height: height,
-                  width: width,
-                ),
+                    height: height, width: width, color: Colors.black),
               ),
             if (isVisible)
               Center(

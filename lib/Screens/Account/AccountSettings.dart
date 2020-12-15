@@ -202,7 +202,6 @@ class _AccountSettingsState extends State<AccountSettings> {
                     Stack(
                       children: <Widget>[
                         CircleAvatar(
-                          backgroundColor: Colors.white,
                           backgroundImage: (_image == null)
                               ? NetworkImage(meraUserImage)
                               : FileImage(_image),
@@ -287,8 +286,8 @@ class _AccountSettingsState extends State<AccountSettings> {
                     SizedBox(
                       height: _height * 0.05,
                     ),
-                    if (_image != null &&
-                        _nameEditingController.text.isNotEmpty &&
+                    if (_image != null ||
+                        _nameEditingController.text.isNotEmpty ||
                         _bioEditingController.text.isNotEmpty)
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 8.0),
