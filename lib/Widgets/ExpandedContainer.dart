@@ -11,12 +11,14 @@ class ExpandableContainer extends StatelessWidget {
   final String commentId;
   final String postId;
   final int replyCount;
+  final bool onAccountPage;
   ExpandableContainer(
       {this.expanded,
       this.postId,
       this.commentId,
       this.username,
-      this.replyCount});
+      this.replyCount,
+      this.onAccountPage});
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,8 @@ class ExpandableContainer extends StatelessWidget {
                     postId: postId,
                     userImage: meraUserImage,
                     username: meraUserName,
+                    replyingUserId: userUid,
+                    onAccountPage: onAccountPage,
                   ),
                 );
               }

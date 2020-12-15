@@ -204,6 +204,8 @@ class _SinglePostState extends State<SinglePost> {
                               postId: widget.postId,
                               commentsCount: widget.comments,
                               isThisUser: widget.onAccountPage,
+                              postUserid: widget.postUserUid,
+                              onAccountPage: widget.onAccountPage,
                             ),
                           );
                         },

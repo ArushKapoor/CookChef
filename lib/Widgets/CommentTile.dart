@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cook_chef/Firestore/CloudFirestore.dart';
 import 'ExpandedContainer.dart';
 import 'package:cook_chef/Models/CommentsTextFeild.dart';
+import 'package:cook_chef/Screens/Account/AccountPage.dart';
+import 'package:cook_chef/Models/AccountPageArgument.dart';
 
 class CommentTile extends StatefulWidget {
   final String username;
@@ -15,13 +17,17 @@ class CommentTile extends StatefulWidget {
   final bool liked;
   final Map likesMap;
   final bool isThisUser;
+  final String commentUserId;
   final int replyCount;
+  final bool onAccountPage;
   final Function deletingCommentCallback;
   CommentTile(
       {this.username,
+      this.onAccountPage,
       this.comment,
       this.commentId,
       this.likes,
+      this.commentUserId,
       this.postId,
       this.userImage,
       this.liked,
@@ -63,9 +69,17 @@ class _CommentTileState extends State<CommentTile> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: NetworkImage(widget.userImage),
+                GestureDetector(
+                  onTap: () {
+                    if (widget.onAccountPage != true)
+                      Navigator.pushNamed(context, AccountPage.id,
+                          arguments: AccountArgument(
+                              outerUserUid: widget.commentUserId));
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(widget.userImage),
+                  ),
                 ),
                 SizedBox(
                   width: 8.0,
@@ -73,10 +87,18 @@ class _CommentTileState extends State<CommentTile> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.username,
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    GestureDetector(
+                      onTap: () {
+                        if (widget.onAccountPage != true)
+                          Navigator.pushNamed(context, AccountPage.id,
+                              arguments: AccountArgument(
+                                  outerUserUid: widget.commentUserId));
+                      },
+                      child: Text(
+                        widget.username,
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w600),
+                      ),
                     ),
                     SizedBox(
                       height: 5,
@@ -186,6 +208,7 @@ class _CommentTileState extends State<CommentTile> {
             commentId: widget.commentId,
             username: widget.username,
             replyCount: widget.replyCount,
+            onAccountPage: widget.onAccountPage,
           ),
           Container(
             height: 1,
