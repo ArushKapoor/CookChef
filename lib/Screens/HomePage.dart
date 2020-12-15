@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:cook_chef/Widgets/HolePainter.dart';
 import 'dart:math' as Math;
 
+import 'package:provider/provider.dart';
+
 class HomePage extends StatefulWidget {
   static const String id = 'home_page';
   @override
@@ -96,7 +98,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
-                      if (IngredientsHandler().selectedIngredients.length ==
+                      if (Provider.of<IngredientsHandler>(context,
+                                  listen: false)
+                              .selectedIngredients
+                              .length ==
                           0) {
                         showDialog(
                           context: context,
