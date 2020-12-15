@@ -232,7 +232,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         fit: BoxFit.fill)),
                                 child: Padding(
                                   padding: EdgeInsets.only(
-                                      top: width * 0.3, left: width * 0.2),
+                                      top: width * 0.2, left: width * 0.35),
                                   child: Text('Welcome to ChefGuru!',
                                       style: TextStyle(
                                           fontSize: height * 0.045,

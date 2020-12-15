@@ -63,8 +63,63 @@ class EditPost extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    await context.read<CloudFirestore>().deletePost(postId);
-                    Navigator.pop(context);
+                    // await context.read<CloudFirestore>().deletePost(postId);
+                    // Navigator.pop(context);
+                    showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
+                        ),
+
+                        content: Builder(
+                          builder: (context) {
+                            return Container(
+                              height: _height * 0.2,
+                              width: _width * 0.3,
+                              child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Text('Do you want to delete this post?'),
+                                    Column(
+                                      children: [
+                                        GestureDetector(
+                                          child: Text('Yes'),
+                                          onTap: () async {
+                                            await context
+                                                .read<CloudFirestore>()
+                                                .deletePost(postId);
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        GestureDetector(
+                                            child: Text('No'),
+                                            onTap: () async {
+                                              Navigator.pop(context);
+                                            }),
+                                      ],
+                                    )
+                                  ]),
+                            );
+                          },
+                        ),
+                        // actions: <Widget>[
+                        //   FlatButton(
+                        //     onPressed: () {
+                        //       Navigator.of(ctx).pop();
+                        //     },
+                        //     child: Text("Okay"),
+                        //   ),
+                        // ],
+                      ),
+                    );
                   },
                   child: Container(
                     child: Row(
