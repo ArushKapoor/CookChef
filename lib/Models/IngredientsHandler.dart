@@ -594,4578 +594,4596 @@ class IngredientsHandler extends ChangeNotifier {
     Ingredients(
       text: 'canned diced tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बाबंद टमाटरडिब्बाबंद गार्बनो बीन्स',
+      hindiText: 'डिब्बाबंद टमाटर',
     ),
     Ingredients(
       text: 'canned garbanzo beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बाबंद हरी मिर्च',
+      hindiText: 'डिब्बाबंद गार्बनो बीन्स',
     ),
     Ingredients(
       text: 'canned green chiles',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बाबंद किडनी बीन्स',
+      hindiText: 'डिब्बाबंद हरी मिर्च',
     ),
     Ingredients(
       text: 'canned kidney beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बाबंद मशरूम',
+      hindiText: 'डिब्बाबंद किडनी बीन्स',
     ),
     Ingredients(
       text: 'canned mushrooms',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बाबंद पिंटो बीन्स',
+      hindiText: 'डिब्बाबंद मशरूम',
     ),
     Ingredients(
       text: 'canned pinto beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'कैन्ड रेड किडनी बीन्स',
+      hindiText: 'डिब्बाबंद पिंटो बीन्स',
     ),
     Ingredients(
       text: 'canned red kidney beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बा बंद टमाटर',
+      hindiText: 'कैन्ड रेड किडनी बीन्स',
     ),
     Ingredients(
       text: 'canned tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'डिब्बाबंद ट्यूना',
+      hindiText: 'डिब्बा बंद टमाटर',
     ),
     Ingredients(
       text: 'canned tuna',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'कैन्ड व्हाइट बीन्स',
+      hindiText: 'डिब्बाबंद ट्यूना',
     ),
     Ingredients(
       text: 'canned white beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'कैन्ड वाइट कैननेलिनी बीन्स',
+      hindiText: 'कैन्ड व्हाइट बीन्स',
     ),
     Ingredients(
       text: 'canned white cannellini beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'कैनेल्लिनी सेम',
+      hindiText: 'कैन्ड वाइट कैननेलिनी बीन्स',
     ),
     Ingredients(
       text: 'cannellini beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'खरबूजा',
+      hindiText: 'कैनेल्लिनी सेम',
     ),
     Ingredients(
       text: 'cantaloupe',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cantaloupe.png',
-      hindiText: 'केपर्स',
+      hindiText: 'खरबूजा',
     ),
     Ingredients(
       text: 'capers',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/capers.jpg',
-      hindiText: 'कारमेल सॉस',
+      hindiText: 'केपर्स',
     ),
     Ingredients(
       text: 'caramel sauce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/soft-caramels.jpg',
-      hindiText: 'Caramels',
+      hindiText: 'कारमेल सॉस',
     ),
     Ingredients(
       text: 'caramels',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/soft-caramels.jpg',
-      hindiText: 'काले ज़ीरे के बीज',
+      hindiText: 'Caramels',
     ),
     Ingredients(
       text: 'caraway seed',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/caraway-seeds.jpg',
-      hindiText: 'इलायची',
+      hindiText: 'काले ज़ीरे के बीज',
     ),
     Ingredients(
       text: 'cardamom',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cardamom.jpg',
-      hindiText: 'इलायची की फलियां',
+      hindiText: 'इलायची',
     ),
     Ingredients(
       text: 'cardamom pods',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cardamom.jpg',
-      hindiText: 'कार्प',
+      hindiText: 'इलायची की फलियां',
     ),
     Ingredients(
       text: 'carp',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fish-fillet.jpg',
-      hindiText: 'गाजर',
+      hindiText: 'कार्प',
     ),
     Ingredients(
       text: 'carrots',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sliced-carrot.png',
-      hindiText: 'कैट फिश फिलैट',
+      hindiText: 'गाजर',
     ),
     Ingredients(
       text: 'cat fish filets',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/catfish.jpg',
-      hindiText: 'गोभी',
+      hindiText: 'कैट फिश फिलैट',
     ),
     Ingredients(
       text: 'cauliflower',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cauliflower.jpg',
-      hindiText: 'फूलगोभी के फूल',
+      hindiText: 'गोभी',
     ),
     Ingredients(
       text: 'cauliflower florets',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cauliflower.jpg',
-      hindiText: 'गोभी का पुलाव',
+      hindiText: 'फूलगोभी के फूल',
     ),
     Ingredients(
       text: 'cauliflower rice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cauliflower.jpg',
-      hindiText: 'अजवायन',
+      hindiText: 'गोभी का पुलाव',
     ),
     Ingredients(
       text: 'celery',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg',
-      hindiText: 'अजवाइन की पसलियां',
+      hindiText: 'अजवायन',
     ),
     Ingredients(
       text: 'celery ribs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg',
-      hindiText: 'अजवाइन की जड़',
+      hindiText: 'अजवाइन की पसलियां',
     ),
     Ingredients(
       text: 'celery root',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg',
-      hindiText: 'सेलेरी लवण',
+      hindiText: 'अजवाइन की जड़',
     ),
     Ingredients(
       text: 'celery salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg',
-      hindiText: 'अजमोदा के बीज',
+      hindiText: 'सेलेरी लवण',
     ),
     Ingredients(
       text: 'celery seed',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/celery.jpg',
-      hindiText: 'अनाज',
+      hindiText: 'अजमोदा के बीज',
     ),
     Ingredients(
       text: 'cereal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rice-crispy-cereal.png',
-      hindiText: 'शँपेन',
+      hindiText: 'अनाज',
     ),
     Ingredients(
       text: 'champagne',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/champagne.png',
-      hindiText: 'चना दाल',
+      hindiText: 'शँपेन',
     ),
     Ingredients(
       text: 'chana dal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/bengal-gram.png',
-      hindiText: 'छेददार',
+      hindiText: 'चना दाल',
     ),
     Ingredients(
       text: 'cheddar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'पनीर',
+      hindiText: 'छेददार',
     ),
     Ingredients(
       text: 'cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'पनीर दही',
+      hindiText: 'पनीर',
     ),
     Ingredients(
       text: 'cheese curds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'पनीर डुबकी',
+      hindiText: 'पनीर दही',
     ),
     Ingredients(
       text: 'cheese dip',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'पनीर सूप',
+      hindiText: 'पनीर डुबकी',
     ),
     Ingredients(
       text: 'cheese soup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'पनीर टर्टलिनि',
+      hindiText: 'पनीर सूप',
     ),
     Ingredients(
       text: 'cheese tortellini',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'चेरी',
+      hindiText: 'पनीर टर्टलिनि',
     ),
     Ingredients(
       text: 'cherry',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cherries.jpg',
-      hindiText: 'चेरी टमाटर',
+      hindiText: 'चेरी',
     ),
     Ingredients(
       text: 'cherry tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cherries.jpg',
-      hindiText: 'अखरोट',
+      hindiText: 'चेरी टमाटर',
     ),
     Ingredients(
       text: 'chestnuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/chestnuts.jpg',
-      hindiText: 'चिया बीज',
+      hindiText: 'अखरोट',
     ),
     Ingredients(
       text: 'chia seeds',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/chia-seeds.jpg',
-      hindiText: 'चिकन बेस',
+      hindiText: 'चिया बीज',
     ),
     Ingredients(
       text: 'chicken base',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन गुलदस्ता',
+      hindiText: 'चिकन बेस',
     ),
     Ingredients(
       text: 'chicken bouillon',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन बुलेनो ग्रेन्स',
+      hindiText: 'चिकन गुलदस्ता',
     ),
     Ingredients(
       text: 'chicken bouillon granules',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन ब्रेस्ट',
+      hindiText: 'चिकन बुलेनो ग्रेन्स',
     ),
     Ingredients(
       text: 'chicken breasts',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'मुर्गा शोर्बा',
+      hindiText: 'चिकन ब्रेस्ट',
     ),
     Ingredients(
       text: 'chicken broth',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'इसलिए हीप्स्टर',
+      hindiText: 'मुर्गा शोर्बा',
     ),
     Ingredients(
       text: 'chicken drumsticks',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'मुगाॅ की टांग',
+      hindiText: 'इसलिए हीप्स्टर',
     ),
     Ingredients(
       text: 'chicken legs',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन के टुकड़े',
+      hindiText: 'मुगाॅ की टांग',
     ),
     Ingredients(
       text: 'chicken pieces',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन सॉसेज',
+      hindiText: 'चिकन के टुकड़े',
     ),
     Ingredients(
       text: 'chicken sausage',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन स्टॉक',
+      hindiText: 'चिकन सॉसेज',
     ),
     Ingredients(
       text: 'chicken stock',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन टेंडर्स',
+      hindiText: 'चिकन स्टॉक',
     ),
     Ingredients(
       text: 'chicken tenders',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन जांघ',
+      hindiText: 'चिकन टेंडर्स',
     ),
     Ingredients(
       text: 'chicken thighs',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिकन विंग्स',
+      hindiText: 'चिकन जांघ',
     ),
     Ingredients(
       text: 'chicken wings',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'काबुली चना',
+      hindiText: 'चिकन विंग्स',
     ),
     Ingredients(
       text: 'chickpea',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'चिली लहसुन सॉस',
+      hindiText: 'काबुली चना',
     ),
     Ingredients(
       text: 'chile garlic sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'मिर्च पेस्ट',
+      hindiText: 'चिली लहसुन सॉस',
     ),
     Ingredients(
       text: 'chili paste',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'मिर्च',
+      hindiText: 'मिर्च पेस्ट',
     ),
     Ingredients(
       text: 'chili peppers',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'मिर्च पाउडर',
+      hindiText: 'मिर्च',
     ),
     Ingredients(
       text: 'chili powder',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'चिली सॉस',
+      hindiText: 'मिर्च पाउडर',
     ),
     Ingredients(
       text: 'chili sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'चिपोटल चिल्ड इन एडोबो',
+      hindiText: 'चिली सॉस',
     ),
     Ingredients(
       text: 'chipotle chiles in adobo',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chile-chipotle.jpg',
-      hindiText: 'चिपोटी मिर्च',
+      hindiText: 'चिपोटल चिल्ड इन एडोबो',
     ),
     Ingredients(
       text: 'chipotle chilies',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chile-chipotle.jpg',
-      hindiText: 'एडोबो में चिपोटल पेपर्स',
+      hindiText: 'चिपोटी मिर्च',
     ),
     Ingredients(
       text: 'chipotle peppers in adobo',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chile-chipotle.jpg',
-      hindiText: 'chive और प्याज क्रीम पनीर प्रसार',
+      hindiText: 'एडोबो में चिपोटल पेपर्स',
     ),
     Ingredients(
       text: 'chive & onion cream cheese spread',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-chives.jpg',
-      hindiText: 'चॉकलेट',
+      hindiText: 'chive और प्याज क्रीम पनीर प्रसार',
     ),
     Ingredients(
       text: 'chocolate',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट चिप कुकीज',
+      hindiText: 'चॉकलेट',
     ),
     Ingredients(
       text: 'chocolate chip cookies',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट चंक्स',
+      hindiText: 'चॉकलेट चिप कुकीज',
     ),
     Ingredients(
       text: 'chocolate chunks',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट आइसक्रीम',
+      hindiText: 'चॉकलेट चंक्स',
     ),
     Ingredients(
       text: 'chocolate ice cream',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट दूध',
+      hindiText: 'चॉकलेट आइसक्रीम',
     ),
     Ingredients(
       text: 'chocolate milk',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट सैंडविच कुकीज़',
+      hindiText: 'चॉकलेट दूध',
     ),
     Ingredients(
       text: 'chocolate sandwich cookies',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट सीरप',
+      hindiText: 'चॉकलेट सैंडविच कुकीज़',
     ),
     Ingredients(
       text: 'chocolate syrup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चॉकलेट वेफर कुकीज़',
+      hindiText: 'चॉकलेट सीरप',
     ),
     Ingredients(
       text: 'chocolate wafer cookies',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-chocolate.jpg',
-      hindiText: 'चोरिजो सॉसेज',
+      hindiText: 'चॉकलेट वेफर कुकीज़',
     ),
     Ingredients(
       text: 'chorizo sausage',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/chorizo.jpg',
-      hindiText: 'साइडर सिरका',
+      hindiText: 'चोरिजो सॉसेज',
     ),
     Ingredients(
       text: 'cider vinegar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/apple-cider-vinegar.jpg',
-      hindiText: 'धनिया',
+      hindiText: 'साइडर सिरका',
     ),
     Ingredients(
       text: 'cilantro',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cilantro.png',
-      hindiText: 'दालचीनी रोल',
+      hindiText: 'धनिया',
     ),
     Ingredients(
       text: 'cinnamon roll',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg',
-      hindiText: 'दालचीनी',
+      hindiText: 'दालचीनी रोल',
     ),
     Ingredients(
       text: 'cinnamon stick',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg',
-      hindiText: 'दालचीनी शक्कर',
+      hindiText: 'दालचीनी',
     ),
     Ingredients(
       text: 'cinnamon sugar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg',
-      hindiText: 'दालचीनी भंवर रोटी',
+      hindiText: 'दालचीनी शक्कर',
     ),
     Ingredients(
       text: 'cinnamon swirl bread',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cinnamon.jpg',
-      hindiText: 'क्लैम रस',
+      hindiText: 'दालचीनी भंवर रोटी',
     ),
     Ingredients(
       text: 'clam juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/clam-juice.png',
-      hindiText: 'बड़ी सीप',
+      hindiText: 'क्लैम रस',
     ),
     Ingredients(
       text: 'clams',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/clams.jpg',
-      hindiText: 'घी',
+      hindiText: 'बड़ी सीप',
     ),
     Ingredients(
       text: 'clarified butter',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ghee.jpg',
-      hindiText: 'लौंग',
+      hindiText: 'घी',
     ),
     Ingredients(
       text: 'clove',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cloves.jpg',
-      hindiText: 'दानेदार नमक',
+      hindiText: 'लौंग',
     ),
     Ingredients(
       text: 'coarse salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salt.jpg',
-      hindiText: 'मोटे पिसी मिर्ची',
+      hindiText: 'दानेदार नमक',
     ),
     Ingredients(
       text: 'coarsely ground pepper',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salt.jpg',
-      hindiText: 'कोकोआ निब्स',
+      hindiText: 'मोटे पिसी मिर्ची',
     ),
     Ingredients(
       text: 'cocoa nibs',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png',
-      hindiText: 'कोको पाउडर',
+      hindiText: 'कोकोआ निब्स',
     ),
     Ingredients(
       text: 'cocoa powder',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png',
-      hindiText: 'नारियल',
+      hindiText: 'कोको पाउडर',
     ),
     Ingredients(
       text: 'coconut',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल अमीनो',
+      hindiText: 'नारियल',
     ),
     Ingredients(
       text: 'coconut aminos',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल मक्खन',
+      hindiText: 'नारियल अमीनो',
     ),
     Ingredients(
       text: 'coconut butter',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल क्रीम',
+      hindiText: 'नारियल मक्खन',
     ),
     Ingredients(
       text: 'coconut cream',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल निकालने',
+      hindiText: 'नारियल क्रीम',
     ),
     Ingredients(
       text: 'coconut extract',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल का आटा',
+      hindiText: 'नारियल निकालने',
     ),
     Ingredients(
       text: 'coconut flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल का दूध',
+      hindiText: 'नारियल का आटा',
     ),
     Ingredients(
       text: 'coconut milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल का तेल',
+      hindiText: 'नारियल का दूध',
     ),
     Ingredients(
       text: 'coconut oil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'नारियल पानी',
+      hindiText: 'नारियल का तेल',
     ),
     Ingredients(
       text: 'coconut water',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coconut.jpg',
-      hindiText: 'कॉड',
+      hindiText: 'नारियल पानी',
     ),
     Ingredients(
       text: 'cod',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cod-fillet.jpg',
-      hindiText: 'कॉफ़ी',
+      hindiText: 'कॉड',
     ),
     Ingredients(
       text: 'coffee',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brewed-coffee.jpg',
-      hindiText: 'कॉग्नेक',
+      hindiText: 'कॉफ़ी',
     ),
     Ingredients(
       text: 'cognac',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cognac.jpg',
-      hindiText: 'कोला',
+      hindiText: 'कॉग्नेक',
     ),
     Ingredients(
       text: 'cola',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coca-cola.png',
-      hindiText: 'कोल्बी जैक',
+      hindiText: 'कोला',
     ),
     Ingredients(
       text: 'colby jack',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/colby-jack.jpg',
-      hindiText: 'हरा कोलार्ड',
+      hindiText: 'कोल्बी जैक',
     ),
     Ingredients(
       text: 'collard greens',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/collard-greens.jpg',
-      hindiText: 'अजवाइन के सूप की गाढ़ी क्रीममशरूम सूप की गाढ़ा क्रीम',
+      hindiText: 'हरा कोलार्ड',
     ),
     Ingredients(
       text: 'condensed cream of celery soup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/evaporated-milk.png',
-      hindiText: 'कन्फेक्शनरों के झुंड',
+      hindiText: 'अजवाइन के सूप की गाढ़ी क्रीम',
     ),
     Ingredients(
       text: 'condensed cream of mushroom soup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/evaporated-milk.png',
-      hindiText: 'पकाया बेकन',
+      hindiText: 'मशरूम सूप की गाढ़ा क्रीम',
     ),
     Ingredients(
       text: 'confectioners swerve',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/powdered-sugar.jpg',
-      hindiText: 'पके हुए भूरे चावल',
+      hindiText: 'कन्फेक्शनरों के झुंड',
     ),
     Ingredients(
       text: 'cooked bacon',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पकाया चिकन स्तन',
+      hindiText: 'पकाया बेकन',
     ),
     Ingredients(
       text: 'cooked brown rice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पकाया हैम',
+      hindiText: 'पके हुए भूरे चावल',
     ),
     Ingredients(
       text: 'cooked chicken breast',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पका हुआ लंबा अनाज चावल',
+      hindiText: 'पकाया चिकन स्तन',
     ),
     Ingredients(
       text: 'cooked ham',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पका हुआ पास्ता',
+      hindiText: 'पकाया हैम',
     ),
     Ingredients(
       text: 'cooked long grain rice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पका हुआ पोलेंटा',
+      hindiText: 'पका हुआ लंबा अनाज चावल',
     ),
     Ingredients(
       text: 'cooked pasta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पका हुआ क्विनोआ',
+      hindiText: 'पका हुआ पास्ता',
     ),
     Ingredients(
       text: 'cooked polenta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'पका हुआ जंगली चावल',
+      hindiText: 'पका हुआ पोलेंटा',
     ),
     Ingredients(
       text: 'cooked quinoa',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'कुकीज़',
+      hindiText: 'पका हुआ क्विनोआ',
     ),
     Ingredients(
       text: 'cooked wild rice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'धनिया',
+      hindiText: 'पका हुआ जंगली चावल',
     ),
     Ingredients(
       text: 'cookies',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/shortbread-cookies.jpg',
-      hindiText: 'मक्का',
+      hindiText: 'कुकीज़',
     ),
     Ingredients(
       text: 'coriander',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cilantro.png',
-      hindiText: 'कॉर्नब्रेड मिक्स',
+      hindiText: 'धनिया',
     ),
     Ingredients(
       text: 'corn',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मक्के की चिप्स',
+      hindiText: 'मक्का',
     ),
     Ingredients(
       text: 'corn bread mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'कॉर्न फ्लेक्स अनाज',
+      hindiText: 'कॉर्नब्रेड मिक्स',
     ),
     Ingredients(
       text: 'corn chips',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मक्के का आटा',
+      hindiText: 'मक्के की चिप्स',
     ),
     Ingredients(
       text: 'corn flakes cereal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मकई गुठली',
+      hindiText: 'कॉर्न फ्लेक्स अनाज',
     ),
     Ingredients(
       text: 'corn flour',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मक्के का तेल',
+      hindiText: 'मक्के का आटा',
     ),
     Ingredients(
       text: 'corn kernels',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मक्के की रोटी',
+      hindiText: 'मकई गुठली',
     ),
     Ingredients(
       text: 'corn oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मकई की रोटी',
+      hindiText: 'मक्के का तेल',
     ),
     Ingredients(
       text: 'corn tortillas',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'गोमांस',
+      hindiText: 'मक्के की रोटी',
     ),
     Ingredients(
       text: 'cornbread',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cornbread.jpg',
-      hindiText: 'कोर्निश मुर्गियाँ',
+      hindiText: 'मकई की रोटी',
     ),
     Ingredients(
       text: 'corned beef',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/beef-brisket.png',
-      hindiText: 'मक्की का आटा',
+      hindiText: 'गोमांस',
     ),
     Ingredients(
       text: 'cornish hens',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dill-pickles.jpg',
-      hindiText: 'कॉर्नस्टार्च',
+      hindiText: 'कोर्निश मुर्गियाँ',
     ),
     Ingredients(
       text: 'cornmeal',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cornmeal.png',
-      hindiText: 'कोटिजा पनीर',
+      hindiText: 'मक्की का आटा',
     ),
     Ingredients(
       text: 'cornstarch',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/white-powder.jpg',
-      hindiText: 'छाना',
+      hindiText: 'कॉर्नस्टार्च',
     ),
     Ingredients(
       text: 'cotija cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/feta.png',
-      hindiText: 'देशी रोटी',
+      hindiText: 'कोटिजा पनीर',
     ),
     Ingredients(
       text: 'cottage cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cottage-cheese.jpg',
-      hindiText: 'Courgettes',
+      hindiText: 'छाना',
     ),
     Ingredients(
       text: 'country bread',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'कूसकूस',
+      hindiText: 'देशी रोटी',
     ),
     Ingredients(
       text: 'courgettes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/zucchini.jpg',
-      hindiText: 'गाय मटर',
+      hindiText: 'Courgettes',
     ),
     Ingredients(
       text: 'couscous',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/couscous-cooked.jpg',
-      hindiText: 'केकड़ा मांस',
+      hindiText: 'कूसकूस',
     ),
     Ingredients(
       text: 'cow pea',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/black-eyed-peas.jpg',
-      hindiText: 'कुटी कालीमिर्च',
+      hindiText: 'गाय मटर',
     ),
     Ingredients(
       text: 'crabmeat',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/crabmeat.jpg',
-      hindiText: 'क्रैनबेरी',
+      hindiText: 'केकड़ा मांस',
     ),
     Ingredients(
       text: 'cracked pepper',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/crackers.jpg',
-      hindiText: 'लाल रंग की खट्टी बेरी का रस',
+      hindiText: 'कुटी कालीमिर्च',
     ),
     Ingredients(
       text: 'cranberries',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cranberries.jpg',
-      hindiText: 'मलाई',
+      hindiText: 'क्रैनबेरी',
     ),
     Ingredients(
       text: 'cranberry juice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cranberries.jpg',
-      hindiText: 'मलाई पनीर',
+      hindiText: 'लाल रंग की खट्टी बेरी का रस',
     ),
     Ingredients(
       text: 'cream',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'क्रीम चीज़ ब्लॉक',
+      hindiText: 'मलाई',
     ),
     Ingredients(
       text: 'cream cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'चिकन सूप की क्रीम',
+      hindiText: 'मलाई पनीर',
     ),
     Ingredients(
       text: 'cream cheese block',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'शोधित अर्गल',
+      hindiText: 'क्रीम चीज़ ब्लॉक',
     ),
     Ingredients(
       text: 'cream of chicken soup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'क्रीमयुक्त मकई',
+      hindiText: 'चिकन सूप की क्रीम',
     ),
     Ingredients(
       text: 'cream of tartar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'मलाईदार मूंगफली का मक्खन',
+      hindiText: 'शोधित अर्गल',
     ),
     Ingredients(
       text: 'creamed corn',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'खट्टी क्रीम',
+      hindiText: 'क्रीमयुक्त मकई',
     ),
     Ingredients(
       text: 'creamy peanut butter',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'सेरेमनी मशरूम',
+      hindiText: 'मलाईदार मूंगफली का मक्खन',
     ),
     Ingredients(
       text: 'creme fraiche',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg',
-      hindiText: 'क्रियोल मसाला',
+      hindiText: 'खट्टी क्रीम',
     ),
     Ingredients(
       text: 'cremini mushrooms',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mushrooms.png',
-      hindiText: 'कुरकुरा चावल अनाज',
+      hindiText: 'सेरेमनी मशरूम',
     ),
     Ingredients(
       text: 'creole seasoning',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dijon-mustard.jpg',
-      hindiText: 'ब्रेड के तले हुए टुकड़े',
+      hindiText: 'क्रियोल मसाला',
     ),
     Ingredients(
       text: 'crisp rice cereal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rice-crispy-cereal.png',
-      hindiText: 'क्रिस्टलीकृत अदरक',
+      hindiText: 'कुरकुरा चावल अनाज',
     ),
     Ingredients(
       text: 'croutons',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/croutons.png',
-      hindiText: 'खीरा',
+      hindiText: 'ब्रेड के तले हुए टुकड़े',
     ),
     Ingredients(
       text: 'crystallized ginger',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/candied-ginger-or-crystallized-ginger.jpg',
-      hindiText: 'जीरा',
+      hindiText: 'क्रिस्टलीकृत अदरक',
     ),
     Ingredients(
       text: 'cucumber',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cucumber.jpg',
-      hindiText: 'कप केक',
+      hindiText: 'खीरा',
     ),
     Ingredients(
       text: 'cumin seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/ground-cumin.jpg',
-      hindiText: 'किशमिश',
+      hindiText: 'जीरा',
     ),
     Ingredients(
       text: 'cup cake',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/plain-cupcake.jpg',
-      hindiText: 'करी पत्ते',
+      hindiText: 'कप केक',
     ),
     Ingredients(
       text: 'currants',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/currants.jpg',
-      hindiText: 'डेयरी मुक्त दूध',
+      hindiText: 'किशमिश',
     ),
     Ingredients(
       text: 'curry leaves',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chili-paste.png',
-      hindiText: 'गहरे भूरे शक्कर',
+      hindiText: 'करी पत्ते',
     ),
     Ingredients(
       text: 'dairy free milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'डार्क चॉकलेट',
+      hindiText: 'डेयरी मुक्त दूध',
     ),
     Ingredients(
       text: 'dark brown sugar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg',
-      hindiText: 'डार्क चॉकलेट कैंडी बार',
+      hindiText: 'गहरे भूरे शक्कर',
     ),
     Ingredients(
       text: 'dark chocolate',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg',
-      hindiText: 'डार्क चॉकलेट चिप्स',
+      hindiText: 'डार्क चॉकलेट',
     ),
     Ingredients(
       text: 'dark chocolate candy bars',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg',
-      hindiText: 'काले तिल का तेल',
+      hindiText: 'डार्क चॉकलेट कैंडी बार',
     ),
     Ingredients(
       text: 'dark chocolate chips',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg',
-      hindiText: 'खजूर',
+      hindiText: 'डार्क चॉकलेट चिप्स',
     ),
     Ingredients(
       text: 'dark sesame oil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg',
-      hindiText: 'डीप डिश पाई क्रस्ट',
+      hindiText: 'काले तिल का तेल',
     ),
     Ingredients(
       text: 'dates',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dates.jpg',
-      hindiText: 'डेली हैम',
+      hindiText: 'खजूर',
     ),
     Ingredients(
       text: 'deep dish pie crust',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pie-crust.jpg',
-      hindiText: 'डेली तुर्की',
+      hindiText: 'डीप डिश पाई क्रस्ट',
     ),
     Ingredients(
       text: 'deli ham',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham.png',
-      hindiText: 'मिष्ठान ओट्स',
+      hindiText: 'डेली हैम',
     ),
     Ingredients(
       text: 'deli turkey',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham.png',
-      hindiText: 'मिठाई शराब',
+      hindiText: 'डेली तुर्की',
     ),
     Ingredients(
       text: 'dessert oats',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg',
-      hindiText: 'डाइस्ड हैम',
+      hindiText: 'मिष्ठान ओट्स',
     ),
     Ingredients(
       text: 'dessert wine',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg',
-      hindiText: 'आहार पॉप',
+      hindiText: 'मिठाई शराब',
     ),
     Ingredients(
       text: 'diced ham',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg',
-      hindiText: 'डी जाँ सरसों',
+      hindiText: 'डाइस्ड हैम',
     ),
     Ingredients(
       text: 'diet pop',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg',
-      hindiText: 'दिल',
+      hindiText: 'आहार पॉप',
     ),
     Ingredients(
       text: 'dijon mustard',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dijon-mustard.jpg',
-      hindiText: 'सोआ अचार',
+      hindiText: 'डी जाँ सरसों',
     ),
     Ingredients(
       text: 'dill',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dill.jpg',
-      hindiText: 'हॉट - डॉग',
+      hindiText: 'दिल',
     ),
     Ingredients(
       text: 'dill pickles',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dill.jpg',
-      hindiText: 'डबल क्रीम',
+      hindiText: 'सोआ अचार',
     ),
     Ingredients(
       text: 'hot dog',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hotdogs.png',
-      hindiText: 'सूखे खुबानी',
+      hindiText: 'हॉट - डॉग',
     ),
     Ingredients(
       text: 'double cream',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/white-cream.png',
-      hindiText: 'सूखी तुलसी',
+      hindiText: 'डबल क्रीम',
     ),
     Ingredients(
       text: 'dried apricots',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे चेरी',
+      hindiText: 'सूखे खुबानी',
     ),
     Ingredients(
       text: 'dried basil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे चोरिज़ो',
+      hindiText: 'सूखी तुलसी',
     ),
     Ingredients(
       text: 'dried cherries',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे करौंदे',
+      hindiText: 'सूखे चेरी',
     ),
     Ingredients(
       text: 'dried chorizo',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे डिल',
+      hindiText: 'सूखे चोरिज़ो',
     ),
     Ingredients(
       text: 'dried cranberries',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे प्याज',
+      hindiText: 'सूखे करौंदे',
     ),
     Ingredients(
       text: 'dried dill',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे पोर्चिनी मशरूम',
+      hindiText: 'सूखे डिल',
     ),
     Ingredients(
       text: 'dried onion',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखा रगड़ ऋषि',
+      hindiText: 'सूखे प्याज',
     ),
     Ingredients(
       text: 'dried porcini mushrooms',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'अजवायन के फूल सूख',
+      hindiText: 'सूखे पोर्चिनी मशरूम',
     ),
     Ingredients(
       text: 'dried rubbed sage',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखे टमाटर',
+      hindiText: 'सूखा रगड़ ऋषि',
     ),
     Ingredients(
       text: 'dried thyme',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखा दूध',
+      hindiText: 'अजवायन के फूल सूख',
     ),
     Ingredients(
       text: 'dried tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dried-sage.png',
-      hindiText: 'सूखी सरसों',
+      hindiText: 'सूखे टमाटर',
     ),
     Ingredients(
       text: 'dry milk',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg',
-      hindiText: 'सूखी लाल शराब',
+      hindiText: 'सूखा दूध',
     ),
     Ingredients(
       text: 'dry mustard',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg',
-      hindiText: 'सूखी भुनी हुई मूंगफली',
+      hindiText: 'सूखी सरसों',
     ),
     Ingredients(
       text: 'dry red wine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg',
-      hindiText: 'बतख वसा',
+      hindiText: 'सूखी लाल शराब',
     ),
     Ingredients(
       text: 'dry roasted peanuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg',
-      hindiText: 'डच प्रक्रिया कोको पाउडर',
+      hindiText: 'सूखी भुनी हुई मूंगफली',
     ),
     Ingredients(
       text: 'duck fat',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lard.png',
-      hindiText: 'Edamame',
+      hindiText: 'बतख वसा',
     ),
     Ingredients(
       text: 'dutch process cocoa powder',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dutch-process-cocoa-powder.png',
-      hindiText: 'अंडा विकल्प',
+      hindiText: 'डच प्रक्रिया कोको पाउडर',
     ),
     Ingredients(
       text: 'edamame',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/edamame.png',
-      hindiText: 'आटा',
+      hindiText: 'Edamame',
     ),
     Ingredients(
       text: 'egg substitute',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/liquid-egg-substitute.jpg',
-      hindiText: 'आटा tortillas',
+      hindiText: 'अंडा विकल्प',
     ),
     Ingredients(
       text: 'flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'फॉन्टिना चीज़',
+      hindiText: 'आटा',
     ),
     Ingredients(
       text: 'flour tortillas',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'खानेका िदन',
+      hindiText: 'आटा tortillas',
     ),
     Ingredients(
       text: 'fontina cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/fontina.jpg',
-      hindiText: 'फ्रैंक्स रेडहॉट सॉस',
+      hindiText: 'फॉन्टिना चीज़',
     ),
     Ingredients(
       text: 'food dye',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/food-coloring.png',
-      hindiText: 'देसी अंडे',
+      hindiText: 'खानेका िदन',
     ),
     Ingredients(
       text: 'franks redhot sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hotdogs.png',
-      hindiText: 'फ्रासीसी ब्रेड',
+      hindiText: 'फ्रैंक्स रेडहॉट सॉस',
     ),
     Ingredients(
       text: 'free range eggs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg',
-      hindiText: 'ताज़ा तुलसी',
+      hindiText: 'देसी अंडे',
     ),
     Ingredients(
       text: 'french bread',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/crusty-bread.jpg',
-      hindiText: 'ताजा सेम अंकुरित',
+      hindiText: 'फ्रासीसी ब्रेड',
     ),
     Ingredients(
       text: 'fresh basil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा जीवन',
+      hindiText: 'ताज़ा तुलसी',
     ),
     Ingredients(
       text: 'fresh bean sprouts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा मकई',
+      hindiText: 'ताजा सेम अंकुरित',
     ),
     Ingredients(
       text: 'fresh chives',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा मकई गुठली',
+      hindiText: 'ताजा जीवन',
     ),
     Ingredients(
       text: 'fresh corn',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा अंजीर',
+      hindiText: 'ताजा मकई',
     ),
     Ingredients(
       text: 'fresh corn kernels',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजे फल',
+      hindiText: 'ताजा मकई गुठली',
     ),
     Ingredients(
       text: 'fresh figs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा जड़ी बूटी',
+      hindiText: 'ताजा अंजीर',
     ),
     Ingredients(
       text: 'fresh fruit',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा पोदीना',
+      hindiText: 'ताजे फल',
     ),
     Ingredients(
       text: 'fresh herbs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा मोज़ेरेला',
+      hindiText: 'ताजा जड़ी बूटी',
     ),
     Ingredients(
       text: 'fresh mint',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा दौनी',
+      hindiText: 'ताजा पोदीना',
     ),
     Ingredients(
       text: 'fresh mozzarella',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ताजा अजवायन की पत्ती',
+      hindiText: 'ताजा मोज़ेरेला',
     ),
     Ingredients(
       text: 'fresh rosemary',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'तले हुए प्याज',
+      hindiText: 'ताजा दौनी',
     ),
     Ingredients(
       text: 'fresh thyme leaves',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'ठंडा करना',
+      hindiText: 'ताजा अजवायन की पत्ती',
     ),
     Ingredients(
       text: 'fried onions',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cooked-bacon.jpg',
-      hindiText: 'फ्रायो बार',
+      hindiText: 'तले हुए प्याज',
     ),
     Ingredients(
       text: 'frosting',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vanilla-frosting.png',
-      hindiText: 'जमे हुए मकई',
+      hindiText: 'ठंडा करना',
     ),
     Ingredients(
       text: 'froyo bars',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/frozen-yogurt.png',
-      hindiText: 'जमा हुआ पालक',
+      hindiText: 'फ्रायो बार',
     ),
     Ingredients(
       text: 'frozen corn',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'ठगना',
+      hindiText: 'जमे हुए मकई',
     ),
     Ingredients(
       text: 'frozen spinach',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'ठगना टॉपिंग',
+      hindiText: 'जमा हुआ पालक',
     ),
     Ingredients(
       text: 'fudge',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fudge-isolated.jpg',
-      hindiText: 'गरम मसाला',
+      hindiText: 'ठगना',
     ),
     Ingredients(
       text: 'fudge topping',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fudge-isolated.jpg',
-      hindiText: 'गार्बनो बीन आटा',
+      hindiText: 'ठगना टॉपिंग',
     ),
     Ingredients(
       text: 'garam masala',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/garam-masala.jpg',
-      hindiText: 'लहसुन',
+      hindiText: 'गरम मसाला',
     ),
     Ingredients(
       text: 'garbanzo bean flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/chickpeas.png',
-      hindiText: 'लहसून का पेस्ट',
+      hindiText: 'गार्बनो बीन आटा',
     ),
     Ingredients(
       text: 'garlic',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png',
-      hindiText: 'लहसुन पाउडर',
+      hindiText: 'लहसुन',
     ),
     Ingredients(
       text: 'garlic paste',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png',
+      hindiText: 'लहसून का पेस्ट',
+    ),
+    Ingredients(
+      text: 'garlic powder',
+      imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png',
       hindiText: 'लहसुन पाउडर',
     ),
     Ingredients(
       text: 'garlic powder',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png',
-      hindiText: 'लहसुन नमक',
-    ),
-    Ingredients(
-      text: 'garlic powder',
-      imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png',
-      hindiText: 'जेलाटीन',
+      hindiText: 'लहसुन पाउडर',
     ),
     Ingredients(
       text: 'garlic salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/garlic.png',
+      hindiText: 'लहसुन नमक',
+    ),
+    Ingredients(
+      text: 'gelatin',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/gelatin-powder.jpg',
       hindiText: 'जेलाटीन',
     ),
     Ingredients(
       text: 'gelatin',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/gelatin-powder.jpg',
-      hindiText: 'जिन',
-    ),
-    Ingredients(
-      text: 'gelatin',
-      imageUrl:
-          'http://spoonacular.com/cdn/ingredients_100x100/gelatin-powder.jpg',
-      hindiText: 'अदरक',
+      hindiText: 'जेलाटीन',
     ),
     Ingredients(
       text: 'gin',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png',
-      hindiText: 'अदरक युक्त झागदार शराब',
+      hindiText: 'जिन',
     ),
     Ingredients(
       text: 'ginger',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png',
-      hindiText: 'अदरक का पेस्ट',
+      hindiText: 'अदरक',
     ),
     Ingredients(
       text: 'ginger ale',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png',
-      hindiText: 'अदरक-लहसुन का पेस्ट',
+      hindiText: 'अदरक युक्त झागदार शराब',
     ),
     Ingredients(
       text: 'ginger paste',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png',
-      hindiText: 'gingersnap कुकीज़',
+      hindiText: 'अदरक का पेस्ट',
     ),
     Ingredients(
       text: 'ginger-garlic paste',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png',
-      hindiText: 'ग्नोची',
+      hindiText: 'अदरक-लहसुन का पेस्ट',
     ),
     Ingredients(
       text: 'gingersnap cookies',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ginger.png',
-      hindiText: 'बकरी के दूध का पनीर',
+      hindiText: 'gingersnap कुकीज़',
     ),
     Ingredients(
       text: 'gnocchi',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/gnocchi-isolated.jpg',
-      hindiText: 'सुनहरा किशमिश',
+      hindiText: 'ग्नोची',
     ),
     Ingredients(
       text: 'goat cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'Gorgonzola',
+      hindiText: 'बकरी के दूध का पनीर',
     ),
     Ingredients(
       text: 'golden raisins',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn-syrup.png',
-      hindiText: 'गौड़ा पनीर',
+      hindiText: 'सुनहरा किशमिश',
     ),
     Ingredients(
       text: 'gorgonzola',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gorgonzola.jpg',
-      hindiText: 'ग्रैहम पटाखा',
+      hindiText: 'Gorgonzola',
     ),
     Ingredients(
       text: 'gouda cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gouda.jpg',
-      hindiText: 'ग्रैहम पटाखा पाई क्रस्ट',
+      hindiText: 'गौड़ा पनीर',
     ),
     Ingredients(
       text: 'graham cracker crumbs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'ग्राहम के पटाखे',
+      hindiText: 'ग्रैहम पटाखा',
     ),
     Ingredients(
       text: 'graham cracker pie crust',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'अनाज मिश्रण',
+      hindiText: 'ग्रैहम पटाखा पाई क्रस्ट',
     ),
     Ingredients(
       text: 'graham crackers',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'ग्रांड Marnier',
+      hindiText: 'ग्राहम के पटाखे',
     ),
     Ingredients(
       text: 'grain blend',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rice-wild-uncooked.png',
-      hindiText: 'दादी स्मिथ सेब',
+      hindiText: 'अनाज मिश्रण',
     ),
     Ingredients(
       text: 'grand marnier',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/grand-marnier.jpg',
-      hindiText: 'ग्रेनोला',
+      hindiText: 'ग्रांड Marnier',
     ),
     Ingredients(
       text: 'granny smith apples',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/grannysmith-apple.png',
-      hindiText: 'दानेदार लहसुन',
+      hindiText: 'दादी स्मिथ सेब',
     ),
     Ingredients(
       text: 'granola',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/granola.jpg',
-      hindiText: 'अंगूर टमाटर',
+      hindiText: 'ग्रेनोला',
     ),
     Ingredients(
       text: 'granulated garlic',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png',
-      hindiText: 'चकोतरा',
+      hindiText: 'दानेदार लहसुन',
     ),
     Ingredients(
       text: 'grape tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg',
-      hindiText: 'अंगूर के बीज का तेल',
+      hindiText: 'अंगूर टमाटर',
     ),
     Ingredients(
       text: 'grapefruit',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg',
-      hindiText: 'रस',
+      hindiText: 'चकोतरा',
     ),
     Ingredients(
       text: 'grapeseed oil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg',
-      hindiText: 'महान उत्तरी सेम',
+      hindiText: 'अंगूर के बीज का तेल',
     ),
     Ingredients(
       text: 'gravy',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gravy.jpg',
-      hindiText: 'ग्रीक दही',
+      hindiText: 'रस',
     ),
     Ingredients(
       text: 'great northern beans',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/white-beans.jpg',
-      hindiText: 'हरी सेम',
+      hindiText: 'महान उत्तरी सेम',
     ),
     Ingredients(
       text: 'greek yogurt',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/plain-yogurt.jpg',
-      hindiText: 'हरी शिमला मिर्च',
+      hindiText: 'ग्रीक दही',
     ),
     Ingredients(
       text: 'green beans',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'हरी मिर्ची',
+      hindiText: 'हरी सेम',
     ),
     Ingredients(
       text: 'green bell pepper',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'ग्रीन फूड कलरिंग',
+      hindiText: 'हरी शिमला मिर्च',
     ),
     Ingredients(
       text: 'green chili pepper',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'हरे अंगूर',
+      hindiText: 'हरी मिर्ची',
     ),
     Ingredients(
       text: 'green food coloring',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'हरा जैतून',
+      hindiText: 'ग्रीन फूड कलरिंग',
     ),
     Ingredients(
       text: 'green grapes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'हरा प्याज',
+      hindiText: 'हरे अंगूर',
     ),
     Ingredients(
       text: 'green olives',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'साग',
+      hindiText: 'हरा जैतून',
     ),
     Ingredients(
       text: 'green onions',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'ग्रिल चीज़',
+      hindiText: 'हरा प्याज',
     ),
     Ingredients(
       text: 'greens',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'ग्रिल सीज़निंग',
+      hindiText: 'साग',
     ),
     Ingredients(
       text: 'grill cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/halloumi.png',
-      hindiText: 'सारे मसालों को कूटो',
+      hindiText: 'ग्रिल चीज़',
     ),
     Ingredients(
       text: 'grill seasoning',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/halloumi.png',
-      hindiText: 'ग्राउंड एको चिल्ली',
+      hindiText: 'ग्रिल सीज़निंग',
     ),
     Ingredients(
       text: 'ground allspice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'वास्तविक गोमांस',
+      hindiText: 'सारे मसालों को कूटो',
     ),
     Ingredients(
       text: 'ground ancho chili',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'पिसा हुआ चिकन',
+      hindiText: 'ग्राउंड एको चिल्ली',
     ),
     Ingredients(
       text: 'ground beef',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'ग्राउंड चिपोटल चिली पिप',
+      hindiText: 'वास्तविक गोमांस',
     ),
     Ingredients(
       text: 'ground chicken',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'जमीन दालचीनी',
+      hindiText: 'पिसा हुआ चिकन',
     ),
     Ingredients(
       text: 'ground chipotle chile pepper',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
+      hindiText: 'ग्राउंड चिपोटल चिली पिप',
+    ),
+    Ingredients(
+      text: 'ground cinnamon',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
       hindiText: 'जमीन दालचीनी',
     ),
     Ingredients(
       text: 'ground cinnamon',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'जमीन लौंग',
-    ),
-    Ingredients(
-      text: 'ground cinnamon',
-      imageUrl:
-          'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'जमीन धनिया के बीज',
+      hindiText: 'जमीन दालचीनी',
     ),
     Ingredients(
       text: 'ground cloves',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'पिसा जीरा',
+      hindiText: 'जमीन लौंग',
     ),
     Ingredients(
       text: 'ground coriander seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'जमीं अलसी',
+      hindiText: 'जमीन धनिया के बीज',
     ),
     Ingredients(
       text: 'ground cumin',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'अदरक',
+      hindiText: 'पिसा जीरा',
     ),
     Ingredients(
       text: 'ground flaxseed',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'ज़मीनी भेड़ का बच्चा',
+      hindiText: 'जमीं अलसी',
     ),
     Ingredients(
       text: 'ground ginger',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'पिसी जावित्री',
+      hindiText: 'अदरक',
     ),
     Ingredients(
       text: 'ground lamb',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'ज़मीनी जायफल',
+      hindiText: 'ज़मीनी भेड़ का बच्चा',
     ),
     Ingredients(
       text: 'ground mace',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'ग्राउंड पोर्क',
+      hindiText: 'पिसी जावित्री',
     ),
     Ingredients(
       text: 'ground nutmeg',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'ग्राउंड पोर्क सॉसेज',
+      hindiText: 'ज़मीनी जायफल',
     ),
     Ingredients(
       text: 'ground pork',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'ग्राउंड वील',
+      hindiText: 'ग्राउंड पोर्क',
     ),
     Ingredients(
       text: 'ground pork sausage',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'Gruyère',
+      hindiText: 'ग्राउंड पोर्क सॉसेज',
     ),
     Ingredients(
       text: 'ground veal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'गुआकामोल',
+      hindiText: 'ग्राउंड वील',
     ),
     Ingredients(
       text: 'gruyere',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/gruyere.jpg',
-      hindiText: 'आधा एन आधा',
+      hindiText: 'Gruyère',
     ),
     Ingredients(
       text: 'guacamole',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/guacamole.jpg',
-      hindiText: 'हलिबेट पट्टिका',
+      hindiText: 'गुआकामोल',
     ),
     Ingredients(
       text: 'half n half',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fluid-cream.jpg',
-      hindiText: 'जांघ',
+      hindiText: 'आधा एन आधा',
     ),
     Ingredients(
       text: 'halibut fillet',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/halibut-fillet.jpg',
-      hindiText: 'हैमबर्गर बन्स',
+      hindiText: 'हलिबेट पट्टिका',
     ),
     Ingredients(
       text: 'ham',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ham-whole.jpg',
-      hindiText: 'कड़ी पका अंडे',
+      hindiText: 'जांघ',
     ),
     Ingredients(
       text: 'hamburger buns',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/hamburger-bun.jpg',
-      hindiText: 'ह री सा',
+      hindiText: 'हैमबर्गर बन्स',
     ),
     Ingredients(
       text: 'hard cooked eggs',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/hard-boiled-egg.png',
-      hindiText: 'भुने हुए भूरे आलू',
+      hindiText: 'कड़ी पका अंडे',
     ),
     Ingredients(
       text: 'harissa',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/harissa-paste.jpg',
-      hindiText: 'अखरोट',
+      hindiText: 'ह री सा',
     ),
     Ingredients(
       text: 'hash brown potatoes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/hash-brown-potatoes.png',
-      hindiText: 'अजवाइन के सूप का स्वस्थ अनुरोध क्रीम',
+      hindiText: 'भुने हुए भूरे आलू',
     ),
     Ingredients(
       text: 'hazelnuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hazelnuts.jpg',
-      hindiText: 'भांग के बीज',
+      hindiText: 'अखरोट',
     ),
     Ingredients(
       text: 'healthy request cream of celery soup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cream-of-celery-soup.jpg',
-      hindiText: 'स्थानीय वनस्पतियां',
+      hindiText: 'अजवाइन के सूप का स्वस्थ अनुरोध क्रीम',
     ),
     Ingredients(
       text: 'hemp seeds',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hemp-oil.jpg',
-      hindiText: 'जड़ी बूटी',
+      hindiText: 'भांग के बीज',
     ),
     Ingredients(
       text: 'herbes de provence',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dried-herbs.png',
-      hindiText: 'Hersheys चुंबन ब्रांड दूध चॉकलेट',
+      hindiText: 'स्थानीय वनस्पतियां',
     ),
     Ingredients(
       text: 'herbs',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-fresh-herbs.jpg',
-      hindiText: 'होसिन चटनी',
+      hindiText: 'जड़ी बूटी',
     ),
     Ingredients(
       text: 'hersheys kisses brand milk chocolates',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png',
-      hindiText: 'मीठी सरसों',
+      hindiText: 'Hersheys चुंबन ब्रांड दूध चॉकलेट',
     ),
     Ingredients(
       text: 'hoisin sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg',
-      hindiText: 'हॉर्सरैडिश',
+      hindiText: 'होसिन चटनी',
     ),
     Ingredients(
       text: 'honey mustard',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png',
-      hindiText: 'गर्म सौस',
+      hindiText: 'मीठी सरसों',
     ),
     Ingredients(
       text: 'horseradish',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/horseradish.jpg',
-      hindiText: 'हुम्मुस',
+      hindiText: 'हॉर्सरैडिश',
     ),
     Ingredients(
       text: 'hot sauce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/hot-sauce-or-tabasco.png',
-      hindiText: 'बर्फ',
+      hindiText: 'गर्म सौस',
     ),
     Ingredients(
       text: 'hummus',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/hummus.jpg',
-      hindiText: 'आइसक्रीम',
+      hindiText: 'हुम्मुस',
     ),
     Ingredients(
       text: 'ice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ice-cubes.png',
-      hindiText: 'तत्काल चॉकलेट का हलवा मिश्रण',
+      hindiText: 'बर्फ',
     ),
     Ingredients(
       text: 'ice cream',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ice-cubes.png',
-      hindiText: 'तत्काल कॉफी पाउडर',
+      hindiText: 'आइसक्रीम',
     ),
     Ingredients(
       text: 'instant chocolate pudding mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg',
-      hindiText: 'तत्काल एस्प्रेसो पाउडर',
+      hindiText: 'तत्काल चॉकलेट का हलवा मिश्रण',
     ),
     Ingredients(
       text: 'instant coffee powder',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg',
-      hindiText: 'तत्काल नींबू का हलवा मिश्रण',
+      hindiText: 'तत्काल कॉफी पाउडर',
     ),
     Ingredients(
       text: 'instant espresso powder',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg',
-      hindiText: 'तत्काल खमीर',
+      hindiText: 'तत्काल एस्प्रेसो पाउडर',
     ),
     Ingredients(
       text: 'instant lemon pudding mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg',
-      hindiText: 'आयरिश क्रीम',
+      hindiText: 'तत्काल नींबू का हलवा मिश्रण',
     ),
     Ingredients(
       text: 'instant yeast',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg',
-      hindiText: 'इटालियन ब्रेड',
+      hindiText: 'तत्काल खमीर',
     ),
     Ingredients(
       text: 'irish cream',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/baileys-liqueur.png',
-      hindiText: 'इतालवी पनीर मिश्रण',
+      hindiText: 'आयरिश क्रीम',
     ),
     Ingredients(
       text: 'italian bread',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg',
-      hindiText: 'इटालियन सॉसेज',
+      hindiText: 'इटालियन ब्रेड',
     ),
     Ingredients(
       text: 'italian cheese blend',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg',
-      hindiText: 'इतालवी मसाला',
+      hindiText: 'इतालवी पनीर मिश्रण',
     ),
     Ingredients(
       text: 'italian sausages',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg',
-      hindiText: 'गुड़',
+      hindiText: 'इटालियन सॉसेज',
     ),
     Ingredients(
       text: 'italian seasoning',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/italian-bread.jpg',
-      hindiText: 'jalapeno',
+      hindiText: 'इतालवी मसाला',
     ),
     Ingredients(
       text: 'jaggery',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/jaggery.jpg',
-      hindiText: 'चमेली चावल',
+      hindiText: 'गुड़',
     ),
     Ingredients(
       text: 'jalapeno',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/jalapeno-pepper.png',
-      hindiText: 'जेली',
+      hindiText: 'jalapeno',
     ),
     Ingredients(
       text: 'jasmine rice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rice-jasmine-cooked.jpg',
-      hindiText: 'Jicama',
+      hindiText: 'चमेली चावल',
     ),
     Ingredients(
       text: 'jelly',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/grape-jelly.jpg',
-      hindiText: 'Jimmies',
+      hindiText: 'जेली',
     ),
     Ingredients(
       text: 'jicama',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/jicama.jpg',
-      hindiText: 'रस',
+      hindiText: 'Jicama',
     ),
     Ingredients(
       text: 'jimmies',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/colorful-sprinkles.jpg',
-      hindiText: 'जंबो शेल पास्ता',
+      hindiText: 'Jimmies',
     ),
     Ingredients(
       text: 'juice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/apple-juice.jpg',
-      hindiText: 'काफिर नींबू पत्ते',
+      hindiText: 'रस',
     ),
     Ingredients(
       text: 'jumbo shell pasta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shrimp.png',
-      hindiText: 'Kahlua',
+      hindiText: 'जंबो शेल पास्ता',
     ),
     Ingredients(
       text: 'kaffir lime leaves',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/lime-leaves.jpg',
-      hindiText: 'कलमाता जैतून',
+      hindiText: 'काफिर नींबू पत्ते',
     ),
     Ingredients(
       text: 'kahlua',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/coffee-liqueur.jpg',
-      hindiText: 'गोभी',
+      hindiText: 'Kahlua',
     ),
     Ingredients(
       text: 'kalamata olives',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/calamata-or-kalamata-olives.jpg',
-      hindiText: 'चटनी',
+      hindiText: 'कलमाता जैतून',
     ),
     Ingredients(
       text: 'kale',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/kale.jpg',
-      hindiText: 'एलबी केक',
+      hindiText: 'गोभी',
     ),
     Ingredients(
       text: 'ketchup',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ketchup.png',
-      hindiText: 'कम पीसा हुआ गोमांस',
+      hindiText: 'चटनी',
     ),
     Ingredients(
       text: 'lb cake',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pound-cake.jpg',
-      hindiText: 'लीन ग्राउंड टर्की',
+      hindiText: 'एलबी केक',
     ),
     Ingredients(
       text: 'lean ground beef',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'लीन पोर्क टेंडरलॉइन',
+      hindiText: 'कम पीसा हुआ गोमांस',
     ),
     Ingredients(
       text: 'lean ground turkey',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'लीक',
+      hindiText: 'लीन ग्राउंड टर्की',
     ),
     Ingredients(
       text: 'lean pork tenderloin',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/fresh-ground-beef.jpg',
-      hindiText: 'मेमने का पैर',
+      hindiText: 'लीन पोर्क टेंडरलॉइन',
     ),
     Ingredients(
       text: 'leeks',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/leeks.jpg',
-      hindiText: 'नींबू',
+      hindiText: 'लीक',
     ),
     Ingredients(
       text: 'leg of lamb',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/leg-of-lamb.png',
-      hindiText: 'नींबू दही',
+      hindiText: 'मेमने का पैर',
     ),
     Ingredients(
       text: 'lemon',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'नींबू का रस',
+      hindiText: 'नींबू',
     ),
     Ingredients(
       text: 'lemon curd',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'नींबू का छिलका',
+      hindiText: 'नींबू दही',
     ),
     Ingredients(
       text: 'lemon juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'निंबू मिर्च',
+      hindiText: 'नींबू का रस',
     ),
     Ingredients(
       text: 'lemon peel',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'नींबू फांक',
+      hindiText: 'नींबू का छिलका',
     ),
     Ingredients(
       text: 'lemon pepper',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'एक प्रकार का पौधा',
+      hindiText: 'निंबू मिर्च',
     ),
     Ingredients(
       text: 'lemon wedges',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'सलाद',
+      hindiText: 'नींबू फांक',
     ),
     Ingredients(
       text: 'lemongrass',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'सलाद की पत्तियाँ',
+      hindiText: 'एक प्रकार का पौधा',
     ),
     Ingredients(
       text: 'lettuce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/iceberg-lettuce.jpg',
-      hindiText: 'हल्का मक्खन',
+      hindiText: 'सलाद',
     ),
     Ingredients(
       text: 'lettuce leaves',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/iceberg-lettuce.jpg',
-      hindiText: 'हल्का नारियल दूध',
+      hindiText: 'सलाद की पत्तियाँ',
     ),
     Ingredients(
       text: 'light butter',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'हल्की कोर्न सिरप',
+      hindiText: 'हल्का मक्खन',
     ),
     Ingredients(
       text: 'light coconut milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'लाइट क्रीम चीज़',
+      hindiText: 'हल्का नारियल दूध',
     ),
     Ingredients(
       text: 'light corn syrup',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'लाइट मेयोनेज़',
+      hindiText: 'हल्की कोर्न सिरप',
     ),
     Ingredients(
       text: 'light cream cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'पतला जैतून का तेल',
+      hindiText: 'लाइट क्रीम चीज़',
     ),
     Ingredients(
       text: 'light mayonnaise',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'हल्की सोया चटनी',
+      hindiText: 'लाइट मेयोनेज़',
     ),
     Ingredients(
       text: 'light olive oil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'चूना',
+      hindiText: 'पतला जैतून का तेल',
     ),
     Ingredients(
       text: 'light soy sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'नींबू का रस',
+      hindiText: 'हल्की सोया चटनी',
     ),
     Ingredients(
       text: 'lime',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lime.jpg',
-      hindiText: 'लाइम वेजेज',
+      hindiText: 'चूना',
     ),
     Ingredients(
       text: 'lime juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/zest-lime.jpg',
-      hindiText: 'लाइम ज़ेस्ट',
+      hindiText: 'नींबू का रस',
     ),
     Ingredients(
       text: 'lime wedges',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/zest-lime.jpg',
-      hindiText: 'Linguine',
+      hindiText: 'लाइम वेजेज',
     ),
     Ingredients(
       text: 'lime zest',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/zest-lime.jpg',
-      hindiText: 'तरल धुआं',
+      hindiText: 'लाइम ज़ेस्ट',
     ),
     Ingredients(
       text: 'linguine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/spaghetti.jpg',
-      hindiText: 'तरल स्टेविया',
+      hindiText: 'Linguine',
     ),
     Ingredients(
       text: 'liquid smoke',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png',
-      hindiText: 'शराब',
+      hindiText: 'तरल धुआं',
     ),
     Ingredients(
       text: 'liquid stevia',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png',
-      hindiText: 'लाइव लॉबस्टर',
+      hindiText: 'तरल स्टेविया',
     ),
     Ingredients(
       text: 'liquor',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rum-dark.jpg',
-      hindiText: 'लंबे दाने वाला चावल',
+      hindiText: 'शराब',
     ),
     Ingredients(
       text: 'live lobster',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lobster.png',
-      hindiText: 'लो फैट बटरमिल्क',
+      hindiText: 'लाइव लॉबस्टर',
     ),
     Ingredients(
       text: 'long-grain rice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rice-white-long-grain-or-basmatii-cooked.jpg',
-      hindiText: 'कम वसा वाला दूध',
+      hindiText: 'लंबे दाने वाला चावल',
     ),
     Ingredients(
       text: 'low fat buttermilk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
+      hindiText: 'लो फैट बटरमिल्क',
+    ),
+    Ingredients(
+      text: 'low fat milk',
+      imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
       hindiText: 'कम वसा वाला दूध',
     ),
     Ingredients(
       text: 'low fat milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'लो फैट प्लेन योगर्ट',
-    ),
-    Ingredients(
-      text: 'low fat milk',
-      imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'लो फैट रिकोटा पनीर',
+      hindiText: 'कम वसा वाला दूध',
     ),
     Ingredients(
       text: 'low fat plain yogurt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'कम वसा खट्टा क्रीम',
+      hindiText: 'लो फैट प्लेन योगर्ट',
     ),
     Ingredients(
       text: 'low fat ricotta cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'कम सोडियम चिकन शोरबा',
+      hindiText: 'लो फैट रिकोटा पनीर',
     ),
     Ingredients(
       text: 'low fat sour cream',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'कम सोडियम सोया सॉस',
+      hindiText: 'कम वसा खट्टा क्रीम',
     ),
     Ingredients(
       text: 'low sodium chicken broth',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg',
-      hindiText: 'कम सोडियम चिकन स्टॉक',
+      hindiText: 'कम सोडियम चिकन शोरबा',
     ),
     Ingredients(
       text: 'low sodium soy sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg',
-      hindiText: 'कम सोडियम गोमांस शोरबा',
+      hindiText: 'कम सोडियम सोया सॉस',
     ),
     Ingredients(
       text: 'low-sodium chicken stock',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/broth.jpg',
-      hindiText: 'गांठ केकड़ा',
+      hindiText: 'कम सोडियम चिकन स्टॉक',
     ),
     Ingredients(
       text: 'lower sodium beef broth',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg',
-      hindiText: 'एम एंड एम कैंडीज',
+      hindiText: 'कम सोडियम गोमांस शोरबा',
     ),
     Ingredients(
       text: 'lump crab',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/lump-crabmeat.png',
-      hindiText: 'मैकाडामिया नट्स',
+      hindiText: 'गांठ केकड़ा',
     ),
     Ingredients(
       text: 'm&m candies',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'मकारोनी और पनीर मिक्स',
+      hindiText: 'एम एंड एम कैंडीज',
     ),
     Ingredients(
       text: 'macadamia nuts',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/macadamia-nuts.png',
-      hindiText: 'माल्ट ड्रिंक मिक्स',
+      hindiText: 'मैकाडामिया नट्स',
     ),
     Ingredients(
       text: 'macaroni and cheese mix',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/macaroni.png',
-      hindiText: 'मैंडरिन ऑरेंज सेक्शन',
+      hindiText: 'मकारोनी और पनीर मिक्स',
     ),
     Ingredients(
       text: 'malt drink mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg',
-      hindiText: 'नारंगी संतरे',
+      hindiText: 'माल्ट ड्रिंक मिक्स',
     ),
     Ingredients(
       text: 'mandarin orange sections',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mandarin-or-tangerines-or-clementines.jpg',
-      hindiText: 'आम',
+      hindiText: 'मैंडरिन ऑरेंज सेक्शन',
     ),
     Ingredients(
       text: 'mandarin oranges',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mandarin-or-tangerines-or-clementines.jpg',
-      hindiText: 'मेपल सिरप',
+      hindiText: 'नारंगी संतरे',
     ),
     Ingredients(
       text: 'mango',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mango.jpg',
-      hindiText: 'मराशीनो चेरीज़',
+      hindiText: 'आम',
     ),
     Ingredients(
       text: 'maple syrup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/maple-syrup.png',
-      hindiText: 'नकली मक्खन',
+      hindiText: 'मेपल सिरप',
     ),
     Ingredients(
       text: 'maraschino cherries',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/maraschino.jpg',
-      hindiText: 'Marinara सॉस',
+      hindiText: 'मराशीनो चेरीज़',
     ),
     Ingredients(
       text: 'margarine',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/butter-sliced.jpg',
-      hindiText: 'मार्जारम',
+      hindiText: 'नकली मक्खन',
     ),
     Ingredients(
       text: 'marinara sauce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg',
-      hindiText: 'मर्सला वाइन',
+      hindiText: 'Marinara सॉस',
     ),
     Ingredients(
       text: 'marjoram',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/marjoram.jpg',
-      hindiText: 'मार्शमैलो फुल',
+      hindiText: 'मार्जारम',
     ),
     Ingredients(
       text: 'marsala wine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg',
-      hindiText: 'मार्श मैलो - एक प्रकार की मिठाई',
+      hindiText: 'मर्सला वाइन',
     ),
     Ingredients(
       text: 'marshmallow fluff',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/normal-marshmallows.jpg',
-      hindiText: 'मासा हरिना',
+      hindiText: 'मार्शमैलो फुल',
     ),
     Ingredients(
       text: 'marshmallows',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/normal-marshmallows.jpg',
-      hindiText: 'Mascarpone',
+      hindiText: 'मार्श मैलो - एक प्रकार की मिठाई',
     ),
     Ingredients(
       text: 'masa harina',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn-flour.jpg',
-      hindiText: 'मैट बीन्स',
+      hindiText: 'मासा हरिना',
     ),
     Ingredients(
       text: 'mascarpone',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/white-cream-fluffy.jpg',
-      hindiText: 'माचा चाय',
+      hindiText: 'Mascarpone',
     ),
     Ingredients(
       text: 'mat beans',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/moth-bean.png',
-      hindiText: 'मेयोनेज़',
+      hindiText: 'मैट बीन्स',
     ),
     Ingredients(
       text: 'matcha tea',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/matcha-powder.jpg',
-      hindiText: 'मांस',
+      hindiText: 'माचा चाय',
     ),
     Ingredients(
       text: 'mayonnaise',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mayonnaise.png',
+      hindiText: 'मेयोनेज़',
+    ),
+    Ingredients(
+      text: 'meat',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
       hindiText: 'मांस',
     ),
     Ingredients(
       text: 'meat',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'Meatballs',
-    ),
-    Ingredients(
-      text: 'meat',
-      imageUrl:
-          'http://spoonacular.com/cdn/ingredients_100x100/whole-chicken.jpg',
-      hindiText: 'मेड्युल खजूर',
+      hindiText: 'मांस',
     ),
     Ingredients(
       text: 'meatballs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/meatballs.png',
-      hindiText: 'मैक्सिकन क्रीम',
+      hindiText: 'Meatballs',
     ),
     Ingredients(
       text: 'medjool dates',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dates.jpg',
-      hindiText: 'मेयर नींबू का रस',
+      hindiText: 'मेड्युल खजूर',
     ),
     Ingredients(
       text: 'mexican cream',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mexicorn.png',
-      hindiText: 'दूध',
+      hindiText: 'मैक्सिकन क्रीम',
     ),
     Ingredients(
       text: 'meyer lemon juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/lemon.png',
-      hindiText: 'दूध चॉकलेट चिप्स',
+      hindiText: 'मेयर नींबू का रस',
     ),
     Ingredients(
       text: 'milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'पुदीने की चटनी',
+      hindiText: 'दूध',
     ),
     Ingredients(
       text: 'milk chocolate chips',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg',
-      hindiText: 'मिनट चावल',
+      hindiText: 'दूध चॉकलेट चिप्स',
     ),
     Ingredients(
       text: 'mint chutney',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mint.jpg',
-      hindiText: 'चमत्कार आदेश',
+      hindiText: 'पुदीने की चटनी',
     ),
     Ingredients(
       text: 'minute rice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/uncooked-white-rice.png',
-      hindiText: 'Mirin',
+      hindiText: 'मिनट चावल',
     ),
     Ingredients(
       text: 'miracle whip',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mayonnaise.png',
-      hindiText: 'मीसो',
+      hindiText: 'चमत्कार आदेश',
     ),
     Ingredients(
       text: 'mirin',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mirin.jpg',
-      hindiText: 'गुड़',
+      hindiText: 'Mirin',
     ),
     Ingredients(
       text: 'miso',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/miso.jpg',
-      hindiText: 'मोंटेरे जैक पनीर',
+      hindiText: 'मीसो',
     ),
     Ingredients(
       text: 'molasses',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/molasses.jpg',
-      hindiText: 'मशरूम',
+      hindiText: 'गुड़',
     ),
     Ingredients(
       text: 'monterey jack cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/shredded-cheese-white.jpg',
-      hindiText: 'शंबुक',
+      hindiText: 'मोंटेरे जैक पनीर',
     ),
     Ingredients(
       text: 'mushroom',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mushrooms.png',
-      hindiText: 'सरसों',
+      hindiText: 'मशरूम',
     ),
     Ingredients(
       text: 'mussels',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mussels.jpg',
-      hindiText: 'सरसों के बीज',
+      hindiText: 'शंबुक',
     ),
     Ingredients(
       text: 'mustard',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/regular-mustard.jpg',
-      hindiText: 'नापा पत्तागोभी',
+      hindiText: 'सरसों',
     ),
     Ingredients(
       text: 'mustard seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/regular-mustard.jpg',
-      hindiText: 'नाभि वाले संतरे',
+      hindiText: 'सरसों के बीज',
     ),
     Ingredients(
       text: 'napa cabbage',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/napa-cabbage.jpg',
-      hindiText: 'Nectarine',
+      hindiText: 'नापा पत्तागोभी',
     ),
     Ingredients(
       text: 'navel oranges',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mandarin-or-tangerines-or-clementines.jpg',
-      hindiText: 'नए आलू',
+      hindiText: 'नाभि वाले संतरे',
     ),
     Ingredients(
       text: 'nectarine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/nectarines.jpg',
-      hindiText: 'नॉन-फैट ग्रीक योगर्ट',
+      hindiText: 'Nectarine',
     ),
     Ingredients(
       text: 'new potatoes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/new-potatoes.jpg',
-      hindiText: 'नॉनफ़ैट कूल व्हिप',
+      hindiText: 'नए आलू',
     ),
     Ingredients(
       text: 'non-fat greek yogurt',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/filet-mignon.png',
-      hindiText: 'वसारहित दूध',
+      hindiText: 'नॉन-फैट ग्रीक योगर्ट',
     ),
     Ingredients(
       text: 'nonfat cool whip',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg',
-      hindiText: 'नोरी',
+      hindiText: 'नॉनफ़ैट कूल व्हिप',
     ),
     Ingredients(
       text: 'nonfat milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg',
-      hindiText: 'अखरोट का मक्खन',
+      hindiText: 'वसारहित दूध',
     ),
     Ingredients(
       text: 'nori',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/nori.jpg',
-      hindiText: 'अखरोट भोजन',
+      hindiText: 'नोरी',
     ),
     Ingredients(
       text: 'nut butter',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/nut-butter.png',
-      hindiText: 'Nutella',
+      hindiText: 'अखरोट का मक्खन',
     ),
     Ingredients(
       text: 'nut meal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/coconut-milk.png',
-      hindiText: 'पोषण खमीर',
+      hindiText: 'अखरोट भोजन',
     ),
     Ingredients(
       text: 'nutella',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/hazelnut-chocolate-spread.jpg',
-      hindiText: 'जई का आटा',
+      hindiText: 'Nutella',
     ),
     Ingredients(
       text: 'nutritional yeast',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/nutritional-yeast.png',
-      hindiText: 'जई',
+      hindiText: 'पोषण खमीर',
     ),
     Ingredients(
       text: 'oat flour',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg',
-      hindiText: 'तेल',
+      hindiText: 'जई का आटा',
     ),
     Ingredients(
       text: 'oats',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg',
-      hindiText: 'तेल पैक सूरज सूखे टमाटर',
+      hindiText: 'जई',
     ),
     Ingredients(
       text: 'oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'ओकरा',
+      hindiText: 'तेल',
     ),
     Ingredients(
       text: 'oil packed sun dried tomatoes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/canned-tuna.png',
-      hindiText: 'पुराना बे मसाला',
+      hindiText: 'तेल पैक सूरज सूखे टमाटर',
     ),
     Ingredients(
       text: 'okra',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/okra.png',
-      hindiText: 'जैतून का तेल',
+      hindiText: 'ओकरा',
     ),
     Ingredients(
       text: 'old bay seasoning',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'जैतून',
+      hindiText: 'पुराना बे मसाला',
     ),
     Ingredients(
       text: 'olive oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/olives-mixed.jpg',
-      hindiText: 'प्याज',
+      hindiText: 'जैतून का तेल',
     ),
     Ingredients(
       text: 'olives',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/olives-mixed.jpg',
-      hindiText: 'प्याज पाउडर',
+      hindiText: 'जैतून',
     ),
     Ingredients(
       text: 'onion',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png',
-      hindiText: 'प्याज सूप मिश्रण',
+      hindiText: 'प्याज',
     ),
     Ingredients(
       text: 'onion powder',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png',
-      hindiText: 'संतरा',
+      hindiText: 'प्याज पाउडर',
     ),
     Ingredients(
       text: 'onion soup mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png',
-      hindiText: 'नारंगी बेल मिर्च',
+      hindiText: 'प्याज सूप मिश्रण',
     ),
     Ingredients(
       text: 'orange',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'संतरे का रस',
+      hindiText: 'संतरा',
     ),
     Ingredients(
       text: 'orange bell pepper',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'संतरे का रस',
+      hindiText: 'नारंगी बेल मिर्च',
     ),
     Ingredients(
       text: 'orange juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'संतरे की शराब',
+      hindiText: 'संतरे का रस',
     ),
     Ingredients(
       text: 'orange juice concentrate',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'संतरे का मुरब्बा',
+      hindiText: 'संतरे का रस',
     ),
     Ingredients(
       text: 'orange liqueur',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'संतरे का तेल',
+      hindiText: 'संतरे की शराब',
     ),
     Ingredients(
       text: 'orange marmalade',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'नारंगी का छिलका',
+      hindiText: 'संतरे का मुरब्बा',
     ),
     Ingredients(
       text: 'orange oil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'ओरिगैनो',
+      hindiText: 'संतरे का तेल',
     ),
     Ingredients(
       text: 'orange zest',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orange.png',
-      hindiText: 'ओरियो कुकीज़',
+      hindiText: 'नारंगी का छिलका',
     ),
     Ingredients(
       text: 'oregano',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oregano.jpg',
-      hindiText: 'orzo',
+      hindiText: 'ओरिगैनो',
     ),
     Ingredients(
       text: 'oreo cookies',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oreos.png',
-      hindiText: 'कस्तूरा सॉस',
+      hindiText: 'ओरियो कुकीज़',
     ),
     Ingredients(
       text: 'orzo',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/orzo.jpg',
-      hindiText: 'कस्तूरी',
+      hindiText: 'orzo',
     ),
     Ingredients(
       text: 'oyster sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oysters.jpg',
-      hindiText: 'ताड़ के चीनी',
+      hindiText: 'कस्तूरा सॉस',
     ),
     Ingredients(
       text: 'oysters',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/oysters.jpg',
-      hindiText: 'Pancetta',
+      hindiText: 'कस्तूरी',
     ),
     Ingredients(
       text: 'palm sugar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'पनीर',
+      hindiText: 'ताड़ के चीनी',
     ),
     Ingredients(
       text: 'pancetta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pancetta.png',
-      hindiText: 'Panko',
+      hindiText: 'Pancetta',
     ),
     Ingredients(
       text: 'paneer',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/paneer.png',
-      hindiText: 'पपीता',
+      hindiText: 'पनीर',
     ),
     Ingredients(
       text: 'panko',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/panko.jpg',
-      hindiText: 'लाल शिमला मिर्च',
+      hindiText: 'Panko',
     ),
     Ingredients(
       text: 'papaya',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/papaya.png',
-      hindiText: 'परमिगियानो रेजिगो',
+      hindiText: 'पपीता',
     ),
     Ingredients(
       text: 'paprika',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/bell-pepper-orange.png',
-      hindiText: 'अजमोद',
+      hindiText: 'लाल शिमला मिर्च',
     ),
     Ingredients(
       text: 'parmigiano reggiano',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parmesan.jpg',
-      hindiText: 'अजमोद गुच्छे',
+      hindiText: 'परमिगियानो रेजिगो',
     ),
     Ingredients(
       text: 'parsley',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parsley.jpg',
-      hindiText: 'चुकंदर',
+      hindiText: 'अजमोद',
     ),
     Ingredients(
       text: 'parsley flakes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parsley.jpg',
-      hindiText: 'भाग-स्किम मोज़ेरेला चीज़',
+      hindiText: 'अजमोद गुच्छे',
     ),
     Ingredients(
       text: 'parsnip',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parsnip.jpg',
-      hindiText: 'पास्ता',
+      hindiText: 'चुकंदर',
     ),
     Ingredients(
       text: 'part-skim mozzarella cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ricotta.png',
-      hindiText: 'पास्ता सलाद मिक्स',
+      hindiText: 'भाग-स्किम मोज़ेरेला चीज़',
     ),
     Ingredients(
       text: 'pasta',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg',
-      hindiText: 'पास्ता सॉस',
+      hindiText: 'पास्ता',
     ),
     Ingredients(
       text: 'pasta salad mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg',
-      hindiText: 'पेस्ट्री का आटा',
+      hindiText: 'पास्ता सलाद मिक्स',
     ),
     Ingredients(
       text: 'pasta sauce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/tomato-sauce-or-pasta-sauce.jpg',
-      hindiText: 'आड़ू',
+      hindiText: 'पास्ता सॉस',
     ),
     Ingredients(
       text: 'pastry flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pastrami.jpg',
-      hindiText: 'मूंगफली का मक्खन',
+      hindiText: 'पेस्ट्री का आटा',
     ),
     Ingredients(
       text: 'peach',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peach.png',
-      hindiText: 'मूंगफली का मक्खन चिप्स',
+      hindiText: 'आड़ू',
     ),
     Ingredients(
       text: 'peanut butter',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png',
-      hindiText: 'मूंगफली का मक्खन कप',
+      hindiText: 'मूंगफली का मक्खन',
     ),
     Ingredients(
       text: 'peanut butter chips',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png',
-      hindiText: 'मूंगफली का तेल',
+      hindiText: 'मूंगफली का मक्खन चिप्स',
     ),
     Ingredients(
       text: 'peanut butter cups',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png',
-      hindiText: 'मूंगफली',
+      hindiText: 'मूंगफली का मक्खन कप',
     ),
     Ingredients(
       text: 'peanut oil',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png',
-      hindiText: 'नाशपाती मदिरा',
+      hindiText: 'मूंगफली का तेल',
     ),
     Ingredients(
       text: 'peanuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peanuts.png',
-      hindiText: 'जौ का दलिया',
+      hindiText: 'मूंगफली',
     ),
     Ingredients(
       text: 'pear liqueur',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pear-juice.jpg',
-      hindiText: 'मोती प्याज',
+      hindiText: 'नाशपाती मदिरा',
     ),
     Ingredients(
       text: 'pearl barley',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pearl-onions.png',
-      hindiText: 'मटर',
+      hindiText: 'जौ का दलिया',
     ),
     Ingredients(
       text: 'pearl onions',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pearl-onions.png',
-      hindiText: 'एक प्रकार का अखरोट',
+      hindiText: 'मोती प्याज',
     ),
     Ingredients(
       text: 'peas',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/peas.jpg',
-      hindiText: 'अखरोट के टुकड़े',
+      hindiText: 'मटर',
     ),
     Ingredients(
       text: 'pecan',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pecans.jpg',
-      hindiText: 'पेकोरिनो',
+      hindiText: 'एक प्रकार का अखरोट',
     ),
     Ingredients(
       text: 'pecan pieces',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pecans.jpg',
-      hindiText: 'पेन्ने',
+      hindiText: 'अखरोट के टुकड़े',
     ),
     Ingredients(
       text: 'pecorino',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/parmesan.jpg',
-      hindiText: 'Peperoncino',
+      hindiText: 'पेकोरिनो',
     ),
     Ingredients(
       text: 'penne',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/penne-pasta.jpg',
-      hindiText: 'काली मिर्च जैक पनीर',
+      hindiText: 'पेन्ने',
     ),
     Ingredients(
       text: 'peperoncino',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pepperoncini.jpg',
-      hindiText: 'मिर्च',
+      hindiText: 'Peperoncino',
     ),
     Ingredients(
       text: 'pepper jack cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg',
-      hindiText: 'पेपरमिंट बेकिंग चिप्स',
+      hindiText: 'काली मिर्च जैक पनीर',
     ),
     Ingredients(
       text: 'peppercorns',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg',
-      hindiText: 'पुदीना अर्क',
+      hindiText: 'मिर्च',
     ),
     Ingredients(
       text: 'peppermint baking chips',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg',
-      hindiText: 'पेपरोनी',
+      hindiText: 'पेपरमिंट बेकिंग चिप्स',
     ),
     Ingredients(
       text: 'peppermint extract',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg',
-      hindiText: 'काली मिर्च',
+      hindiText: 'पुदीना अर्क',
     ),
     Ingredients(
       text: 'pepperoni',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg',
-      hindiText: 'पेस्टो',
+      hindiText: 'पेपरोनी',
     ),
     Ingredients(
       text: 'peppers',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pepper.jpg',
-      hindiText: 'अचार का स्वाद',
+      hindiText: 'काली मिर्च',
     ),
     Ingredients(
       text: 'pesto',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/basil-pesto.png',
-      hindiText: 'अचार',
+      hindiText: 'पेस्टो',
     ),
     Ingredients(
       text: 'pickle relish',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dill-pickles.jpg',
-      hindiText: 'पाई क्रस्ट',
+      hindiText: 'अचार का स्वाद',
     ),
     Ingredients(
       text: 'pickles',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/dill-pickles.jpg',
-      hindiText: 'पिंटो भरवां जैतून',
+      hindiText: 'अचार',
     ),
     Ingredients(
       text: 'pie crust',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pie-crust.jpg',
-      hindiText: 'Pimientos',
+      hindiText: 'पाई क्रस्ट',
     ),
     Ingredients(
       text: 'pimento stuffed olives',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pimento.png',
-      hindiText: 'पाइन नट्स',
+      hindiText: 'पिंटो भरवां जैतून',
     ),
     Ingredients(
       text: 'pimientos',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pimento.png',
-      hindiText: 'अनानास',
+      hindiText: 'Pimientos',
     ),
     Ingredients(
       text: 'pine nuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pine-nuts.png',
-      hindiText: 'अनानास विखंडू',
+      hindiText: 'पाइन नट्स',
     ),
     Ingredients(
       text: 'pineapple',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg',
-      hindiText: 'अनानास का रस',
+      hindiText: 'अनानास',
     ),
     Ingredients(
       text: 'pineapple chunks',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg',
-      hindiText: 'अनानास का रस',
+      hindiText: 'अनानास विखंडू',
     ),
     Ingredients(
       text: 'pineapple in juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg',
-      hindiText: 'गुलाबी हिमालयन नमक',
+      hindiText: 'अनानास का रस',
     ),
     Ingredients(
       text: 'pineapple juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg',
-      hindiText: 'पिंटो सेम',
+      hindiText: 'अनानास का रस',
     ),
     Ingredients(
       text: 'pink himalayan salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/apple.jpg',
-      hindiText: 'पिसता',
+      hindiText: 'गुलाबी हिमालयन नमक',
     ),
     Ingredients(
       text: 'pinto beans',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pinto-beans.jpg',
-      hindiText: 'अरबी रोटी',
+      hindiText: 'पिंटो सेम',
     ),
     Ingredients(
       text: 'pistachios',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pistachios.jpg',
-      hindiText: 'पिज्जा परत',
+      hindiText: 'पिसता',
     ),
     Ingredients(
       text: 'pita',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pita-bread.jpg',
-      hindiText: 'पिज्जा मिक्स',
+      hindiText: 'अरबी रोटी',
     ),
     Ingredients(
       text: 'pizza crust',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg',
-      hindiText: 'सादा ग्रीक दही',
+      hindiText: 'पिज्जा परत',
     ),
     Ingredients(
       text: 'pizza mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg',
-      hindiText: 'सादा नोनफेट दही',
+      hindiText: 'पिज्जा मिक्स',
     ),
     Ingredients(
       text: 'plain greek yogurt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'सादा दही',
+      hindiText: 'सादा ग्रीक दही',
     ),
     Ingredients(
       text: 'plain nonfat yogurt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'केला',
+      hindiText: 'सादा नोनफेट दही',
     ),
     Ingredients(
       text: 'plain yogurt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'बेर',
+      hindiText: 'सादा दही',
     ),
     Ingredients(
       text: 'plantain',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/plantains.jpg',
-      hindiText: 'टमाटर का क्रीम',
+      hindiText: 'केला',
     ),
     Ingredients(
       text: 'plum',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/plum.jpg',
-      hindiText: 'पोबलानो मिर्च',
+      hindiText: 'बेर',
     ),
     Ingredients(
       text: 'plum tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/plum-sauce.png',
-      hindiText: 'मकई की खिचड़ी',
+      hindiText: 'टमाटर का क्रीम',
     ),
     Ingredients(
       text: 'poblano peppers',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/poblano-peppers.jpg',
-      hindiText: 'पोलिश पका मांस',
+      hindiText: 'पोबलानो मिर्च',
     ),
     Ingredients(
       text: 'polenta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cornmeal.png',
-      hindiText: 'अनार का रस',
+      hindiText: 'मकई की खिचड़ी',
     ),
     Ingredients(
       text: 'polish sausage',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/smoked-sausage.png',
-      hindiText: 'अनार का सिरा',
+      hindiText: 'पोलिश पका मांस',
     ),
     Ingredients(
       text: 'pomegranate juice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pomegranate.jpg',
-      hindiText: 'अनार के बीज',
+      hindiText: 'अनार का रस',
     ),
     Ingredients(
       text: 'pomegranate molasses',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pomegranate.jpg',
-      hindiText: 'मकई का लावा',
+      hindiText: 'अनार का सिरा',
     ),
     Ingredients(
       text: 'pomegranate seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pomegranate.jpg',
-      hindiText: 'खसखस',
+      hindiText: 'अनार के बीज',
     ),
     Ingredients(
       text: 'popcorn',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/popcorn-kernels.jpg',
-      hindiText: 'सुअर का मांस',
+      hindiText: 'मकई का लावा',
     ),
     Ingredients(
       text: 'poppy seeds',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/poppyseed.png',
-      hindiText: 'पोर्क एंड बीन्स',
+      hindiText: 'खसखस',
     ),
     Ingredients(
       text: 'pork',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-tenderloin-raw.png',
-      hindiText: 'सुअर के पेट का मांस',
+      hindiText: 'सुअर का मांस',
     ),
     Ingredients(
       text: 'Pork & Beans',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-tenderloin-raw.png',
-      hindiText: 'सूअर का पिछवाड़ा',
+      hindiText: 'पोर्क एंड बीन्स',
     ),
     Ingredients(
       text: 'pork belly',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'सूअर मास की चॉप',
+      hindiText: 'सुअर के पेट का मांस',
     ),
     Ingredients(
       text: 'pork butt',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'पोर्क लिंक',
+      hindiText: 'सूअर का पिछवाड़ा',
     ),
     Ingredients(
       text: 'pork chops',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'पोर्क लोन चॉप्स',
+      hindiText: 'सूअर मास की चॉप',
     ),
     Ingredients(
       text: 'pork links',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'सूअर का मांस रोस्ट',
+      hindiText: 'पोर्क लिंक',
     ),
     Ingredients(
       text: 'pork loin chops',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'भुना हुआ सुअर का गोश्त',
+      hindiText: 'पोर्क लोन चॉप्स',
     ),
     Ingredients(
       text: 'pork loin roast',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'सूअर का कंढा',
+      hindiText: 'सूअर का मांस रोस्ट',
     ),
     Ingredients(
       text: 'pork roast',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'सूअर का गोश्त',
+      hindiText: 'भुना हुआ सुअर का गोश्त',
     ),
     Ingredients(
       text: 'pork shoulder',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'बंदरगाह',
+      hindiText: 'सूअर का कंढा',
     ),
     Ingredients(
       text: 'pork tenderloin',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/pork-fat-or-lard.jpg',
-      hindiText: 'पोर्टेबेला मशरूम',
+      hindiText: 'सूअर का गोश्त',
     ),
     Ingredients(
       text: 'port',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/guinness.png',
-      hindiText: 'पॉट रोस्ट',
+      hindiText: 'बंदरगाह',
     ),
     Ingredients(
       text: 'portabella mushrooms',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/portabello-mushrooms.jpg',
-      hindiText: 'आलू के चिप्स',
+      hindiText: 'पोर्टेबेला मशरूम',
     ),
     Ingredients(
       text: 'pot roast',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pot-roast.jpg',
-      hindiText: 'आलू स्टार्च',
+      hindiText: 'पॉट रोस्ट',
     ),
     Ingredients(
       text: 'potato chips',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png',
-      hindiText: 'आलू',
+      hindiText: 'आलू के चिप्स',
     ),
     Ingredients(
       text: 'potato starch',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png',
-      hindiText: 'पोल्ट्री मसाले',
+      hindiText: 'आलू स्टार्च',
     ),
     Ingredients(
       text: 'potatoes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png',
-      hindiText: 'पिसी चीनी',
+      hindiText: 'आलू',
     ),
     Ingredients(
       text: 'poultry seasoning',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.jpg',
-      hindiText: 'प्रेट्ज़ेल सैंडविच',
+      hindiText: 'पोल्ट्री मसाले',
     ),
     Ingredients(
       text: 'powdered sugar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/milk-powdered.jpg',
-      hindiText: 'प्रोसेस्ड अमेरिकन चीज़',
+      hindiText: 'पिसी चीनी',
     ),
     Ingredients(
       text: 'pretzel sandwiches',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pretzels.jpg',
-      hindiText: 'Prosciutto',
+      hindiText: 'प्रेट्ज़ेल सैंडविच',
     ),
     Ingredients(
       text: 'processed american cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/american-cheese.jpg',
-      hindiText: 'प्रोवोलोन चीज़',
+      hindiText: 'प्रोसेस्ड अमेरिकन चीज़',
     ),
     Ingredients(
       text: 'prosciutto',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/proscuitto.jpg',
-      hindiText: 'आलूबुखारा',
+      hindiText: 'Prosciutto',
     ),
     Ingredients(
       text: 'provolone cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/provolone-slices.jpg',
-      hindiText: 'पफ पेस्ट्री',
+      hindiText: 'प्रोवोलोन चीज़',
     ),
     Ingredients(
       text: 'prunes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/prunes.jpg',
-      hindiText: 'कद्दू',
+      hindiText: 'आलूबुखारा',
     ),
     Ingredients(
       text: 'puff pastry',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/puff-pastry.png',
-      hindiText: 'कद्दू पाई भरने',
+      hindiText: 'पफ पेस्ट्री',
     ),
     Ingredients(
       text: 'pumpkin',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png',
-      hindiText: 'पंपकिन पी स्पाइस',
+      hindiText: 'कद्दू',
     ),
     Ingredients(
       text: 'pumpkin pie filling',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png',
-      hindiText: 'कद्दू की प्यूरी',
+      hindiText: 'कद्दू पाई भरने',
     ),
     Ingredients(
       text: 'pumpkin pie spice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png',
-      hindiText: 'कद्दू के बीज',
+      hindiText: 'पंपकिन पी स्पाइस',
     ),
     Ingredients(
       text: 'pumpkin puree',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png',
-      hindiText: 'क्वेसो फ्रेस्को',
+      hindiText: 'कद्दू की प्यूरी',
     ),
     Ingredients(
       text: 'pumpkin seeds',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pumpkin.png',
-      hindiText: 'क्विक कुकिंग ओट्स',
+      hindiText: 'कद्दू के बीज',
     ),
     Ingredients(
       text: 'queso fresco',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cheez-whiz.jpg',
-      hindiText: 'Quinoa',
+      hindiText: 'क्वेसो फ्रेस्को',
     ),
     Ingredients(
       text: 'quick cooking oats',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rolled-oats.jpg',
-      hindiText: 'क्विनोआ आटा',
+      hindiText: 'क्विक कुकिंग ओट्स',
     ),
     Ingredients(
       text: 'quinoa',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/uncooked-quinoa.png',
-      hindiText: 'Radicchio',
+      hindiText: 'Quinoa',
     ),
     Ingredients(
       text: 'quinoa flour',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/uncooked-quinoa.png',
-      hindiText: 'मूली',
+      hindiText: 'क्विनोआ आटा',
     ),
     Ingredients(
       text: 'radicchio',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/radicchio.jpg',
-      hindiText: 'किशमिश',
+      hindiText: 'Radicchio',
     ),
     Ingredients(
       text: 'radishes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/radishes.jpg',
-      hindiText: 'रमेन नूडल्स',
+      hindiText: 'मूली',
     ),
     Ingredients(
       text: 'raisins',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/raisins.jpg',
-      hindiText: 'खास तरह की सलाद ड्रेसिंग',
+      hindiText: 'किशमिश',
     ),
     Ingredients(
       text: 'ramen noodles',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ramen.jpg',
-      hindiText: 'रंच ड्रेसिंग मिक्स',
+      hindiText: 'रमेन नूडल्स',
     ),
     Ingredients(
       text: 'ranch dressing',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/ranch-dressing.jpg',
-      hindiText: 'रसभरी',
+      hindiText: 'खास तरह की सलाद ड्रेसिंग',
     ),
     Ingredients(
       text: 'ranch dressing mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/ranch-dressing.jpg',
-      hindiText: 'रास्पबेरी जाम',
+      hindiText: 'रंच ड्रेसिंग मिक्स',
     ),
     Ingredients(
       text: 'raspberries',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raspberries.jpg',
-      hindiText: 'कच्चे काजू',
+      hindiText: 'रसभरी',
     ),
     Ingredients(
       text: 'raspberry jam',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raspberries.jpg',
-      hindiText: 'कच्चा झिंगा',
+      hindiText: 'रास्पबेरी जाम',
     ),
     Ingredients(
       text: 'raw cashews',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cashews.jpg',
-      hindiText: 'रेडी-टू-सर्व एशियन फ्राइड राइस',
+      hindiText: 'कच्चे काजू',
     ),
     Ingredients(
       text: 'raw shrimp',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raw-brown-sugar.png',
-      hindiText: 'असली बेकन नुस्खा टुकड़े',
+      hindiText: 'कच्चा झिंगा',
     ),
     Ingredients(
       text: 'ready-to-serve Asian fried rice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/pie-crust.jpg',
-      hindiText: 'लाल सेब',
+      hindiText: 'रेडी-टू-सर्व एशियन फ्राइड राइस',
     ),
     Ingredients(
       text: 'real bacon recipe pieces',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/bacon-bits.jpg',
-      hindiText: 'लाल शिमला मिर्च',
+      hindiText: 'असली बेकन नुस्खा टुकड़े',
     ),
     Ingredients(
       text: 'red apples',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/red-delicious-apples.png',
-      hindiText: 'लाल पत्ता गोभी',
+      hindiText: 'लाल सेब',
     ),
     Ingredients(
       text: 'red bell peppers',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beets.jpg',
-      hindiText: 'लाल मिर्च',
+      hindiText: 'लाल शिमला मिर्च',
     ),
     Ingredients(
       text: 'red cabbage',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'लाल स्वादिष्ट सेब',
+      hindiText: 'लाल पत्ता गोभी',
     ),
     Ingredients(
       text: 'red chilli',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'रेड फूड कलरिंग',
+      hindiText: 'लाल मिर्च',
     ),
     Ingredients(
       text: 'red delicious apples',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/red-delicious-apples.png',
-      hindiText: 'लाल अंगूर का रस',
+      hindiText: 'लाल स्वादिष्ट सेब',
     ),
     Ingredients(
       text: 'red food coloring',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/food-coloring.png',
-      hindiText: 'लाल अंगूर',
+      hindiText: 'रेड फूड कलरिंग',
     ),
     Ingredients(
       text: 'red grapefruit juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg',
-      hindiText: 'राजमा',
+      hindiText: 'लाल अंगूर का रस',
     ),
     Ingredients(
       text: 'red grapes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-grapes.jpg',
-      hindiText: 'लाल दाल',
+      hindiText: 'लाल अंगूर',
     ),
     Ingredients(
       text: 'red kidney beans',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/kidney-beans.jpg',
-      hindiText: 'लाल प्याज',
+      hindiText: 'राजमा',
     ),
     Ingredients(
       text: 'red lentils',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/red-lentils.png',
-      hindiText: 'रेड पेपर फ्लेक्स',
+      hindiText: 'लाल दाल',
     ),
     Ingredients(
       text: 'red onion',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-onion.png',
-      hindiText: 'लाल मिर्च पाउडर',
+      hindiText: 'लाल प्याज',
     ),
     Ingredients(
       text: 'red pepper flakes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-plum.png',
-      hindiText: 'लाल आलू',
+      hindiText: 'रेड पेपर फ्लेक्स',
     ),
     Ingredients(
       text: 'red pepper powder',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-plum.png',
-      hindiText: 'रेड वेलवेट कुकी',
+      hindiText: 'लाल मिर्च पाउडर',
     ),
     Ingredients(
       text: 'red potatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-plum.png',
-      hindiText: 'लाल शराब',
+      hindiText: 'लाल आलू',
     ),
     Ingredients(
       text: 'red velvet cookie',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg',
-      hindiText: 'लाल शराब सिरका',
+      hindiText: 'रेड वेलवेट कुकी',
     ),
     Ingredients(
       text: 'red wine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg',
-      hindiText: 'चर्बी घटाया चेडर चीज़',
+      hindiText: 'लाल शराब',
     ),
     Ingredients(
       text: 'red wine vinegar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg',
-      hindiText: 'दोबारा तले गए सेम',
+      hindiText: 'लाल शराब सिरका',
     ),
     Ingredients(
       text: 'reduced fat shredded cheddar cheese',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/mayonnaise.png',
-      hindiText: 'प्रशीतित अर्धचन्द्राकार रोल',
+      hindiText: 'चर्बी घटाया चेडर चीज़',
     ),
     Ingredients(
       text: 'refried beans',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png',
-      hindiText: 'प्रशीतित पिज्जा आटा',
+      hindiText: 'दोबारा तले गए सेम',
     ),
     Ingredients(
       text: 'refrigerated crescent rolls',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png',
-      hindiText: 'प्रशीतित चीनी कुकी आटा',
+      hindiText: 'प्रशीतित अर्धचन्द्राकार रोल',
     ),
     Ingredients(
       text: 'refrigerated pizza dough',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png',
-      hindiText: 'एक प्रकार का फल',
+      hindiText: 'प्रशीतित पिज्जा आटा',
     ),
     Ingredients(
       text: 'refrigerated sugar cookie dough',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/refried-beans.png',
-      hindiText: 'रिब टिप्स',
+      hindiText: 'प्रशीतित चीनी कुकी आटा',
     ),
     Ingredients(
       text: 'rhubarb',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rhubarb.jpg',
-      hindiText: 'चावल',
+      hindiText: 'एक प्रकार का फल',
     ),
     Ingredients(
       text: 'rib tips',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/no.jpg',
-      hindiText: 'चावल का आटा',
+      hindiText: 'रिब टिप्स',
     ),
     Ingredients(
       text: 'rice',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/uncooked-white-rice.png',
-      hindiText: 'चावल क्रिस्पी अनाज',
+      hindiText: 'चावल',
     ),
     Ingredients(
       text: 'rice flour',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'चावल से बना दूध',
+      hindiText: 'चावल का आटा',
     ),
     Ingredients(
       text: 'rice krispies cereal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'चावल के नूडल्स',
+      hindiText: 'चावल क्रिस्पी अनाज',
     ),
     Ingredients(
       text: 'rice milk',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'चावल के कागज',
+      hindiText: 'चावल से बना दूध',
     ),
     Ingredients(
       text: 'rice noodles',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'राइस सिरप',
+      hindiText: 'चावल के नूडल्स',
     ),
     Ingredients(
       text: 'rice paper',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'चावल सिरका',
+      hindiText: 'चावल के कागज',
     ),
     Ingredients(
       text: 'rice syrup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'राइस वाइन',
+      hindiText: 'राइस सिरप',
     ),
     Ingredients(
       text: 'rice vinegar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'रिकोटा सलटा',
+      hindiText: 'चावल सिरका',
     ),
     Ingredients(
       text: 'rice wine',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'रिट्ज पटाखे',
+      hindiText: 'राइस वाइन',
     ),
     Ingredients(
       text: 'ricotta salata',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ricotta.png',
-      hindiText: 'भुना हुआ गायका मांस',
+      hindiText: 'रिकोटा सलटा',
     ),
     Ingredients(
       text: 'ritz crackers',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/crackers.jpg',
-      hindiText: 'भुना मुर्गा',
+      hindiText: 'रिट्ज पटाखे',
     ),
     Ingredients(
       text: 'roast beef',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg',
-      hindiText: 'भुना हुआ नट्स',
+      hindiText: 'भुना हुआ गायका मांस',
     ),
     Ingredients(
       text: 'roasted chicken',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg',
-      hindiText: 'भुनी हुई मूंगफली',
+      hindiText: 'भुना मुर्गा',
     ),
     Ingredients(
       text: 'roasted nuts',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg',
-      hindiText: 'भुनी लाल मिर्च',
+      hindiText: 'भुना हुआ नट्स',
     ),
     Ingredients(
       text: 'roasted peanuts',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg',
-      hindiText: 'रोमा टमाटर',
+      hindiText: 'भुनी हुई मूंगफली',
     ),
     Ingredients(
       text: 'roasted red peppers',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/roast-beef-slices.jpg',
-      hindiText: 'रोमेन सलाद',
+      hindiText: 'भुनी लाल मिर्च',
     ),
     Ingredients(
       text: 'roma tomatoes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/roma-tomatoes.png',
-      hindiText: 'जड़ खाने वाली सब्जियां',
+      hindiText: 'रोमा टमाटर',
     ),
     Ingredients(
       text: 'romaine lettuce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/romaine.jpg',
-      hindiText: 'रोजमैरी',
+      hindiText: 'रोमेन सलाद',
     ),
     Ingredients(
       text: 'root vegetables',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg',
-      hindiText: 'भुना हुआ मुर्गा',
+      hindiText: 'जड़ खाने वाली सब्जियां',
     ),
     Ingredients(
       text: 'rosemary',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rosemary.jpg',
-      hindiText: 'राउंड स्टेक',
+      hindiText: 'रोजमैरी',
     ),
     Ingredients(
       text: 'rotisserie chicken',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/rotisserie-chicken.png',
-      hindiText: 'रगड़',
+      hindiText: 'भुना हुआ मुर्गा',
     ),
     Ingredients(
       text: 'round steak',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/round-steak.jpg',
-      hindiText: 'रम निकालें',
+      hindiText: 'राउंड स्टेक',
     ),
     Ingredients(
       text: 'rub',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'तरल शहद',
+      hindiText: 'रगड़',
     ),
     Ingredients(
       text: 'rum extract',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vanilla-extract.jpg',
-      hindiText: 'रसेट आलू',
+      hindiText: 'रम निकालें',
     ),
     Ingredients(
       text: 'runny honey',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/honey.png',
-      hindiText: 'Rutabaga',
+      hindiText: 'तरल शहद',
     ),
     Ingredients(
       text: 'russet potatoes',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/russet-or-idaho-potatoes.png',
-      hindiText: 'राई की रोटी',
+      hindiText: 'रसेट आलू',
     ),
     Ingredients(
       text: 'rutabaga',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/rutabaga.jpg',
-      hindiText: 'राई खाना',
+      hindiText: 'Rutabaga',
     ),
     Ingredients(
       text: 'rye bread',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/beer.jpg',
-      hindiText: 'केसर के धागे',
+      hindiText: 'राई की रोटी',
     ),
     Ingredients(
       text: 'rye meal',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-flour.jpg',
-      hindiText: 'साधू',
+      hindiText: 'राई खाना',
     ),
     Ingredients(
       text: 'saffron threads',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/saffron.jpg',
-      hindiText: 'एक खास पेड़ के पत्ते',
+      hindiText: 'केसर के धागे',
     ),
     Ingredients(
       text: 'sage',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/fresh-sage.png',
-      hindiText: 'चटनी',
+      hindiText: 'साधू',
     ),
     Ingredients(
       text: 'sage leaves',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/fresh-sage.png',
-      hindiText: 'सलामी',
+      hindiText: 'एक खास पेड़ के पत्ते',
     ),
     Ingredients(
       text: 'salad dressing',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-greens-or-mesclun.jpg',
-      hindiText: 'सामन पट्टिका',
+      hindiText: 'चटनी',
     ),
     Ingredients(
       text: 'salami',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salami.jpg',
-      hindiText: 'साल्सा',
+      hindiText: 'सलामी',
     ),
     Ingredients(
       text: 'salmon fillet',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salmon.png',
-      hindiText: 'साल्सा वर्डे',
+      hindiText: 'सामन पट्टिका',
     ),
     Ingredients(
       text: 'salsa',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salsa.png',
-      hindiText: 'नमक',
+      hindiText: 'साल्सा',
     ),
     Ingredients(
       text: 'salsa verde',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salsa.png',
-      hindiText: 'नमक और मिर्च',
+      hindiText: 'साल्सा वर्डे',
     ),
     Ingredients(
       text: 'salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/salt.jpg',
-      hindiText: 'नमकीन मक्खन',
+      hindiText: 'नमक',
     ),
     Ingredients(
       text: 'salt and pepper',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/cod-fillet.jpg',
-      hindiText: 'सैलटाइन पटाखे',
+      hindiText: 'नमक और मिर्च',
     ),
     Ingredients(
       text: 'salted butter',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/butter.jpg',
-      hindiText: 'सैंडविच बन',
+      hindiText: 'नमकीन मक्खन',
     ),
     Ingredients(
       text: 'saltine crackers',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/saltine-crackers.jpg',
-      hindiText: 'खट्टी गोभी',
+      hindiText: 'सैलटाइन पटाखे',
     ),
     Ingredients(
       text: 'sandwich bun',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/kaiser-roll.png',
-      hindiText: 'सॉस',
+      hindiText: 'सैंडविच बन',
     ),
     Ingredients(
       text: 'sauerkraut',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/sour-cream.jpg',
-      hindiText: 'सॉसेज लिंक',
+      hindiText: 'खट्टी गोभी',
     ),
     Ingredients(
       text: 'sausage',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raw-pork-sausage.png',
-      hindiText: 'स्कॉच बोनट चिली',
+      hindiText: 'सॉस',
     ),
     Ingredients(
       text: 'sausage links',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raw-pork-sausage.png',
-      hindiText: 'समुद्री नमक',
+      hindiText: 'सॉसेज लिंक',
     ),
     Ingredients(
       text: 'scotch bonnet chili',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whiskey-bottle.jpg',
-      hindiText: 'समुद्री घोंघा',
+      hindiText: 'स्कॉच बोनट चिली',
     ),
     Ingredients(
       text: 'sea salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'अनुभवी ब्रेड क्रम्ब्स',
+      hindiText: 'समुद्री नमक',
     ),
     Ingredients(
       text: 'sea scallops',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'अनुभवी चावल का सिरका',
+      hindiText: 'समुद्री घोंघा',
     ),
     Ingredients(
       text: 'seasoned bread crumbs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'मसालेदार नमक',
+      hindiText: 'अनुभवी ब्रेड क्रम्ब्स',
     ),
     Ingredients(
       text: 'seasoned rice vinegar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'मसाला मिश्रण',
+      hindiText: 'अनुभवी चावल का सिरका',
     ),
     Ingredients(
       text: 'seasoned salt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'बीज',
+      hindiText: 'मसालेदार नमक',
     ),
     Ingredients(
       text: 'seasoning blend',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/seasoning.png',
-      hindiText: 'स्वंय बढ़ता आटा',
+      hindiText: 'मसाला मिश्रण',
     ),
     Ingredients(
       text: 'seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sunflower-seeds.jpg',
-      hindiText: 'कम मीठा चॉकलेट चिप्स',
+      hindiText: 'बीज',
     ),
     Ingredients(
       text: 'self-rising flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'सेरानो चिली',
+      hindiText: 'स्वंय बढ़ता आटा',
     ),
     Ingredients(
       text: 'semi sweet chocolate chips',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chocolate-chips.jpg',
-      hindiText: 'तिल का तेल',
+      hindiText: 'कम मीठा चॉकलेट चिप्स',
     ),
     Ingredients(
       text: 'serrano chile',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/proscuitto.jpg',
-      hindiText: 'तिल के बीज हैमबर्गर बन्स',
+      hindiText: 'सेरानो चिली',
     ),
     Ingredients(
       text: 'sesame oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sesame-seeds.png',
-      hindiText: 'तिल के बीज',
+      hindiText: 'तिल का तेल',
     ),
     Ingredients(
       text: 'sesame seed hamburger buns',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sesame-seeds.png',
-      hindiText: 'छोटे प्याज़',
+      hindiText: 'तिल के बीज हैमबर्गर बन्स',
     ),
     Ingredients(
       text: 'sesame seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sesame-seeds.png',
-      hindiText: 'तेज चेडर चीज़',
+      hindiText: 'तिल के बीज',
     ),
     Ingredients(
       text: 'shallot',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shallots.jpg',
-      hindiText: 'भेड़ का दूध पनीर',
+      hindiText: 'छोटे प्याज़',
     ),
     Ingredients(
       text: 'sharp cheddar cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'शेल',
+      hindiText: 'तेज चेडर चीज़',
     ),
     Ingredients(
       text: 'sheeps milk cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'स्पेनिश सफेद मदिरा',
+      hindiText: 'भेड़ का दूध पनीर',
     ),
     Ingredients(
       text: 'shells',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/shell-pasta.jpg',
+      hindiText: 'शेल',
+    ),
+    Ingredients(
+      text: 'sherry',
+      imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png',
       hindiText: 'स्पेनिश सफेद मदिरा',
     ),
     Ingredients(
       text: 'sherry',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png',
-      hindiText: 'शेरी विनेगर',
-    ),
-    Ingredients(
-      text: 'sherry',
-      imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png',
-      hindiText: 'शिटेक मशरूम कैप',
+      hindiText: 'स्पेनिश सफेद मदिरा',
     ),
     Ingredients(
       text: 'sherry vinegar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dry-sherry.png',
-      hindiText: 'शॉर्ट ग्रेन राइस',
+      hindiText: 'शेरी विनेगर',
     ),
     Ingredients(
       text: 'shiitake mushroom caps',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/shiitake-mushrooms.png',
-      hindiText: 'छोटा पास्ता',
+      hindiText: 'शिटेक मशरूम कैप',
     ),
     Ingredients(
       text: 'short grain rice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg',
-      hindiText: 'छोटी पसलियाँ',
+      hindiText: 'शॉर्ट ग्रेन राइस',
     ),
     Ingredients(
       text: 'short pasta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg',
-      hindiText: 'कचौड़ी कुकीज़',
+      hindiText: 'छोटा पास्ता',
     ),
     Ingredients(
       text: 'short ribs',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg',
-      hindiText: 'छोटी परत वाली पेस्ट्री',
+      hindiText: 'छोटी पसलियाँ',
     ),
     Ingredients(
       text: 'shortbread cookies',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg',
-      hindiText: 'कमी',
+      hindiText: 'कचौड़ी कुकीज़',
     ),
     Ingredients(
       text: 'shortcrust pastry',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg',
-      hindiText: 'कटा हुआ चेडर पनीर',
+      hindiText: 'छोटी परत वाली पेस्ट्री',
     ),
     Ingredients(
       text: 'shortening',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/shortening.jpg',
-      hindiText: 'कटा हुआ पनीर',
+      hindiText: 'कमी',
     ),
     Ingredients(
       text: 'shredded cheddar cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'कटा हुआ मुर्गा',
+      hindiText: 'कटा हुआ चेडर पनीर',
     ),
     Ingredients(
       text: 'shredded cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'कटा हुआ नारियल',
+      hindiText: 'कटा हुआ पनीर',
     ),
     Ingredients(
       text: 'shredded chicken',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'कटा हुआ मैक्सिकन पनीर मिश्रण',
+      hindiText: 'कटा हुआ मुर्गा',
     ),
     Ingredients(
       text: 'shredded coconut',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
+      hindiText: 'कटा हुआ नारियल',
+    ),
+    Ingredients(
+      text: 'shredded mexican cheese blend',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
       hindiText: 'कटा हुआ मैक्सिकन पनीर मिश्रण',
     ),
     Ingredients(
       text: 'shredded mexican cheese blend',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'कटा हुआ मोज़ेरेला',
-    ),
-    Ingredients(
-      text: 'shredded mexican cheese blend',
-      imageUrl:
-          'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'रेशमी टोफू',
+      hindiText: 'कटा हुआ मैक्सिकन पनीर मिश्रण',
     ),
     Ingredients(
       text: 'shredded mozzarella',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'सर्लोइन स्टेक',
+      hindiText: 'कटा हुआ मोज़ेरेला',
     ),
     Ingredients(
       text: 'silken tofu',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tofu.png',
-      hindiText: 'स्किम मिल्क रिकोटा',
+      hindiText: 'रेशमी टोफू',
     ),
     Ingredients(
       text: 'sirloin steak',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sirloin-steak.png',
-      hindiText: 'स्किम वेनिला ग्रीक दही',
+      hindiText: 'सर्लोइन स्टेक',
     ),
     Ingredients(
       text: 'skim milk ricotta',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg',
-      hindiText: 'त्वचा पर हड्डी में चिकन पैर क्वार्टर',
+      hindiText: 'स्किम मिल्क रिकोटा',
     ),
     Ingredients(
       text: 'skim vanilla greek yogurt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.jpg',
-      hindiText: 'स्किनलेस बोनलेस चिकन ब्रेस्ट हाफ',
+      hindiText: 'स्किम वेनिला ग्रीक दही',
     ),
     Ingredients(
       text: 'skin-on bone-in chicken leg quarters',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chicken-drumsticks.jpg',
-      hindiText: 'स्किनलेस बोनलेस चिकन जांघ्स',
+      hindiText: 'त्वचा पर हड्डी में चिकन पैर क्वार्टर',
     ),
     Ingredients(
       text: 'skinless boneless chicken breast halves',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chicken-thighs.png',
-      hindiText: 'चमड़ी वाले काले चने',
+      hindiText: 'स्किनलेस बोनलेस चिकन ब्रेस्ट हाफ',
     ),
     Ingredients(
       text: 'skinless boneless chicken thighs',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chicken-thighs.png',
-      hindiText: 'स्लाव ड्रेसिंग',
+      hindiText: 'स्किनलेस बोनलेस चिकन जांघ्स',
     ),
     Ingredients(
       text: 'skinned black gram',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/urad-dal.png',
-      hindiText: 'स्लाव मिक्स',
+      hindiText: 'चमड़ी वाले काले चने',
     ),
     Ingredients(
       text: 'slaw dressing',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coleslaw.png',
-      hindiText: 'चांदी बादाम',
+      hindiText: 'स्लाव ड्रेसिंग',
     ),
     Ingredients(
       text: 'slaw mix',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/coleslaw.png',
-      hindiText: 'धूम्र लाल शिमला मिर्च',
+      hindiText: 'स्लाव मिक्स',
     ),
     Ingredients(
       text: 'slivered almonds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/almonds-slivered.png',
-      hindiText: 'स्मोक्ड सालमन',
+      hindiText: 'चांदी बादाम',
     ),
     Ingredients(
       text: 'smoked paprika',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg',
-      hindiText: 'भुनी हुई सॉसेज',
+      hindiText: 'धूम्र लाल शिमला मिर्च',
     ),
     Ingredients(
       text: 'smoked salmon',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg',
-      hindiText: 'चिकनी मूंगफली का मक्खन',
+      hindiText: 'स्मोक्ड सालमन',
     ),
     Ingredients(
       text: 'smoked sausage',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/diced-ham.jpg',
-      hindiText: 'स्नैपर फिल्लेट्स',
+      hindiText: 'भुनी हुई सॉसेज',
     ),
     Ingredients(
       text: 'smooth peanut butter',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/peanut-butter.png',
-      hindiText: 'बर्फ मटर',
+      hindiText: 'चिकनी मूंगफली का मक्खन',
     ),
     Ingredients(
       text: 'snapper fillets',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/snapper.jpg',
-      hindiText: 'सोडा - वाटर',
+      hindiText: 'स्नैपर फिल्लेट्स',
     ),
     Ingredients(
       text: 'snow peas',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/snow-peas.jpg',
-      hindiText: 'खट्टी मलाई',
+      hindiText: 'बर्फ मटर',
     ),
     Ingredients(
       text: 'soda water',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sparkling-water.png',
-      hindiText: 'खट्टा कटोरा',
+      hindiText: 'सोडा - वाटर',
     ),
     Ingredients(
       text: 'sour cream',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/milk.png',
-      hindiText: 'खमीरी रोटी',
+      hindiText: 'खट्टी मलाई',
     ),
     Ingredients(
       text: 'sourdough bowl',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sourdough-bread.jpg',
-      hindiText: 'सोया दूध',
+      hindiText: 'खट्टा कटोरा',
     ),
     Ingredients(
       text: 'sourdough bread',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sourdough-bread.jpg',
-      hindiText: 'सोया प्रोटीन पाउडर',
+      hindiText: 'खमीरी रोटी',
     ),
     Ingredients(
       text: 'soy milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soy-milk.jpg',
-      hindiText: 'सोया सॉस',
+      hindiText: 'सोया दूध',
     ),
     Ingredients(
       text: 'soy protein powder',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/okara.png',
-      hindiText: 'स्पघेटी',
+      hindiText: 'सोया प्रोटीन पाउडर',
     ),
     Ingredients(
       text: 'soy sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soy-sauce.jpg',
-      hindiText: 'स्पेगती स्क्वाश',
+      hindiText: 'सोया सॉस',
     ),
     Ingredients(
       text: 'spaghetti',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/spaghetti.jpg',
-      hindiText: 'स्पार्कलिंग वाइन',
+      hindiText: 'स्पघेटी',
     ),
     Ingredients(
       text: 'spaghetti squash',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/spaghetti.jpg',
-      hindiText: 'आटा भिखेरना',
+      hindiText: 'स्पेगती स्क्वाश',
     ),
     Ingredients(
       text: 'sparkling wine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/champagne.png',
-      hindiText: 'मसालेदार भूरी सरसों',
+      hindiText: 'स्पार्कलिंग वाइन',
     ),
     Ingredients(
       text: 'spelt flour',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/farro-or-spelt.jpg',
-      hindiText: 'पालक',
+      hindiText: 'आटा भिखेरना',
     ),
     Ingredients(
       text: 'spicy brown mustard',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-chili.jpg',
-      hindiText: 'स्प्राइट',
+      hindiText: 'मसालेदार भूरी सरसों',
     ),
     Ingredients(
       text: 'spinach',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/spinach.jpg',
-      hindiText: 'अंकुरित',
+      hindiText: 'पालक',
     ),
     Ingredients(
       text: 'sprite',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/soda-can.jpg',
-      hindiText: 'स्क्वाश',
+      hindiText: 'स्प्राइट',
     ),
     Ingredients(
       text: 'sprouts',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/alfalfa-sprouts.png',
-      hindiText: 'Sriracha सॉस',
+      hindiText: 'अंकुरित',
     ),
     Ingredients(
       text: 'squash',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/butternut-squash.jpg',
-      hindiText: 'स्टेक',
+      hindiText: 'स्क्वाश',
     ),
     Ingredients(
       text: 'sriracha sauce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/hot-sauce-or-tabasco.png',
-      hindiText: 'स्टील कट ओट्स',
+      hindiText: 'Sriracha सॉस',
     ),
     Ingredients(
       text: 'steaks',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/ribeye-raw.jpg',
-      hindiText: 'स्टेविया',
+      hindiText: 'स्टेक',
     ),
     Ingredients(
       text: 'steel cut oats',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/steel-cut-oats.png',
-      hindiText: 'मांस का स्टू',
+      hindiText: 'स्टील कट ओट्स',
     ),
     Ingredients(
       text: 'stevia',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/stevia.png',
-      hindiText: 'स्टू सब्जियां',
+      hindiText: 'स्टेविया',
     ),
     Ingredients(
       text: 'stew meat',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.png',
-      hindiText: 'भण्डार',
+      hindiText: 'मांस का स्टू',
     ),
     Ingredients(
       text: 'stew vegetables',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/beef-cubes-raw.png',
-      hindiText: 'स्टोर-खरीदा फ़ाइलो',
+      hindiText: 'स्टू सब्जियां',
     ),
     Ingredients(
       text: 'stock',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/chicken-broth.png',
-      hindiText: 'मोटा',
+      hindiText: 'भण्डार',
     ),
     Ingredients(
       text: 'store-bought phyllo',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/filo-dough.png',
-      hindiText: 'स्ट्रॉबेरीज',
+      hindiText: 'स्टोर-खरीदा फ़ाइलो',
     ),
     Ingredients(
       text: 'stout',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/guinness.png',
-      hindiText: 'स्ट्रॉबेरी जैम',
+      hindiText: 'मोटा',
     ),
     Ingredients(
       text: 'strawberries',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/strawberries.png',
-      hindiText: 'स्ट्रॉबेरी जेलो',
+      hindiText: 'स्ट्रॉबेरीज',
     ),
     Ingredients(
       text: 'strawberry jam',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/strawberries.png',
-      hindiText: 'भराई',
+      hindiText: 'स्ट्रॉबेरी जैम',
     ),
     Ingredients(
       text: 'strawberry jello',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/strawberries.png',
-      hindiText: 'भराई मिश्रण',
+      hindiText: 'स्ट्रॉबेरी जेलो',
     ),
     Ingredients(
       text: 'stuffing',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/stuffing-mix.png',
-      hindiText: 'सब रोल',
+      hindiText: 'भराई',
     ),
     Ingredients(
       text: 'stuffing mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/stuffing-mix.png',
-      hindiText: 'चीनी',
+      hindiText: 'भराई मिश्रण',
     ),
     Ingredients(
       text: 'sub rolls',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/french-rolls.jpg',
-      hindiText: 'मटर',
+      hindiText: 'सब रोल',
     ),
     Ingredients(
       text: 'sugar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png',
-      hindiText: 'चाशनी',
+      hindiText: 'चीनी',
     ),
     Ingredients(
       text: 'sugar snap peas',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png',
-      hindiText: 'सुकरीन स्वीटनर',
+      hindiText: 'मटर',
     ),
     Ingredients(
       text: 'sugar syrup',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sugar-in-bowl.png',
-      hindiText: 'ग्रीष्म जड़ी - बूटी',
+      hindiText: 'चाशनी',
     ),
     Ingredients(
       text: 'sukrin sweetener',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sugar-substitute.jpg',
-      hindiText: 'गर्मी का शरबत',
+      hindiText: 'सुकरीन स्वीटनर',
     ),
     Ingredients(
       text: 'summer savory',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yellow-squash.jpg',
-      hindiText: 'सूरजमुखी का तेल',
+      hindiText: 'ग्रीष्म जड़ी - बूटी',
     ),
     Ingredients(
       text: 'summer squash',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yellow-squash.jpg',
-      hindiText: 'सूरजमुखी के बीज',
+      hindiText: 'गर्मी का शरबत',
     ),
     Ingredients(
       text: 'sunflower oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मीठी मिर्च की चटनी',
+      hindiText: 'सूरजमुखी का तेल',
     ),
     Ingredients(
       text: 'sunflower seeds',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vegetable-oil.jpg',
-      hindiText: 'मीठा प्याज',
+      hindiText: 'सूरजमुखी के बीज',
     ),
     Ingredients(
       text: 'sweet chilli sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'प्यारी पप्रिका',
+      hindiText: 'मीठी मिर्च की चटनी',
     ),
     Ingredients(
       text: 'sweet onion',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मीठा अचार का रस',
+      hindiText: 'मीठा प्याज',
     ),
     Ingredients(
       text: 'sweet paprika',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मीठे अचार का स्वाद',
+      hindiText: 'प्यारी पप्रिका',
     ),
     Ingredients(
       text: 'sweet pickle juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'शकरकंद',
+      hindiText: 'मीठा अचार का रस',
     ),
     Ingredients(
       text: 'sweet pickle relish',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मीठी चाय',
+      hindiText: 'मीठे अचार का स्वाद',
     ),
     Ingredients(
       text: 'sweet potato',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मीठा नारियल',
+      hindiText: 'शकरकंद',
     ),
     Ingredients(
       text: 'sweet tea',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मीठा गाढ़ा दूध',
+      hindiText: 'मीठी चाय',
     ),
     Ingredients(
       text: 'sweetened coconut',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'मीठा कटा नारियल',
+      hindiText: 'मीठा नारियल',
     ),
     Ingredients(
       text: 'sweetened condensed milk',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'स्विस कार्ड',
+      hindiText: 'मीठा गाढ़ा दूध',
     ),
     Ingredients(
       text: 'sweetened shredded coconut',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/corn.png',
-      hindiText: 'स्विस पनीर',
+      hindiText: 'मीठा कटा नारियल',
     ),
     Ingredients(
       text: 'swiss chard',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/swiss-chard.jpg',
-      hindiText: 'टैको सीज़निंग मिक्स',
+      hindiText: 'स्विस कार्ड',
     ),
     Ingredients(
       text: 'swiss cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/swiss-chard.jpg',
-      hindiText: 'टैको के गोले',
+      hindiText: 'स्विस पनीर',
     ),
     Ingredients(
       text: 'taco seasoning mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/taco-shells.jpg',
-      hindiText: 'ताहिनी',
+      hindiText: 'टैको सीज़निंग मिक्स',
     ),
     Ingredients(
       text: 'taco shells',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/taco-shells.jpg',
-      hindiText: 'Tamari',
+      hindiText: 'टैको के गोले',
     ),
     Ingredients(
       text: 'tahini',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/tahini-paste.png',
-      hindiText: 'टैपिओका आटा',
+      hindiText: 'ताहिनी',
     ),
     Ingredients(
       text: 'tamari',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tamarind.png',
-      hindiText: 'टैरागोन',
+      hindiText: 'Tamari',
     ),
     Ingredients(
       text: 'tapioca flour',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/sago-pearls.png',
-      hindiText: 'तीखा सेब',
+      hindiText: 'टैपिओका आटा',
     ),
     Ingredients(
       text: 'tarragon',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tarragon.jpg',
-      hindiText: 'चाय बैग',
+      hindiText: 'टैरागोन',
     ),
     Ingredients(
       text: 'tart apple',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/grannysmith-apple.png',
-      hindiText: 'टकीला',
+      hindiText: 'तीखा सेब',
     ),
     Ingredients(
       text: 'tea bags',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tea-bags.jpg',
-      hindiText: 'तेरियाकी सॉस',
+      hindiText: 'चाय बैग',
     ),
     Ingredients(
       text: 'tequila',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tequila.png',
-      hindiText: 'थाई तुलसी',
+      hindiText: 'टकीला',
     ),
     Ingredients(
       text: 'teriyaki sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg',
-      hindiText: 'थाई चिल्स',
+      hindiText: 'तेरियाकी सॉस',
     ),
     Ingredients(
       text: 'thai basil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/lemon-basil.jpg',
-      hindiText: 'थाई लाल करी पेस्ट',
+      hindiText: 'थाई तुलसी',
     ),
     Ingredients(
       text: 'thai chiles',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/lemon-basil.jpg',
-      hindiText: 'सूअर मांस के मोटे टुकड़े',
+      hindiText: 'थाई चिल्स',
     ),
     Ingredients(
       text: 'thai red curry paste',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/lemon-basil.jpg',
-      hindiText: 'तिलापिया fillets',
+      hindiText: 'थाई लाल करी पेस्ट',
     ),
     Ingredients(
       text: 'thick-cut bacon',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png',
-      hindiText: 'टोस्ट',
+      hindiText: 'सूअर मांस के मोटे टुकड़े',
     ),
     Ingredients(
       text: 'tilapia fillets',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raw-tilapia.jpg',
-      hindiText: 'टॉफी बिट्स',
+      hindiText: 'तिलापिया fillets',
     ),
     Ingredients(
       text: 'toast',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/toast.jpg',
-      hindiText: 'टोफू',
+      hindiText: 'टोस्ट',
     ),
     Ingredients(
       text: 'toffee bits',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/toffee-pieces.jpg',
-      hindiText: 'tomatillos',
+      hindiText: 'टॉफी बिट्स',
     ),
     Ingredients(
       text: 'tofu',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/beancurd-sheets.jpg',
-      hindiText: 'टमाटर का रस',
+      hindiText: 'टोफू',
     ),
     Ingredients(
       text: 'tomatillos',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'टमाटर का पेस्ट',
+      hindiText: 'tomatillos',
     ),
     Ingredients(
       text: 'tomato juice',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'टमाटर का भर्ता',
+      hindiText: 'टमाटर का रस',
     ),
     Ingredients(
       text: 'tomato paste',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'टमाटर की चटनी',
+      hindiText: 'टमाटर का पेस्ट',
     ),
     Ingredients(
       text: 'tomato puree',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'टमाटर सूप',
+      hindiText: 'टमाटर का भर्ता',
     ),
     Ingredients(
       text: 'tomato sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'टमाटर',
+      hindiText: 'टमाटर की चटनी',
     ),
     Ingredients(
       text: 'tomato soup',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'शीर्ष ब्लेड स्टेक',
+      hindiText: 'टमाटर सूप',
     ),
     Ingredients(
       text: 'tomatoes',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/tomato.png',
-      hindiText: 'टॉप राउंड स्टेक',
+      hindiText: 'टमाटर',
     ),
     Ingredients(
       text: 'top blade steak',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/blade-steak.png',
-      hindiText: 'जानवर के ऊपरी पुट्ठे का मांस',
+      hindiText: 'शीर्ष ब्लेड स्टेक',
     ),
     Ingredients(
       text: 'top round steak',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/round-steak.jpg',
-      hindiText: 'टॉर्टिला',
+      hindiText: 'टॉप राउंड स्टेक',
     ),
     Ingredients(
       text: 'Top Sirloin',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/top-sirloin-steak.jpg',
-      hindiText: 'टॉरटिल्ला चिप्स',
+      hindiText: 'जानवर के ऊपरी पुट्ठे का मांस',
     ),
     Ingredients(
       text: 'tortilla',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/flour-tortilla.jpg',
-      hindiText: 'ट्रिपल सेक',
+      hindiText: 'टॉर्टिला',
     ),
     Ingredients(
       text: 'tortilla chips',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/flour-tortilla.jpg',
-      hindiText: 'कुकुरमुत्ता का तेल',
+      hindiText: 'टॉरटिल्ला चिप्स',
     ),
     Ingredients(
       text: 'triple sec',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-rum.jpg',
-      hindiText: 'टूना',
+      hindiText: 'ट्रिपल सेक',
     ),
     Ingredients(
       text: 'truffle oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/truffle-oil.jpg',
-      hindiText: 'तुर्बिनाडो शक्कर',
+      hindiText: 'कुकुरमुत्ता का तेल',
     ),
     Ingredients(
       text: 'tuna',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/canned-tuna.png',
-      hindiText: 'तुर्की',
+      hindiText: 'टूना',
     ),
     Ingredients(
       text: 'turbinado sugar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/raw-brown-sugar.png',
-      hindiText: 'टर्की ब्रेस्ट',
+      hindiText: 'तुर्बिनाडो शक्कर',
     ),
     Ingredients(
       text: 'turkey',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/turkey-raw-whole.jpg',
-      hindiText: 'टर्की कीलबास',
+      hindiText: 'तुर्की',
     ),
     Ingredients(
       text: 'turkey breast',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/turkey-raw-whole.jpg',
-      hindiText: 'हल्दी',
+      hindiText: 'टर्की ब्रेस्ट',
     ),
     Ingredients(
       text: 'turkey kielbasa',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/turkey-raw-whole.jpg',
-      hindiText: 'शलजम',
+      hindiText: 'टर्की कीलबास',
     ),
     Ingredients(
       text: 'turmeric',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/turmeric.jpg',
-      hindiText: 'बिना साफ किया हुआ आटा',
+      hindiText: 'हल्दी',
     ),
     Ingredients(
       text: 'turnips',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/turnips.png',
-      hindiText: 'बिना नमक का मक्खन',
+      hindiText: 'शलजम',
     ),
     Ingredients(
       text: 'unbleached flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/flour.png',
-      hindiText: 'अनसोल्ड बैक बेकन',
+      hindiText: 'बिना साफ किया हुआ आटा',
     ),
     Ingredients(
       text: 'unsalted butter',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/butter-sliced.jpg',
-      hindiText: 'बिना लाइसेंस के सेब',
+      hindiText: 'बिना नमक का मक्खन',
     ),
     Ingredients(
       text: 'unsmoked back bacon',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/canadian-bacon.png',
-      hindiText: 'बिना पका हुआ नारियल का दूध',
+      hindiText: 'अनसोल्ड बैक बेकन',
     ),
     Ingredients(
       text: 'unsweetened applesauce',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png',
-      hindiText: 'बिना कटा हुआ नारियलवनीला बीन',
+      hindiText: 'बिना लाइसेंस के सेब',
     ),
     Ingredients(
       text: 'unsweetened coconut milk',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png',
-      hindiText: 'वेनिला सेम पेस्ट',
+      hindiText: 'बिना पका हुआ नारियल का दूध',
     ),
     Ingredients(
       text: 'unsweetened shredded coconut',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cocoa-powder.png',
-      hindiText: 'वनीला सुगंध',
+      hindiText: 'बिना कटा हुआ नारियल',
     ),
     Ingredients(
       text: 'vanilla bean',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'वेनीला सत्र',
+      hindiText: 'वनीला बीन',
     ),
     Ingredients(
       text: 'vanilla bean paste',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'वेनिला फ्रॉस्टिंग',
+      hindiText: 'वेनिला सेम पेस्ट',
     ),
     Ingredients(
       text: 'vanilla essence',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'वेनिला इंस्टेंट पुडिंग मिक्स',
+      hindiText: 'वनीला सुगंध',
     ),
     Ingredients(
       text: 'vanilla extract',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'वेनिला प्रोटीन पाउडर',
+      hindiText: 'वेनीला सत्र',
     ),
     Ingredients(
       text: 'vanilla frosting',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'वनीला दही',
+      hindiText: 'वेनिला फ्रॉस्टिंग',
     ),
     Ingredients(
       text: 'vanilla instant pudding mix',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'शाकाहारी पनीर',
+      hindiText: 'वेनिला इंस्टेंट पुडिंग मिक्स',
     ),
     Ingredients(
       text: 'vanilla protein powder',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'शाकाहारी चॉकलेट चिप्स',
+      hindiText: 'वेनिला प्रोटीन पाउडर',
     ),
     Ingredients(
       text: 'vanilla yogurt',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vanilla.jpg',
-      hindiText: 'शाकाहारी मार्जरीन',
+      hindiText: 'वनीला दही',
     ),
     Ingredients(
       text: 'vegan cheese',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'सब्जी का झोल',
+      hindiText: 'शाकाहारी पनीर',
     ),
     Ingredients(
       text: 'vegan chocolate chips',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'वनस्पति तेल',
+      hindiText: 'शाकाहारी चॉकलेट चिप्स',
     ),
     Ingredients(
       text: 'vegan margarine',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png',
-      hindiText: 'शाकाहारी बेकन',
+      hindiText: 'शाकाहारी मार्जरीन',
     ),
     Ingredients(
       text: 'vegetable broth',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-vegetables.png',
-      hindiText: 'वरमाउथ',
+      hindiText: 'सब्जी का झोल',
     ),
     Ingredients(
       text: 'vegetable oil',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-vegetables.png',
-      hindiText: 'विनाईग्रेटे',
+      hindiText: 'वनस्पति तेल',
     ),
     Ingredients(
       text: 'vegetarian bacon',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/mixed-vegetables.png',
-      hindiText: 'सिरका',
+      hindiText: 'शाकाहारी बेकन',
     ),
     Ingredients(
       text: 'vermouth',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vermouth.jpg',
-      hindiText: 'वोडका',
+      hindiText: 'वरमाउथ',
     ),
     Ingredients(
       text: 'vinaigrette',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinaigrette.jpg',
-      hindiText: 'अखरोट',
+      hindiText: 'विनाईग्रेटे',
     ),
     Ingredients(
       text: 'vinegar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/vinegar-(white).jpg',
-      hindiText: 'पानी',
+      hindiText: 'सिरका',
     ),
     Ingredients(
       text: 'vodka',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/vodka.jpg',
-      hindiText: 'सिंघाड़ा',
+      hindiText: 'वोडका',
     ),
     Ingredients(
       text: 'walnuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/walnuts.jpg',
-      hindiText: 'पानी से भरे टूना',
+      hindiText: 'अखरोट',
     ),
     Ingredients(
       text: 'water',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png',
-      hindiText: 'Watercress',
+      hindiText: 'पानी',
     ),
     Ingredients(
       text: 'water chestnuts',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png',
-      hindiText: 'तरबूज के टुकड़े',
+      hindiText: 'सिंघाड़ा',
     ),
     Ingredients(
       text: 'water-packed tuna',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png',
-      hindiText: 'गेहु का भूसा',
+      hindiText: 'पानी से भरे टूना',
     ),
     Ingredients(
       text: 'watercress',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png',
-      hindiText: 'गेहूं के कीटाणु',
+      hindiText: 'Watercress',
     ),
     Ingredients(
       text: 'watermelon chunks',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/water.png',
-      hindiText: 'फेटी हुई मलाई',
+      hindiText: 'तरबूज के टुकड़े',
     ),
     Ingredients(
       text: 'wheat bran',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/wheat-germ.png',
-      hindiText: 'टॉपिंग मार पड़ी है',
+      hindiText: 'गेहु का भूसा',
     ),
     Ingredients(
       text: 'wheat germ',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/wheat-germ.png',
-      hindiText: 'कम वसायुक्त मलाई',
+      hindiText: 'गेहूं के कीटाणु',
     ),
     Ingredients(
       text: 'whipped cream',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whipped-cream.jpg',
-      hindiText: 'व्हिस्की',
+      hindiText: 'फेटी हुई मलाई',
     ),
     Ingredients(
       text: 'whipped topping',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whipped-cream.jpg',
-      hindiText: 'सफेद बाल्‍सम सिरका',
+      hindiText: 'टॉपिंग मार पड़ी है',
     ),
     Ingredients(
       text: 'whipping cream',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whipped-cream.jpg',
-      hindiText: 'सफ़ेद ब्रेड',
+      hindiText: 'कम वसायुक्त मलाई',
     ),
     Ingredients(
       text: 'whiskey',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/whiskey-bottle.jpg',
-      hindiText: 'सफेद केक मिश्रण',
+      hindiText: 'व्हिस्की',
     ),
     Ingredients(
       text: 'white balsamic vinegar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफेद चेडर',
+      hindiText: 'सफेद बाल्‍सम सिरका',
     ),
     Ingredients(
       text: 'white bread',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफेद चॉकलेट',
+      hindiText: 'सफ़ेद ब्रेड',
     ),
     Ingredients(
       text: 'white cake mix',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'व्हाइट चॉकलेट चिप्स',
+      hindiText: 'सफेद केक मिश्रण',
     ),
     Ingredients(
       text: 'white cheddar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफेद प्याज',
+      hindiText: 'सफेद चेडर',
     ),
     Ingredients(
       text: 'white chocolate',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफ़ेद मिर्च',
+      hindiText: 'सफेद चॉकलेट',
     ),
     Ingredients(
       text: 'white chocolate chips',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफेद गेहूं का आटा',
+      hindiText: 'व्हाइट चॉकलेट चिप्स',
     ),
     Ingredients(
       text: 'white onion',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफ़ेद वाइन',
+      hindiText: 'सफेद प्याज',
     ),
     Ingredients(
       text: 'white pepper',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'सफेद वाइन का सिरका',
+      hindiText: 'सफ़ेद मिर्च',
     ),
     Ingredients(
       text: 'white whole wheat flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'साबुत आलूबुखारा जामुन',
+      hindiText: 'सफेद गेहूं का आटा',
     ),
     Ingredients(
       text: 'white wine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'पूरा मुर्ग',
+      hindiText: 'सफ़ेद वाइन',
     ),
     Ingredients(
       text: 'white wine vinegar',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg',
-      hindiText: 'साबुत धनिया के बीज',
+      hindiText: 'सफेद वाइन का सिरका',
     ),
     Ingredients(
       text: 'whole allspice berries',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'पूरी क्रैनबेरी सॉस',
+      hindiText: 'साबुत आलूबुखारा जामुन',
     ),
     Ingredients(
       text: 'whole chicken',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'पूरे कर्नेल कॉर्न',
+      hindiText: 'पूरा मुर्ग',
     ),
     Ingredients(
       text: 'whole coriander seeds',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'पूरा सितारा अनीस',
+      hindiText: 'साबुत धनिया के बीज',
     ),
     Ingredients(
       text: 'whole cranberry sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'साबुत गेहूँ की ब्रेड',
+      hindiText: 'पूरी क्रैनबेरी सॉस',
     ),
     Ingredients(
       text: 'whole kernel corn',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'पूरे गेहूं का आटा',
+      hindiText: 'पूरे कर्नेल कॉर्न',
     ),
     Ingredients(
       text: 'whole star anise',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'साबुत गेहूं की टर्रियां',
+      hindiText: 'पूरा सितारा अनीस',
     ),
     Ingredients(
       text: 'whole wheat bread',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'साबुत अनाज सरसों',
+      hindiText: 'साबुत गेहूँ की ब्रेड',
     ),
     Ingredients(
       text: 'whole wheat flour',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'वाइन',
+      hindiText: 'पूरे गेहूं का आटा',
     ),
     Ingredients(
       text: 'whole wheat tortillas',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'वाइन सिरका',
+      hindiText: 'साबुत गेहूं की टर्रियां',
     ),
     Ingredients(
       text: 'whole-grain mustard',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/egg.png',
-      hindiText: 'कद्दू',
+      hindiText: 'साबुत अनाज सरसों',
     ),
     Ingredients(
       text: 'wine',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/red-wine.jpg',
-      hindiText: 'टन जीत गए',
+      hindiText: 'वाइन',
     ),
     Ingredients(
       text: 'wine vinegar',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg',
-      hindiText: 'वूस्टरशर सॉस',
+      hindiText: 'वाइन सिरका',
     ),
     Ingredients(
       text: 'winter squash',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/butternut-squash.jpg',
-      hindiText: 'Wraps',
+      hindiText: 'कद्दू',
     ),
     Ingredients(
       text: 'won ton wraps',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/wonton-wrappers.jpg',
-      hindiText: 'जिंक गम',
+      hindiText: 'टन जीत गए',
     ),
     Ingredients(
       text: 'worcestershire sauce',
       imageUrl: 'http://spoonacular.com/cdn/ingredients_100x100/dark-sauce.jpg',
-      hindiText: 'खमीर',
+      hindiText: 'वूस्टरशर सॉस',
     ),
     Ingredients(
       text: 'wraps',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/flour-tortilla.jpg',
-      hindiText: 'पीली बेल मिर्च',
+      hindiText: 'Wraps',
     ),
     Ingredients(
       text: 'xanthan gum',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/white-powder.jpg',
-      hindiText: 'पीले केक मिश्रण',
+      hindiText: 'जिंक गम',
     ),
     Ingredients(
       text: 'yeast',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/yeast-granules.jpg',
-      hindiText: 'पीले प्याज',
+      hindiText: 'खमीर',
     ),
     Ingredients(
       text: 'yellow bell pepper',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png',
-      hindiText: 'दही',
+      hindiText: 'पीली बेल मिर्च',
     ),
     Ingredients(
       text: 'yellow cake mix',
       imageUrl:
           'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png',
+      hindiText: 'पीले केक मिश्रण',
+    ),
+    Ingredients(
+      text: 'yellow onion',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/brown-onion.png',
+      hindiText: 'पीले प्याज',
+    ),
+    Ingredients(
+      text: 'yogurt',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/plain-yogurt.jpg',
+      hindiText: 'दही',
+    ),
+    Ingredients(
+      text: 'yukon gold potato',
+      imageUrl:
+          'http://spoonacular.com/cdn/ingredients_100x100/potatoes-yukon-gold.png',
       hindiText: 'युकॉन गोल्ड पोटैटो',
     ),
   ];

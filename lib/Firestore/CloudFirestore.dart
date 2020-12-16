@@ -54,12 +54,9 @@ class CloudFirestore {
     return null;
   }
 
-  Future<void> updatingPost(String recipe, File _image, String postId) async {
-    String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', postId);
-    await _firestore
-        .collection('feeds')
-        .doc(postId)
-        .update({'recipe': recipe, 'imageUrl': imageUrl});
+  Future<void> updatingPost(String recipe, String postId) async {
+    //String imageUrl = await _cloudStorage.uploadFile(_image, 'posts', postId);
+    await _firestore.collection('feeds').doc(postId).update({'recipe': recipe});
   }
 
   Future<String> addingComments(

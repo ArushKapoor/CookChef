@@ -43,28 +43,32 @@ class _LoginViewState extends State<Login> {
                         height: height * 0.35,
                         child: Stack(
                           children: <Widget>[
-                            Positioned(
-                              //top: 30,
-                              height: height * 0.25,
-                              width: width,
-                              child: FadeAnimation(
-                                1,
-                                Container(
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/back.jpeg'),
-                                          fit: BoxFit.fill)),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: width * 0.275, left: width * 0.24),
-                                    child: Text('Welcome Back!',
-                                        style: TextStyle(
-                                            fontSize: height * 0.049,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                ),
+                            FadeAnimation(
+                              1,
+                              Container(
+                                height: height * 0.25,
+                                width: width,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/back.jpeg'),
+                                        fit: BoxFit.fill)),
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                            bottom: height * 0.05),
+                                        child: Text(
+                                          'Welcome Back!',
+                                          style: TextStyle(
+                                              fontSize: height * 0.049,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ]),
                               ),
                             ),
                           ],

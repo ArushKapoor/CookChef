@@ -49,6 +49,7 @@ class DataSearch extends SearchDelegate<String> {
                         outerUserUid: suggestionsList.elementAt(index).userId));
               },
               leading: CircleAvatar(
+                backgroundColor: Colors.white,
                 radius: _width * 0.05,
                 backgroundImage:
                     NetworkImage(suggestionsList.elementAt(index).userImage),

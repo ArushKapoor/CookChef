@@ -289,7 +289,10 @@ class FeedsStream extends StatelessWidget {
   Widget build(BuildContext context) {
     //String uid = context.watch<AuthenticationService>().uniqueId;
     return StreamBuilder<QuerySnapshot>(
-        stream: _firestore.collection('feeds').orderBy('timestamp').snapshots(),
+        stream: _firestore
+            .collection('feeds')
+            .orderBy('timestamp', descending: true)
+            .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(

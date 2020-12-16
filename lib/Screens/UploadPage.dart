@@ -76,7 +76,7 @@ class _UploadPageState extends State<UploadPage> {
     String uid = context.watch<AuthenticationService>().uniqueId;
     QuerySnapshot snapshot = context.watch<QuerySnapshot>();
     String meraUserName, meraUserImage;
-
+    String textFeildLabel = 'What\'s your recipe ?';
     final users = snapshot.docs;
     for (var user in users) {
       final auser = user.get('uid');
@@ -86,9 +86,8 @@ class _UploadPageState extends State<UploadPage> {
       }
     }
     if (args.toUpdate) {
-      _postController.text = args.postText;
+      textFeildLabel = args.postText;
     }
-
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -100,21 +99,24 @@ class _UploadPageState extends State<UploadPage> {
         ),
         title: Text(args.toUpdate ? 'Update Post' : 'Upload'),
         actions: <Widget>[
-          if (_postController.text.isNotEmpty && _image != null)
+          if (_postController.text.isNotEmpty && _image != null ||
+              args.toUpdate)
             Container(
               margin: EdgeInsets.only(right: 10.0),
               child: Center(
                 child: GestureDetector(
                   onTap: () async {
                     if (_postController.text.isNotEmpty &&
-                        _image != null &&
-                        isVisible == false) {
+                            _image != null &&
+                            isVisible == false ||
+                        args.toUpdate) {
                       setState(() {
                         isVisible = true;
                       });
                       if (args.toUpdate) {
-                        await context.read<CloudFirestore>().updatingPost(
-                            _postController.text, _image, args.postId);
+                        await context
+                            .read<CloudFirestore>()
+                            .updatingPost(_postController.text, args.postId);
                       } else {
                         await context
                             .read<CloudFirestore>()
@@ -127,7 +129,7 @@ class _UploadPageState extends State<UploadPage> {
                     }
                   },
                   child: Text(
-                    args.toUpdate ? 'Update' : 'Share',
+                    args.toUpdate ? 'Done' : 'Share',
                     style: TextStyle(fontSize: 15.0),
                   ),
                 ),
@@ -188,10 +190,9 @@ class _UploadPageState extends State<UploadPage> {
                                 keyboardType: TextInputType.multiline,
                                 maxLines: 2000,
                                 decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: (_image == null)
-                                        ? 'What\'s your recipe ?'
-                                        : 'Add recipe of your dish'),
+                                  border: InputBorder.none,
+                                  hintText: textFeildLabel,
+                                ),
                               ),
                             ),
                           ),
@@ -199,63 +200,70 @@ class _UploadPageState extends State<UploadPage> {
                       ),
                     ),
                   ),
-                  if (_image != null)
+                  if (_image != null || args.toUpdate)
                     Container(
-                      height: 500,
+                      height: args.toUpdate ? height * 0.35 : height * 0.5,
+                      width: width,
                       margin: EdgeInsets.only(top: 5.0),
-                      child: (_image == null)
-                          ? NetworkImage(args.postImageUrl)
-                          : Image.file(
-                              _image,
-                              fit: BoxFit.fitWidth,
-                            ),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                        image: (_image == null && args.toUpdate)
+                            ? NetworkImage(args.postImageUrl)
+                            : FileImage(
+                                _image,
+
+                                //fit: BoxFit.fitWidth,
+                              ),
+                      )),
                     ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(color: Colors.grey[300]),
+                  if (args.toUpdate != true)
+                    SizedBox(
+                      height: 50,
+                    ),
+                  if (args.toUpdate != true)
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(color: Colors.grey[300]),
+                        ),
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                'Add to your recipe',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 15.0),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                //Icon(
+                                //  Icons.video_call,
+                                //  size: 30.0,
+                                // ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.photo_library_outlined,
+                                    size: 25.0,
+                                  ),
+                                  tooltip: 'Upload image',
+                                  onPressed: () {
+                                    _showPicker(context);
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            child: Text(
-                              'Add to your recipe',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 15.0),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              //Icon(
-                              //  Icons.video_call,
-                              //  size: 30.0,
-                              // ),
-                              IconButton(
-                                icon: Icon(
-                                  Icons.photo_library_outlined,
-                                  size: 25.0,
-                                ),
-                                tooltip: 'Upload image',
-                                onPressed: () {
-                                  _showPicker(context);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
