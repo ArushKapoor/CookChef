@@ -79,7 +79,7 @@ class _AccountSearchPageState extends State<AccountSearchPage> {
                   Text('Search'),
                 ],
               )
-            : Text('CookChef'),
+            : Text('ChefGuru'),
         actions: <Widget>[
           if (currentIndex == 1)
             Container(
