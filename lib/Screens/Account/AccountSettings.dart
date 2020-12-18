@@ -298,17 +298,23 @@ class _AccountSettingsState extends State<AccountSettings> {
                         child: MaterialButton(
                           onPressed: () async {
                             if (_image != null ||
-                                _nameEditingController.text.isNotEmpty ||
-                                _bioEditingController.text.isNotEmpty) {
+                                _nameEditingController.text.isNotEmpty &&
+                                    _bioEditingController.text.isNotEmpty) {
                               setState(() {
                                 isVisible = true;
                               });
-                              imageLink = await _cloudStorage.uploadFile(
-                                  _image, 'Users', uid);
-                              await _cloudFirestore.updateUser(
-                                  _nameEditingController.text,
-                                  _bioEditingController.text,
-                                  imageLink);
+                              if (_image != null) {
+                                imageLink = await _cloudStorage.uploadFile(
+                                    _image, 'Users', uid);
+                                await _cloudFirestore.updateUser(
+                                    _nameEditingController.text,
+                                    _bioEditingController.text,
+                                    imageLink);
+                              } else {
+                                await _cloudFirestore.updateUserWithoutImage(
+                                    _nameEditingController.text,
+                                    _bioEditingController.text);
+                              }
 
                               setState(() {
                                 isVisible = false;

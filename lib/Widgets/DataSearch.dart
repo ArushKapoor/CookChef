@@ -81,6 +81,7 @@ class DataSearch extends SearchDelegate<String> {
               },
               leading: CircleAvatar(
                 radius: _width * 0.05,
+                backgroundColor: Colors.white,
                 backgroundImage:
                     NetworkImage(suggestionsList.elementAt(index).userImage),
               ),

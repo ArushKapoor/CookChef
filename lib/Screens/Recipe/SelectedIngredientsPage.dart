@@ -25,7 +25,9 @@ class _SelectedIngredientsPageState extends State<SelectedIngredientsPage> {
   final tabs = [
     HomePage(),
     IngredientsPage(),
-    AccountPage(),
+    AccountPage(
+      ownUser: true,
+    ),
   ];
 
   String text;

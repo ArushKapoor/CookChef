@@ -190,8 +190,20 @@ class CloudFirestore {
   Future<void> updateUser(String username, String bio, String imageLink) async {
     // print(await user.get());
     //print(uid);
+
     await FirebaseFirestore.instance.collection('Users').doc(uid).update(
         {'username': username, 'bio': bio, 'uid': uid, 'imageLink': imageLink});
+  }
+
+  Future<void> updateUserWithoutImage(String username, String bio) async {
+    // print(await user.get());
+    //print(uid);
+
+    await FirebaseFirestore.instance.collection('Users').doc(uid).update({
+      'username': username,
+      'bio': bio,
+      'uid': uid,
+    });
   }
 
   Future<String> userName() async {

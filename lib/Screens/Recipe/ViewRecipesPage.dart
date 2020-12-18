@@ -19,7 +19,9 @@ bool hasTapped = false;
 final tabs = [
   HomePage(),
   IngredientsPage(),
-  AccountPage(),
+  AccountPage(
+    ownUser: true,
+  ),
 ];
 
 class _ViewRecipesPageState extends State<ViewRecipesPage> {
