@@ -20,14 +20,13 @@ jobs:
       with:
         flutter-version: '1.22.5'
     - run: flutter pub get
-    - run: flutter build apk --split-per-abi
     - uses: underwindfall/create-release-with-debugapk@v1.2.4
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.get_version.outputs.VERSION }}
+        tag_name: 1.0
         release_name: Release ${{ steps.get_version.outputs.VERSION }}
-        asset_path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+        asset_path: .dart_tools
         asset_name: Example.apk
         asset_content_type: application/zip
         draft: false
