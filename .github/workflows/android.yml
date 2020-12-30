@@ -24,7 +24,7 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: 1.0
+        tag_name: 1.1
         release_name: Release ${{ steps.get_version.outputs.VERSION }}
         asset_path: pubspec.yaml
         asset_name: Example.apk
