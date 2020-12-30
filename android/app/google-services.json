@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "783042760365",
+    "firebase_url": "https://cook-chef.firebaseio.com",
+    "project_id": "cook-chef",
+    "storage_bucket": "cook-chef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783042760365:android:5243694f4f9ed6783e8024",
+        "android_client_info": {
+          "package_name": "com.example.cook_chef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783042760365-k709pkcj2t09tu2t8idhsln01r9tv9bj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChNcQPn5mswIMAYkjsQlm9KCGSoZe7ASo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783042760365-k709pkcj2t09tu2t8idhsln01r9tv9bj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
