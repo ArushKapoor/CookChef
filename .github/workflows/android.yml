@@ -2,8 +2,6 @@ name: Android CI
 on:
   push:
     branches: [ master ]
-    tags:
-      - "v*"
   pull_request:
     branches: [ master ]
 
@@ -28,20 +26,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: apk
-          path: pubspec.yaml
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-      
-      - name: Create Release and Upload debug APK
-        uses: underwindfall/create-release-with-debugapk@v1.2.4
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          release_name: Release ${{ steps.get_version.outputs.VERSION }}
-          asset_path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
-          asset_name: app-release.apk
-          asset_content_type: application/apk
-          draft: false
-          prerelease: false
+          path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
